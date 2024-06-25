@@ -12,7 +12,7 @@ function Landing({}: Props) {
       <Vortex
         backgroundColor="#242424"
         rangeY={400}
-        particleCount={150}
+        particleCount={15}
         baseHue={120}
         className="flex items-center  px-2 md:px-10 py-4 w-full h-full"
       >
