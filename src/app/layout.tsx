@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import Header from "@/components/global/header";
+import ContactUs from "@/components/home/contact-us";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -13,7 +14,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Welcome to ADS!",
+  title: "Welcome | ADS!",
   description: "Created with ♥️ by the ADS team.",
   icons: {
     icon: "/icon.png",
@@ -37,6 +38,7 @@ export default function RootLayout({
         {children}
         <SpeedInsights />
         <Analytics />
+        <ContactUs />
       </body>
     </html>
   );

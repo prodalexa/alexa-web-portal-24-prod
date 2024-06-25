@@ -21,27 +21,27 @@ const Navbar = () => {
     {
       title: "About Us",
       url: "/about-us",
-      description: "Know more about us"
+      description: "Know more about us",
     },
     {
       title: "Events",
       url: "/events",
-      description: "Check out our events"
+      description: "Check out our events",
     },
     {
       title: "Our Team",
       url: "/our-team",
-      description: "Meet our team"
+      description: "Meet our team",
     },
     {
       title: "Blogs",
       url: "/blogs",
-      description: "Read our blogs"
+      description: "Read our blogs",
     },
     {
       title: "Register",
       url: "/register",
-      description: "Register with us"
+      description: "Register with us",
     },
   ];
   const pathName = usePathname();
@@ -67,14 +67,21 @@ const Navbar = () => {
                   </li>
                 </BackgroundGradient>
               ) : (
-                <li key={index} className={clsx("bg-transparent hover:font-bold")}>
-                  <Link href={item.url}>{item.title}</Link>
+                <li
+                  key={index}
+                  className={clsx("bg-transparent hover:font-bold")}
+                >
+                  <Link href={item.url}>
+                    <button className="px-6 py-2 text-white rounded-lg font-bold transform hover:-translate-y-1 transition duration-400">
+                      {item.title}
+                    </button>
+                  </Link>
                 </li>
               );
             })}
           </ul>
         </nav>
-        <SidebarButton menuItems={menuItems}/>
+        <SidebarButton menuItems={menuItems} />
       </aside>
     </header>
   );
