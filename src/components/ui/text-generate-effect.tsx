@@ -45,7 +45,7 @@ export const TextGenerateEffect = ({
   return (
     <div className={cn("font-normal", className)}>
       <div className="">
-        <div className=" text-white text-center text-xl md:text-2xl leading-snug tracking-wide p-6 md:px-20 lg:px-32">
+        <div className=" text-white text-center text-normal sm:text-lg md:text-2xl leading-snug tracking-wide p-6 md:px-20 lg:px-32">
           {renderWords()}
         </div>
       </div>
