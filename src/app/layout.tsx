@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import Header from "@/components/global/header";
-import ContactUs from "@/components/home/contact-us";
+import ContactUs from "@/components/global/contact-us";
 
 const fontSans = FontSans({
   subsets: ["latin"],

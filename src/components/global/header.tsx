@@ -18,11 +18,11 @@ const Navbar = () => {
       url: "/",
       description: "Home Page",
     },
-    {
-      title: "About Us",
-      url: "/about-us",
-      description: "Know more about us",
-    },
+    // {
+    //   title: "About Us",
+    //   url: "/about-us",
+    //   description: "Know more about us",
+    // },
     {
       title: "Events",
       url: "/events",
