@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 import { title } from "process";
-import { DirectionAwareHover } from "../ui/direction-aware-hover";
 import Image from "next/image";
 
 const OurEvents = () => {

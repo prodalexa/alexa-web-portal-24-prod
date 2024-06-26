@@ -39,36 +39,43 @@ function Events({}: Props) {
 const eventList = [
   {
     title: "Make things float in air",
+    slug: "make-things-float-in-air",
     description: "Hover over this card to unleash the power of CSS perspective",
     image: "/events/event.png",
   },
   {
     title: "Make things float in air",
+    slug: "make-things-float-in-air",
     description: "Hover over this card to unleash the power of CSS perspective",
     image: "/events/event.png",
   },
   {
     title: "Make things float in air",
+    slug: "make-things-float-in-air",
     description: "Hover over this card to unleash the power of CSS perspective",
     image: "/events/event.png",
   },
   {
     title: "Make things float in air",
+    slug: "make-things-float-in-air",
     description: "Hover over this card to unleash the power of CSS perspective",
     image: "/events/event.png",
   },
   {
     title: "Make things float in air",
+    slug: "make-things-float-in-air",
     description: "Hover over this card to unleash the power of CSS perspective",
     image: "/events/event.png",
   },
   {
     title: "Make things float in air",
+    slug: "make-things-float-in-air",
     description: "Hover over this card to unleash the power of CSS perspective",
     image: "/events/event.png",
   },
   {
     title: "Make things float in air",
+    slug: "make-things-float-in-air",
     description: "Hover over this card to unleash the power of CSS perspective",
     image: "/events/event.png",
   },
