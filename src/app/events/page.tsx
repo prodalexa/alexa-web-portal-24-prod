@@ -1,4 +1,5 @@
 import EventCard from "@/components/events/event-card";
+import SlideShow from "@/components/events/slide-show";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import Image from "next/image";
 import React from "react";
@@ -32,6 +33,13 @@ function Events({}: Props) {
           />
         ))}
       </div>
+      <div className="w-full flex mt-10 mb-5 text-white justify-center font-bold text-5xl md:text-7xl items-center">
+        <span>Our Gallary</span>
+        <span className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent ml-2">
+          .
+        </span>
+      </div>
+      <SlideShow />
     </div>
   );
 }
