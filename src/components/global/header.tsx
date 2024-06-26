@@ -46,7 +46,7 @@ const Navbar = () => {
   ];
   const pathName = usePathname();
   return (
-    <header className="h-[20%] lg:px-16 px-6 md:px-10 flex flex-row items-center justify-between border-white">
+    <header className="z-20 h-[20%] lg:px-16 px-6 md:px-10 flex flex-row items-center justify-between border-white">
       <Image
         src="/nav-logo.png"
         width={300}

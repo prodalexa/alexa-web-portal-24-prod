@@ -7,14 +7,15 @@ function Creatives({}: Props) {
   return (
     <div className="hidden w-full md:flex md:flex-row flex-col lg:gap-10 text-white px-8 lg:px-40">
        <div
-        className="w-1/2 h-full flex items-start justify-start"
+        className="w-1/2 h-full flex items-start justify-start relative"
       >
+      <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-[#31B553] to-[#0AA294] transform scale-[0.80] rounded-full blur-[100px]" />
         <Image
           src="/home/ux.svg"
           height={10}
           width={600}
           alt="creatives"
-          className=""
+          className="z-10"
         />
       </div>
       <div className="w-1/2 f-full flex flex-col items-center justify-center gap-6 text-end">

@@ -19,8 +19,10 @@ function Events({}: Props) {
         </div>
       </div>
       <div
-        className="w-1/2 h-full flex place-items-end justify-end"
+        className="w-1/2 h-full flex place-items-end justify-end relative"
       >
+      <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-[#31B553] to-[#0AA294] transform scale-[0.80] rounded-full blur-[100px]" />
+
         <Image
           src="/home/social.svg"
           height={10}
