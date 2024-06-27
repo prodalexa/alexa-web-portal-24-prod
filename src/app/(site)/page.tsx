@@ -2,15 +2,17 @@ import AboutUs from "@/components/home/about-us";
 import Domains from "@/components/home/domains";
 import Landing from "@/components/home/landing";
 import OurEvents from "@/components/home/our-events";
-import Image from "next/image";
+import { getAllEvents } from "@/sanity/data/home-data";
 
-export default function Home() {
+export default async function Home() {
+  const events = await getAllEvents();
+  console.log(events);
   return (
     <div className="h-full">
       <Landing />
       <AboutUs />
       <Domains />
-      <OurEvents />
+      <OurEvents events={events}/>
     </div>
   );
 }

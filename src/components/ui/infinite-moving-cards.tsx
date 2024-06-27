@@ -12,8 +12,8 @@ export const InfiniteMovingCards = ({
 }: {
   items: {
     title: string;
-    description: string;
-    image: string;
+    slug: string;
+    poster: string;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -91,8 +91,8 @@ export const InfiniteMovingCards = ({
             key={idx}
           >
             <EventCard
-              imageUrl="/home/our-events.png"
-              title="Event Title"
+              imageUrl={item.poster}
+              title={item.title}
               titleClassName=""
               imageClassName=""
               className="shadow-lg"
