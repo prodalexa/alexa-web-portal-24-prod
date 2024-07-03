@@ -56,7 +56,7 @@ const Navbar = () => {
         priority
       />
 
-      <aside className="flex items-center justify-center my-4">
+      <aside className="flex flex-row items-center justify-center my-4">
         <nav className="hidden md:block">
           <ul className="flex items-center gap-4 2xl:gap-20 lg:gap-14 md:gap-5 list-none text-white">
             {menuItems.map((item, index) => {
@@ -82,6 +82,7 @@ const Navbar = () => {
           </ul>
         </nav>
         <SidebarButton menuItems={menuItems} />
+        {/* <SideMenu /> */}
       </aside>
     </header>
   );
