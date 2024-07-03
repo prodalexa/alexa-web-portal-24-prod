@@ -43,7 +43,7 @@ export const AnimatedTooltip = ({
     <>
       {/* {items.map((item, idx) => ( */}
       <div
-        className="flex items-center justify-center relative group"
+        className="flex items-center justify-center relative group w-50 h-50"
         key={item.username}
         onMouseEnter={() => setHoveredIndex(item.id)}
         onMouseLeave={() => setHoveredIndex(null)}
@@ -76,14 +76,14 @@ export const AnimatedTooltip = ({
                 <div className="font-bold text-white relative z-30 text-base">
                   {item.username}
                 </div>
-                <div className="text-white text-xs">{item.url}</div>
+                {/* <div className="text-white text-xs">{item.url}</div> */}
               </Link>
             </motion.div>
           )}
         </AnimatePresence>
         <Image
           onMouseMove={handleMouseMove}
-          height={200}
+          height={100}
           width={200}
           src={item.image}
           alt={item.username}

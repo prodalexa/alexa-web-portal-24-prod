@@ -24,31 +24,33 @@ const SidebarButton = ({ menuItems }: Props) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="relative md:hidden text-white bg-[#00A793] rounded-full">
-          <Menu />
+        <Button className="relative md:hidden bg-[#00A793] hover:bg-[#31B553] rounded-full">
+          <Menu className="" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56" forceMount>
+      <DropdownMenuContent align="end" className="w-56 bg-[#181818] border-black border-2 border-spacing-2" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-xl font-bold leading-none">{"Welcome to ADS!!"}</p>
+            <p className="text-xl text-white font-bold leading-none">
+              {"Welcome to ADS!!"}
+            </p>
           </div>
         </DropdownMenuLabel>
-        <DropdownMenuSeparator />
+        <DropdownMenuSeparator className="text-black bg-black" />
         <DropdownMenuGroup>
           {menuItems.map((item) => (
             <div key={item.url}>
-              <DropdownMenuItem className="" key={item.url}>
+              <DropdownMenuSeparator className="text-black bg-black" />
+              <DropdownMenuItem className="hover:bg-slate-700" key={item.url}>
                 <Link href={item.url} className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none">
+                  <p className="text-sm font-bold leading-none text-white">
                     {item.title}
                   </p>
-                  <p className="text-xs leading-none text-muted-foreground">
+                  <p className="text-xs text-white leading-none text-muted-foreground">
                     {item.description}
                   </p>
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuSeparator className="text-red-700" />
             </div>
           ))}
         </DropdownMenuGroup>

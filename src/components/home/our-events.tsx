@@ -5,7 +5,15 @@ import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 import { title } from "process";
 import Image from "next/image";
 
-const OurEvents = () => {
+type Props = {
+  events: {
+    title: string;
+    slug: string;
+    poster: string;
+  }[];
+};
+
+const OurEvents = ({ events }: Props) => {
   return (
     <div className="h-[40rem] rounded-md flex flex-col antialiased bg-transparent items-center justify-center relative overflow-hidden">
       <div className="text-5xl font-bold text-center text-white flex flex-col items-center justify-center">
@@ -20,7 +28,7 @@ const OurEvents = () => {
           className="mt-5 mb-16 pl-14 items-center justify-center justify-items-center place-items-center"
         />
       </div>
-      <InfiniteMovingCards items={eventList} direction="right" speed="normal" />
+      <InfiniteMovingCards items={events} direction="right" speed="normal" />
     </div>
   );
 };
