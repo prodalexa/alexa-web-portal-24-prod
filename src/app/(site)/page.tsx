@@ -6,7 +6,6 @@ import { getAllEvents } from "@/sanity/data/home-data";
 
 export default async function Home() {
   const events = await getAllEvents();
-  console.log(events);
   return (
     <div className="h-full">
       <Landing />

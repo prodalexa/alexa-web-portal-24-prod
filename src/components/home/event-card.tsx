@@ -16,7 +16,6 @@ export const EventCard = ({
   imageClassName?: string;
   className?: string;
 }) => {
-  console.log(imageUrl)
   return (
     <div
       className={cn(
