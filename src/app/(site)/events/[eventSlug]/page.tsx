@@ -10,10 +10,10 @@ type Props = {
 
 const EventView = ({ params }: Props) => {
   return (
-    <div className="w-full h-full mx-20 mt-10 flex flex-col md:flex-row items-center">
+    <div className="max-w-full w-full h-full mt-4 md:mt-10 flex flex-col md:flex-row items-center gap-10">
       {/* left */}
-      <div className="w-2/3 flex flex-col">
-        <div className="px-4 py-2 w-fit rounded-full relative bg-[#2EB45A] bg-opacity-40 text-white text-sm hover:shadow-2xl hover:shadow-[#2EB45A]/[0.1] transition duration-200 border border-[#2EB45A]">
+      <div className="ml-8 md:ml-16 md:w-2/3 flex flex-col">
+        <div className="px-4 py-2 max-w-fit rounded-full relative bg-[#2EB45A] bg-opacity-40 text-white text-sm hover:shadow-2xl hover:shadow-[#2EB45A]/[0.1] transition duration-200 border border-[#949795]">
           <div className="absolute inset-x-0 h-px w-1/2 mx-auto -top-px shadow-2xl  bg-gradient-to-r from-transparent via-teal-500 to-transparent" />
           <span className="relative z-20 font-bold text-[#2EB45A]">
             Upcoming Event
@@ -55,14 +55,14 @@ const EventView = ({ params }: Props) => {
       {/* right */}
       <div
         className={cn(
-          "md:h-96 w-60 h-60 md:w-96 bg-transparent rounded-2xl overflow-hidden relative group"
+          "max-w-full mx-8 h-[500px] w-[500px] p-2 bg-transparent rounded-2xl overflow-hidden relative group flex items-center justify-center drop-shadow-xl"
         )}
       >
         <Image
           alt="Event Image"
-          className={cn("h-full w-full object-cover")}
-          width="1000"
-          height="1000"
+          className={cn("h-full w-full px-1 object-cover flex items-center justify-center rounded-2xl drop-shadow-xl")}
+          width="500"
+          height="500"
           src={"/events/event.png"}
         />
       </div>
