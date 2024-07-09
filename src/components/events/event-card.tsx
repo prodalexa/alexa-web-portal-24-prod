@@ -18,7 +18,7 @@ export default function EventCard({ event }: Props) {
   return (
     <CardContainer className="inter-var w-[100%]">
       <div className="absolute  h-full w-full bg-gradient-to-r from-[#31B553] to-[#0AA294] transform scale-[0.80] rounded-full blur-3xl" />
-      <CardBody className="relative  inset-0 bg-black/[.1] z-40 w-auto sm:w-[30rem] h-auto rounded-xl p-6  ">
+      <CardBody className="relative  inset-0 bg-[#242424] z-40 w-auto sm:w-[30rem] h-auto rounded-xl p-6  ">
         <CardItem
           translateZ=""
           className="text-xl font-bold text-white/[0.9]"
