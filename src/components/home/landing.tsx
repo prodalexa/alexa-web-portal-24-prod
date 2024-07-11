@@ -27,7 +27,7 @@ function Landing({}: Props) {
           <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
             Alexa Developers SRM
           </h1>
-          <div className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent text-3xl  sm:text-4xl md:text-5xl xl:text-7xl font-semibold mt-8 md:mt-16">
+          <div className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent text-3xl  sm:text-4xl md:text-5xl xl:text-7xl font-bold mt-8 md:mt-16">
             <p className="">&ldquo;Voices United,</p>
             <p className="ml-20 sm:ml-30 md:ml-40 lg:ml-56 xl:ml-72">
               Tech Amplified&rdquo;

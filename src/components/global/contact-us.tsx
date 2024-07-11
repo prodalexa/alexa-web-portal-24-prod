@@ -42,7 +42,7 @@ function ContactUs({}: Props) {
         className="mt-5 w-[90%] h-1 sm:mt-24 md:mt-40"
       />
       <div className="relative w-fit h-fit my-20">
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-[#31B553]/[0.4] to-[#0AA294]/[0.4] transform scale-[0.80] rounded-full blur-[130px]" />
+        {/* <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-[#31B553]/[0.4] to-[#0AA294]/[0.4] transform scale-[0.80] rounded-full blur-[130px]" /> */}
         <div className="grid grid-flow-row grid-cols-2 place-content-center md:flex md:flex-row items-center justify-center w-full lg:px-20">
           {contactList.map((item, key) => (
             <AnimatedTooltip key={`${platform} + ${key}`} item={item} />

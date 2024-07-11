@@ -61,18 +61,18 @@ const Navbar = () => {
           <ul className="flex items-center gap-4 2xl:gap-20 lg:gap-14 md:gap-5 list-none text-white">
             {menuItems.map((item, index) => {
               return pathName === item.url ? (
-                <BackgroundGradient key={index} className="px-2 bg-transparent">
-                  <li className={clsx("bg-transparent")}>
+                  <li className={clsx("bg-transparent px-6 py-2 text-white rounded-lg font-bold")}>
                     <Link href={item.url}>{item.title}</Link>
                   </li>
-                </BackgroundGradient>
+                // <BackgroundGradient key={index} className="px-2 bg-transparent">
+                // </BackgroundGradient>
               ) : (
                 <li
                   key={index}
                   className={clsx("bg-transparent hover:font-bold")}
                 >
                   <Link href={item.url}>
-                    <button className="px-6 py-2 text-white rounded-lg font-bold transform hover:-translate-y-1 transition duration-400">
+                    <button className="px-6 py-2 text-white text-opacity-50 rounded-lg font-bold transform hover:-translate-y-1 hover:underline transition duration-400">
                       {item.title}
                     </button>
                   </Link>
