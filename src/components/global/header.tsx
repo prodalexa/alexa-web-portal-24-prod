@@ -61,7 +61,7 @@ const Navbar = () => {
           <ul className="flex items-center gap-4 2xl:gap-20 lg:gap-14 md:gap-5 list-none text-white">
             {menuItems.map((item, index) => {
               return pathName === item.url ? (
-                  <li className={clsx("bg-transparent px-6 py-2 text-white rounded-lg font-bold")}>
+                  <li key={index} className={clsx("bg-transparent px-6 py-2 text-white rounded-lg font-bold")}>
                     <Link href={item.url}>{item.title}</Link>
                   </li>
                 // <BackgroundGradient key={index} className="px-2 bg-transparent">

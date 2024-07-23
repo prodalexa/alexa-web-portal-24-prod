@@ -1,9 +1,9 @@
-import BlogCard from '@/components/blogs/blog-card'
-import { getAllBlogs } from '@/sanity/data/blog-data'
-import Image from 'next/image'
-import React from 'react'
+import BlogCard from "@/components/blogs/blog-card";
+import { getAllBlogs } from "@/sanity/data/blog-data";
+import Image from "next/image";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const Blogs = async (props: Props) => {
   const blogs = await getAllBlogs();
@@ -22,19 +22,20 @@ const Blogs = async (props: Props) => {
         />
       </div>
       <h2 className="text-lg text-white">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        At the SRM Alexa Developer Club, our blog offers a rich blend of tech
+        innovations, from AI and cybersecurity to app development insights.
+        Beyond tech, explore thought-provoking articles on leadership,
+        creativity, and societal impacts. Our diverse content ensures there&apos;s
+        always something intriguing for tech enthusiasts and curious minds
+        alike.
       </h2>
       <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogs.map((blog, idx) => (
-          <BlogCard
-            key={idx}
-            blog={blog}
-          />
+          <BlogCard key={idx} blog={blog} />
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Blogs
+export default Blogs;

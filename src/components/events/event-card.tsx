@@ -5,13 +5,10 @@ import React from "react";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import Link from "next/link";
 import { Meteors } from "../ui/meteors";
+import { Event } from "@/sanity/schemas/event-schema";
 
 type Props = {
-  event: {
-    title: string;
-    description: string;
-    image: string;
-  };
+  event: Event;
 };
 
 export default function EventCard({ event }: Props) {
@@ -28,13 +25,13 @@ export default function EventCard({ event }: Props) {
         <CardItem
           as="p"
           translateZ="60"
-          className="text-white/[0.6] text-sm max-w-sm mt-2"
+          className="text-white/[0.6] text-sm max-w-sm mt-2 line-clamp-2"
         >
           {event.description}
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
-            src={event.image}
+            src={event.poster}
             height="1000"
             width="1000"
             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -47,7 +44,7 @@ export default function EventCard({ event }: Props) {
               <span className="absolute inset-0 overflow-hidden rounded-full">
                 <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </span>
-              <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 ">
+              <Link href={`/events/${event.slug}`} className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 ">
                 <span>Check out</span>
                 <svg
                   fill="none"
@@ -64,7 +61,7 @@ export default function EventCard({ event }: Props) {
                     strokeWidth="1.5"
                   />
                 </svg>
-              </div>
+              </Link>
               <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
             </button>
           </CardItem>

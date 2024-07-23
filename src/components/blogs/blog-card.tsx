@@ -32,7 +32,7 @@ const BlogCard = ({ blog }: Props) => {
           {blog.title}
         </CardItem>
         <CardItem
-          as="p"
+          as="p" 
           translateZ="90"
           className="text-white/[0.8] font-semibold max-w-sm mt-2 line-clamp-2 group-hover:line-clamp-4"
         >
