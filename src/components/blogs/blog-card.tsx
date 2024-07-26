@@ -15,7 +15,7 @@ const BlogCard = ({ blog }: Props) => {
   return (
     <CardContainer className="inter-var w-[100%] group">
       <div className="absolute  h-full w-full bg-gradient-to-r from-[#31B553] to-[#0AA294] transform scale-[0.80] rounded-full blur-3xl" />
-      <CardBody className="relative  inset-0 bg-[#242424] z-40 w-auto sm:w-[30rem] h-auto rounded-xl p-6  ">
+      <CardBody className="relative  inset-0 bg-[#242424] z-40 w-auto sm:w-[30rem] h-auto rounded-xl p-6  shadow-2xl shadow-">
         <CardItem translateZ="90" className="w-full mt-4">
           <Image
             src={blog.coverImage}
@@ -32,7 +32,7 @@ const BlogCard = ({ blog }: Props) => {
           {blog.title}
         </CardItem>
         <CardItem
-          as="p"
+          as="p" 
           translateZ="90"
           className="text-white/[0.8] font-semibold max-w-sm mt-2 line-clamp-2 group-hover:line-clamp-4"
         >

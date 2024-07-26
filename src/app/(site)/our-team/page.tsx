@@ -20,8 +20,10 @@ const OurTeam = (props: Props) => {
         />
       </div>
       <h2 className="text-lg text-white">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        Our team at the SRM Alexa Developer Club includes passionate members,
+        dedicated executives, and a visionary head, all working together to
+        foster innovation, learning, and community engagement through dynamic
+        events and activities.
       </h2>
       <div className="flex flex-row w-full items-center justify-center mt-10">
         <Image

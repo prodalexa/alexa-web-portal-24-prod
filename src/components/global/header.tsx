@@ -38,11 +38,11 @@ const Navbar = () => {
       url: "/blogs",
       description: "Read our blogs",
     },
-    {
-      title: "Register",
-      url: "/register",
-      description: "Register with us",
-    },
+    // {
+    //   title: "Register",
+    //   url: "/register",
+    //   description: "Register with us",
+    // },
   ];
   const pathName = usePathname();
   return (
