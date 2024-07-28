@@ -14,7 +14,6 @@ type Props = {
 
 const EventView = async ({ params }: Props) => {
   const eventData = await getEventBySlug(params.eventSlug);
-  console.log(eventData);
   return (
     <div className="max-w-full w-full h-full mt-4 md:mt-10 flex flex-col md:flex-row items-center gap-10">
       {/* left */}
@@ -66,7 +65,7 @@ const EventView = async ({ params }: Props) => {
           </p>
         </div>
         {eventData.status == "ended" && (
-          <div className=" flex flex-row gap-2">
+          <div className=" flex flex-row gap-6">
             {eventData.certificatesLink && (
               <Link
                 href={eventData.certificatesLink}

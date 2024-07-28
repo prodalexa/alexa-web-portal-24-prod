@@ -1,33 +1,30 @@
 import React from "react";
 import AvatarImage from "./avatar";
 import Image from "next/image";
+import { Member } from "@/sanity/schemas/member-schema";
 
 type Props = {
-  person: {
-    name: string;
-    initials: string;
-    role: string;
-    imageUrl: string;
-    instagramUrl: string;
-    linkedinUrl: string;
-    githubUrl: string;
-  };
+  person: Member;
 };
 
 const PersonCard = ({ person }: Props) => {
+  const getInitials = (name: string) => {
+    const nameArray = name.split(" ");
+    return nameArray[0].charAt(0) + nameArray[nameArray.length - 1].charAt(0);
+  }
   return (
     <div className="flex flex-col items-center justify-center ">
       <AvatarImage
         name={person.name}
-        initials={person.initials}
-        url={person.imageUrl}
+        initials={getInitials(person.name)}
+        url={person.photo}
       />
       <h2 className="font-bold text-white md:text-lg">{person.name}</h2>
       <h2 className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent md:text-lg">
         {person.role}
       </h2>
       <div className="flex flex-row gap-3 md:gap-5 mt-2">
-        <a href={person.instagramUrl} target="_blank" rel="noopener noreferrer">
+        <a href={person.instagram} target="_blank" rel="noopener noreferrer">
           <Image
             src="/our-team/instagram.svg"
             alt="Instagram"
@@ -36,7 +33,7 @@ const PersonCard = ({ person }: Props) => {
             className="cursor-pointer"
           />
         </a>
-        <a href={person.linkedinUrl} target="_blank" rel="noopener noreferrer">
+        <a href={person.linkedin} target="_blank" rel="noopener noreferrer">
           <Image
             src="/our-team/linkedin.svg"
             alt="LinkedIn"
@@ -45,7 +42,7 @@ const PersonCard = ({ person }: Props) => {
             className="cursor-pointer"
           />
         </a>
-        <a href={person.githubUrl} target="_blank" rel="noopener noreferrer">
+        {person.github && <a href={person.github} target="_blank" rel="noopener noreferrer">
           <Image
             src="/our-team/github.svg"
             alt="Github"
@@ -53,7 +50,7 @@ const PersonCard = ({ person }: Props) => {
             height={20}
             className="cursor-pointer"
           />
-        </a>
+        </a>}
       </div>
     </div>
   );

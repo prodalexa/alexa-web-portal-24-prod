@@ -3,10 +3,7 @@ import { Rule } from "sanity";
 export interface Member {
   name: string;
   slug: { current: string };
-  photo: {
-    asset: { _ref: string; _type: "reference" };
-    alt: string;
-  };
+  photo: string;
   domain: "business" | "technical" | "creatives" | "events" | "core" | "others";
   role: 
     | "president"
@@ -20,7 +17,7 @@ export interface Member {
     | "others";
   instagram: string;
   linkedin: string;
-  github: string;
+  github?: string;
 }
 
 const member = {
@@ -108,12 +105,8 @@ const member = {
       name: "github",
       title: "GitHub",
       type: "url",
-      validation: (Rule: any) => Rule.required(),
     },
   ],
-  initialValue: {
-    registrationOpened: false,
-  },
 };
 
 export default member;
