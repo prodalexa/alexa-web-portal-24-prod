@@ -47,14 +47,16 @@ const Navbar = () => {
   const pathName = usePathname();
   return (
     <header className="z-20 h-[20%] lg:px-16 px-6 md:px-10 flex flex-row items-center justify-between border-white">
-      <Image
-        src="/nav-logo.png"
-        width={300}
-        height={150}
-        alt="Alexa Developers SRM Logo"
-        className="shadow-sm object-contain w-52 md:w-52 lg:w-60 h-auto xl:w-80"
-        priority
-      />
+      <Link href="/">
+        <Image
+          src="/nav-logo.png"
+          width={300}
+          height={150}
+          alt="Alexa Developers SRM Logo"
+          className="shadow-sm object-contain w-52 md:w-52 lg:w-60 h-auto xl:w-80"
+          priority
+        />
+      </Link>
 
       <aside className="flex flex-row items-center justify-center my-4">
         <nav className="hidden md:block">

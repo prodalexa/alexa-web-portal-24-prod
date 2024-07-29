@@ -15,9 +15,9 @@ type Props = {
 const EventView = async ({ params }: Props) => {
   const eventData = await getEventBySlug(params.eventSlug);
   return (
-    <div className="max-w-full w-full h-full mt-4 md:mt-10 flex flex-col md:flex-row items-center gap-10">
+    <div className="max-w-full w-full h-full mt-4 md:mt-10 pr-6 flex flex-col md:flex-row items-center gap-6 lg:gap-10">
       {/* left */}
-      <div className="ml-8 md:ml-16 md:w-2/3 flex flex-col">
+      <div className="ml-8 md:ml-16 md:w-3/4 lg:2/3 flex flex-col">
         {eventData.status == "comingSoon" && (
           <div className="px-4 py-2 max-w-fit rounded-full relative bg-[#2EB45A] bg-opacity-40 text-white text-sm hover:shadow-2xl hover:shadow-[#2EB45A]/[0.1] transition duration-200 border border-[#949795]">
             <div className="absolute inset-x-0 h-px w-1/2 mx-auto -top-px shadow-2xl  bg-gradient-to-r from-transparent via-teal-500 to-transparent" />
@@ -65,7 +65,7 @@ const EventView = async ({ params }: Props) => {
           </p>
         </div>
         {eventData.status == "ended" && (
-          <div className=" flex flex-row gap-6">
+          <div className="flex flex-row gap-6 justify-center md:justify-start">
             {eventData.certificatesLink && (
               <Link
                 href={eventData.certificatesLink}
@@ -73,7 +73,7 @@ const EventView = async ({ params }: Props) => {
                 target="_blank"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#2DB35D] to-[#0FA48D] rounded-lg" />
-                <div className="px-8 py-2  bg-[#313131] relative group transition duration-200 text-white hover:bg-transparent">
+                <div className="px-2 lg:px-8 py-2  bg-[#313131] relative group transition duration-200 text-white hover:bg-transparent">
                   <span className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent font-bold group-hover:text-black">
                     CERTIFICATES
                   </span>
@@ -87,7 +87,7 @@ const EventView = async ({ params }: Props) => {
                 target="_blank"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#2DB35D] to-[#0FA48D] rounded-lg" />
-                <div className="px-8 py-2  bg-[#313131] relative group transition duration-200 text-white hover:bg-transparent">
+                <div className="px-2 lg:px-8 py-2  bg-[#313131] relative group transition duration-200 text-white hover:bg-transparent">
                   <span className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent font-bold group-hover:text-black">
                     IMAGE GALLERY
                   </span>
