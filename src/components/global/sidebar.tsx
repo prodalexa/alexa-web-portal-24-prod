@@ -28,7 +28,7 @@ const SidebarButton = ({ menuItems }: Props) => {
           <Menu className="" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56 bg-[#181818] border-black border-2 border-spacing-2" forceMount>
+      <DropdownMenuContent align="end" className="w-56 bg-[#181818] border-black border-2 border-spacing-2">
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-xl text-white font-bold leading-none">
@@ -41,8 +41,8 @@ const SidebarButton = ({ menuItems }: Props) => {
           {menuItems.map((item) => (
             <div key={item.url}>
               <DropdownMenuSeparator className="text-black bg-black" />
-              <DropdownMenuItem className="hover:bg-slate-700" key={item.url}>
-                <Link href={item.url} className="flex flex-col space-y-1">
+              <DropdownMenuItem asChild>
+                <Link href={item.url} className="flex flex-col space-y-1" onClick={() => document.body.click()}>
                   <p className="text-sm font-bold leading-none text-white">
                     {item.title}
                   </p>
@@ -54,10 +54,6 @@ const SidebarButton = ({ menuItems }: Props) => {
             </div>
           ))}
         </DropdownMenuGroup>
-        {/* <DropdownMenuSeparator />
-        <DropdownMenuItem asChild>
-          <LogoutLink>Log out</LogoutLink>
-        </DropdownMenuItem> */}
       </DropdownMenuContent>
     </DropdownMenu>
   );

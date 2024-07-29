@@ -46,7 +46,7 @@ const OurTeam = async (props: Props) => {
           height={10}
           width={10}
           alt="Hero Separator"
-          className="mx-4 min-w-[40%] hidden md:flex"
+          className="mx-4 min-w-[26%] lg:w-[39%] hidden md:flex"
         />
         <div className="w-full text-2xl md:text-4xl font-bold text-white max-w-fit">
           <span>The Core</span>
@@ -59,7 +59,7 @@ const OurTeam = async (props: Props) => {
           height={10}
           width={10}
           alt="Hero Separator"
-          className="mx-4 min-w-[40%] hidden md:flex"
+          className="mx-4 min-w-[26%] lg:w-[39%] hidden md:flex"
         />
       </div>
       <div className="flex flex-row justify-around items-center">
@@ -72,7 +72,7 @@ const OurTeam = async (props: Props) => {
           height={10}
           width={10}
           alt="Hero Separator"
-          className="mx-4 min-w-[40%] hidden md:flex"
+          className="mx-4 min-w-[26%] lg:w-[38%] hidden md:flex"
         />
         <div className="w-full text-2xl md:text-4xl font-bold text-white max-w-fit">
           <span>The Heads</span>
@@ -85,10 +85,10 @@ const OurTeam = async (props: Props) => {
           height={10}
           width={10}
           alt="Hero Separator"
-          className="mx-4 min-w-[40%] hidden md:flex"
+          className="mx-4 min-w-[26%] lg:w-[38%] hidden md:flex"
         />
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4 justify-around items-center">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4">
         {headData.map((person: Member, idx: number) => (
           <PersonCard key={idx} person={person} />
         ))}
@@ -99,7 +99,7 @@ const OurTeam = async (props: Props) => {
           height={10}
           width={10}
           alt="Hero Separator"
-          className="mx-4 min-w-[40%] hidden md:flex"
+          className="mx-4 min-w-[26%] lg:w-[38%] hidden md:flex"
         />
         <div className="w-full text-2xl md:text-4xl font-bold text-white max-w-fit">
           <span>The Leads</span>
@@ -112,7 +112,7 @@ const OurTeam = async (props: Props) => {
           height={10}
           width={10}
           alt="Hero Separator"
-          className="mx-4 min-w-[40%] hidden md:flex"
+          className="mx-4 min-w-[26%] lg:w-[38%] hidden md:flex"
         />
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6  gap-4 justify-around items-center">
@@ -126,7 +126,7 @@ const OurTeam = async (props: Props) => {
           height={10}
           width={10}
           alt="Hero Separator"
-          className="mx-4 min-w-[40%] hidden md:flex"
+          className="mx-3 min-w-[26%] lg:w-[37%] hidden md:flex"
         />
         <div className="w-full text-2xl md:text-4xl font-bold text-white max-w-fit">
           <span>The Executives</span>
@@ -139,7 +139,7 @@ const OurTeam = async (props: Props) => {
           height={10}
           width={10}
           alt="Hero Separator"
-          className="mx-4 min-w-[40%] hidden md:flex"
+          className="mx-3 min-w-[26%] lg:w-[37%] hidden md:flex"
         />
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6  gap-4 justify-around items-center">
@@ -151,205 +151,5 @@ const OurTeam = async (props: Props) => {
   );
 };
 
-const personList = [
-  {
-    name: "Talat Khushkhwan",
-    initials: "TK",
-    role: "President",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/talatkhushkhwan/",
-    linkedin: "https://www.linkedin.com/in/talat-khushkhwan/",
-    github: "https://github.com/talatkhushkhwan",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Vice President",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Technical Head",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Events Head",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Creatives Head",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Business Head",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Technical Lead",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Technical Lead",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Events Lead",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Events Lead",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Creatives Lead",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Creatives Lead",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Business Lead",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Business Lead",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Technical Executive",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Technical Executive",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Events Executive",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Events Executive",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Creatives Executive",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Creatives Executive",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Business Executive",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-  {
-    name: "Shivain Kohli",
-    initials: "SK",
-    role: "Business Executive",
-    photo: "/our-team/person.png",
-    instagram: "https://www.instagram.com/shivainkohli/",
-    linkedin: "https://www.linkedin.com/in/shivainkohli/",
-    github: "https://github.com/shivainkohli",
-  },
-];
 
 export default OurTeam;

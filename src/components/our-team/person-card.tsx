@@ -13,7 +13,7 @@ const PersonCard = ({ person }: Props) => {
     return nameArray[0].charAt(0) + nameArray[nameArray.length - 1].charAt(0);
   }
   return (
-    <div className="flex flex-col items-center justify-center ">
+    <div className="flex flex-col items-center justify-center mx-1 my-2">
       <AvatarImage
         name={person.name}
         initials={getInitials(person.name)}

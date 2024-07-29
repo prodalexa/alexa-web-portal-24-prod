@@ -16,19 +16,6 @@ export default function EventCard({ event }: Props) {
     <CardContainer className="inter-var w-[100%]">
       <div className="absolute  h-full w-full bg-gradient-to-r from-[#31B553] to-[#0AA294] transform scale-[0.80] rounded-full blur-3xl" />
       <CardBody className="relative  inset-0 bg-[#242424] z-40 w-auto sm:w-[30rem] h-auto rounded-xl p-6  ">
-        <CardItem
-          translateZ=""
-          className="text-xl font-bold text-white/[0.9]"
-        >
-          {event.title}
-        </CardItem>
-        <CardItem
-          as="p"
-          translateZ="60"
-          className="text-white/[0.6] text-sm max-w-sm mt-2 line-clamp-2"
-        >
-          {event.description}
-        </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
           <Image
             src={event.poster}
@@ -38,8 +25,8 @@ export default function EventCard({ event }: Props) {
             alt={`${event.title} image`}
           />
         </CardItem>
-        <div className="flex justify-end items-end mt-20">
-          <CardItem translateZ={20} className="rounded-xl  text-xs font-bold">
+        <div className="flex justify-end items-end mt-6">
+          <CardItem translateZ={60} className="rounded-xl  text-xs font-bold">
             <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
               <span className="absolute inset-0 overflow-hidden rounded-full">
                 <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
