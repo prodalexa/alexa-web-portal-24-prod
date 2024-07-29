@@ -15,7 +15,7 @@ export function MeteorsDemo({ domain }: Props) {
     <div className="md:hidden my-4">
       <div className=" w-full relative max-w-xs">
         <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-[#31B553] to-[#0AA294] transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
-        <div className="relative shadow-xl  border text-justify border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+        <div className="relative shadow-xl bg-[#242424] border text-justify border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
             <Image
             src={domain.image}
             height={10}
