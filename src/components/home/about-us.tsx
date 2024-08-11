@@ -14,7 +14,7 @@ export default function AboutUs() {
       {/* Title Section */}
       <div className="text-5xl font-bold text-center text-white items-center mb-8">
         <h1 className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent">
-          About Us
+          About us
         </h1>
        
         <Image
