@@ -1,7 +1,7 @@
 "use client";
-import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { motion, stagger, useAnimate } from "framer-motion";
+import { useEffect } from "react";
 
 export const TextGenerateEffect = ({
   words,
@@ -45,7 +45,7 @@ export const TextGenerateEffect = ({
   return (
     <div className={cn("font-normal", className)}>
       <div className="">
-        <div className=" text-white text-center text-normal sm:text-lg md:text-2xl leading-snug tracking-wide px-6 py-3 md:p-6 md:px-20 lg:px-32">
+        <div className={cn(" text-white text-center  md:text-right text-normal sm:text-lg md:text-2xl leading-snug tracking-wide px-6 py-3 md:p-6 md:px-20 lg:px-32" , className)}>
           {renderWords()}
         </div>
       </div>
