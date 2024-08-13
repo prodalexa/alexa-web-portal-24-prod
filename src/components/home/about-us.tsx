@@ -1,5 +1,5 @@
 "use client";
-import { para1, para4 } from "@/lib/constants";
+import { para1, para2 } from "@/lib/constants";
 import Image from "next/image";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 
@@ -45,7 +45,7 @@ export default function AboutUs() {
           </div>
 
           <div className="w-auto leading-snug tracking-wide  ">
-            <TextGenerateEffect words={para4} className="text-justify" />
+            <TextGenerateEffect words={para2} className="text-justify" />
           </div>
         </div>
       
