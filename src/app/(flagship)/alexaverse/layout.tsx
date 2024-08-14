@@ -5,7 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import "./globals.css";
-import Header from "@/components/global/header";
+import Header from "@/components/alexaverse/Header";
 import ContactUs from "@/components/global/contact-us";
 
 const fontSans = FontSans({
@@ -30,10 +30,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen h-full bg-black font-sans antialiased",
+          "min-h-screen min-w-screen bg-black font-sans antialiased",
+          "bg-[url('/background.png')] bg-cover",
           fontSans.variable
         )}
       >
+        <Header />
         {children}
         <SpeedInsights />
         <Analytics />
