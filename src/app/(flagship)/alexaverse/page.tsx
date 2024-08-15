@@ -5,6 +5,9 @@ import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { FlipWords } from "@/components/ui/flip-words";
 import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect";
 import { useScroll, useTransform } from "framer-motion";
+import Landing from "@/components/alexaverse/landing";
+
+
 
 export default function SparklesPreview() {
   const words = [
@@ -28,6 +31,7 @@ export default function SparklesPreview() {
 
   return (
     <>
+    <Landing />
     </>
   );
 }
