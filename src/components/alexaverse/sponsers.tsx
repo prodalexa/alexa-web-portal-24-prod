@@ -31,7 +31,7 @@ function Sponsors({}: Props) {
   const text = "Designed and Developed by Alexa Developers SRM.";
 
   return (
-    <div className="flex flex-col justify-center items-center pb-20">
+    <div className="flex flex-col justify-center items-center pb-10 pt-20">
       <Image
         src="/alexaverse/Sponsors.png"
         height={164}
@@ -45,11 +45,11 @@ function Sponsors({}: Props) {
         {/* Title could go here if needed */}
       </div>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 grid-cols-1 md:gap-8">
         {sponsorsList.map((sponsor) => (
           <div
             key={sponsor.id}
-            className="flex justify-center items-center px-24 py-8 bg-transparent rounded-lg"
+            className="flex justify-center md:px-24 items-center  pt-8 bg-transparent rounded-lg"
           >
             <Image
               src={sponsor.image}
@@ -66,7 +66,7 @@ function Sponsors({}: Props) {
       <TextGenerateEffect
         words={text}
         gradientColors="from-[#980F35] to-[#AF6922]" // Custom gradient for this page
-        className="my-custom-class mt-10"
+        className="my-custom-class mt-10 text-center"
       />
     </div>
   );
