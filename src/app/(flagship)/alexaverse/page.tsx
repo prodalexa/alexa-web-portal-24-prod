@@ -1,11 +1,9 @@
 "use client";
-import React from "react";
-import { SparklesCore } from "@/components/ui/sparkles";
-import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-import { FlipWords } from "@/components/ui/flip-words";
-import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect";
-import { useScroll, useTransform } from "framer-motion";
 import Landing from "@/components/alexaverse/landing";
+import Sponsors from "@/components/alexaverse/sponsers";
+import Tickets from "@/components/alexaverse/tickets";
+import { useScroll, useTransform } from "framer-motion";
+import React from "react";
 
 
 
@@ -32,6 +30,8 @@ export default function SparklesPreview() {
   return (
     <>
     <Landing />
+    <Tickets />
+    <Sponsors />
     </>
   );
 }
