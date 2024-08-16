@@ -48,7 +48,7 @@ const Header: React.FC = () => {
           <ul className="flex items-center md:text-lg gap-4 2xl:gap-20 lg:gap-14 md:gap-5 list-none tracking-widest">
             {menuItems.map((item, index) => {
               return pathName === item.url ? (
-                  <li className={clsx("bg-transparent text-[#980f35]")}>
+                  <li className={clsx("bg-transparent text-[#980f35]")} key={index}>
                     <Link href={item.url}>{item.title}</Link>
                   </li>
               ) : (

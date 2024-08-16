@@ -6,10 +6,11 @@ import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import Header from "@/components/alexaverse/header";
-import localFont from 'next/font/local'
+import localFont from "next/font/local";
 import ContactUs from "@/components/global/contact-us";
+import { ThemeProvider } from "@/components/alexaverse/theme-providor";
 
-const myFont = localFont({ src: './RogueHero-rggMA.otf' })
+const myFont = localFont({ src: "./RogueHero-rggMA.otf" });
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -35,12 +36,19 @@ export default function RootLayout({
         className={cn(
           "min-h-screen min-w-screen bg-black antialiased",
           "bg-[url('/background.png')] bg-cover",
-          `${myFont.className}`,
+          `${myFont.className}`
           // fontSans.variable
         )}
       >
-        <Header />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+        </ThemeProvider>
         <SpeedInsights />
         <Analytics />
       </body>
