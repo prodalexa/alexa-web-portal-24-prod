@@ -9,6 +9,7 @@ import {
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
 import { eventNames } from "process";
+import Image from "next/image";
 
 type Props = {
   eventName: string;
@@ -25,10 +26,17 @@ export default function SingleRegisterForm(props: Props) {
       <h2 className="font-bold text-xl text-[#980f35]">
         Welcome to AlexaVerse
       </h2>
-      <p className="text-[#AF6922] text-sm max-w-sm mt-2 ">
+      {/* <p className="text-[#AF6922] text-sm max-w-sm mt-2 ">
         Register for {props.eventName}
-      </p>
-
+      </p> */}
+      <Image
+          src={'/alexaverse/Ticket.png'}
+          alt={"ticket"}
+          width={630}
+          height={400}
+          objectFit="contain"
+          className=""
+        />
       <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-4 h-[1px] w-full" />
       <form className="my-8" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
