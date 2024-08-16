@@ -14,7 +14,7 @@ function Sponsors({}: Props) {
     {
       id: 2,
       sponsor: "Yatra",
-      image: "/alexaverse/yatra.png",
+      image: "/alexaverse/yatra (1).png",
     },
     {
       id: 3,
