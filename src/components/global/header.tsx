@@ -1,5 +1,4 @@
 "use client";
-import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,7 +7,6 @@ import clsx from "clsx";
 import { BackgroundGradient } from "../ui/background-gradient";
 import SidebarButton from "@/components/global/sidebar";
 
-type Props = {};
 
 const Navbar = () => {
   //   const [toggle, setToggle] = React.useState(false);
@@ -81,6 +79,24 @@ const Navbar = () => {
                 </li>
               );
             })}
+            <Link href={"/alexaverse"}>
+              <li
+                className={clsx(
+                  "px-6 py-2 shadow-2xl drop-shadow-2xl text-white rounded-lg font-extrabold transform hover:-translate-y-1 transition duration-400"
+                )}
+              >
+                <Image
+                  src="/alexaverse.png"
+                  width={120}
+                  height={50}
+                  alt="Alexa Verse Logo"
+                  className="object-contain drop-shadow-xl shadow-2xl"
+                  priority
+                />
+                {/* <span className="text-[#980F35]">Alexa</span>
+                <span className="text-[#AF6922]">Verse</span> */}
+              </li>
+            </Link>
           </ul>
         </nav>
         <SidebarButton menuItems={menuItems} />

@@ -5,8 +5,13 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import "./globals.css";
-import Header from "@/components/global/header";
+import Header from "@/components/alexaverse/header";
+import localFont from "next/font/local";
 import ContactUs from "@/components/global/contact-us";
+import { ThemeProvider } from "@/components/alexaverse/theme-providor";
+import { Toaster } from "@/components/ui/toaster";
+
+const myFont = localFont({ src: "./RogueHero-rggMA.otf" });
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -30,11 +35,22 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen h-full bg-black font-sans antialiased",
-          fontSans.variable
+          "min-h-screen min-w-screen bg-black antialiased",
+          "bg-[url('/background.png')] bg-cover",
+          `${myFont.className}`
+          // fontSans.variable
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+          <Toaster />
+        </ThemeProvider>
         <SpeedInsights />
         <Analytics />
       </body>
