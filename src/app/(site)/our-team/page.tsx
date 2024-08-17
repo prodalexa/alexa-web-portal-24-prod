@@ -88,7 +88,7 @@ const OurTeam = async (props: Props) => {
           className="mx-4 min-w-[26%] lg:w-[38%] hidden md:flex"
         />
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4">
+      <div className="flex flex-row flex-wrap gap-6 justify-center items-center gap-x-15">
         {headData.map((person: Member, idx: number) => (
           <PersonCard key={idx} person={person} />
         ))}
@@ -115,9 +115,9 @@ const OurTeam = async (props: Props) => {
           className="mx-4 min-w-[26%] lg:w-[38%] hidden md:flex"
         />
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6  gap-4 justify-around items-center">
+      <div className="flex flex-row flex-wrap gap-6 justify-center items-center gap-x-10">
         {leadData.map((person: Member, idx: number) => (
-          <PersonCard key={idx} person={person} />
+          <PersonCard key={idx} person={person} classname="basis-1/3" />
         ))}
       </div>
       <div className="flex flex-row w-full items-center justify-center mt-20">
@@ -142,7 +142,7 @@ const OurTeam = async (props: Props) => {
           className="mx-3 min-w-[26%] lg:w-[37%] hidden md:flex"
         />
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6  gap-4 justify-around items-center">
+      <div className="flex flex-row flex-wrap gap-6 justify-center items-center">
         {executiveData.map((person: Member, idx: number) => (
           <PersonCard key={idx} person={person} />
         ))}
