@@ -10,10 +10,10 @@ import {
 } from "@tabler/icons-react";
 import { eventNames } from "process";
 import Image from "next/image";
+import { AlexaVerse } from "@/sanity/schemas/alexaverse-schema";
 
 type Props = {
-  eventName: string;
-  eventSlug: string;
+  event: AlexaVerse;
 };
 
 export default function SingleRegisterForm(props: Props) {
@@ -21,22 +21,23 @@ export default function SingleRegisterForm(props: Props) {
     e.preventDefault();
     console.log("Form submitted");
   };
+  console.log(props.event.slug);
   return (
     <div className="max-w-md text-[#980f35] tracking-wider w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-      <h2 className="font-bold text-xl text-[#980f35]">
+      <h2 className="font-bold tracking-widest text-xl text-[#980f35]">
         Welcome to AlexaVerse
       </h2>
       {/* <p className="text-[#AF6922] text-sm max-w-sm mt-2 ">
         Register for {props.eventName}
       </p> */}
       <Image
-          src={'/alexaverse/Ticket.png'}
-          alt={"ticket"}
-          width={630}
-          height={400}
-          objectFit="contain"
-          className=""
-        />
+        src={props.event.ticket}
+        alt={props.event.title}
+        width={630}
+        height={400}
+        objectFit="contain"
+        className="sponsor-image pt-4"
+      />
       <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-4 h-[1px] w-full" />
       <form className="my-8" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
@@ -67,11 +68,7 @@ export default function SingleRegisterForm(props: Props) {
         </LabelInputContainer>
         <LabelInputContainer className="mb-8">
           <Label htmlFor="department">Department</Label>
-          <Input
-            id="department"
-            placeholder="DSBS"
-            type="text"
-          />
+          <Input id="department" placeholder="DSBS" type="text" />
         </LabelInputContainer>
 
         <button

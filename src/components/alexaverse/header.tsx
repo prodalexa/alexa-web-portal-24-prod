@@ -15,16 +15,16 @@ const Header: React.FC = () => {
       url: '/alexaverse',
       description: 'Alexaverse Page'
     },
-    {
-      title: 'timeline',
-      url: '/alexaverse/timeline',
-      description: 'Timeline Page'
-    }
+    // {
+    //   title: 'Our Events',
+    //   url: '/alexaverse#our-events',
+    //   description: 'Check out our events'
+    // }
   ]
 
   return (
     <header className="z-20 h-[20%] lg:px-10 px-6 md:px-10 flex flex-row items-center justify-between border-white">
-      <Link href="/">
+      <Link href="/alexaverse">
         <Image
           src="/alexaverse/alexalogo.png"
           width={300}
@@ -56,7 +56,7 @@ const Header: React.FC = () => {
                   key={index}
                   className={clsx("bg-transparent hover:font-bold text-[#Af6922]")}
                 >
-                  <Link href={item.url}>
+                  <Link href={item.url} scroll={true}>
                     <button className="px-6 py-2rounded-lg font-bold transform hover:-translate-y-1 transition duration-400">
                       {item.title}
                     </button>

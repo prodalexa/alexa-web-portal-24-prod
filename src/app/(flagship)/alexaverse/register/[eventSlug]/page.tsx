@@ -1,4 +1,5 @@
 import SingleRegisterForm from "@/components/alexaverse/register-form";
+import { getTicketBySlug } from "@/sanity/data/alexaverse-data";
 import React from "react";
 
 type Props = {
@@ -7,11 +8,11 @@ type Props = {
   };
 };
 
-const RegisterPage = (props: Props) => {
-  const eventSlug = props.params.eventSlug;
+const RegisterPage = async (props: Props) => {
+  const eventData = await getTicketBySlug(props.params.eventSlug);
   return (
     <div>
-      <SingleRegisterForm eventName={eventSlug} eventSlug="eventSlug" />
+      <SingleRegisterForm event={eventData} />
     </div>
   );
 };
