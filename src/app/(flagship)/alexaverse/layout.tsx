@@ -9,6 +9,7 @@ import Header from "@/components/alexaverse/header";
 import localFont from "next/font/local";
 import ContactUs from "@/components/global/contact-us";
 import { ThemeProvider } from "@/components/alexaverse/theme-providor";
+import { Toaster } from "@/components/ui/toaster";
 
 const myFont = localFont({ src: "./RogueHero-rggMA.otf" });
 
@@ -48,6 +49,7 @@ export default function RootLayout({
         >
           <Header />
           {children}
+          <Toaster />
         </ThemeProvider>
         <SpeedInsights />
         <Analytics />

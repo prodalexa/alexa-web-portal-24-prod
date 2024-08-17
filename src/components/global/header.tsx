@@ -81,6 +81,9 @@ const Navbar = () => {
                 </li>
               );
             })}
+            <Link href={'/alexaverse'}>
+            <li className={clsx("px-6 py-2 shadow-2xl drop-shadow-2xl text-white rounded-lg font-extrabold transform hover:-translate-y-1 transition duration-400")}><span className="text-[#980F35]">Alexa</span><span className="text-[#AF6922]">Verse</span></li>
+            </Link>
           </ul>
         </nav>
         <SidebarButton menuItems={menuItems} />

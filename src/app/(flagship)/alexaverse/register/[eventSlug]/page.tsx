@@ -1,4 +1,6 @@
-import SingleRegisterForm from "@/components/alexaverse/register-form";
+import TeamRegisterForm from "@/components/alexaverse/multi-register-form";
+import MultiRegisterForm from "@/components/alexaverse/multi-register-form";
+import SingleRegisterForm from "@/components/alexaverse/single-register-form";
 import { getTicketBySlug } from "@/sanity/data/alexaverse-data";
 import React from "react";
 
@@ -10,9 +12,15 @@ type Props = {
 
 const RegisterPage = async (props: Props) => {
   const eventData = await getTicketBySlug(props.params.eventSlug);
+  console.log(eventData);
   return (
     <div>
-      <SingleRegisterForm event={eventData} />
+      {!eventData.registrationClosed && 
+        (eventData.maxParticipants === 1 ? (
+          <SingleRegisterForm event={eventData} />
+        ) : (
+          <TeamRegisterForm event={eventData} />
+        ))}
     </div>
   );
 };

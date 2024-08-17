@@ -66,7 +66,7 @@ function Sponsors({}: Props) {
       <TextGenerateEffect
         words={text}
         gradientColors="from-[#980F35] to-[#AF6922]" // Custom gradient for this page
-        className="my-custom-class mt-10 text-center"
+        className="my-custom-class mt-10 mb-2 text-center"
       />
     </div>
   );

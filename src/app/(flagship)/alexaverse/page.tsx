@@ -1,4 +1,3 @@
-"use client";
 import Landing from "@/components/alexaverse/landing";
 import Sponsors from "@/components/alexaverse/sponsers";
 import Tickets from "@/components/alexaverse/tickets";
@@ -8,25 +7,6 @@ import React from "react";
 
 
 export default function SparklesPreview() {
-  const words = [
-    "build better",
-    "build cute",
-    "build beautiful",
-    "build modern",
-    "are ADS!",
-  ];
-  const ref = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
- 
-  const pathLengthFirst = useTransform(scrollYProgress, [0, 0.8], [0.2, 1.2]);
-  const pathLengthSecond = useTransform(scrollYProgress, [0, 0.8], [0.15, 1.2]);
-  const pathLengthThird = useTransform(scrollYProgress, [0, 0.8], [0.1, 1.2]);
-  const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
-  const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
-
   return (
     <>
     <Landing />
