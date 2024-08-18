@@ -80,7 +80,7 @@ const Tickets = async ({}: Props) => {
               {/* <div className="absolute  h-full w-full bg-gradient-to-r from-[#31B553] to-[#0AA294] transform scale-[0.80] rounded-full blur-3xl" /> */}
               <CardBody className="relative border-none bg-transparent inset-0 z-40 w-auto sm:w-[30rem] h-auto rounded-xl  shadow-2xl">
                 <CardItem translateZ="90" className="w-full">
-                  <Link href={`/alexaverse/register/${ticket.slug}`}>
+                  <Link href={ticket.registrationUrl}>
                     <Image
                       src={ticket.ticket}
                       alt={ticket.title}
