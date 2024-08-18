@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-// import { Inter as FontSans } from "next/font/google"
 import { Nunito as FontSans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
@@ -7,7 +6,6 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import Header from "@/components/alexaverse/header";
 import localFont from "next/font/local";
-import ContactUs from "@/components/global/contact-us";
 import { ThemeProvider } from "@/components/alexaverse/theme-providor";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -22,7 +20,7 @@ export const metadata: Metadata = {
   title: "AlexaVerse | ADS!",
   description: "Created with ♥️ by the ADS team.",
   icons: {
-    icon: "/icon.png",
+    icon: "/icon.jpeg",
   },
 };
 
