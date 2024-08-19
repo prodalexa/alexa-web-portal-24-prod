@@ -1,8 +1,10 @@
-import { Rule } from "sanity";
+import { PortableTextBlock, Rule } from "sanity";
 
 export interface AlexaVerse {
     title: string;
     slug: string;
+    content: PortableTextBlock[];
+    order: number;
     ticket: string;
     registrationClosed: boolean;
     registrationUrl: string;
@@ -29,6 +31,17 @@ const alexaverse = {
         source: "name",
       },
       validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: 'array',
+      of: [{type: 'block'}],
+    },
+    {
+      name: "order",
+      title: "Order",
+      type: "number",
     },
     {
         name: "ticket",

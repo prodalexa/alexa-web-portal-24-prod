@@ -14,12 +14,17 @@ function Sponsors({}: Props) {
     {
       id: 2,
       sponsor: "Yatra",
-      image: "/alexaverse/yatra (1).png",
+      image: "/alexaverse/yatra.png",
     },
+    // {
+    //   id: 3,
+    //   sponsor: "FPV",
+    //   image: "/alexaverse/FPV.png",
+    // },
     {
       id: 3,
-      sponsor: "FPV",
-      image: "/alexaverse/FPV.png",
+      sponsor: "Smaaak.ux",
+      image: "/alexaverse/smaakux.png",
     },
     {
       id: 4,
@@ -65,7 +70,7 @@ function Sponsors({}: Props) {
 
       <TextGenerateEffect
         words={text}
-        gradientColors="from-[#980F35] to-[#AF6922]" // Custom gradient for this page
+        gradientColors="from-[#980F35] to-[#AF6922]"
         className="my-custom-class mt-10 mb-2 text-center"
       />
     </div>
