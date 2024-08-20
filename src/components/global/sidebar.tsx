@@ -21,6 +21,7 @@ type Props = {
 };
 
 const SidebarButton = ({ menuItems }: Props) => {
+  console.log(menuItems);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -44,15 +45,23 @@ const SidebarButton = ({ menuItems }: Props) => {
               <DropdownMenuItem asChild>
                 <Link href={item.url} className="flex flex-col space-y-1" onClick={() => document.body.click()}>
                   <p className="text-sm font-bold leading-none text-white">
-                    {item.title}
+                    {item.title === "AlexaVerse" ? (
+                      <>
+                        <span className="text-red-500">Alexa</span>
+                        <span className="text-yellow-500">Verse</span>
+                      </>
+                    ): (
+                      item.title
+                    )}
                   </p>
                   <p className="text-xs text-white leading-none text-muted-foreground">
                     {item.description}
-                  </p>
+                  </p>                
                 </Link>
               </DropdownMenuItem>
             </div>
           ))}
+          {/* <ul>AlexaVerse</ul> */}
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
