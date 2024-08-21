@@ -44,14 +44,7 @@ const SidebarButton = ({ menuItems }: Props) => {
               <DropdownMenuItem asChild>
                 <Link href={item.url} className="flex flex-col space-y-1" onClick={() => document.body.click()}>
                   <p className="text-sm font-bold leading-none text-white">
-                    {item.title === "AlexaVerse" ? (
-                      <>
-                        <span className="text-red-500">Alexa</span>
-                        <span className="text-yellow-500">Verse</span>
-                      </>
-                    ): (
-                      item.title
-                    )}
+                    {item.title}
                   </p>
                   <p className="text-xs text-white leading-none text-muted-foreground">
                     {item.description}
