@@ -6,9 +6,6 @@ import React from "react";
 import clsx from "clsx";
 import { BackgroundGradient } from "../ui/background-gradient";
 import SidebarButton from "@/components/global/sidebar";
-import { title } from "process";
-import { url } from "inspector";
-import { Description } from "@radix-ui/react-toast";
 
 
 const Navbar = () => {
@@ -39,11 +36,6 @@ const Navbar = () => {
       url: "/blogs",
       description: "Read our blogs",
     },
-    {
-      title: "AlexaVerse",
-      url: "/alexaverse",
-      description: "Flagship event",
-    }
     // {
     //   title: "Register",
     //   url: "/register",
