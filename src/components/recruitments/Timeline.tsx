@@ -36,7 +36,7 @@ const Timeline = (props: Props) => {
             {/* Dot */}
             <div className="absolute left-[12px] w-[12px] h-[12px] bg-white rounded-full z-10"></div>
             {/* Text */}
-            <div className="w-full text-left pr-8 ml-auto mt-4"> {/* Changed to text-left */}
+            <div className="w-full text-left pl-8 ml-auto mt-4"> {/* Changed to text-left */}
               <h2 className="bg-gradient-to-r from-[#00CDC1] to-[#00B5FF] bg-clip-text text-transparent text-2xl font-bold">Email</h2>
               <p className="text-white text-sm">
                 Keep yourself up to date by checking your registered email regularly. (Sneak a peek in the spam folder too)
@@ -62,7 +62,7 @@ const Timeline = (props: Props) => {
             {/* Dot */}
             <div className="absolute left-[12px] w-[12px] h-[12px] bg-white rounded-full z-10"></div>
             {/* Text */}
-            <div className="w-full text-left pr-8 ml-auto mt-4"> {/* Changed to text-left */}
+            <div className="w-full text-left pl-8 ml-auto mt-4"> {/* Changed to text-left */}
               <h2 className="bg-gradient-to-r from-[#00CDC1] to-[#00B5FF] bg-clip-text text-transparent text-2xl font-bold">Interviews</h2>
               <p className="text-white text-sm">
                 You are just one step away. Keep calm and get ready for a small, casual interview.

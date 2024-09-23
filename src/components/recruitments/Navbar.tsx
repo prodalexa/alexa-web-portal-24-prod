@@ -1,18 +1,21 @@
+import Image from "next/image";
 import React from "react";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
   return (
-    <nav className="flex flex-col md:flex-row justify-between items-center px-5 md:px-10 py-5 bg-black">
-      <div className="flex items-center mb-4 md:mb-0">
-        <img
+    <nav className="flex flex-col md:flex-row md:justify-between md:items-center h-[80px] px-5 md:px-10 py-5 bg-black w-full">
+      <div className="flex items-start justify-start md:items-center mb-4 md:mb-0">
+        <Image
           src="/recruitment/AlexaLogo.png"
           alt="Alexa Developers SRM"
-          className="w-[150px] md:w-[300px] mr-5"
+          height={300}
+          width={300}
+          className="w-[250px] md:w-[300px] mr-5"
         />
       </div>
-      <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+      <div className="hidden md:flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
         <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 list-none">
           <li>
             <a

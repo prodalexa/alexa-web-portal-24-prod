@@ -6,7 +6,7 @@ import Timeline from "@/components/recruitments/Timeline";
 
 export default function Recruitments() {
   return (
-    <div className="h-full">
+    <div className="h-full w-screen">
       <Navbar />
       <Banner />
       <Domains />
