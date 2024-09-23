@@ -28,7 +28,10 @@ const SidebarButton = ({ menuItems }: Props) => {
           <Menu className="" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56 bg-[#181818] border-black border-2 border-spacing-2">
+      <DropdownMenuContent
+        align="end"
+        className="w-56 bg-[#181818] border-black border-2 border-spacing-2"
+      >
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-xl text-white font-bold leading-none">
@@ -42,27 +45,27 @@ const SidebarButton = ({ menuItems }: Props) => {
             <div key={item.url}>
               <DropdownMenuSeparator className="text-black bg-black" />
               <DropdownMenuItem asChild>
-                <Link href={item.url} className="flex flex-col space-y-1" onClick={() => document.body.click()}>
+                <Link
+                  href={item.url}
+                  className="flex flex-col space-y-1"
+                  onClick={() => document.body.click()}
+                >
                   <p className="text-sm font-bold leading-none text-white">
                     {item.title}
                   </p>
                   <p className="text-xs text-white leading-none text-muted-foreground">
                     {item.description}
-                  </p>                
+                  </p>
                 </Link>
               </DropdownMenuItem>
             </div>
           ))}
           <DropdownMenuSeparator className="text-black bg-black" />
           <DropdownMenuItem asChild>
-            <Link href="/alexaverse" className="flex flex-col space-y-1">
-              <p className="text-sm font-bold leading-none">
-                <span className="text-yellow-500">Alexa</span>
-                <span className="text-red-500">Verse</span>
-              </p>
-              <p className="text-xs text-white leading-none text-muted-foreground">
-                Flagship event
-              </p>
+            <Link href="/apply" className="flex flex-col space-y-1">
+              <button className="px-8 py-2 rounded-full bg-gradient-to-b from-[#31B553] to-[#0AA294] text-white focus:ring-2 focus:ring-blue-400 hover:shadow-xl transition duration-200">
+                Apply Now
+              </button>
             </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
