@@ -117,7 +117,7 @@ const OurTeam = async (props: Props) => {
       </div>
       <div className="flex flex-row flex-wrap gap-6 justify-center items-center gap-x-10">
         {leadData.map((person: Member, idx: number) => (
-          <PersonCard key={idx} person={person} classname="basis-1/3" />
+          <PersonCard key={idx} person={person} />
         ))}
       </div>
       <div className="flex flex-row w-full items-center justify-center mt-20">

@@ -113,6 +113,7 @@ export default function TeamRegisterForm(props: Props) {
             value={teamName}
             onChange={(e) => setTeamName(e.target.value)}
             disabled={isSubmitting}
+            required
           />
         </LabelInputContainer>
 
@@ -132,6 +133,7 @@ export default function TeamRegisterForm(props: Props) {
                   handleInputChange(index, "firstName", e.target.value)
                 }
                 disabled={isSubmitting}
+                required
               />
             </LabelInputContainer>
             <LabelInputContainer>
@@ -145,6 +147,7 @@ export default function TeamRegisterForm(props: Props) {
                   handleInputChange(index, "lastName", e.target.value)
                 }
                 disabled={isSubmitting}
+                required
               />
             </LabelInputContainer>
             <LabelInputContainer>
@@ -158,6 +161,7 @@ export default function TeamRegisterForm(props: Props) {
                   handleInputChange(index, "email", e.target.value)
                 }
                 disabled={isSubmitting}
+                required
               />
             </LabelInputContainer>
             <LabelInputContainer>
@@ -173,6 +177,7 @@ export default function TeamRegisterForm(props: Props) {
                   handleInputChange(index, "registrationNumber", e.target.value)
                 }
                 disabled={isSubmitting}
+                required
               />
             </LabelInputContainer>
             <LabelInputContainer>
@@ -186,6 +191,7 @@ export default function TeamRegisterForm(props: Props) {
                   handleInputChange(index, "department", e.target.value)
                 }
                 disabled={isSubmitting}
+                required
               />
             </LabelInputContainer>
           </div>

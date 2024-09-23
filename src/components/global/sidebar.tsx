@@ -48,11 +48,23 @@ const SidebarButton = ({ menuItems }: Props) => {
                   </p>
                   <p className="text-xs text-white leading-none text-muted-foreground">
                     {item.description}
-                  </p>
+                  </p>                
                 </Link>
               </DropdownMenuItem>
             </div>
           ))}
+          <DropdownMenuSeparator className="text-black bg-black" />
+          <DropdownMenuItem asChild>
+            <Link href="/alexaverse" className="flex flex-col space-y-1">
+              <p className="text-sm font-bold leading-none">
+                <span className="text-yellow-500">Alexa</span>
+                <span className="text-red-500">Verse</span>
+              </p>
+              <p className="text-xs text-white leading-none text-muted-foreground">
+                Flagship event
+              </p>
+            </Link>
+          </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

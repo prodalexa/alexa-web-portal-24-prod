@@ -64,10 +64,10 @@ const Tickets = async ({}: Props) => {
         width={360}
         alt="Hero Separator"
         objectPosition="center"
-        className="-mt-8 px-5 mb-10"
+        className="-mt-8 px-5 mb-3"
       />
-      <div className="w-full flex text-white justify-center font-bold text-5xl md:text-7xl items-center mb-3 ">
-        {/* Title could go here if needed */}
+      <div className="w-full flex text-white tracking-wider justify-center font-bold text-lg items-center mb-3 ">
+        Click on the tickets to register
       </div>
 
       <div className="flex flex-col gap-6">
@@ -80,7 +80,7 @@ const Tickets = async ({}: Props) => {
               {/* <div className="absolute  h-full w-full bg-gradient-to-r from-[#31B553] to-[#0AA294] transform scale-[0.80] rounded-full blur-3xl" /> */}
               <CardBody className="relative border-none bg-transparent inset-0 z-40 w-auto sm:w-[30rem] h-auto rounded-xl  shadow-2xl">
                 <CardItem translateZ="90" className="w-full">
-                  <Link href={`/alexaverse/register/${ticket.slug}`}>
+                  <Link href={ticket.registrationUrl}>
                     <Image
                       src={ticket.ticket}
                       alt={ticket.title}

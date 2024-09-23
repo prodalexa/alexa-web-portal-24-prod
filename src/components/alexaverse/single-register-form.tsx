@@ -78,22 +78,24 @@ export default function SingleRegisterForm(props: Props) {
             <Label htmlFor="firstname">First name</Label>
             <Input
               id="firstname"
-              placeholder="Lord"
+              placeholder="John"
               type="text"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               disabled={isSubmitting}
+              required
             />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Last name</Label>
             <Input
               id="lastname"
-              placeholder="Harsh"
+              placeholder="Doe"
               type="text"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               disabled={isSubmitting}
+              required
             />
           </LabelInputContainer>
         </div>
@@ -106,6 +108,7 @@ export default function SingleRegisterForm(props: Props) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={isSubmitting}
+            required
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
@@ -117,6 +120,7 @@ export default function SingleRegisterForm(props: Props) {
             value={registrationNumber}
             onChange={(e) => setRegistrationNumber(e.target.value)}
             disabled={isSubmitting}
+            required
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-8">
@@ -128,6 +132,7 @@ export default function SingleRegisterForm(props: Props) {
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
             disabled={isSubmitting}
+            required
           />
         </LabelInputContainer>
 

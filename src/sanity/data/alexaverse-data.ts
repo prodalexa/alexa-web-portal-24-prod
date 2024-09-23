@@ -4,7 +4,7 @@ import { AlexaVerse } from "../schemas/alexaverse-schema";
 
 export const getAllTickets = async (): Promise<AlexaVerse[]> => {
   return await client.fetch(
-    groq`*[_type == "alexaverse"]{
+    groq`*[_type == "alexaverse"] | order(order) {
                 title,
                 "slug": slug.current,
                 "ticket": ticket.asset->url,
