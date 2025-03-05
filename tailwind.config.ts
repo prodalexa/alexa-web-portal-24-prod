@@ -61,7 +61,7 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         hack_bg: "#142E2F",
-        hack_button: "#F6632D",
+        hack_orange: "#F6632D",
       },
       borderRadius: {
         lg: "var(--radius)",

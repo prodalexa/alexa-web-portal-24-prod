@@ -2,8 +2,9 @@ import Navbar from "@/components/hackathon/Navbar";
 import Banner from "@/components/hackathon/Banner";
 import About from "@/components/hackathon/About";
 import Tracks from "@/components/hackathon/Tracks";
-import Timeline from "@/components/hackathon/Timeline";
+import Details from "@/components/hackathon/Details";
 import Footer from "@/components/hackathon/Footer";
+import TeamDetails from "@/components/hackathon/TeamDetails";
 
 export default function Hackathon() {
   return (
@@ -12,7 +13,8 @@ export default function Hackathon() {
       <Banner />
       <About />
       <Tracks />
-      <Timeline />
+      <Details />
+      <TeamDetails />
       <Footer />
     </div>
   )

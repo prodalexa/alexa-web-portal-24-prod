@@ -1,50 +1,56 @@
 "use client";
 
-const Prizes = () => {
-  const prizes = [
+const Tracks = () => {
+  const tracks = [
     {
-      title: "First Prize",
-      amount: "₹50,000",
-      description: "Cash prize + Exciting goodies",
+      title: "FINTECH",
     },
     {
-      title: "Second Prize",
-      amount: "₹30,000",
-      description: "Cash prize + Developer tools",
+      title: "OPEN INNOVATION",
     },
     {
-      title: "Third Prize",
-      amount: "₹20,000",
-      description: "Cash prize + Swag kit",
+      title: "BLOCKCHAIN",
+    },
+    {
+      title: "AI/ML",
     },
   ];
 
   return (
-    <section id="tracks" className="py-20 md:py-28 relative overflow-hidden">
-      <div className="container px-4 mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-          Tracks
+    <section id="tracks" className="py-8 md:py-28 relative overflow-hidden px-4 md:px-0">
+      <div className="container mx-auto relative">
+        <h2 className="text-3xl md:text-6xl font-bold text-white mb-8 md:mb-16 text-center">
+          TRACKS
         </h2>
-        <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-          Win big with our amazing prize pool worth ₹1,00,000
-        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {prizes.map((prize, index) => (
-            <div className="p-8 bg-black rounded-xl text-center">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                {prize.title}
-              </h3>
-              <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#31B553] to-[#0AA294] mb-4">
-                {prize.amount}
+        <div className="relative flex items-center justify-center">
+          {/* Top-left black rectangle */}
+          <div className="absolute top-0 left-0 w-[60px] md:w-[120px] h-[12px] md:h-[20px] bg-black transform -translate-y-[15px] translate-x-[90px] md:translate-x-[170px] rounded-t-lg" />
+          
+          {/* Left black rectangle */}
+          <div className="absolute left-0 w-[50vw] h-10 md:h-16 bg-black transform -translate-x-[calc(50vw-50%)]" />
+          <div className="flex flex-wrap justify-center gap-4 md:gap-12 bg-black py-3 px-3 md:px-12 rounded-3xl max-w-6xl mx-auto relative z-10">
+            {tracks.map((track, index) => (
+              <div key={index} className="relative group">
+                <div className="w-[120px] h-[120px] md:w-56 md:h-56 rounded-full bg-hack_orange flex items-center justify-center transition-transform duration-300 transform relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-1/5 h-1/5 bg-[#CC3D00] rounded-bl-[70%]"></div>
+                  <h3 className="text-base md:text-2xl font-bold text-white text-center px-3 relative z-10">
+                    {track.title}
+                  </h3>
+                </div>
               </div>
-              <p className="text-gray-400">{prize.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Right black rectangle */}
+          <div className="absolute right-0 w-[50vw] h-12 md:h-16 bg-black transform translate-x-[calc(50vw-50%)]" />
+          
+          {/* Bottom-right black rectangle */}
+          <div className="absolute bottom-0 right-0 w-[240px] md:w-[320px] h-[15px] md:h-[20px] bg-black transform translate-y-[20px] -translate-x-[100px] md:-translate-x-[140px] rounded-b-lg" />
         </div>
       </div>
     </section>
   );
 };
 
-export default Prizes;
+export default Tracks;
