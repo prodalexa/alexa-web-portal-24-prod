@@ -1,6 +1,4 @@
 "use client";
-import Image from "next/image";
-import MobileNav from "./MobileNav";
 
 const Banner = () => {
   return (

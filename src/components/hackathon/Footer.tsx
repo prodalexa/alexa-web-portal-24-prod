@@ -65,11 +65,11 @@ const Footer = () => {
                   <div className="flex">
                     <Image
                       src={link.icon}
-                      width={24}
-                      height={24}
+                      width={35}
+                      height={35}
                       alt={link.name}
                     />
-                    <p className="pl-4 text-lg text-white">@alexadevsrm</p>
+                    <p className="pl-4 text-xl text-white">@alexadevsrm</p>
                   </div>
                 </Link>
               ))}
