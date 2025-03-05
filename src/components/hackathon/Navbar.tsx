@@ -1,13 +1,11 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="flex flex-col md:flex-row md:justify-between md:items-center h-[80px] px-5 md:px-10 mt-4 py-5 bg-hack_bg w-full">
-      <div className="flex items-start justify-start md:items-center mb-4 mt-4 md:mb-0">
+    <nav className="flex flex-col md:flex-row md:justify-between md:items-center h-[80px] px-5 md:px-10 mt-2 pt-5 bg-hack_bg w-full">
+      <div className="flex items-start justify-start md:items-center my-4 md:mb-0">
         <Image
           src="/hacktrax/AlexaLogo.png"
           alt="Alexa Developers SRM"

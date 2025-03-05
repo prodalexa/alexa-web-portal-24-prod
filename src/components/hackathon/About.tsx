@@ -1,52 +1,26 @@
 "use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import React from "react";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 md:py-28 relative overflow-hidden">
-      <div className="container px-4 mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="w-full md:w-1/2"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              About the Hackathon
-            </h2>
-            <p className="text-gray-300 text-lg mb-8">
-              Join us for an exciting 36-hour hackathon where innovation meets technology. 
-              Whether you're a seasoned developer or just starting out, this is your chance 
-              to showcase your skills, learn from peers, and create something amazing.
-            </p>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg">
-                <h3 className="text-xl font-bold text-white mb-2">36 Hours</h3>
-                <p className="text-gray-400">Non-stop coding and innovation</p>
-              </div>
-              <div className="p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg">
-                <h3 className="text-xl font-bold text-white mb-2">₹1,00,000</h3>
-                <p className="text-gray-400">Worth of prizes to be won</p>
-              </div>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="w-full md:w-1/2"
-          >
-            <div className="relative h-[400px] w-full">
-              <Image
-                src="/hackathon/about-image.jpg"
-                alt="Hackathon Environment"
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
-          </motion.div>
+    <section className="flex flex-col items-center justify-center px-5 text-white pt-16 bg-hack_bg">
+      <div className="flex flex-row items-center justify-center relative w-full max-w-screen">
+        <div className="relative w-[400px] flex flex-col items-center">
+          <div className="w-[400px] h-24 bg-[#FF4D00]"></div>
+          <div className="flex items-center justify-center bg-[#D9D9D9] rounded-full w-[250px] h-[250px] absolute top-[-85px] z-10">
+            <span className="text-black text-[140px] font-bold font-custom">24</span>
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center text-[90px] font-bold tracking-wider z-10 mx-32 font-custom">
+          <span className="leading-[1.1]">M</span>
+          <span className="leading-[1.1]">A</span>
+          <span className="leading-[1.1]">R</span>
+        </div>
+        <div className="relative w-[400px] flex flex-col items-center">
+          <div className="w-[400px] h-24 bg-[#FF4D00]"></div>
+          <div className="flex items-center justify-center bg-[#D9D9D9] rounded-full w-[250px] h-[250px] absolute top-[-85px] z-10">
+            <span className="text-black text-[140px] font-bold font-custom">25</span>
+          </div>
         </div>
       </div>
     </section>

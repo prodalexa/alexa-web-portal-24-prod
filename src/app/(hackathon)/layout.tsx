@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
-// import { Inter as FontSans } from "next/font/google"
 import { Nunito as FontSans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import "./globals.css";
+import localFont from "next/font/local";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
+});
+
+const customFont = localFont({
+  src: "./KeaniaOne-Regular.ttf",
+  variable: "--font-custom"
 });
 
 export const metadata: Metadata = {
@@ -29,7 +34,8 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen h-full bg-hack_bg font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
+          customFont.className
         )}
       >
         {children}
