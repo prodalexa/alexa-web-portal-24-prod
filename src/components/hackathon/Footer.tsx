@@ -53,7 +53,7 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center justify-center space-x-6">
-            <div className="grid space-y-8">
+            <div className="grid space-y-8 font-monsterrat">
               {socialLinks.map((link, index) => (
                 <Link
                   key={index}

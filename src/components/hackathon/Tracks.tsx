@@ -19,7 +19,7 @@ const Tracks = () => {
   return (
     <section id="tracks" className="py-8 md:py-32 relative overflow-hidden">
       <div className="container mx-auto relative px-4 md:px-0">
-        <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 md:mb-20 text-center">
+        <h2 className="text-4xl md:text-6xl text-white mb-8 md:mb-20 text-center font-sairaStencilOne">
           TRACKS
         </h2>
 
@@ -34,7 +34,7 @@ const Tracks = () => {
               <div key={index} className="relative group">
                 <div className="w-[80px] h-[80px] md:w-[180px] md:h-[180px] rounded-full bg-hack_orange flex items-center justify-center relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-1/4 h-1/4 bg-[#CC3D00] rounded-bl-[100%]"></div>
-                  <h3 className="text-xs md:text-2xl font-bold text-white text-center px-2 md:px-4 relative z-10">
+                  <h3 className="text-xs md:text-2xl text-white text-center px-2 md:px-4 relative z-10 font-sairaStencilOne">
                     {track.title}
                   </h3>
                 </div>

@@ -8,18 +8,18 @@ const About = () => {
         <div className="relative w-[150px] md:w-[400px] flex flex-col items-center">
           <div className="w-full md:w-[400px] h-8 md:h-24 bg-hack_orange"></div>
           <div className="flex items-center justify-center bg-[#CED2D1] rounded-full w-[100px] h-[100px] md:w-[250px] md:h-[250px] absolute top-[-35px] md:top-[-85px] z-10">
-            <span className="text-black text-[60px] md:text-[140px] font-bold font-custom">24</span>
+            <span className="text-black text-[60px] md:text-[140px] font-bold font-keniaOne">24</span>
           </div>
         </div>
-        <div className="grid md:flex-col items-center justify-center text-[30px] md:text-[90px] font-bold tracking-wider z-10 mx-2 md:mx-32 font-custom">
+        <div className="grid md:flex-col items-center justify-center text-[30px] md:text-[90px] font-bold tracking-wider z-10 mx-2 md:mx-32 font-keniaOne">
           <span className="leading-[1.1]">M</span>
-          <span className="leading-[1.1]">A</span>
-          <span className="leading-[1.1]">R</span>
+          <span className="leading-[1.1] pl-1 md:pl-4">A</span>
+          <span className="leading-[1.1] pl-1 md:pl-4">R</span>
         </div>
         <div className="relative w-[150px] md:w-[400px] flex flex-col items-center">
           <div className="w-full md:w-[400px] h-8 md:h-24 bg-hack_orange"></div>
           <div className="flex items-center justify-center bg-[#CED2D1] rounded-full w-[100px] h-[100px] md:w-[250px] md:h-[250px] absolute top-[-35px] md:top-[-85px] z-10">
-            <span className="text-black text-[60px] md:text-[140px] font-bold font-custom">25</span>
+            <span className="text-black text-[60px] md:text-[140px] font-bold font-keniaOne">25</span>
           </div>
         </div>
       </div>

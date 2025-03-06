@@ -4,8 +4,8 @@ import React from "react";
 const TeamDetails = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-4 md:px-8 mt-16 md:mt-32 bg-hack_bg">
-      <h1 className="text-white text-4xl md:text-6xl font-bold mb-8 md:mb-12 text-center">TEAM DETAILS</h1>
-      <form className="w-full space-y-6 md:space-y-8">
+      <h1 className="text-white text-4xl md:text-6xl mb-8 md:mb-12 text-center font-sairaStencilOne">TEAM DETAILS</h1>
+      <form className="w-full space-y-6 md:space-y-8 font-monsterrat">
         <div className="grid justify-center w-full">
           <label className="text-hack_orange text-lg md:text-xl mb-2 block">Team Name*</label>
           <input
@@ -111,7 +111,7 @@ const TeamDetails = () => {
                 />
               </div>
               <div>
-                <h2 className="text-hack_orange text-xl">Phone Number*</h2>
+                <h2 className="text-hack_orange text-xl">Phone Number</h2>
                 <div className="flex w-full bg-white rounded-lg">
                   <span className="p-4 text-black border-r border-black">+91</span>
                   <input

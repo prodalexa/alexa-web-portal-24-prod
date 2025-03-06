@@ -22,7 +22,7 @@ const Navbar = () => {
           <li className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 w-full md:w-auto">
             <a
               href="#"
-              className="text-white text-xl md:text-2xl whitespace-nowrap hover:text-gray-300 transition-colors"
+              className="text-white text-xl md:text-2xl whitespace-nowrap hover:text-gray-300 transition-colors font-monsterrat"
             >
               Home
             </a>

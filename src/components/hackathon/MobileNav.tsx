@@ -14,7 +14,7 @@ const MobileNav = () => {
     <div className="md:hidden">
       <button
         onClick={toggleMenu}
-        className="fixed top-4 right-4 z-[60] p-2 text-white focus:outline-none"
+        className="fixed top-12 right-4 z-[60] px-2 py-0.5 text-white focus:outline-none"
       >
         <div className="w-6 h-5 flex flex-col justify-between">
           <span
@@ -30,7 +30,7 @@ const MobileNav = () => {
       </button>
       {isOpen && (
         <div className="fixed inset-0 bg-hack_orange z-[50] overflow-hidden">
-          <div className="flex flex-col items-center justify-center h-full w-full py-10 px-4">
+          <div className="flex flex-col items-center justify-center h-full w-full py-10 px-4 font-monsterrat">
             <div className="flex flex-col items-center justify-center space-y-12 text-white text-2xl font-bold text-center w-full">
               <Link
                 href="/"
