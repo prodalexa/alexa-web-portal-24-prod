@@ -36,6 +36,9 @@ const config = {
         monsterrat: [
           'var(--font-monsterrat)'
         ],
+        valorant: [
+          'var(--font-carrynClutchLogo)'
+        ]
       },
       colors: {
         border: "hsl(var(--border))",

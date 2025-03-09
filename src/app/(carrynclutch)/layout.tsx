@@ -4,6 +4,18 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import "./globals.css";
+import localFont from "next/font/local";
+
+const myFont = localFont({
+  src: [
+    {
+      path: "./valorant.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-carrynClutchLogo",
+});
 
 const sariaStencilOne = Saira_Stencil_One({
   weight: "400",
@@ -44,6 +56,7 @@ export default function RootLayout({
           keniaOne.variable,
           sariaStencilOne.variable,
           montserrat.variable,
+          myFont.variable,
         )}
       >
         {children}
