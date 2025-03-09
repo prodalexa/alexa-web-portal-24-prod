@@ -24,7 +24,18 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        sans: [
+          "var(--font-sans)", ...fontFamily.sans
+        ],
+        sairaStencilOne: [
+          'var(--font-sariaStencilOne)'
+        ],
+        keniaOne: [
+          'var(--font-keniaOne)'
+        ],
+        monsterrat: [
+          'var(--font-monsterrat)'
+        ],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -60,6 +71,11 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        hack_bg: "#142E2F",
+        hack_orange: "#F6632D",
+        gaming_bg: "#20103D",
+        gaming_button_bg: "#FF4656",
+        gaming_form_bg: "#49248A",
       },
       borderRadius: {
         lg: "var(--radius)",
