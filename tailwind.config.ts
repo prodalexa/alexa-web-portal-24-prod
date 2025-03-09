@@ -73,6 +73,9 @@ const config = {
         },
         hack_bg: "#142E2F",
         hack_orange: "#F6632D",
+        gaming_bg: "#20103D",
+        gaming_button_bg: "#FF4656",
+        gaming_form_bg: "#49248A",
       },
       borderRadius: {
         lg: "var(--radius)",
