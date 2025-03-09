@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import localFont from "next/font/local";
 
-const myFont = localFont({
+const valorant = localFont({
   src: [
     {
       path: "./valorant.ttf",
@@ -14,7 +14,18 @@ const myFont = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-carrynClutchLogo",
+  variable: "--font-valorant",
+});
+
+const ncsRadhiumz = localFont({
+  src: [
+    {
+      path: "./NCSRadhiumz.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-ncsRadhiumz",
 });
 
 const sariaStencilOne = Saira_Stencil_One({
@@ -36,8 +47,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Welcome | ADS!",
-  description: "Created with ♥️ by the ADS team.",
+  title: "Carry N Clutch | ADS!",
+  description: "Clutch Moments, Lasting Glory",
   icons: {
     icon: "/icon.png",
   },
@@ -56,7 +67,8 @@ export default function RootLayout({
           keniaOne.variable,
           sariaStencilOne.variable,
           montserrat.variable,
-          myFont.variable,
+          valorant.variable,
+          ncsRadhiumz.variable,
         )}
       >
         {children}

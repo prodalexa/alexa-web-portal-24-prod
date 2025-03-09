@@ -24,8 +24,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Welcome | ADS!",
-  description: "Created with ♥️ by the ADS team.",
+  title: "Hacktrax | ADS!",
+  description: "The Ultimate Coding Grand Prix",
   icons: {
     icon: "/icon.png",
   },

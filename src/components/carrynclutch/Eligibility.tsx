@@ -4,8 +4,8 @@ import React from "react";
 
 const Eligibility = () => {
   return (
-    <div className="w-screen h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="flex flex-col items-center justify-center relative z-10 w-full max-w-6xl mx-auto px-4 space-y-16 pointer-events-none select-none">
+    <div className="w-screen h-screen flex items-center justify-center relative overflow-hidden -mt-72 md:mt-0">
+      <div className="flex flex-col items-center justify-center relative z-10 w-full max-w-6xl mx-auto px-4 space-y-8 pointer-events-none select-none">
         <Image
           src="/carrynclutch/Eligibility.png"
           alt="Eligibility"

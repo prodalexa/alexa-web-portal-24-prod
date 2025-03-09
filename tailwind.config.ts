@@ -37,7 +37,10 @@ const config = {
           'var(--font-monsterrat)'
         ],
         valorant: [
-          'var(--font-carrynClutchLogo)'
+          'var(--font-valorant)'
+        ],
+        NCS: [
+          'var(--font-ncsRadhiumz)'
         ]
       },
       colors: {
@@ -79,6 +82,7 @@ const config = {
         gaming_bg: "#20103D",
         gaming_button_bg: "#FF4656",
         gaming_form_bg: "#49248A",
+        gaming_mobile_bg: "#E200FF",
       },
       borderRadius: {
         lg: "var(--radius)",
