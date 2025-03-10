@@ -21,13 +21,13 @@ const Navbar = () => {
         <ul className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 list-none w-full md:w-auto">
           <li className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 w-full md:w-auto">
             <a
-              href="#"
+              href="/"
               className="text-white text-xl md:text-2xl whitespace-nowrap hover:text-gray-300 transition-colors font-bold font-monsterrat"
             >
               Home
             </a>
             <a
-              href="#hacktrax"
+              href="/hacktrax"
               className="flex items-center hover:opacity-80 transition-opacity"
             >
               <Image
@@ -39,7 +39,7 @@ const Navbar = () => {
               />
             </a>
             <a
-              href="#carrynclutch"
+              href="/carrynclutch"
               className="flex items-center hover:opacity-80 transition-opacity"
             >
               <Image

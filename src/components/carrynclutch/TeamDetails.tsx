@@ -125,17 +125,17 @@ const TeamDetails = () => {
   }
 
   return (
-    <div className="relative w-screen min-h-screen flex flex-col overflow-hidden">
-      <div className="relative h-[50vh] flex items-center justify-center">
+    <div className="relative w-screen md:min-h-screen flex flex-col overflow-hidden -mt-72 md:mt-0">
+      <div className="relative h-[25vh] md:h-[50vh] flex items-center justify-center">
         <Image
           src="/carrynclutch/Border.png"
           alt="Border"
           width={1920}
           height={1080}
-          className="absolute w-[50%] h-[120%] object-contain pointer-events-none"
+          className="absolute w-[75%] md:w-[50%] h-[120%] object-contain pointer-events-none"
           priority
         />
-        <h1 className="relative z-10 text-white text-4xl md:text-6xl font-bold text-center font-monsterrat tracking-wider px-16">
+        <h1 className="relative z-10 text-white text-4xl md:text-6xl font-valorant text-center font-monsterrat tracking-wider px-16">
           TEAM DETAILS
         </h1>
       </div>

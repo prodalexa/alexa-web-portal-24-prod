@@ -40,7 +40,7 @@ const MobileNav = () => {
                 HOME
               </Link>
               <Link
-                href="#hacktrax"
+                href="/hacktrax"
                 className="hover:text-gray-200 transition-colors w-full flex justify-center"
                 onClick={toggleMenu}
               >
@@ -53,7 +53,7 @@ const MobileNav = () => {
                 />
               </Link>
               <Link
-                href="#carrynclutch"
+                href="/carrynclutch"
                 className="hover:text-gray-200 transition-colors w-full flex justify-center"
                 onClick={toggleMenu}
               >

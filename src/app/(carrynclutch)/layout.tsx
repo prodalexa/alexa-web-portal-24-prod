@@ -4,6 +4,29 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import "./globals.css";
+import localFont from "next/font/local";
+
+const valorant = localFont({
+  src: [
+    {
+      path: "./valorant.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-valorant",
+});
+
+const ncsRadhiumz = localFont({
+  src: [
+    {
+      path: "./NCSRadhiumz.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-ncsRadhiumz",
+});
 
 const sariaStencilOne = Saira_Stencil_One({
   weight: "400",
@@ -24,8 +47,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Welcome | ADS!",
-  description: "Created with ♥️ by the ADS team.",
+  title: "Carry N Clutch | ADS!",
+  description: "Clutch Moments, Lasting Glory",
   icons: {
     icon: "/icon.png",
   },
@@ -44,6 +67,8 @@ export default function RootLayout({
           keniaOne.variable,
           sariaStencilOne.variable,
           montserrat.variable,
+          valorant.variable,
+          ncsRadhiumz.variable,
         )}
       >
         {children}
