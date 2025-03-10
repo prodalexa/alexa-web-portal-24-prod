@@ -6,6 +6,7 @@ import Rules from "@/components/carrynclutch/Rules";
 import Eligibility from "@/components/carrynclutch/Eligibility";
 import TeamDetails from "@/components/carrynclutch/TeamDetails";
 import Footer from "@/components/carrynclutch/Footer";
+import ComingSoon from "@/components/carrynclutch/ComingSoon";
 
 export default function CarrynClutch() {
   return (
@@ -18,7 +19,8 @@ export default function CarrynClutch() {
       <Prize />
       <Rules />
       <Eligibility />
-      <TeamDetails />
+      <ComingSoon />
+      {/* <TeamDetails /> */}
       <Footer />
     </div>
   );

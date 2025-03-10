@@ -10,7 +10,7 @@ const Footer = () => {
           src="/carrynclutch/Contact_Us.png"
           alt="Contact Us"
           fill
-          className="object-contain pt-72 md:pt-0 md:object-cover"
+          className="pt-72 md:pt-0 x-20"
           priority
         />
       </div>

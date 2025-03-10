@@ -5,6 +5,7 @@ import Tracks from "@/components/hacktrax/Tracks";
 import Details from "@/components/hacktrax/Details";
 import Footer from "@/components/hacktrax/Footer";
 import TeamDetails from "@/components/hacktrax/TeamDetails";
+import ComingSoon from "@/components/hacktrax/ComingSoon";
 
 export default function Hackathon() {
   return (
@@ -14,7 +15,8 @@ export default function Hackathon() {
       <About />
       <Tracks />
       <Details />
-      <TeamDetails />
+      {/* <TeamDetails /> */}
+      <ComingSoon />
       <Footer />
     </div>
   )
