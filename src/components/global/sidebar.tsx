@@ -62,9 +62,9 @@ const SidebarButton = ({ menuItems }: Props) => {
           ))}
           <DropdownMenuSeparator className="text-black bg-black" />
           <DropdownMenuItem asChild>
-            <Link href="/apply" className="flex flex-col space-y-1">
+            <Link href="/hacktrax" className="flex flex-col space-y-1">
               <button className="px-8 py-2 rounded-full bg-gradient-to-b from-[#31B553] to-[#0AA294] text-white focus:ring-2 focus:ring-blue-400 hover:shadow-xl transition duration-200">
-                Apply Now
+                Hacktrax
               </button>
             </Link>
           </DropdownMenuItem>
