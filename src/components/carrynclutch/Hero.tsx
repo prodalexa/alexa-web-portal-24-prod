@@ -32,7 +32,7 @@ const HeroSection = () => {
       <div className="absolute right-4 md:right-8 top-auto md:top-8 -rotate-90 origin-right whitespace-nowrap font-valorant text-lg md:text-xl lg:text-2xl font-monsterrat text-white font-bold tracking-widest z-10">
         VALORANT GAMING EVENT //
       </div>
-      <div className="absolute bottom-0 md:-bottom-12 w-full text-[14vw] md:text-[15vw] bg-gradient-to-b from-transparent via-[#20103D]/80 to-[#20103D] font-bold text-white font-monsterrat leading-none tracking-widest pointer-events-none select-none pl-4">
+      <div className="absolute bottom-0 md:-bottom-12 w-full text-[14vw] md:text-[15vw] bg-gradient-to-b from-transparent via-[#20103D]/80 to-[#20103D] font-bold text-white leading-none tracking-widest pointer-events-none select-none pl-4">
         <div className="bg-gradient-to-b from-white/40 via-white/15 to-transparent font-valorant bg-clip-text text-transparent">
           VALORANT
         </div>

@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
-// Timer component with improved responsiveness
 const CountdownTimer = ({ targetDate }: {
     targetDate: Date;
 }) => {
@@ -28,17 +27,13 @@ const CountdownTimer = ({ targetDate }: {
             }
         };
 
-        // Calculate initial time
         calculateTimeRemaining();
 
-        // Update every second
         const timer = setInterval(calculateTimeRemaining, 1000);
 
-        // Cleanup interval on unmount
         return () => clearInterval(timer);
     }, [targetDate]);
 
-    // Format numbers to always have two digits
     const formatNumber = (num: number) => {
         return num.toString().padStart(2, '0');
     };
@@ -51,7 +46,7 @@ const CountdownTimer = ({ targetDate }: {
     ];
 
     return (
-        <div className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 w-full max-w-lg mx-auto">
+        <div className="grid grid-cols-4 mt-8 md:mt-0 gap-2 sm:gap-4 md:gap-6 w-full max-w-lg mx-auto">
             {timeUnits.map((unit) => (
                 <div key={unit.label} className="flex flex-col items-center">
                     <div className="bg-gaming_form_bg border border-white/30 rounded-lg w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center text-white text-base sm:text-xl md:text-2xl font-bold">

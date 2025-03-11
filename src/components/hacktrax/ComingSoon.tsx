@@ -71,7 +71,7 @@ const ComingSoon = () => {
     targetDate.setDate(targetDate.getDate());
 
     return (
-        <div className="relative w-screen md:min-h-screen flex flex-col overflow-hidden -mt-72 md:mt-0">
+        <div className="relative w-screen md:min-h-screen flex flex-col overflow-hidden mt-8 md:mt-0">
             <div className="relative h-[25vh] md:h-[50vh] flex items-center justify-center">
                 <Image
                     src="/carrynclutch/Border.png"
