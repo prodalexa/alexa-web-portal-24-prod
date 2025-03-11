@@ -78,6 +78,7 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         hack_bg: "#142E2F",
+        hack_white: "#CED2D1",
         hack_orange: "#F6632D",
         gaming_bg: "#20103D",
         gaming_button_bg: "#FF4656",

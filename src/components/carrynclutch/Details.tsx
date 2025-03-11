@@ -4,7 +4,7 @@ import React from "react";
 
 const Details = () => {
   return (
-    <div className="w-screen h-screen flex items-center justify-center -mt-56 -mb-96 md:mb-0 md:mt-0 relative overflow-hidden">
+    <div className="w-screen h-screen flex items-center justify-center -mt-48 -mb-96 md:mb-0 md:mt-0 relative overflow-hidden">
       <div className="flex flex-col items-center justify-between relative z-10 w-full px-2 md:px-4 pointer-events-none select-none md:gap-4">
         <div className="w-full flex justify-start md:-mb-16 pl-2 md:pl-4">
           <Image
