@@ -27,7 +27,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-center gap-8">
           <div className="flex justify-center">
             <Image
-              src="/hacktrax/AlexaLogo.png"
+              src="/hacktrax/AlexaLogo.svg"
               width={300}
               height={150}
               alt="Alexa Developers SRM"

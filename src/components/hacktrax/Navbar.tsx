@@ -8,7 +8,7 @@ const Navbar = () => {
     <nav className="flex flex-col md:flex-row md:justify-between md:items-center min-h-[80px] px-5 md:px-10 mt-2 pt-5 bg-hack_bg w-full relative overflow-x-hidden">
       <div className="flex items-start justify-between md:items-center my-4 md:mb-0 w-full md:w-auto">
         <Image
-          src="/hacktrax/AlexaLogo.png"
+          src="/hacktrax/AlexaLogo.svg"
           alt="Alexa Developers SRM"
           height={300}
           width={300}

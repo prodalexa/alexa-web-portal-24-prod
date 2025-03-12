@@ -71,10 +71,10 @@ const ComingSoon = () => {
     targetDate.setDate(targetDate.getDate());
 
     return (
-        <div className="relative w-screen md:min-h-screen flex flex-col overflow-hidden -mt-72 md:mt-0">
+        <div id="registration-form" className="relative w-screen md:min-h-screen flex flex-col overflow-hidden mt-8 md:mt-0">
             <div className="relative h-[25vh] md:h-[50vh] flex items-center justify-center">
                 <Image
-                    src="/carrynclutch/Border.png"
+                    src="/carrynclutch/Border.svg"
                     alt="Border"
                     width={1920}
                     height={1080}
@@ -92,12 +92,11 @@ const ComingSoon = () => {
                         Registration Opens Soon
                     </h2>
                     <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto font-monsterrat">
-                        Stay tuned for our upcoming tournament. Get ready for an epic gaming experience!
+                        Stay tuned for our upcoming hackathon. Get ready for an epic coding Grand Prix!
                     </p>
                 </div>
 
                 <div className="w-full max-w-md space-y-8 font-monsterrat mb-12">
-                    {/* Dynamic countdown timer */}
                     <CountdownTimer targetDate={targetDate} />
                 </div>
             </div>
