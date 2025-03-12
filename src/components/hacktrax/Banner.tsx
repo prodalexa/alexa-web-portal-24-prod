@@ -2,7 +2,7 @@
 
 const Banner = () => {
   const handleRegisterClick = () => {
-    const formSection = document.getElementById('registration-form');
+    const formSection = document.getElementById('register');
     if (formSection) {
       formSection.scrollIntoView({ behavior: 'smooth' });
     }
