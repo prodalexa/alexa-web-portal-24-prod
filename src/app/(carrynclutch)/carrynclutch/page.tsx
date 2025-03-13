@@ -25,7 +25,7 @@ export default function CarrynClutch() {
       <Prize />
       <Rules />
       <Eligibility onEligibilityChange={setEligibilityType} />
-      <TeamDetails eligibilityType={eligibilityType} />
+      {/* <TeamDetails eligibilityType={eligibilityType} /> */}
       {/* <ComingSoon /> */}
       <Footer />
     </div>
