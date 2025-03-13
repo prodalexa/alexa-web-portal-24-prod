@@ -12,17 +12,21 @@ function SubmitButton({ eligibilityType }: SubmitButtonProps) {
   
   // Define registration links based on eligibility type
   const registrationLinks = {
-    SRM: "#", // Replace with actual SRM registration link
-    NON_SRM: "#" // Replace with actual Non-SRM registration link
+    SRM: "https://rzp.io/rzp/carrynclutchsrm", 
+    NON_SRM: "https://rzp.io/rzp/carrynclutchnonsrm"
   };
 
   return (
-    <div className="flex justify-center w-full">
-      <a href={registrationLinks[eligibilityType]} target="_blank" rel="noopener noreferrer">
+    <div id="register" className="flex justify-center font-monsterrat md:mt-8 mt-4 w-full relative z-40">
+      <a href={registrationLinks[eligibilityType]} target="_blank" rel="noopener noreferrer" 
+         className="w-full max-w-md mx-4 md:mx-0 relative z-40">
         <button
           type="button"
           disabled={pending}
-          className="bg-gradient-to-r from-[#460156] to-[#9902BC] text-white font-bold py-4 px-12 text-lg rounded-xl hover:bg-opacity-90 transition-opacity border-4 border-white inline-flex items-center"
+          className="w-full bg-gradient-to-r from-[#460156] to-[#9902BC] text-white font-bold py-4 px-12 text-lg rounded-xl 
+                     hover:bg-opacity-90 active:scale-95 transition-all duration-200 border-4 border-white 
+                     inline-flex items-center justify-center cursor-pointer select-none"
+          style={{ touchAction: "manipulation" }}
         >
           <span>{pending ? "Processing..." : "Pay & Register"}</span>
           <Image

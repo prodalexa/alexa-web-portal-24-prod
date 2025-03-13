@@ -8,7 +8,7 @@ function SubmitButton() {
   const registrationLink = "https://rzp.io/rzp/adshacktrax";
 
   return (
-    <div className="flex justify-center w-full">
+    <div id="register" className="flex justify-center w-full">
       <a href={registrationLink} target="_blank" rel="noopener noreferrer">
         <button
           type="button"
