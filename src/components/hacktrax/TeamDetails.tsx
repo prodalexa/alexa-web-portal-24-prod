@@ -5,7 +5,7 @@ import { useFormStatus } from "react-dom";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
-  const registrationLink = "https://rzp.io/rzp/alexadevhack";
+  const registrationLink = "https://forms.gle/uFk3QThhkbMTRv3x8";
 
   return (
     <div id="register" className="flex justify-center w-full">
