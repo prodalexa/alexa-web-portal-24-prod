@@ -52,7 +52,7 @@ const MobileNav = () => {
                   className="w-[250px] md:w-[300px]"
                 />
               </Link>
-              <Link
+              {/* <Link
                 href="/carrynclutch"
                 className="hover:text-gray-200 transition-colors w-full flex justify-center"
                 onClick={toggleMenu}
@@ -64,7 +64,7 @@ const MobileNav = () => {
                   alt="Alexa Developers SRM"
                   className="w-[250px] md:w-[300px]"
                 />
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

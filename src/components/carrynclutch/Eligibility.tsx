@@ -12,8 +12,8 @@ const Eligibility: React.FC<EligibilityProps> = ({ onEligibilityChange }) => {
   const [selectedType, setSelectedType] = useState<EligibilityType>("SRM");
 
   const registrationLinks = {
-    SRM: "https://rzp.io/rzp/carrynclutchsrm",
-    NON_SRM: "https://rzp.io/rzp/carrynclutchnonsrm"
+    SRM: "",
+    NON_SRM: ""
   };
 
   const handleTypeSelect = (type: EligibilityType) => {
@@ -44,7 +44,6 @@ const Eligibility: React.FC<EligibilityProps> = ({ onEligibilityChange }) => {
         <div className="flex flex-col md:flex-row md:gap-64 mt-4 md:mt-8 font-valorant space-y-4 md:space-y-0 z-40 relative">
           <a
             href={registrationLinks.SRM}
-            target="_blank"
             rel="noopener noreferrer"
             onClick={() => handleTypeSelect("SRM")}
             className={`px-6 md:px-8 py-2 md:py-3 text-lg md:text-xl rounded-lg transition-all duration-300 ${
@@ -58,7 +57,6 @@ const Eligibility: React.FC<EligibilityProps> = ({ onEligibilityChange }) => {
           </a>
           <a
             href={registrationLinks.NON_SRM}
-            target="_blank"
             rel="noopener noreferrer"
             onClick={() => handleTypeSelect("NON_SRM")}
             className={`px-6 md:px-8 py-2 md:py-3 text-lg md:text-xl rounded-lg transition-all duration-300 ${
