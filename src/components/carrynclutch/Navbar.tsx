@@ -38,7 +38,7 @@ const Navbar = () => {
                 className="w-[140px] sm:w-[160px] md:w-[140px]"
               />
             </a>
-            {/* <a
+            <a
               href="/carrynclutch"
               className="flex items-center hover:opacity-80 transition-opacity"
             >
@@ -49,7 +49,7 @@ const Navbar = () => {
                 width={200}
                 className="w-[140px] sm:w-[160px] md:w-[140px]"
               />
-            </a> */}
+            </a>
           </li>
         </ul>
       </div>
