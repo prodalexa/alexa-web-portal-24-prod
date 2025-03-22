@@ -5,17 +5,17 @@ import { useFormStatus } from "react-dom";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
-  const registrationLink = "https://forms.gle/uFk3QThhkbMTRv3x8";
+  const registrationLink = "";
 
   return (
     <div id="register" className="flex justify-center w-full">
-      <a href={registrationLink} target="_blank" rel="noopener noreferrer">
+      <a href={registrationLink} rel="noopener noreferrer">
         <button
           type="button"
           disabled={pending}
           className="bg-hack_orange font-monsterrat text-white font-bold py-4 px-12 text-lg rounded-xl hover:bg-opacity-90 transition-opacity inline-flex items-center"
         >
-          <span>{pending ? "Processing..." : "Pay & Register"}</span>
+          <span>{pending ? "Processing..." : "Registrations Closed"}</span>
           <Image
             src="/carrynclutch/Chevron_Right.png"
             alt="Chevron Right"

@@ -18,7 +18,7 @@ const Banner = () => {
           onClick={handleRegisterClick}
           className="bg-hack_orange rounded-full font-sairaStencilOne text-white text-2xl md:text-5xl flex justify-center items-center px-4 md:px-6 py-3 md:py-4 transform hover:scale-105 transition-transform duration-200"
         >
-          REGISTER
+          REGISTRATIONS CLOSED
         </button>
       </div>
     </div>

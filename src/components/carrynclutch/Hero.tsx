@@ -26,7 +26,7 @@ const HeroSection = () => {
           onClick={handleRegisterClick}
           className="bg-gaming_button_bg px-6 sm:px-8 py-2 sm:py-3 text-sm md:text-3xl text-white font-valorant hover:opacity-90 border-2 border-white transition-opacity"
         >
-          REGISTER
+          EVENT IS CANCELLED. <br/> STAY TUNED FOR MORE DETAILS.
         </button>
       </div>
       <div className="absolute right-4 md:right-8 top-auto md:top-8 -rotate-90 origin-right whitespace-nowrap font-valorant text-lg md:text-xl lg:text-2xl font-monsterrat text-white font-bold tracking-widest z-10">
