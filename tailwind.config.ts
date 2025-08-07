@@ -24,9 +24,14 @@ const config = {
     },
     extend: {
       fontFamily: {
+        audiowide: ["'Audiowide'", ...fontFamily.sans],
+        nunito: ['var(--font-nunito)'],
         sans: [
           "var(--font-sans)", ...fontFamily.sans
         ],
+        space: ["var(--font-spaceGrotesk)"],
+        anton: ["var(--font-anton)"],
+        inter: ["var(--font-inter)"],
         sairaStencilOne: [
           'var(--font-sariaStencilOne)'
         ],
