@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
-const RegisterWorkshop: React.FC = () => {
+const RegisterDebug: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -15,13 +15,11 @@ const RegisterWorkshop: React.FC = () => {
 
   return (
     <>
-      
       <nav
         className="absolute left-1/2 transform -translate-x-1/2 z-10 w-full max-w-[1500px] px-6"
         style={{ top: "25px" }}
       >
         <div className="flex justify-between items-center h-[74px]">
-          
           <img
             src="/alexaverse2.0/alexa-logo-navbar.svg"
             alt="Alexa Logo"
@@ -49,7 +47,6 @@ const RegisterWorkshop: React.FC = () => {
             </a>
           </div>
 
-          {/* Hamburger Menu */}
           <button
             className="md:hidden text-white text-4xl"
             onClick={() => setMobileMenuOpen(true)}
@@ -62,7 +59,6 @@ const RegisterWorkshop: React.FC = () => {
 
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-gradient-to-br from-[#511e5b] via-[#1A052A] to-[#030645] z-50 flex flex-col justify-between items-center">
-          
           <button
             className="absolute top-6 right-6 text-white text-4xl"
             onClick={() => setMobileMenuOpen(false)}
@@ -95,7 +91,6 @@ const RegisterWorkshop: React.FC = () => {
             </a>
           </div>
 
-          {/* Footer */}
           <p className="text-center text-[14px] sm:text-xl font-nunito text-white font-semibold px-4 whitespace-nowrap mb-6">
             Designed and Developed by{" "}
             <span className="bg-gradient-to-r from-[#C5126C] via-[#7942FF] to-[#CAFB12] bg-clip-text text-transparent font-bold">
@@ -106,7 +101,7 @@ const RegisterWorkshop: React.FC = () => {
       )}
 
       <section
-        id="register-workshop"
+        id="register-debug"
         className="w-full min-h-screen text-white flex flex-col items-center justify-center px-4 py-16
       bg-gradient-to-br
       from-[#030645]
@@ -114,7 +109,6 @@ const RegisterWorkshop: React.FC = () => {
       to-[#511e5b]"
       >
         <div className="relative max-w-[85rem] w-[90vw] h-[40vw] min-h-[120px] mt-10 mb-10" style={{ left: '-5vw' }}>
-          
           <div
             className="absolute top-[7.2vw] left-[15.6vw] w-[68.4vw] h-[18vw] rounded-[2.1vw] border-[0.06vw] backdrop-blur-[5vw] bg-[linear-gradient(122.72deg,rgba(115,115,115,0.25)_1.74%,rgba(50,50,50,0.25)_1.75%,rgba(163,163,163,0.25)_33.05%,rgba(112,112,112,0.25)_97.16%)]"
             style={{
@@ -126,16 +120,13 @@ const RegisterWorkshop: React.FC = () => {
               <span className="text-[1.08vw] min-text-[12px] font-space">VENUE</span>
               <span className="text-[1.08vw] min-text-[12px] font-space">TIME</span>
               <span className="text-[1.08vw] min-text-[12px] font-space">DATE</span>
-              <span className="text-[1.08vw] min-text-[12px] font-space">ENTRY</span>
             </div>
             <div className="absolute top-[3vw] left-[19.8vw] right-[2.4vw] flex justify-between text-white">
               <div className="flex flex-col">
-                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">TP GANESAN</span>
-                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">AUDITORIUM</span>
+                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">MINI HALL 2</span>
               </div>
               <div className="text-[1.44vw] min-text-[16px] font-space font-bold">8:00 AM - 5:00 PM</div>
-              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">DD-MM-YYYY</div>
-              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">250.0 RS</div>
+              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">05-09-2025</div>
             </div>
           </div>
           <div
@@ -215,85 +206,91 @@ const RegisterWorkshop: React.FC = () => {
         </h2>
 
         <form className="w-full max-w-3xl space-y-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            
-            <div>
-              <label
-                htmlFor="name"
-                className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
-              >
-                Name<span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                id="name"
-                required
-                pattern="^[a-zA-Z\s]+$"
-                title="Only letters and spaces allowed"
-                placeholder="Name"
-                className="w-full px-4 py-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-[var(--font-moul)] placeholder-gray-500 text-black bg-white"
-              />
-            </div>
+          {[1, 2, 3, 4, 5].map((studentNum) => (
+            <div key={studentNum} className="space-y-6">
+              <h3 className="text-xl sm:text-2xl font-audiowide text-center text-purple-300">
+                Student {studentNum}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div>
+                  <label
+                    htmlFor={`name-${studentNum}`}
+                    className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
+                  >
+                    Name{studentNum <= 3 ? <span className="text-red-500">*</span> : null}
+                  </label>
+                  <input
+                    type="text"
+                    id={`name-${studentNum}`}
+                    required={studentNum <= 3}
+                    pattern="^[a-zA-Z\s]+$"
+                    title="Only letters and spaces allowed"
+                    placeholder="Name"
+                    className="w-full px-4 py-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-[var(--font-moul)] placeholder-gray-500 text-black bg-white"
+                  />
+                </div>
 
-            <div>
-              <label
-                htmlFor="regno"
-                className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
-              >
-                Register Number<span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                id="regno"
-                required
-                pattern="^RA\\d{13}$"
-                placeholder="RAXXXXXXXXXXXXX"
-                title="Must start with RA followed by 13 digits"
-                className="w-full px-4 py-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-[var(--font-moul)] placeholder-gray-500 text-black bg-white"
-              />
-            </div>
+                <div>
+                  <label
+                    htmlFor={`regno-${studentNum}`}
+                    className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
+                  >
+                    Register Number{studentNum <= 3 ? <span className="text-red-500">*</span> : null}
+                  </label>
+                  <input
+                    type="text"
+                    id={`regno-${studentNum}`}
+                    required={studentNum <= 3}
+                    pattern="^RA\\d{13}$"
+                    placeholder="RAXXXXXXXXXXXXX"
+                    title="Must start with RA followed by 13 digits"
+                    className="w-full px-4 py-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-[var(--font-moul)] placeholder-gray-500 text-black bg-white"
+                  />
+                </div>
 
-            <div>
-              <label
-                htmlFor="phone"
-                className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
-              >
-                Phone Number<span className="text-red-500">*</span>
-              </label>
-              <div className="w-full flex items-center border border-gray-400 rounded bg-white focus-within:ring-2 focus-within:ring-purple-500 overflow-hidden">
-                <span className="px-3 text-black text-sm font-[var(--font-moul)] border-r border-gray-400 bg-gray-100">
-                  +91&nbsp;
-                </span>
-                <input
-                  type="tel"
-                  id="phone"
-                  required
-                  pattern="^[0-9]{10}$"
-                  placeholder="012 345 6789"
-                  title="Enter a valid 10-digit phone number"
-                  className="flex-1 px-3 py-2 text-black placeholder-gray-500 bg-white focus:outline-none font-[var(--font-moul)]"
-                />
+                <div>
+                  <label
+                    htmlFor={`phone-${studentNum}`}
+                    className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
+                  >
+                    Phone Number{studentNum <= 3 ? <span className="text-red-500">*</span> : null}
+                  </label>
+                  <div className="w-full flex items-center border border-gray-400 rounded bg-white focus-within:ring-2 focus-within:ring-purple-500 overflow-hidden">
+                    <span className="px-3 text-black text-sm font-[var(--font-moul)] border-r border-gray-400 bg-gray-100">
+                      +91&nbsp;
+                    </span>
+                    <input
+                      type="tel"
+                      id={`phone-${studentNum}`}
+                      required={studentNum <= 3}
+                      pattern="^[0-9]{10}$"
+                      placeholder="012 345 6789"
+                      title="Enter a valid 10-digit phone number"
+                      className="flex-1 px-3 py-2 text-black placeholder-gray-500 bg-white focus:outline-none font-[var(--font-moul)]"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor={`email-${studentNum}`}
+                    className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
+                  >
+                    SRMIST Email{studentNum <= 3 ? <span className="text-red-500">*</span> : null}
+                  </label>
+                  <input
+                    type="email"
+                    id={`email-${studentNum}`}
+                    required={studentNum <= 3}
+                    pattern="^[a-zA-Z0-9._%+-]+@srmist\\.edu\\.in$"
+                    placeholder="xyz@srmist.edu.in"
+                    title="Email must be an SRMIST ID ending with @srmist.edu.in"
+                    className="w-full px-4 py-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-[var(--font-moul)] placeholder-gray-500 text-black bg-white"
+                  />
+                </div>
               </div>
             </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
-              >
-                SRMIST Email<span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                required
-                pattern="^[a-zA-Z0-9._%+-]+@srmist\\.edu\\.in$"
-                placeholder="xyz@srmist.edu.in"
-                title="Email must be an SRMIST ID ending with @srmist.edu.in"
-                className="w-full px-4 py-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-[var(--font-moul)] placeholder-gray-500 text-black bg-white"
-              />
-            </div>
-          </div>
+          ))}
 
           <button
             type="submit"
@@ -312,4 +309,4 @@ const RegisterWorkshop: React.FC = () => {
   );
 };
 
-export default RegisterWorkshop;
+export default RegisterDebug;

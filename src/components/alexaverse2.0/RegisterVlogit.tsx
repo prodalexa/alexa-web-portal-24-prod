@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
-const RegisterWorkshop: React.FC = () => {
+const RegisterVlogit: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -103,7 +103,7 @@ const RegisterWorkshop: React.FC = () => {
       )}
 
       <section
-        id="register-workshop"
+        id="register-vlogit"
         className="w-full min-h-screen text-white flex flex-col items-center justify-center px-4 py-16
       bg-gradient-to-br
       from-[#030645]
@@ -119,20 +119,20 @@ const RegisterWorkshop: React.FC = () => {
               borderImageSlice: 1,
             }}
           >
-            <div className="absolute top-[1.2vw] left-[19.8vw] right-[2.4vw] flex justify-between text-white">
+            <div className="absolute top-[1.2vw] left-[19.8vw] right-[6.4vw] flex justify-between text-white">
               <span className="text-[1.08vw] min-text-[12px] font-space">VENUE</span>
               <span className="text-[1.08vw] min-text-[12px] font-space">TIME</span>
               <span className="text-[1.08vw] min-text-[12px] font-space">DATE</span>
-              <span className="text-[1.08vw] min-text-[12px] font-space">ENTRY</span>
+              
             </div>
             <div className="absolute top-[3vw] left-[19.8vw] right-[2.4vw] flex justify-between text-white">
               <div className="flex flex-col">
-                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">TP GANESAN</span>
-                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">AUDITORIUM</span>
+                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">MINI HALL 2</span>
+                
               </div>
               <div className="text-[1.44vw] min-text-[16px] font-space font-bold">8:00 AM - 5:00 PM</div>
-              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">DD-MM-YYYY</div>
-              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">250.0 RS</div>
+              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">03-09-2025 - 05-09-2025</div>
+              
             </div>
           </div>
           <div
@@ -309,4 +309,4 @@ const RegisterWorkshop: React.FC = () => {
   );
 };
 
-export default RegisterWorkshop;
+export default RegisterVlogit;

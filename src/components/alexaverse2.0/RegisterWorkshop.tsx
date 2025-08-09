@@ -123,16 +123,16 @@ const RegisterWorkshop: React.FC = () => {
               <span className="text-[1.08vw] min-text-[12px] font-space">VENUE</span>
               <span className="text-[1.08vw] min-text-[12px] font-space">TIME</span>
               <span className="text-[1.08vw] min-text-[12px] font-space">DATE</span>
-              <span className="text-[1.08vw] min-text-[12px] font-space">ENTRY</span>
+              
             </div>
             <div className="absolute top-[3vw] left-[19.8vw] right-[2.4vw] flex justify-between text-white">
               <div className="flex flex-col">
-                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">TP GANESAN</span>
-                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">AUDITORIUM</span>
+                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">MINI HALL 2</span>
+                
               </div>
               <div className="text-[1.44vw] min-text-[16px] font-space font-bold">8:00 AM - 5:00 PM</div>
-              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">DD-MM-YYYY</div>
-              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">250.0 RS</div>
+              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">04-09-2025</div>
+              
             </div>
           </div>
           <div

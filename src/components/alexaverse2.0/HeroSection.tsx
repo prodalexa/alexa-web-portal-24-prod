@@ -122,23 +122,25 @@ const HeroSection: React.FC = () => {
       )}
 
       
-      <div
-        className="relative w-fit mx-auto"
-        style={{
-          filter: "drop-shadow(30px 0px 60px rgba(0, 0, 0, 2))",
-        }}
-      >
-        <img
-          src="/alexaverse2.0/poster-flyout.svg"
-          alt="Hero"
-          className="block w-[99.95vw] h-auto"
-          style={{
-            position: "relative",
-            display: "block",
-            marginBottom: "0",
-          }}
-        />
-      </div>
+<div
+  className="relative h-screen overflow-hidden flex justify-center items-center"
+  style={{
+    filter: "drop-shadow(30px 0px 60px rgba(0, 0, 0, 2))",
+  }}
+>
+  <img
+    src="/alexaverse2.0/poster-flyout.svg"
+    alt="Hero"
+    className="
+      h-full w-auto object-contain                
+      translate-x-[10px] translate-y-[-40%] scale-[1.6]      
+      md:h-full md:w-auto md:object-cover md:scale-150 md:translate-x-0 md:translate-y-0
+    "
+    style={{
+      objectPosition: "center bottom",
+    }}
+  />
+</div>
     </section>
   );
 };
