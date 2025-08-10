@@ -24,9 +24,15 @@ const config = {
     },
     extend: {
       fontFamily: {
+        audiowide: ["'Audiowide'", ...fontFamily.sans],
+        nunito: ['var(--font-nunito)'],
         sans: [
           "var(--font-sans)", ...fontFamily.sans
         ],
+        space: ["var(--font-spaceGrotesk)"],
+        moul: ["var(--font-moul)"],
+        anton: ["var(--font-anton)"],
+        inter: ["var(--font-inter)"],
         sairaStencilOne: [
           'var(--font-sariaStencilOne)'
         ],
@@ -84,6 +90,7 @@ const config = {
         gaming_button_bg: "#FF4656",
         gaming_form_bg: "#49248A",
         gaming_mobile_bg: "#E200FF",
+        dark_bg: "#130025",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -13,7 +13,7 @@ export const getAllEvents = async (): Promise<Event[]> => {
   );
 }
 
-export const getEventBySlug = async (slug: string): Promise<Event> => {
+export const getEventBySlug = async (slug: string): Promise<Event | any> => {
   return await client.fetch(
     groq`*[_type == "event" && slug.current == $slug][0]{
                 title,

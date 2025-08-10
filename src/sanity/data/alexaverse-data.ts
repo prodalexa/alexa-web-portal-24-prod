@@ -1,28 +1,27 @@
-import { groq } from "next-sanity";
+import groq from "groq";
 import { client } from "../client";
 import { AlexaVerse } from "../schemas/alexaverse-schema";
 
 export const getAllTickets = async (): Promise<AlexaVerse[]> => {
   return await client.fetch(
     groq`*[_type == "alexaverse"] | order(order) {
-                title,
-                "slug": slug.current,
-                "ticket": ticket.asset->url,
-                registrationUrl,
-                }`
+      title,
+      "slug": slug.current,
+      "ticket": ticket.asset->url,
+      registrationUrl,
+    }`
   );
 };
 
-export const getTicketBySlug = async (slug: string): Promise<AlexaVerse> => {
+export const getTicketBySlug = async (slug: string): Promise<AlexaVerse | any> => {
   return await client.fetch(
     groq`*[_type == "alexaverse" && slug.current == $slug][0]{
-                title,
-                "slug": slug.current,
-                "ticket": ticket.asset->url,
-                registrationClosed,
-                minParticipants,
-                maxParticipants
-                }`,
-    { slug }
+      title,
+      "slug": slug.current,
+      "ticket": ticket.asset->url,
+      registrationClosed,
+      minParticipants,
+      maxParticipants
+    }`
   );
 };
