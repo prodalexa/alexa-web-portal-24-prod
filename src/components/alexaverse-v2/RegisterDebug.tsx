@@ -28,13 +28,13 @@ const RegisterDebug: React.FC = () => {
 
           <div className="hidden md:flex gap-[32px] items-center">
             <a
-              href="/alexaverse2.0#home"
+              href="/"
               className="text-white font-audiowide text-[32px] hover:text-purple-300 transition-colors"
             >
               Home
             </a>
             <a
-              href="/alexaverse2.0#events"
+              href="/alexaverse-v2#events"
               className="text-white font-audiowide text-[32px] hover:text-purple-300 transition-colors"
             >
               Events
@@ -69,14 +69,14 @@ const RegisterDebug: React.FC = () => {
 
           <div className="flex-grow flex flex-col items-center justify-center gap-10 mt-20">
             <a
-              href="/alexaverse2.0#home"
+              href="/"
               onClick={() => setMobileMenuOpen(false)}
               className="text-white font-audiowide text-4xl hover:text-purple-300 transition"
             >
               HOME
             </a>
             <a
-              href="/alexaverse2.0#events"
+              href="/alexaverse-v2#events"
               onClick={() => setMobileMenuOpen(false)}
               className="text-white font-audiowide text-4xl hover:text-purple-300 transition"
             >
@@ -102,11 +102,7 @@ const RegisterDebug: React.FC = () => {
 
       <section
         id="register-debug"
-        className="w-full min-h-screen text-white flex flex-col items-center justify-center px-4 py-16
-      bg-gradient-to-br
-      from-[#030645]
-      via-[#1A052A]
-      to-[#511e5b]"
+        className="w-full min-h-screen text-white flex flex-col items-center justify-center px-4 py-16"
       >
         <div className="relative max-w-[85rem] w-[90vw] h-[40vw] min-h-[120px] mt-10 mb-10" style={{ left: '-5vw' }}>
           <div
@@ -205,7 +201,7 @@ const RegisterDebug: React.FC = () => {
           Registration Form
         </h2>
 
-        <form className="w-full max-w-3xl space-y-8">
+        <form className="w-full max-w-6xl space-y-8">
           {[1, 2, 3, 4, 5].map((studentNum) => (
             <div key={studentNum} className="space-y-6">
               <h3 className="text-xl sm:text-2xl font-audiowide text-center text-purple-300">
@@ -215,7 +211,7 @@ const RegisterDebug: React.FC = () => {
                 <div>
                   <label
                     htmlFor={`name-${studentNum}`}
-                    className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
+                    className="block mb-2 font-moul text-white"
                   >
                     Name{studentNum <= 3 ? <span className="text-red-500">*</span> : null}
                   </label>
@@ -226,14 +222,14 @@ const RegisterDebug: React.FC = () => {
                     pattern="^[a-zA-Z\s]+$"
                     title="Only letters and spaces allowed"
                     placeholder="Name"
-                    className="w-full px-4 py-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-[var(--font-moul)] placeholder-gray-500 text-black bg-white"
+                    className="w-full px-4 py-4 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-inter placeholder-gray-500 text-black bg-white"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor={`regno-${studentNum}`}
-                    className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
+                    className="block mb-2 font-moul text-white"
                   >
                     Register Number{studentNum <= 3 ? <span className="text-red-500">*</span> : null}
                   </label>
@@ -244,19 +240,19 @@ const RegisterDebug: React.FC = () => {
                     pattern="^RA\\d{13}$"
                     placeholder="RAXXXXXXXXXXXXX"
                     title="Must start with RA followed by 13 digits"
-                    className="w-full px-4 py-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-[var(--font-moul)] placeholder-gray-500 text-black bg-white"
+                    className="w-full px-4 py-4 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-inter placeholder-gray-500 text-black bg-white"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor={`phone-${studentNum}`}
-                    className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
+                    className="block mb-2 font-moul text-white"
                   >
                     Phone Number{studentNum <= 3 ? <span className="text-red-500">*</span> : null}
                   </label>
                   <div className="w-full flex items-center border border-gray-400 rounded bg-white focus-within:ring-2 focus-within:ring-purple-500 overflow-hidden">
-                    <span className="px-3 text-black text-sm font-[var(--font-moul)] border-r border-gray-400 bg-gray-100">
+                    <span className="px-3 text-black text-md font-inter border-r border-gray-400">
                       +91&nbsp;
                     </span>
                     <input
@@ -266,7 +262,7 @@ const RegisterDebug: React.FC = () => {
                       pattern="^[0-9]{10}$"
                       placeholder="012 345 6789"
                       title="Enter a valid 10-digit phone number"
-                      className="flex-1 px-3 py-2 text-black placeholder-gray-500 bg-white focus:outline-none font-[var(--font-moul)]"
+                      className="flex-1 px-3 py-4 text-black placeholder-gray-500 bg-white focus:outline-none font-inter"
                     />
                   </div>
                 </div>
@@ -274,7 +270,7 @@ const RegisterDebug: React.FC = () => {
                 <div>
                   <label
                     htmlFor={`email-${studentNum}`}
-                    className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
+                    className="block mb-2 font-moul text-white"
                   >
                     SRMIST Email{studentNum <= 3 ? <span className="text-red-500">*</span> : null}
                   </label>
@@ -285,7 +281,7 @@ const RegisterDebug: React.FC = () => {
                     pattern="^[a-zA-Z0-9._%+-]+@srmist\\.edu\\.in$"
                     placeholder="xyz@srmist.edu.in"
                     title="Email must be an SRMIST ID ending with @srmist.edu.in"
-                    className="w-full px-4 py-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-[var(--font-moul)] placeholder-gray-500 text-black bg-white"
+                    className="w-full px-4 py-4 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-inter placeholder-gray-500 text-black bg-white"
                   />
                 </div>
               </div>
@@ -294,7 +290,7 @@ const RegisterDebug: React.FC = () => {
 
           <button
             type="submit"
-            className="mx-auto px-20 py-6 bg-[#130025] border-2 border-white rounded-[50px] text-white font-[var(--font-roboto)] text-2xl flex items-center justify-center gap-4 hover:bg-[#2b0a47] transition duration-300"
+            className="mx-auto px-20 py-6 bg-[#130025] border-2 border-white rounded-[50px] text-white font-monsterrat text-2xl flex items-center justify-center gap-4 hover:bg-[#2b0a47] transition duration-300"
           >
             Register
             <img

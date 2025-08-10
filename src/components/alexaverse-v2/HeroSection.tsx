@@ -45,19 +45,19 @@ const HeroSection: React.FC = () => {
           <div className="hidden md:flex gap-[32px] items-center">
             <a
               href="#home"
-              className="text-white font-audiowide text-[32px] leading-[100%] hover:text-purple-300 transition-colors"
+              className="text-white font-audiowide text-[24px] leading-[100%] hover:text-purple-300 transition-colors"
             >
               Home
             </a>
             <a
               href="#events"
-              className="text-white font-audiowide text-[32px] leading-[100%] hover:text-purple-300 transition-colors"
+              className="text-white font-audiowide text-[24px] leading-[100%] hover:text-purple-300 transition-colors"
             >
               Events
             </a>
             <a
               href="#contact"
-              className="text-white font-audiowide text-[32px] leading-[100%] hover:text-purple-300 transition-colors"
+              className="text-white font-audiowide text-[24px] leading-[100%] hover:text-purple-300 transition-colors"
             >
               Contact Us
             </a>
@@ -114,7 +114,7 @@ const HeroSection: React.FC = () => {
           {/* Footer */}
           <p className="text-center text-[14px] sm:text-xl font-nunito text-white font-semibold px-4 whitespace-nowrap mb-6">
             Designed and Developed by{" "}
-            <span className="bg-gradient-to-r from-[#C5126C] via-[#7942FF] to-[#CAFB12] bg-clip-text text-transparent font-bold">
+            <span className="bg-gradient-to-r from-[#C5126C] via-[#7942FF] to-[#306EF9] bg-clip-text text-transparent font-bold">
               Alexa Developers SRM.
             </span>
           </p>

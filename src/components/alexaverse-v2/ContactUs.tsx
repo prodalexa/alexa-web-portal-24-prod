@@ -39,11 +39,7 @@ const ContactUs: React.FC = () => {
   return (
     <section
       id="contact"
-      className="w-full min-h-screen text-white flex flex-col items-center justify-center px-4 py-16
-      bg-gradient-to-br
-      from-[#511e5b]
-      via-[#1A052A]
-      to-[#030645]"
+      className="w-full min-h-screen text-white flex flex-col items-center justify-center px-4 py-16"
     >
       {/* 🖼️ Alexa Logo for Mobile */}
       <img
@@ -59,7 +55,6 @@ const ContactUs: React.FC = () => {
 
       {/* Social Icons Section */}
       <div className="w-full max-w-[1600px] px-4">
-        {/* Desktop view with logo in center */}
         <div className="hidden sm:flex justify-center items-center gap-[6rem] flex-wrap mb-12">
          
           {socialIcons.slice(0, 3).map((icon, index) => (
@@ -137,7 +132,7 @@ const ContactUs: React.FC = () => {
       {/* Footer */}
       <p className="text-center text-[14px] sm:text-xl font-nunito text-white font-semibold mt-6 whitespace-nowrap">
         Designed and Developed by{" "}
-        <span className="bg-gradient-to-r from-[#C5126C] via-[#7942FF] to-[#CAFB12] bg-clip-text text-transparent font-bold">
+        <span className="bg-gradient-to-r from-[#C5126C] via-[#7942FF] to-[#306EF9] bg-clip-text text-transparent font-bold">
           Alexa Developers SRM.
         </span>
       </p>

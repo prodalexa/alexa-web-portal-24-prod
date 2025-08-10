@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
-const RegisterWorkshop: React.FC = () => {
+const RegisterVlogit: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -29,13 +29,13 @@ const RegisterWorkshop: React.FC = () => {
 
           <div className="hidden md:flex gap-[32px] items-center">
             <a
-              href="/alexaverse2.0#home"
+              href="/"
               className="text-white font-audiowide text-[32px] hover:text-purple-300 transition-colors"
             >
               Home
             </a>
             <a
-              href="/alexaverse2.0#events"
+              href="/alexaverse-v2#events"
               className="text-white font-audiowide text-[32px] hover:text-purple-300 transition-colors"
             >
               Events
@@ -60,7 +60,7 @@ const RegisterWorkshop: React.FC = () => {
 
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-gradient-to-br from-[#511e5b] via-[#1A052A] to-[#030645] z-50 flex flex-col justify-between items-center">
-          
+          {/* ❌ Close Button */}
           <button
             className="absolute top-6 right-6 text-white text-4xl"
             onClick={() => setMobileMenuOpen(false)}
@@ -71,14 +71,14 @@ const RegisterWorkshop: React.FC = () => {
 
           <div className="flex-grow flex flex-col items-center justify-center gap-10 mt-20">
             <a
-              href="/alexaverse2.0#home"
+              href="/"
               onClick={() => setMobileMenuOpen(false)}
               className="text-white font-audiowide text-4xl hover:text-purple-300 transition"
             >
               HOME
             </a>
             <a
-              href="/alexaverse2.0#events"
+              href="/alexaverse-v2#events"
               onClick={() => setMobileMenuOpen(false)}
               className="text-white font-audiowide text-4xl hover:text-purple-300 transition"
             >
@@ -103,12 +103,8 @@ const RegisterWorkshop: React.FC = () => {
       )}
 
       <section
-        id="register-workshop"
-        className="w-full min-h-screen text-white flex flex-col items-center justify-center px-4 py-16
-      bg-gradient-to-br
-      from-[#030645]
-      via-[#1A052A]
-      to-[#511e5b]"
+        id="register-vlogit"
+        className="w-full min-h-screen text-white flex flex-col items-center justify-center px-4 py-16"
       >
         <div className="relative max-w-[85rem] w-[90vw] h-[40vw] min-h-[120px] mt-10 mb-10" style={{ left: '-5vw' }}>
           
@@ -119,7 +115,7 @@ const RegisterWorkshop: React.FC = () => {
               borderImageSlice: 1,
             }}
           >
-            <div className="absolute top-[1.2vw] left-[19.8vw] right-[2.4vw] flex justify-between text-white">
+            <div className="absolute top-[1.2vw] left-[19.8vw] right-[6.4vw] flex justify-between text-white">
               <span className="text-[1.08vw] min-text-[12px] font-space">VENUE</span>
               <span className="text-[1.08vw] min-text-[12px] font-space">TIME</span>
               <span className="text-[1.08vw] min-text-[12px] font-space">DATE</span>
@@ -131,7 +127,7 @@ const RegisterWorkshop: React.FC = () => {
                 
               </div>
               <div className="text-[1.44vw] min-text-[16px] font-space font-bold">8:00 AM - 5:00 PM</div>
-              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">04-09-2025</div>
+              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">03-09-2025 - 05-09-2025</div>
               
             </div>
           </div>
@@ -144,17 +140,17 @@ const RegisterWorkshop: React.FC = () => {
           >
             <div className="absolute left-[25.2vw] top-[1.8vw]">
               <h1 className="text-white text-[1.08vw] min-text-[12px] font-space mb-[-0.6vw]">EVENT</h1>
-              <h2 className="text-white text-[2.52vw] min-text-[24px] font-anton">WORKSHOP</h2>
+              <h2 className="text-white text-[2.52vw] min-text-[24px] font-anton">VLOG IT</h2>
             </div>
             <div className="absolute right-[3.6vw] top-[3.6vw] text-right">
               <p className="text-white text-[1.32vw] min-text-[14px] font-inter">
-                Wisdom and Wonder: Tune in to learn from the best!
+                Record and Roll: Capture the Essence of Alexaverse!
               </p>
             </div>
           </div>
           <img
-            src="/alexaverse2.0/workshop-img.svg"
-            alt="Workshop Image"
+            src="/alexaverse2.0/vlogit-img.svg"
+            alt="Vlogit Image"
             className="absolute top-[4.8vw] left-[-14.4vw] w-[76.8vw] h-[19.8vw] object-contain rounded-[2.1vw]"
           />
           <div
@@ -183,13 +179,13 @@ const RegisterWorkshop: React.FC = () => {
           <div
             className="absolute top-[22.2vw] left-[37.2vw] w-[48vw] h-[2.52vw] rounded-[3.12vw] border-[0.1vw] border-white backdrop-blur-[5vw]"
             style={{
-              background: 'linear-gradient(to right, black 40%, transparent 40%)'
+              background: 'linear-gradient(to right, black 60%, transparent 20%)'
             }}
           >
             <div
               className="absolute top-1/2 -translate-y-1/2 w-[5.04vw] h-[3.12vw] rounded-[3.12vw] border-[0.06vw] border-white backdrop-blur-[5vw] bg-white"
               style={{
-                left: '40%',
+                left: '60%',
                 transform: 'translate(-50%, -50%)'
               }}
             ></div>
@@ -201,22 +197,23 @@ const RegisterWorkshop: React.FC = () => {
             }}
           >
             <p className="text-white text-center font-inter text-[1.08vw] min-text-[14px] leading-tight">
-              An immersive journey led by two distinct speakers, delivering the most valuable insights from the ever-evolving realm of Generative AI.
+              Eager to flex your filmmaking skills? Capture the chaos, edit it clean, and deliver a masterpiece that makes us say &apos;Absolute Cinema&apos; to win big!
             </p>
           </div>
         </div>
 
+        {/* 🔖 Heading */}
         <h2 className="text-2xl sm:text-4xl font-audiowide mb-10 text-center whitespace-nowrap">
           Registration Form
         </h2>
 
-        <form className="w-full max-w-3xl space-y-8">
+        <form className="w-full max-w-6xl space-y-8 font-moul">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           
             <div>
               <label
                 htmlFor="name"
-                className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
+                className="block mb-2 font-moul text-white"
               >
                 Name<span className="text-red-500">*</span>
               </label>
@@ -227,14 +224,14 @@ const RegisterWorkshop: React.FC = () => {
                 pattern="^[a-zA-Z\s]+$"
                 title="Only letters and spaces allowed"
                 placeholder="Name"
-                className="w-full px-4 py-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-[var(--font-moul)] placeholder-gray-500 text-black bg-white"
+                className="w-full px-4 py-4 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-inter placeholder-gray-500 text-black bg-white"
               />
             </div>
 
             <div>
               <label
                 htmlFor="regno"
-                className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
+                className="block mb-2 font-moul text-white"
               >
                 Register Number<span className="text-red-500">*</span>
               </label>
@@ -242,22 +239,22 @@ const RegisterWorkshop: React.FC = () => {
                 type="text"
                 id="regno"
                 required
-                pattern="^RA\\d{13}$"
+                pattern="^(?i)RA\d{13}$"
                 placeholder="RAXXXXXXXXXXXXX"
                 title="Must start with RA followed by 13 digits"
-                className="w-full px-4 py-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-[var(--font-moul)] placeholder-gray-500 text-black bg-white"
+                className="w-full px-4 py-4 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-inter placeholder-gray-500 text-black bg-white"
               />
             </div>
 
             <div>
               <label
                 htmlFor="phone"
-                className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
+                className="block mb-2 font-moul text-white"
               >
                 Phone Number<span className="text-red-500">*</span>
               </label>
               <div className="w-full flex items-center border border-gray-400 rounded bg-white focus-within:ring-2 focus-within:ring-purple-500 overflow-hidden">
-                <span className="px-3 text-black text-sm font-[var(--font-moul)] border-r border-gray-400 bg-gray-100">
+                <span className="px-3 text-black text-md font-inter border-r border-gray-400">
                   +91&nbsp;
                 </span>
                 <input
@@ -267,7 +264,7 @@ const RegisterWorkshop: React.FC = () => {
                   pattern="^[0-9]{10}$"
                   placeholder="012 345 6789"
                   title="Enter a valid 10-digit phone number"
-                  className="flex-1 px-3 py-2 text-black placeholder-gray-500 bg-white focus:outline-none font-[var(--font-moul)]"
+                  className="flex-1 px-3 py-4 text-black placeholder-gray-500 bg-white focus:outline-none font-inter"
                 />
               </div>
             </div>
@@ -275,7 +272,7 @@ const RegisterWorkshop: React.FC = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block mb-2 font-semibold font-[var(--font-moul)] text-white"
+                className="block mb-2 font-moul text-white"
               >
                 SRMIST Email<span className="text-red-500">*</span>
               </label>
@@ -286,14 +283,14 @@ const RegisterWorkshop: React.FC = () => {
                 pattern="^[a-zA-Z0-9._%+-]+@srmist\\.edu\\.in$"
                 placeholder="xyz@srmist.edu.in"
                 title="Email must be an SRMIST ID ending with @srmist.edu.in"
-                className="w-full px-4 py-2 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-[var(--font-moul)] placeholder-gray-500 text-black bg-white"
+                className="w-full px-4 py-4 border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-inter placeholder-gray-500 text-black bg-white"
               />
             </div>
           </div>
 
           <button
             type="submit"
-            className="mx-auto px-20 py-6 bg-[#130025] border-2 border-white rounded-[50px] text-white font-[var(--font-roboto)] text-2xl flex items-center justify-center gap-4 hover:bg-[#2b0a47] transition duration-300"
+            className="mx-auto mt-16 px-20 py-6 bg-[#130025] border-2 border-white rounded-[50px] text-white font-monsterrat text-2xl flex items-center justify-center gap-4 hover:scale-110 transition duration-200"
           >
             Register
             <img
@@ -308,4 +305,4 @@ const RegisterWorkshop: React.FC = () => {
   );
 };
 
-export default RegisterWorkshop;
+export default RegisterVlogit;

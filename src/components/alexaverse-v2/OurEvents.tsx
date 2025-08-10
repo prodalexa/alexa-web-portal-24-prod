@@ -1,43 +1,53 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const OurEvents: React.FC = () => {
   const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [eventName, setEventName] = useState("");
+
+  const openModal = (message:string, event: string) => {
+    setModalMessage(message);
+    setEventName(event);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalMessage("");
+  };
 
   const handleRegister = (eventName: string) => {
     switch (eventName) {
       case "Workshop":
-        router.push("/alexaverse2.0/RegisterWorkshop");
+        router.push("/alexaverse-v2/RegisterWorkshop");
         break;
       case "Vlogit":
-        router.push("/alexaverse2.0/RegisterVlogit");
+        router.push("/alexaverse-v2/RegisterVlogit");
         break;
       case "Debug the Campus":
-        router.push("/alexaverse2.0/RegisterDebug");
+        router.push("/alexaverse-v2/RegisterDebug");
         break;
       case "Hangman":
-        router.push("/alexaverse2.0/RegisterHangman");
+        router.push("/alexaverse-v2/RegisterHangman");
         break;
       default:
-        alert(`Registration for ${eventName} will open soon!`);
+        openModal(`Registration for ${eventName} will open soon!`, `${eventName}`);
     }
   };
 
   return (
     <section
       id="events"
-      className="w-full min-h-screen text-white flex flex-col items-center justify-center px-4 py-16
-      bg-gradient-to-br
-      from-[#030645]
-      via-[#1A052A]
-      to-[#511e5b]"
+      className="w-full min-h-screen text-white flex flex-col items-center justify-center px-4 py-16"
     >
       <h1 className="text-5xl mb-0 py-20 font-audiowide text-center">
-        <span style={{ color: "#563AFF" }}>Our</span>{" "}
-        <span style={{ color: "#FF4E78" }}>Events</span>
+        <span className="text-[#563AFF]">Our</span>{" "}
+        <span className="text-[#FF4E78]">Events</span>
       </h1>
 
       
@@ -551,6 +561,28 @@ const OurEvents: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
+          onClick={closeModal} // Close on backdrop click
+        >
+          <div
+            className="bg-white/10 backdrop-blur-md text-white py-12 px-16 rounded-2xl shadow-lg max-w-md w-full border border-white/20"
+            onClick={(e) => e.stopPropagation()} // Prevent close on content click
+          >
+            <button
+              className="absolute top-4 right-6 text-white text-2xl hover:text-red-500 focus:outline-none"
+              onClick={closeModal}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-xl font-space font-bold mb-4">{eventName} Update</h2>
+            <p className="mb-6 font-inter">{modalMessage}</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -7,6 +7,7 @@ import {
   Space_Grotesk,
   Anton,
   Inter,
+  Montserrat
 } from "next/font/google";
 
 const nunito = Nunito({
@@ -46,6 +47,12 @@ const inter = Inter({
   display: "swap",
 });
 
+const montserrat = Montserrat({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-monsterrat",
+});
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -57,6 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         ${spaceGrotesk.variable}
         ${anton.variable}
         ${inter.variable}
+        ${montserrat.variable}
       `}
     >
       <head>
@@ -65,7 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-transparent font-sans">
+      <body className="min-h-screen bg-dark_bg font-sans">
         {children}
       </body>
     </html>
