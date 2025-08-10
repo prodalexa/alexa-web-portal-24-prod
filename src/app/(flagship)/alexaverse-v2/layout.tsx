@@ -1,5 +1,5 @@
-// layout.tsx
 import "../../globals.css";
+import type { Metadata } from "next";
 import {
   Nunito,
   Moul,
@@ -52,6 +52,14 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-monsterrat",
 });
+
+export const metadata: Metadata = {
+  title: "AlexaVerse 2.0 | ADS!",
+  description: "Created with ♥️ by the ADS team.",
+  icons: {
+    icon: "/icon.png",
+  },
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
