@@ -409,7 +409,7 @@ const RegisterHangman: React.FC = () => {
                     value={formData.teamMembers[studentNum - 1].registrationNumber}
                     onChange={(e) => handleMemberChange(studentNum - 1, 'registrationNumber', e.target.value)}
                     required={studentNum <= 3}
-                    pattern="^RA\\d{13}$"
+                    pattern="^(?i)RA\d{13}$"
                     placeholder="RAXXXXXXXXXXXXX"
                     title="Must start with RA followed by 13 digits"
                     className={`w-full px-4 py-4 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-inter placeholder-gray-500 text-black bg-white ${
