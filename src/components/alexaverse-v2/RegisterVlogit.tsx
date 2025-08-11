@@ -29,7 +29,7 @@ const RegisterVlogit: React.FC = () => {
 
           <div className="hidden md:flex gap-[32px] items-center">
             <a
-              href="/"
+              href="/alexaverse-v2"
               className="text-white font-audiowide text-[32px] hover:text-purple-300 transition-colors"
             >
               Home
@@ -71,7 +71,7 @@ const RegisterVlogit: React.FC = () => {
 
           <div className="flex-grow flex flex-col items-center justify-center gap-10 mt-20">
             <a
-              href="/"
+              href="/alexaverse-v2"
               onClick={() => setMobileMenuOpen(false)}
               className="text-white font-audiowide text-4xl hover:text-purple-300 transition"
             >

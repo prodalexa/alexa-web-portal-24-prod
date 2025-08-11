@@ -26,15 +26,15 @@ const OurEvents: React.FC = () => {
       case "Workshop":
         router.push("/alexaverse-v2/RegisterWorkshop");
         break;
-      case "Vlogit":
-        router.push("/alexaverse-v2/RegisterVlogit");
-        break;
-      case "Debug the Campus":
-        router.push("/alexaverse-v2/RegisterDebug");
-        break;
-      case "Hangman":
-        router.push("/alexaverse-v2/RegisterHangman");
-        break;
+      // case "Vlogit":
+      //   router.push("/alexaverse-v2/RegisterVlogit");
+      //   break;
+      // case "Debug the Campus":
+      //   router.push("/alexaverse-v2/RegisterDebug");
+      //   break;
+      // case "Hangman":
+      //   router.push("/alexaverse-v2/RegisterHangman");
+      //   break;
       default:
         openModal(`Registration for ${eventName} will open soon!`, `${eventName}`);
     }
@@ -99,7 +99,7 @@ const OurEvents: React.FC = () => {
           <img
             src="/alexaverse2.0/ideathon-img.svg"
             alt="Ideathon Image"
-            className="absolute top-[4.8vw] left-[-14.4vw] w-[76.8vw] h-[19.8vw] object-contain rounded-[2.1vw]"
+            className="absolute top-[4.8vw] left-[-14.4vw] w-[76.8vw] h-[19.8vw] object-contain rounded-[2.1vw] select-none pointer-events-none"
           />
           
           <div
@@ -200,7 +200,7 @@ const OurEvents: React.FC = () => {
           <img
             src="/alexaverse2.0/workshop-img.svg"
             alt="Workshop Image"
-            className="absolute top-[4.8vw] left-[-14.4vw] w-[76.8vw] h-[19.8vw] object-contain rounded-[2.1vw]"
+            className="absolute top-[4.8vw] left-[-14.4vw] w-[76.8vw] h-[19.8vw] object-contain rounded-[2.1vw] select-none pointer-events-none"
           />
          
           <div
@@ -302,7 +302,7 @@ const OurEvents: React.FC = () => {
           <img
             src="/alexaverse2.0/vlogit-img.svg"
             alt="Vlogit Image"
-            className="absolute top-[4.8vw] left-[-14.4vw] w-[76.8vw] h-[19.8vw] object-contain rounded-[2.1vw]"
+            className="absolute top-[4.8vw] left-[-14.4vw] w-[76.8vw] h-[19.8vw] object-contain rounded-[2.1vw] select-none pointer-events-none"
           />
          
           <div
@@ -405,7 +405,7 @@ const OurEvents: React.FC = () => {
           <img
             src="/alexaverse2.0/debug-img.svg"
             alt="Debug Image"
-            className="absolute top-[4.8vw] left-[-14.4vw] w-[76.8vw] h-[19.8vw] object-contain rounded-[2.1vw]"
+            className="absolute top-[4.8vw] left-[-14.4vw] w-[76.8vw] h-[19.8vw] object-contain rounded-[2.1vw] select-none pointer-events-none"
           />
         
           <div
@@ -507,7 +507,7 @@ const OurEvents: React.FC = () => {
           <img
             src="/alexaverse2.0/hangman-img.svg"
             alt="Hangman Image"
-            className="absolute top-[4.8vw] left-[-14.4vw] w-[76.8vw] h-[19.8vw] object-contain rounded-[2.1vw]"
+            className="absolute top-[4.8vw] left-[-14.4vw] w-[76.8vw] h-[19.8vw] object-contain rounded-[2.1vw] select-none pointer-events-none"
           />
           
           <div

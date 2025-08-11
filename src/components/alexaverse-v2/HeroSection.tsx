@@ -44,7 +44,7 @@ const HeroSection: React.FC = () => {
          
           <div className="hidden md:flex gap-[32px] items-center">
             <a
-              href="#home"
+              href="/alexaverse-v2"
               className="text-white font-audiowide text-[24px] leading-[100%] hover:text-purple-300 transition-colors"
             >
               Home
@@ -132,7 +132,7 @@ const HeroSection: React.FC = () => {
     src="/alexaverse2.0/poster-flyout.svg"
     alt="Hero"
     className="
-      h-full w-auto object-contain                
+      h-full w-auto object-contain select-none pointer-events-none           
       translate-x-[10px] translate-y-[-40%] scale-[1.6]      
       md:h-full md:w-auto md:object-cover md:scale-150 md:translate-x-0 md:translate-y-0
     "
