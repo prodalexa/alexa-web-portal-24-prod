@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "AlexaVerse | ADS!",
   description: "Created with ♥️ by the ADS team.",
   icons: {
-    icon: "/icon.jpeg",
+    icon: "/icon2.png",
   },
 };
 
