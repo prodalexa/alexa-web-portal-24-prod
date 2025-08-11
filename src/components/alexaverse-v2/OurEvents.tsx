@@ -1,14 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import EventCard from "./MobileEventCard";
 
 const OurEvents: React.FC = () => {
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const [eventName, setEventName] = useState("");
+  const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const openModal = (message:string, event: string) => {
     setModalMessage(message);
@@ -40,6 +43,74 @@ const OurEvents: React.FC = () => {
     }
   };
 
+  const mobileEvents = [
+    {
+      imageSrc: "/alexaverse2.0/ideathon-img.svg",
+      eventName: "IDEATHON",
+      tagline: "Ideate, Innovate, Impress: Let your creativity convince us!",
+      description: "Collaborate, create, and compete in this Ideathon to win the prize! Present your boldest solutions and impress the judges for a shot at victory.",
+      venue: "MINI HALL 2",
+      date: "03-09-2025",
+      time: "8:00 AM - 5:00 PM",
+      entryFee: "120.00 RS",
+      progressValue: 0,
+    },
+    {
+    imageSrc: "/alexaverse2.0/workshop-img.svg",
+    eventName: "WORKSHOP",
+    tagline: "Wisdom and Wonder: Tune in to learn from the best!",
+    description: "An immersive journey led by two distinct speakers, delivering the most valuable insights from the ever-evolving realm of Generative AI.",
+    venue: "MINI HALL 2",
+    date: "04-09-2025",
+    time: "8:00 AM - 5:00 PM",
+    entryFee: "FREE",
+    progressValue: 25,
+    },
+    {
+      imageSrc: "/alexaverse2.0/vlogit-img.svg",
+      eventName: "VLOG IT",
+      tagline: "Record and Roll: Capture the Essence of Alexaverse!",
+      description: "Eager to flex your filmmaking skills? Capture the chaos, edit it clean, and deliver a masterpiece that makes us say Absolute Cinema to win big!",
+      venue: "MINI HALL 2",
+      date: "03-09-2025 - 05-09-2025",
+      time: "5:00 PM",
+      entryFee: "FREE",
+      progressValue: 50,
+    },
+    {
+      imageSrc: "/alexaverse2.0/debug-img.svg",
+      eventName: "DEBUG THE CAMPUS",
+      tagline: "Discover and Decrypt: Classic treasure hunt with a modern flavor!",
+      description: "Find the numerous QR codes hidden around and debug the puzzles with your teammates. Be quick because the time is ticking!",
+      venue: "MINI HALL 2",
+      date: "05-09-2025",
+      time: "8:00 AM - 5:00 PM",
+      entryFee: "FREE",
+      progressValue: 75,
+    },
+    {
+      imageSrc: "/alexaverse2.0/hangman-img.svg",
+      eventName: "HANGMAN",
+      tagline: "Create or Cremate? Your life is on the line...",
+      description: "Unleash your brilliance across 3 creative challenges along with your team. Do you have it in you to make it till the end? We hope so.",
+      venue: "MINI HALL 2",
+      date: "05-09-2025",
+      time: "8:00 AM - 5:00 PM",
+      entryFee: "FREE",
+      progressValue: 100,
+    }
+  ];
+
+  useEffect(() => {
+    setMounted(true);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <section
       id="events"
@@ -49,9 +120,19 @@ const OurEvents: React.FC = () => {
         <span className="text-[#563AFF]">Our</span>{" "}
         <span className="text-[#FF4E78]">Events</span>
       </h1>
-
+      {isMobile && (
+        <div className="flex flex-col gap-7 w-full px-4">
+          {mobileEvents.map((event, idx) => (
+            <EventCard
+              key={idx}
+              {...event}
+              onRegister={() => handleRegister(event.eventName)}
+            />
+          ))}
+        </div>
+      )}
       
-      <div className="flex flex-col items-center gap-8 min-h-screen w-full max-w-[80rem] mx-auto" style={{ transform: `translateX(-5vw) translateY(-10vw)`}}>
+      <div className="hidden md:flex flex-col items-center gap-8 min-h-screen w-full max-w-[80rem] mx-auto" style={{ transform: `translateX(-5vw) translateY(-10vw)`}}>
         {/* Ideathon Card */}
         <div className="relative max-w-[85rem] w-[90vw] h-[32vw] min-h-[120px] mt-16 mb-10">
           
