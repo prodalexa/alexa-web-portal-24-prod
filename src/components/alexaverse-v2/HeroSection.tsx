@@ -81,7 +81,7 @@ const HeroSection: React.FC = () => {
          
           <div className="hidden md:flex gap-[32px] items-center">
             <a
-              href="/alexaverse-v2"
+              href="/"
               className="text-white font-audiowide text-[24px] leading-[100%] hover:text-purple-300 transition-colors"
             >
               Home
@@ -248,7 +248,7 @@ const HeroSection: React.FC = () => {
           
           <div className="flex-grow flex flex-col items-center justify-center gap-10 mt-20">
             <a
-              href="#home"
+              href="/"
               onClick={() => setMobileMenuOpen(false)}
               className="text-white font-audiowide text-4xl hover:text-purple-300 transition"
             >
