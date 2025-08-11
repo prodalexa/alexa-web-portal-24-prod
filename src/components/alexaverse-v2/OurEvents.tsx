@@ -65,6 +65,7 @@ const OurEvents: React.FC = () => {
     time: "8:00 AM - 5:00 PM",
     entryFee: "FREE",
     progressValue: 25,
+    registrationUrl: "/alexaverse-v2/RegisterWorkshop"
     },
     {
       imageSrc: "/alexaverse2.0/vlogit-img.svg",
@@ -76,6 +77,7 @@ const OurEvents: React.FC = () => {
       time: "5:00 PM",
       entryFee: "FREE",
       progressValue: 50,
+      // registrationUrl: "/alexaverse-v2/RegisterVlogit"
     },
     {
       imageSrc: "/alexaverse2.0/debug-img.svg",
@@ -87,6 +89,7 @@ const OurEvents: React.FC = () => {
       time: "8:00 AM - 5:00 PM",
       entryFee: "FREE",
       progressValue: 75,
+      // registrationUrl: "/alexaverse-v2/RegisterDebug"
     },
     {
       imageSrc: "/alexaverse2.0/hangman-img.svg",
@@ -98,6 +101,7 @@ const OurEvents: React.FC = () => {
       time: "8:00 AM - 5:00 PM",
       entryFee: "FREE",
       progressValue: 100,
+      // registrationUrl: "/alexaverse-v2/RegisterHangman"
     }
   ];
 
