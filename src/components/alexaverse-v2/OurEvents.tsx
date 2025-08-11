@@ -130,7 +130,6 @@ const OurEvents: React.FC = () => {
             <EventCard
               key={idx}
               {...event}
-              onRegister={() => handleRegister(event.eventName)}
             />
           ))}
         </div>
