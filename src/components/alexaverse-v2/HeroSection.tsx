@@ -52,7 +52,7 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative w-full bg-transparent p-0 m-0 overflow-visible"
+      className="relative w-full h-fit bg-transparent p-0  m-0 overflow-visible"
     >
       
 <div
@@ -304,7 +304,7 @@ const HeroSection: React.FC = () => {
 
       {/* Main Content Area with Logo */}
       <div
-        className="relative min-h-screen h-screen overflow-hidden flex justify-center items-start sm:items-center pt-32 sm:pt-0"
+        className="relative min-h-screen  overflow-hidden flex justify-center items-start sm:items-center pt-32 sm:pt-0"
         style={{
           filter: "drop-shadow(30px 0px 60px rgba(0, 0, 0, 2))",
         }}
