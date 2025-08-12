@@ -395,7 +395,7 @@ const HeroSection: React.FC = () => {
                   <div className="flex items-center justify-center gap-3 sm:gap-4">
                     {/* September 3 */}
                     <div className="bg-gradient-to-br from-[#FF1493] to-[#C5126C] rounded-lg sm:rounded-xl p-3 sm:p-3 md:p-4 transform hover:scale-105 transition-all duration-300">
-                      <div className="text-white font-black text-xl sm:text-xl md:text-2xl lg:text-3xl font-audiowide">3</div>
+                      <div className="text-white font-black text-xl sm:text-xl md:text-2xl lg:text-3xl font-audiowide">2</div>
                       <div className="text-white/90 text-sm sm:text-sm font-nunito">SEP</div>
                     </div>
                     
@@ -404,7 +404,7 @@ const HeroSection: React.FC = () => {
                     
                     {/* September 4 */}
                     <div className="bg-gradient-to-br from-[#00BFFF] to-[#306EF9] rounded-lg sm:rounded-xl p-3 sm:p-3 md:p-4 transform hover:scale-105 transition-all duration-300">
-                      <div className="text-white font-black text-xl sm:text-xl md:text-2xl lg:text-3xl font-audiowide">4</div>
+                      <div className="text-white font-black text-xl sm:text-xl md:text-2xl lg:text-3xl font-audiowide">3</div>
                       <div className="text-white/90 text-sm sm:text-sm font-nunito">SEP</div>
                     </div>
                     
@@ -413,7 +413,7 @@ const HeroSection: React.FC = () => {
                     
                     {/* September 5 */}
                     <div className="bg-gradient-to-br from-[#FFFF00] to-[#FFD700] rounded-lg sm:rounded-xl p-3 sm:p-3 md:p-4 transform hover:scale-105 transition-all duration-300">
-                      <div className="text-black font-black text-xl sm:text-xl md:text-2xl lg:text-3xl font-audiowide">5</div>
+                      <div className="text-black font-black text-xl sm:text-xl md:text-2xl lg:text-3xl font-audiowide">4</div>
                       <div className="text-black/90 text-sm sm:text-sm font-nunito">SEP</div>
                     </div>
                   </div>

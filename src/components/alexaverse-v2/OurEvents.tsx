@@ -73,7 +73,7 @@ const OurEvents: React.FC = () => {
       tagline: "Record and Roll: Capture the Essence of Alexaverse!",
       description: "Eager to flex your filmmaking skills? Capture the chaos, edit it clean, and deliver a masterpiece that makes us say Absolute Cinema to win big!",
       venue: "MINI HALL 2",
-      date: "03-09-2025 - 05-09-2025",
+      date: "02-09-2025 - 04-09-2025",
       time: "5:00 PM",
       entryFee: "FREE",
       progressValue: 50,
@@ -84,8 +84,8 @@ const OurEvents: React.FC = () => {
       eventName: "DEBUG THE CAMPUS",
       tagline: "Discover and Decrypt: Classic treasure hunt with a modern flavor!",
       description: "Find the numerous QR codes hidden around and debug the puzzles with your teammates. Be quick because the time is ticking!",
-      venue: "MINI HALL 2",
-      date: "05-09-2025",
+      venue: "JC BOSE HALL",
+      date: "02-09-2025",
       time: "8:00 AM - 5:00 PM",
       entryFee: "FREE",
       progressValue: 75,
@@ -96,8 +96,8 @@ const OurEvents: React.FC = () => {
       eventName: "HANGMAN",
       tagline: "Create or Cremate? Your life is on the line...",
       description: "Unleash your brilliance across 3 creative challenges along with your team. Do you have it in you to make it till the end? We hope so.",
-      venue: "MINI HALL 2",
-      date: "05-09-2025",
+      venue: "JC BOSE HALL",
+      date: "02-09-2025",
       time: "8:00 AM - 5:00 PM",
       entryFee: "FREE",
       progressValue: 100,
@@ -360,7 +360,7 @@ const OurEvents: React.FC = () => {
                 
               </div>
               <div className="text-[1.44vw] min-text-[16px] font-space font-bold">8:00 AM - 5:00 PM</div>
-              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">03-09-2025 - 05-09-2025</div>
+              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">02-09-2025 - 04-09-2025</div>
               
             </div>
           </div>
@@ -458,11 +458,11 @@ const OurEvents: React.FC = () => {
             </div>
             <div className="absolute top-[3vw] left-[19.8vw] right-[2.4vw] flex justify-between text-white">
               <div className="flex flex-col">
-                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">MINI HALL 2</span>
+                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">JC BOSE HALL</span>
                 
               </div>
               <div className="text-[1.44vw] min-text-[16px] font-space font-bold">8:00 AM - 5:00 PM</div>
-              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">05-09-2025</div>
+              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">02-09-2025</div>
               
             </div>
           </div>
@@ -561,11 +561,11 @@ const OurEvents: React.FC = () => {
             </div>
             <div className="absolute top-[3vw] left-[19.8vw] right-[2.4vw] flex justify-between text-white">
               <div className="flex flex-col">
-                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">MINI HALL 2</span>
+                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">JC BOSE HALL</span>
                 
               </div>
               <div className="text-[1.44vw] min-text-[16px] font-space font-bold">8:00 AM - 5:00 PM</div>
-              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">05-09-2025</div>
+              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">02-09-2025</div>
               
             </div>
           </div>
