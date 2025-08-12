@@ -240,7 +240,7 @@ const RegisterHangman: React.FC = () => {
             </div>
             <div className="absolute top-[3vw] left-[19.8vw] right-[2.4vw] flex justify-between text-white">
               <div className="flex flex-col">
-                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">JC BOSE HALL</span>
+                <span className="text-[1.44vw] min-text-[16px] font-space font-bold">To be announced</span>
                 
               </div>
               <div className="text-[1.44vw] min-text-[16px] font-space font-bold">8:00 AM - 5:00 PM</div>
