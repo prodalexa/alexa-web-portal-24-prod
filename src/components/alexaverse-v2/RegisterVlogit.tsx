@@ -382,7 +382,7 @@ const RegisterVlogit: React.FC = () => {
                 value={formData.srmMailId}
                 onChange={handleInputChange}
                 required
-                pattern="^[a-zA-Z0-9._%+-]+@srmist\\.edu\\.in$"
+                pattern="^[a-z]{2}\d{4}@srmist\.edu\.in$"
                 placeholder="xyz@srmist.edu.in"
                 title="Email must be an SRMIST ID ending with @srmist.edu.in"
                 className={`w-full px-4 py-4 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500 font-inter placeholder-gray-500 text-black bg-white ${
