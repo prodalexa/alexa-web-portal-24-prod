@@ -197,7 +197,7 @@ const RegisterVlogit: React.FC = () => {
                 
               </div>
               <div className="text-[1.44vw] min-text-[16px] font-space font-bold">8:00 AM - 5:00 PM</div>
-              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">03-09-2025 - 05-09-2025</div>
+              <div className="text-[1.44vw] min-text-[16px] font-space font-bold">02-09-2025 - 04-09-2025</div>
               
             </div>
           </div>
