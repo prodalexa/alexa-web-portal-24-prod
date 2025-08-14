@@ -29,6 +29,9 @@ const OurEvents: React.FC = () => {
       case "Workshop":
         router.push("/alexaverse-v2/RegisterWorkshop");
         break;
+      case "Ideathon":
+        router.push("https://forms.gle/P8PdoBQvTJoNdK51A");
+        break;
       // case "Vlogit":
       //   router.push("/alexaverse-v2/RegisterVlogit");
       //   break;
@@ -54,6 +57,7 @@ const OurEvents: React.FC = () => {
       time: "8:00 AM - 5:00 PM",
       entryFee: "120.00 RS",
       progressValue: 0,
+      registrationUrl: "https://forms.gle/P8PdoBQvTJoNdK51A",
     },
     {
     imageSrc: "/alexaverse2.0/workshop-img.svg",

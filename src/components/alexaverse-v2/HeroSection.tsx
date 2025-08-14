@@ -33,6 +33,9 @@ const HeroSection: React.FC = () => {
       case "Workshop":
         router.push("/alexaverse-v2/RegisterWorkshop");
         break;
+      case "Ideathon":
+        router.push("https://forms.gle/P8PdoBQvTJoNdK51A");
+        break;
       // case "Vlogit":
       //   router.push("/alexaverse-v2/RegisterVlogit");
       //   break;
@@ -293,7 +296,7 @@ const HeroSection: React.FC = () => {
               </p>
               <button
                 onClick={closeModal}
-                className="bg-gradient-to-r from-[#FF1493] to-[#C5126C] text-white font-bold py-2 px-6 rounded-lg hover:scale-105 transition-all duration-300"
+                className="bg-gradient-to-r from-[#FF1493] to-[#C5126C] text-white font-bold font-nunito py-2 px-6 rounded-lg hover:scale-105 transition-all duration-300"
               >
                 Got it!
               </button>
