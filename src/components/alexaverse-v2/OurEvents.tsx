@@ -35,9 +35,9 @@ const OurEvents: React.FC = () => {
       case "Vlogit":
         router.push("/alexaverse-v2/RegisterVlogit");
         break;
-      // case "Debug the Campus":
-      //   router.push("/alexaverse-v2/RegisterDebug");
-      //   break;
+      case "Debug the Campus":
+        router.push("/alexaverse-v2/RegisterDebug");
+        break;
       // case "Hangman":
       //   router.push("/alexaverse-v2/RegisterHangman");
       //   break;
@@ -93,7 +93,7 @@ const OurEvents: React.FC = () => {
       time: "8:00 AM - 5:00 PM",
       entryFee: "FREE",
       progressValue: 75,
-      // registrationUrl: "/alexaverse-v2/RegisterDebug"
+      registrationUrl: "/alexaverse-v2/RegisterDebug"
     },
     {
       imageSrc: "/alexaverse2.0/hangman-img.svg",

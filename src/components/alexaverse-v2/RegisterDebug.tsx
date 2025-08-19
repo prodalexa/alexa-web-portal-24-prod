@@ -10,6 +10,8 @@ const RegisterDebug: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<string>("");
   const [submitSuccess, setSubmitSuccess] = useState<boolean | null>(null);
+  const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
+  const [copySuccess, setCopySuccess] = useState(false);
   const [formData, setFormData] = useState<TeamRegistration>({
     teamName: "",
     teamMembers: [
@@ -96,6 +98,7 @@ const RegisterDebug: React.FC = () => {
       if (response.success) {
         setSubmitSuccess(true);
         setSubmitMessage(response.message || 'Registration successful!');
+        setShowWhatsAppModal(true);
         // Reset form on success
         setFormData({
           teamName: "",
@@ -125,6 +128,24 @@ const RegisterDebug: React.FC = () => {
       setSubmitMessage("An unexpected error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText('https://join-debug.alexadevsrm.org');
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
+    } catch (err) {
+      // Fallback for browsers that don't support clipboard API
+      const textArea = document.createElement('textarea');
+      textArea.value = 'https://join-debug.alexadevsrm.org';
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
     }
   };
 
@@ -495,6 +516,89 @@ const RegisterDebug: React.FC = () => {
             />
           </button>
         </form>
+
+        {/* WhatsApp QR Modal */}
+        {showWhatsAppModal && (
+          <div 
+            className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-80 backdrop-blur-sm"
+            onClick={() => setShowWhatsAppModal(false)}
+          >
+            <div 
+              className="relative bg-gradient-to-br from-[#030645] via-[#1A052A] to-[#511e5b] rounded-2xl p-8 max-w-lg w-full mx-4 text-center border border-white/20 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute top-4 right-4 text-white text-3xl hover:text-[#FF4E78] transition-colors duration-200"
+                onClick={() => setShowWhatsAppModal(false)}
+                aria-label="Close"
+              >
+                ×
+              </button>
+              
+              <div className="mb-6">
+                <h3 className="text-3xl font-audiowide text-white mb-2">
+                  <span className="text-[#563AFF]">Join</span>{" "}
+                  <span className="text-[#FF4E78]">WhatsApp</span>{" "}
+                  <span className="text-white">Group!</span>
+                </h3>
+                
+                <div className="w-24 h-1 bg-gradient-to-r from-[#563AFF] via-[#FF4E78] to-[#CAFB12] mx-auto rounded-full"></div>
+              </div>
+              
+              <p className="text-white/80 mb-8 font-inter text-lg leading-relaxed">
+                Scan the QR code below to join the <span className="text-[#CAFB12] font-semibold">Debug the Campus WhatsApp group</span> for updates and communication.
+              </p>
+              
+              {/* QR Code Container */}
+              <div className="mb-8 relative">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/30">
+                  <div className="bg-white rounded-xl p-4 inline-block">
+                    <img 
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent('https://join-debug.alexadevsrm.org')}`}
+                      alt="WhatsApp Group QR Code"
+                      className="mx-auto rounded-lg"
+                      style={{ width: '240px', height: '240px' }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-[#563AFF] rounded-tl-lg"></div>
+                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-[#FF4E78] rounded-tr-lg"></div>
+                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-[#CAFB12] rounded-bl-lg"></div>
+                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-[#563AFF] rounded-br-lg"></div>
+              </div>
+              
+              <p className="text-white/60 mb-4 font-inter">
+                Or visit directly:
+              </p>
+              
+              <a 
+                href="https://join-debug.alexadevsrm.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-8 py-4 rounded-xl hover:from-[#128C7E] hover:to-[#25D366] transition-all duration-300 font-semibold text-lg mb-6 border border-white/20 hover:scale-105 shadow-lg"
+              >
+                🔗 join-debug.alexadevsrm.org
+              </a>
+              
+              <div className="flex gap-4 justify-center">
+                <button
+                  onClick={() => setShowWhatsAppModal(false)}
+                  className="bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-xl hover:bg-white/20 transition-all duration-200 border border-white/30 font-inter font-semibold"
+                >
+                  Close
+                </button>
+                <button
+                  onClick={handleCopyLink}
+                  className="bg-gradient-to-r from-[#563AFF] to-[#FF4E78] text-white px-8 py-3 rounded-xl hover:from-[#FF4E78] hover:to-[#563AFF] transition-all duration-300 font-inter font-semibold shadow-lg"
+                >
+                  {copySuccess ? '✅ Copied!' : '📋 Copy Link'}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
     </>
   );
