@@ -11,6 +11,7 @@ const RegisterVlogit: React.FC = () => {
   const [submitMessage, setSubmitMessage] = useState<string>("");
   const [submitSuccess, setSubmitSuccess] = useState<boolean | null>(null);
   const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
+  const [copySuccess, setCopySuccess] = useState(false);
   const [formData, setFormData] = useState<IndividualRegistration>({
     name: "",
     registrationNumber: "",
@@ -78,6 +79,24 @@ const RegisterVlogit: React.FC = () => {
       setSubmitMessage("An unexpected error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText('https://join-vlogit.alexadevsrm.org');
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
+    } catch (err) {
+      // Fallback for browsers that don't support clipboard API
+      const textArea = document.createElement('textarea');
+      textArea.value = 'https://join-vlogit.alexadevsrm.org';
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
     }
   };
 
@@ -415,35 +434,57 @@ const RegisterVlogit: React.FC = () => {
 
         {/* WhatsApp QR Modal */}
         {showWhatsAppModal && (
-          <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75">
-            <div className="relative bg-white rounded-2xl p-8 max-w-md w-full mx-4 text-center">
+          <div 
+            className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-80 backdrop-blur-sm"
+            onClick={() => setShowWhatsAppModal(false)}
+          >
+            <div 
+              className="relative bg-gradient-to-br from-[#030645] via-[#1A052A] to-[#511e5b] rounded-2xl p-8 max-w-lg w-full mx-4 text-center border border-white/20 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
               <button
-                className="absolute top-4 right-4 text-gray-600 text-2xl hover:text-red-500"
+                className="absolute top-4 right-4 text-white text-3xl hover:text-[#FF4E78] transition-colors duration-200"
                 onClick={() => setShowWhatsAppModal(false)}
                 aria-label="Close"
               >
                 ×
               </button>
               
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                Join Our WhatsApp Group!
-              </h3>
-              
-              <p className="text-gray-600 mb-6">
-                Scan the QR code below to join the Vlogit WhatsApp group for updates and communication.
-              </p>
-              
-              {/* QR Code using Google Charts API */}
               <div className="mb-6">
-                <img 
-                  src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent('https://join-vlogit.alexadevsrm.org')}`}
-                  alt="WhatsApp Group QR Code"
-                  className="mx-auto rounded-lg border-2 border-gray-300"
-                  style={{ width: '200px', height: '200px' }}
-                />
+                <h3 className="text-3xl font-audiowide text-white mb-2">
+                  <span className="text-[#563AFF]">Join</span>{" "}
+                  <span className="text-[#FF4E78]">WhatsApp</span>{" "}
+                  <span className="text-white">Group!</span>
+                </h3>
+                
+                <div className="w-24 h-1 bg-gradient-to-r from-[#563AFF] via-[#FF4E78] to-[#CAFB12] mx-auto rounded-full"></div>
               </div>
               
-              <p className="text-sm text-gray-500 mb-4">
+              <p className="text-white/80 mb-8 font-inter text-lg leading-relaxed">
+                Scan the QR code below to join the <span className="text-[#CAFB12] font-semibold">Vlogit WhatsApp group</span> for updates and communication.
+              </p>
+              
+              {/* QR Code Container */}
+              <div className="mb-8 relative">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/30">
+                  <div className="bg-white rounded-xl p-4 inline-block">
+                    <img 
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent('https://join-vlogit.alexadevsrm.org')}`}
+                      alt="WhatsApp Group QR Code"
+                      className="mx-auto rounded-lg"
+                      style={{ width: '240px', height: '240px' }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-[#563AFF] rounded-tl-lg"></div>
+                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-[#FF4E78] rounded-tr-lg"></div>
+                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-[#CAFB12] rounded-bl-lg"></div>
+                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-[#563AFF] rounded-br-lg"></div>
+              </div>
+              
+              <p className="text-white/60 mb-4 font-inter">
                 Or visit directly:
               </p>
               
@@ -451,17 +492,23 @@ const RegisterVlogit: React.FC = () => {
                 href="https://join-vlogit.alexadevsrm.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors font-semibold"
+                className="inline-block bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-8 py-4 rounded-xl hover:from-[#128C7E] hover:to-[#25D366] transition-all duration-300 font-semibold text-lg mb-6 border border-white/20 hover:scale-105 shadow-lg"
               >
-                join-vlogit.alexadevsrm.org
+                🔗 join-vlogit.alexadevsrm.org
               </a>
               
-              <div className="mt-6">
+              <div className="flex gap-4 justify-center">
                 <button
                   onClick={() => setShowWhatsAppModal(false)}
-                  className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600 transition-colors"
+                  className="bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-xl hover:bg-white/20 transition-all duration-200 border border-white/30 font-inter font-semibold"
                 >
                   Close
+                </button>
+                <button
+                  onClick={handleCopyLink}
+                  className="bg-gradient-to-r from-[#563AFF] to-[#FF4E78] text-white px-8 py-3 rounded-xl hover:from-[#FF4E78] hover:to-[#563AFF] transition-all duration-300 font-inter font-semibold shadow-lg"
+                >
+                  {copySuccess ? '✅ Copied!' : '📋 Copy Link'}
                 </button>
               </div>
             </div>
