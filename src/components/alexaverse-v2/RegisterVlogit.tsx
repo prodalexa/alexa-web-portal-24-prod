@@ -10,6 +10,7 @@ const RegisterVlogit: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<string>("");
   const [submitSuccess, setSubmitSuccess] = useState<boolean | null>(null);
+  const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
   const [formData, setFormData] = useState<IndividualRegistration>({
     name: "",
     registrationNumber: "",
@@ -51,6 +52,7 @@ const RegisterVlogit: React.FC = () => {
       if (response.success) {
         setSubmitSuccess(true);
         setSubmitMessage(response.message || 'Registration successful!');
+        setShowWhatsAppModal(true);
         // Reset form on success
         setFormData({
           name: "",
@@ -410,6 +412,61 @@ const RegisterVlogit: React.FC = () => {
             />
           </button>
         </form>
+
+        {/* WhatsApp QR Modal */}
+        {showWhatsAppModal && (
+          <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75">
+            <div className="relative bg-white rounded-2xl p-8 max-w-md w-full mx-4 text-center">
+              <button
+                className="absolute top-4 right-4 text-gray-600 text-2xl hover:text-red-500"
+                onClick={() => setShowWhatsAppModal(false)}
+                aria-label="Close"
+              >
+                ×
+              </button>
+              
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                Join Our WhatsApp Group!
+              </h3>
+              
+              <p className="text-gray-600 mb-6">
+                Scan the QR code below to join the Vlogit WhatsApp group for updates and communication.
+              </p>
+              
+              {/* QR Code using Google Charts API */}
+              <div className="mb-6">
+                <img 
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent('https://join-vlogit.alexadevsrm.org')}`}
+                  alt="WhatsApp Group QR Code"
+                  className="mx-auto rounded-lg border-2 border-gray-300"
+                  style={{ width: '200px', height: '200px' }}
+                />
+              </div>
+              
+              <p className="text-sm text-gray-500 mb-4">
+                Or visit directly:
+              </p>
+              
+              <a 
+                href="https://join-vlogit.alexadevsrm.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors font-semibold"
+              >
+                join-vlogit.alexadevsrm.org
+              </a>
+              
+              <div className="mt-6">
+                <button
+                  onClick={() => setShowWhatsAppModal(false)}
+                  className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600 transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
     </>
   );
