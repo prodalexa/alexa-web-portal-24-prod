@@ -36,12 +36,12 @@ const HeroSection: React.FC = () => {
       case "Ideathon":
         router.push("https://forms.gle/P8PdoBQvTJoNdK51A");
         break;
-      // case "Vlogit":
-      //   router.push("/alexaverse-v2/RegisterVlogit");
-      //   break;
-      // case "Debug the Campus":
-      //   router.push("/alexaverse-v2/RegisterDebug");
-      //   break;
+      case "Vlogit":
+        router.push("/alexaverse-v2/RegisterVlogit");
+        break;
+      case "Debug the Campus":
+        router.push("/alexaverse-v2/RegisterDebug");
+        break;
       // case "Hangman":
       //   router.push("/alexaverse-v2/RegisterHangman");
       //   break;

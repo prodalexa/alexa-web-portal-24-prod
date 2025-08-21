@@ -448,15 +448,15 @@ const RegisterVlogit: React.FC = () => {
         {/* WhatsApp QR Modal */}
         {showWhatsAppModal && (
           <div 
-            className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-80 backdrop-blur-sm"
+            className="fixed inset-0 flex items-center justify-center z-[9999] bg-black/80 backdrop-blur-sm p-4 sm:p-6"
             onClick={() => setShowWhatsAppModal(false)}
           >
             <div 
-              className="relative bg-gradient-to-br from-[#030645] via-[#1A052A] to-[#511e5b] rounded-2xl p-8 max-w-lg w-full mx-4 text-center border border-white/20 shadow-2xl"
+              className="relative bg-gradient-to-br from-[#030645] via-[#1A052A] to-[#511e5b] rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 w-full max-w-[95vw] sm:max-w-lg h-auto max-h-[90vh] overflow-y-auto mx-auto text-center border border-white/30 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className="absolute top-4 right-4 text-white text-3xl hover:text-[#FF4E78] transition-colors duration-200"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white text-2xl sm:text-3xl hover:text-[#FF4E78] transition-colors duration-200 z-10 bg-white/10 rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center"
                 onClick={() => setShowWhatsAppModal(false)}
                 aria-label="Close"
               >
@@ -464,37 +464,42 @@ const RegisterVlogit: React.FC = () => {
               </button>
               
               <div className="mb-6">
-                <h3 className="text-3xl font-audiowide text-white mb-2">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-audiowide text-white mb-2">
                   <span className="text-[#563AFF]">Join</span>{" "}
                   <span className="text-[#FF4E78]">WhatsApp</span>{" "}
                   <span className="text-white">Group!</span>
                 </h3>
                 
-                <div className="w-24 h-1 bg-gradient-to-r from-[#563AFF] via-[#FF4E78] to-[#CAFB12] mx-auto rounded-full"></div>
+                <div className="w-16 sm:w-24 h-0.5 sm:h-1 bg-gradient-to-r from-[#563AFF] via-[#FF4E78] to-[#CAFB12] mx-auto rounded-full"></div>
               </div>
               
-              <p className="text-white/80 mb-8 font-inter text-lg leading-relaxed">
+              <p className="text-white/90 mb-4 sm:mb-6 lg:mb-8 font-inter text-sm sm:text-base lg:text-lg leading-relaxed px-2">
                 Scan the QR code below to join the <span className="text-[#CAFB12] font-semibold">Vlogit WhatsApp group</span> for updates and communication.
               </p>
               
               {/* QR Code Container */}
-              <div className="mb-8 relative">
-                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/30">
-                  <div className="bg-white rounded-xl p-4 inline-block">
+              <div className="mb-4 sm:mb-6 lg:mb-8 relative">
+                <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 border border-white/30 mx-auto max-w-fit">
+                  <div className="bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 lg:p-4 inline-block">
                     <img 
                       src={`https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent('https://join-vlogit.alexadevsrm.org')}`}
                       alt="WhatsApp Group QR Code"
                       className="mx-auto rounded-lg"
-                      style={{ width: '240px', height: '240px' }}
+                      style={{
+                        width: 'min(200px, 60vw)', 
+                        height: 'min(200px, 60vw)',
+                        maxWidth: '240px',
+                        maxHeight: '240px'
+                      }}
                     />
                   </div>
                 </div>
                 
                 {/* Decorative elements */}
-                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-[#563AFF] rounded-tl-lg"></div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-[#FF4E78] rounded-tr-lg"></div>
-                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-[#CAFB12] rounded-bl-lg"></div>
-                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-[#563AFF] rounded-br-lg"></div>
+                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-[#563AFF] rounded-tl-xl"></div>
+                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-[#FF4E78] rounded-tr-xl"></div>
+                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-[#CAFB12] rounded-bl-xl"></div>
+                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-[#563AFF] rounded-br-xl"></div>
               </div>
               
               <p className="text-white/60 mb-4 font-inter">
@@ -505,21 +510,21 @@ const RegisterVlogit: React.FC = () => {
                 href="https://join-vlogit.alexadevsrm.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-8 py-4 rounded-xl hover:from-[#128C7E] hover:to-[#25D366] transition-all duration-300 font-semibold text-lg mb-6 border border-white/20 hover:scale-105 shadow-lg"
+                className="inline-block font-inter bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-8 py-4 rounded-xl hover:scale-110 transition-all duration-300 font-medium text-lg mb-6 border border-white/20 shadow-lg"
               >
                 🔗 join-vlogit.alexadevsrm.org
               </a>
               
-              <div className="flex gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <button
                   onClick={() => setShowWhatsAppModal(false)}
-                  className="bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-xl hover:bg-white/20 transition-all duration-200 border border-white/30 font-inter font-semibold"
+                  className="bg-white/10 backdrop-blur-sm text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg sm:rounded-xl hover:bg-white/20 hover:scale-105 sm:hover-scale-110 transition-all duration-200 border border-white/30 font-inter font-semibold text-sm sm:text-base order-2 sm:order-1"
                 >
                   Close
                 </button>
                 <button
                   onClick={handleCopyLink}
-                  className="bg-gradient-to-r from-[#563AFF] to-[#FF4E78] text-white px-8 py-3 rounded-xl hover:from-[#FF4E78] hover:to-[#563AFF] transition-all duration-300 font-inter font-semibold shadow-lg"
+                  className="bg-gradient-to-r from-[#563AFF] to-[#FF4E78] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg sm:rounded-xl hover:scale-105 sm:hover:scale-110 transition-all duration-300 font-inter font-semibold shadow-lg text-sm sm:text-base order-1 sm:order-2"
                 >
                   {copySuccess ? '✅ Copied!' : '📋 Copy Link'}
                 </button>
