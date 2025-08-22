@@ -38,9 +38,9 @@ const OurEvents: React.FC = () => {
       case "Debug the Campus":
         router.push("/alexaverse-v2/RegisterDebug");
         break;
-      // case "Hangman":
-      //   router.push("/alexaverse-v2/RegisterHangman");
-      //   break;
+      case "Hangman":
+         router.push("/alexaverse-v2/RegisterHangman");
+         break;
       default:
         openModal(`Registration for ${eventName} will open soon!`, `${eventName}`);
     }
@@ -105,7 +105,7 @@ const OurEvents: React.FC = () => {
       time: "8:00 AM - 5:00 PM",
       entryFee: "FREE",
       progressValue: 100,
-      // registrationUrl: "/alexaverse-v2/RegisterHangman"
+      registrationUrl: "/alexaverse-v2/RegisterHangman"
     }
   ];
 
