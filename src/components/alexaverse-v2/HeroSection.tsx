@@ -42,9 +42,6 @@ const HeroSection: React.FC = () => {
       case "Debug the Campus":
         router.push("/alexaverse-v2/RegisterDebug");
         break;
-      // case "Hangman":
-      //   router.push("/alexaverse-v2/RegisterHangman");
-      //   break;
       default:
         openModal(`Registration for ${eventName} will open soon!`, eventName);
     }
@@ -161,17 +158,6 @@ const HeroSection: React.FC = () => {
           >
             DEBUG THE CAMPUS
           </button>
-          <button
-            onClick={(e) => handleEventClick("Hangman", e)}
-            className="font-black text-2xl tracking-wider hover:scale-110 hover:text-shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
-            style={{ 
-              color: '#FF1493',
-              textShadow: '0 0 10px rgba(255, 20, 147, 0.5)',
-              fontFamily: 'Impact, Arial Black, sans-serif'
-            }}
-          >
-            HANGMAN
-          </button>
         </div>
         
         {/* Mobile version - Same style as desktop with extra spacing */}
@@ -220,17 +206,6 @@ const HeroSection: React.FC = () => {
               }}
             >
               DEBUG THE CAMPUS
-            </button>
-            <button
-              onClick={(e) => handleEventClick("Hangman", e)}
-              className="font-black text-sm sm:text-base md:text-lg tracking-wider hover:scale-105 hover:text-shadow-lg transition-all duration-300 transform hover:-translate-y-1 whitespace-nowrap cursor-pointer"
-              style={{ 
-                color: '#FF1493',
-                textShadow: '0 0 8px rgba(255, 20, 147, 0.5)',
-                fontFamily: 'Impact, Arial Black, sans-serif'
-              }}
-            >
-              HANGMAN
             </button>
           </div>
         </div>

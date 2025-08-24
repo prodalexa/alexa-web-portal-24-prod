@@ -149,37 +149,6 @@ export const registerForWorkshop = async (data: IndividualRegistration): Promise
   }
 };
 
-export const registerForHangman = async (data: TeamRegistration): Promise<ApiResponse> => {
-  try {
-    const preparedData = prepareTeamData(data);
-    const response = await fetch(`${API_BASE_URL}/hangman/register`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(preparedData),
-    });
-
-    const result = await response.json();
-    
-    // Transform Zod errors to our expected format
-    if (!result.success && result.error?.issues) {
-      result.errors = result.error.issues.map((issue: any) => ({
-        field: issue.path.join('.'),
-        message: issue.message
-      }));
-      result.message = result.message || 'Validation failed';
-    }
-    
-    return result;
-  } catch (error) {
-    return {
-      success: false,
-      message: 'Network error. Please try again.',
-    };
-  }
-};
-
 export const registerForDebug = async (data: TeamRegistration): Promise<ApiResponse> => {
   try {
     const preparedData = prepareTeamData(data);
