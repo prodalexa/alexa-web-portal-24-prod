@@ -36,7 +36,7 @@ export default function AboutUs() {
 
         {/* Text Section */}
         <div className="md:w-9/12  py-2 space-x-2 space-y-4 text-right sm:text-center ">
-          <div className="w-auto text-justify leading-snug tracking-wide  ">
+          <div className="w-auto text-justify leading-snug tracking-wider ">
             <TextGenerateEffect words={para1} className="text-justify" />
           </div>
 

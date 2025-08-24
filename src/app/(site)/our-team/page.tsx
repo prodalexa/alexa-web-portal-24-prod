@@ -29,9 +29,9 @@ const OurTeam = async (props: Props) => {
         <Image
           src="hero-sep.svg"
           height={10}
-          width={300}
+          width={250}
           alt="Hero Separator"
-          className="mt-5 pl-14 items-center justify-center justify-items-center place-items-center"
+          className="mt-2 mb-4 items-center justify-center justify-items-center place-items-center"
         />
       </div>
       <h2 className="text-lg text-white">

@@ -41,7 +41,7 @@ function Landing({}: Props) {
             className="mt-5 sm:mt-24 md:mt-40"
           />
         </div>
-        <div className="mt-2 absolute bottom-5 sm:bottom-15 font-semi-bold sm:font-bold text-white w-full flex flex-col items-center gap-3 justify-center">
+        <div className="absolute bottom-5 right-1 sm:bottom-15 font-semi-bold sm:font-bold text-white w-full flex flex-col items-center gap-3 justify-center">
           <h3 className="text-white text-sm">Scroll down</h3>
           <MoveDown />
         </div>

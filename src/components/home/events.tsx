@@ -31,7 +31,7 @@ function Events({ domainData }: Props) {
           height={10}
           width={600}
           alt={`${domainData.title} Image`}
-          className="relative right-0 -top-5"
+          className="relative right-0 -top-5 pointer-events-none"
         />
       </div>
     </div>

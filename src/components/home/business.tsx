@@ -19,7 +19,7 @@ function Business({domainData}: Props) {
           height={10}
           width={600}
           alt={`${domainData.title} Image`}
-          className="z-10"
+          className="z-10 pointer-events-none"
         />
       </div>
       <div className="w-1/2 f-full flex flex-col items-center justify-center gap-6 text-end">

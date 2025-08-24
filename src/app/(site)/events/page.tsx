@@ -20,7 +20,7 @@ const Events = async ({}: Props) => {
           height={10}
           width={300}
           alt="Hero Separator"
-          className="mt-5 pl-14 items-center justify-center justify-items-center place-items-center"
+          className="mt-2 mb-4 pr-8 items-center justify-center justify-items-center place-items-center"
         />
       </div>
       <h2 className="text-lg text-white">
@@ -37,7 +37,7 @@ const Events = async ({}: Props) => {
         ))}
       </div>
       <div className="w-full flex mt-10 mb-5 text-white justify-center font-bold text-3xl md:text-5xl items-center">
-        <span>Our Gallary</span>
+        <span>Our Gallery</span>
         <span className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent ml-2">
           .
         </span>

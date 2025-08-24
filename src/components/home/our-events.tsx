@@ -25,7 +25,7 @@ const OurEvents = ({ events }: Props) => {
           height={10}
           width={300}
           alt="Hero Separator"
-          className="mt-5 mb-16 pl-14 items-center justify-center justify-items-center place-items-center"
+          className="mt-5 mb-16 pl-2 items-center justify-center justify-items-center place-items-center"
         />
       </div>
       <InfiniteMovingCards items={events} direction="right" speed="normal" />

@@ -12,7 +12,7 @@ function ContactUs({}: Props) {
     {
       id: 1,
       platform: "Instagram",
-      username: "@alexadevsrmv",
+      username: "@alexadevsrm",
       url: "https://www.instagram.com/alexadevsrm",
       image: "/social-icons/instagram.svg",
     },
@@ -40,8 +40,8 @@ function ContactUs({}: Props) {
     {
       id: 5,
       platform: "Youtube",
-      username: "@alexadeveloperssrm9430",
-      url: "https://www.youtube.com/@alexadeveloperssrm9430",
+      username: "@alexadevsrm",
+      url: "https://www.youtube.com/@alexadevsrm",
       image: "/social-icons/youtube.svg",
     },
     {

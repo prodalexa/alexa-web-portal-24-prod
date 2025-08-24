@@ -49,9 +49,9 @@ function Domains({}: Props) {
         <Image
           src="hero-sep.svg"
           height={10}
-          width={300}
+          width={340}
           alt="Hero Separator"
-          className="mt-5 pl-14 items-center justify-center justify-items-center place-items-center"
+          className="mt-5 pl-2 items-center justify-center justify-items-center place-items-center"
         />
       </div>
       <Technical domainData={domainList[0]}/>
