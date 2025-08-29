@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
         router.push("https://forms.gle/P8PdoBQvTJoNdK51A");
         break;
       case "Vlogit":
-        router.push("/alexaverse-v2/RegisterVlogit");
+        openModal(`Registation for ${eventName} are now closed!`, `${eventName}`)
         break;
       case "Debug the Campus":
         router.push("/alexaverse-v2/RegisterDebug");
