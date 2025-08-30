@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
         openModal(`Registation for ${eventName} are now closed!`, `${eventName}`)
         break;
       case "Debug the Campus":
-        router.push("/alexaverse-v2/RegisterDebug");
+        openModal(`Registation for ${eventName} are now closed!`, `${eventName}`)
         break;
       default:
         openModal(`Registration for ${eventName} will open soon!`, eventName);
