@@ -48,7 +48,7 @@ export default function EventCard({
     if (registrationUrl) {
       router.push(registrationUrl)
     } else {
-      openModal(`Registration for ${eventName} will open soon!`, eventName);
+      openModal(`Registration for ${eventName} is now closed!`, eventName);
     }
   }
 
@@ -79,7 +79,7 @@ export default function EventCard({
                 onClick={handleRegisterClick}  // Fixed function name
                 className="w-full px-6 py-3 bg-white text-black font-bold font-anton tracking-wider text-md rounded-full hover:bg-gray-100 transition-colors"
               >
-                REGISTER
+                {eventName == "WORKSHOP" ? "Register" : "Closed"}
               </button>
             </div>
 
@@ -242,7 +242,7 @@ export default function EventCard({
       {/* Modal moved outside the main div for proper rendering */}
       {isModalOpen && (
         <div
-          className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-80"
           onClick={closeModal}
         >
           <div

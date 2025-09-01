@@ -78,7 +78,7 @@ const OurEvents: React.FC = () => {
       time: "5:00 PM",
       entryFee: "FREE",
       progressValue: 50,
-      registrationUrl: "/alexaverse-v2/RegisterVlogit"
+      // registrationUrl: "/alexaverse-v2/RegisterVlogit"
     },
     {
       imageSrc: "/alexaverse2.0/debug-img.svg",
