@@ -26,7 +26,7 @@ const Sponsors: React.FC = () => {
       tier: "Intern Partner",
       tierClass: "bg-gradient-to-r from-green-400 to-cyan-400",
       name: "Enlight Wisdom",
-      logoUrl: "/alexaverse2.0/Enlightwisdom.jpg"
+      logoUrl: "/alexaverse2.0/EnlightWisdom.jpg"
     },
     {
       tier: "Food Sponsor",
