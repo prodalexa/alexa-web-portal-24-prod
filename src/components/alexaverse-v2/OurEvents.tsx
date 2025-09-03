@@ -27,7 +27,7 @@ const OurEvents: React.FC = () => {
   const handleRegister = (eventName: string) => {
     switch (eventName) {
       case "Workshop":
-        router.push("/alexaverse-v2/RegisterWorkshop");
+        openModal(`Registation for ${eventName} are now closed!`, `${eventName}`)
         break;
       case "Ideathon":
        openModal(`Registation for ${eventName} are now closed!`, `${eventName}`)
@@ -66,7 +66,7 @@ const OurEvents: React.FC = () => {
     time: "8:00 AM - 5:00 PM",
     entryFee: "FREE",
     progressValue: 25,
-    registrationUrl: "/alexaverse-v2/RegisterWorkshop"
+    // registrationUrl: "/alexaverse-v2/RegisterWorkshop"
     },
     {
       imageSrc: "/alexaverse2.0/vlogit-img.svg",
@@ -295,7 +295,7 @@ const OurEvents: React.FC = () => {
               className="cursor-pointer absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[10vw] h-[4.9vw] rounded-[2.6vw] border-[0.06vw] border-white backdrop-blur-[5vw] bg-white flex items-center justify-center transition-all hover:scale-105"
             >
               <p className="font-anton text-[1.4vw] text-black">
-                Register
+                Closed
               </p>
             </div>
           </div>

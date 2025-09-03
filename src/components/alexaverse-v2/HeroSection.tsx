@@ -31,7 +31,7 @@ const HeroSection: React.FC = () => {
     e.preventDefault();
     switch (eventName) {
       case "Workshop":
-        router.push("/alexaverse-v2/RegisterWorkshop");
+        openModal(`Registation for ${eventName} are now closed!`, `${eventName}`)
         break;
       case "Ideathon":
         openModal(`Registation for ${eventName} are now closed!`, `${eventName}`)

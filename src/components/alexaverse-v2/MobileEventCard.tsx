@@ -79,7 +79,7 @@ export default function EventCard({
                 onClick={handleRegisterClick}  // Fixed function name
                 className="w-full px-6 py-3 bg-white text-black font-bold font-anton tracking-wider text-md rounded-full hover:bg-gray-100 transition-colors"
               >
-                {eventName == "WORKSHOP" ? "Register" : "Closed"}
+                Closed
               </button>
             </div>
 
