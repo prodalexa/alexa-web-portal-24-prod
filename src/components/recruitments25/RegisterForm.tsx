@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { registerRecruitment } from "@/app/actions/registerRecruitments25";
 
 // Define types for form data
 type FormData = {
@@ -44,22 +45,38 @@ export default function RegistrationForm() {
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{ 
+    type: 'success' | 'error', 
+    text: string 
+  } | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
+    // Clear any existing errors for this field
+    if (errors[name as keyof FormErrors]) {
+      setErrors(prev => ({ ...prev, [name]: undefined }));
+    }
+
+    // Clear submit message when user starts typing
+    if (submitMessage) {
+      setSubmitMessage(null);
+    }
+
     // Handle validation for registration number (max 15 digits)
     if (name === "registrationNumber") {
-  // Always enforce uppercase
-  const upperValue = value.toUpperCase();
+      // Always enforce uppercase
+      const upperValue = value.toUpperCase();
 
-  // Allow only RA + 13 digits
-  const regex = /^RA\d{0,13}$/; // "RA" followed by up to 13 digits
+      // Allow gradual typing: R, RA, RA + digits (up to 13 digits after RA)
+      const regex = /^(R|RA|RA\d{0,13})$/; 
 
-  if (regex.test(upperValue)) {
-    setFormData((prev) => ({ ...prev, [name]: upperValue }));
-  }
-}
+      if (regex.test(upperValue) || upperValue === "") {
+        setFormData((prev) => ({ ...prev, [name]: upperValue }));
+      }
+      return;
+    }
 
     // Handle validation for phone number (max 10 digits)
     if (name === "phoneNumber") {
@@ -98,8 +115,74 @@ export default function RegistrationForm() {
       newErrors.srmistEmail = "Please enter a valid SRMIST email address";
     }
 
+    if (formData.phoneNumber && formData.phoneNumber.length !== 10) {
+      newErrors.phoneNumber = "Phone number must be exactly 10 digits";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async () => {
+    if (!validateForm()) {
+      return;
+    }
+
+    if (!formData.firstDomain) {
+      setSubmitMessage({ 
+        type: 'error', 
+        text: 'Please select your first domain' 
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    try {
+      const result = await registerRecruitment({
+        name: formData.name,
+        registrationNumber: formData.registrationNumber,
+        phoneNumber: formData.phoneNumber,
+        srmistEmail: formData.srmistEmail,
+        githubProfile: formData.githubProfile,
+        linkedinProfile: formData.linkedinProfile,
+        firstDomain: formData.firstDomain,
+        secondDomain: formData.secondDomain,
+      });
+
+      if (result.success) {
+        setSubmitMessage({ 
+          type: 'success', 
+          text: result.message || 'Registration successful!' 
+        });
+        
+        // Reset form
+        setFormData({
+          name: "",
+          registrationNumber: "",
+          phoneNumber: "",
+          srmistEmail: "",
+          githubProfile: "",
+          linkedinProfile: "",
+          firstDomain: "",
+          secondDomain: "",
+        });
+        setErrors({});
+      } else {
+        setSubmitMessage({ 
+          type: 'error', 
+          text: result.error || 'Registration failed. Please try again.' 
+        });
+      }
+    } catch (error) {
+      setSubmitMessage({ 
+        type: 'error', 
+        text: 'An unexpected error occurred. Please try again.' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const DomainOption: React.FC<DomainOptionProps> = ({
@@ -324,13 +407,29 @@ export default function RegistrationForm() {
             </div>
           </div>
 
+          {/* Submit Message */}
+          {submitMessage && (
+            <div className={`mt-8 p-4 rounded-lg text-center ${
+              submitMessage.type === 'success' 
+                ? 'bg-green-100 text-green-800 border border-green-300' 
+                : 'bg-red-100 text-red-800 border border-red-300'
+            }`}>
+              {submitMessage.text}
+            </div>
+          )}
+
           {/* Submit Button */}
           <div className="mt-12 text-center">
             <button
-              onClick={validateForm}
-              className="px-12 py-4 bg-gradient-to-r from-cyan-400 to-blue-400 text-white text-xl font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              onClick={handleSubmit}
+              disabled={isSubmitting}
+              className={`px-12 py-4 text-white text-xl font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${
+                isSubmitting 
+                  ? 'bg-gray-400 cursor-not-allowed' 
+                  : 'bg-gradient-to-r from-cyan-400 to-blue-400 hover:scale-105'
+              }`}
             >
-              Submit
+              {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
           </div>
         </div>
