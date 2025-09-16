@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+//Importing the 
+import { registerRecruitment } from "@/app/actions/registerRecruitments25";
 import dynamic from "next/dynamic";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -149,29 +151,49 @@ export default function RegistrationForm() {
 
     if (validateForm()) {
       try {
-        // Simulate API call
-        // Replace with actual API call if needed
-        await new Promise((resolve) => setTimeout(resolve, 1000)); // Mock delay
-        setSubmitSuccess(true);
-        toast.success("Registration successful!", {
-          position: "bottom-center",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
+        const result = await registerRecruitment({
+          name: formData.name,
+          registrationNumber: formData.registrationNumber,
+          phoneNumber: formData.phoneNumber,
+          srmistEmail: formData.srmistEmail,
+          githubProfile: formData.githubProfile,
+          linkedinProfile: formData.linkedinProfile,
+          firstDomain: formData.firstDomain,
+          secondDomain: formData.secondDomain,
         });
-        setFormData({
-          name: "",
-          registrationNumber: "",
-          phoneNumber: "",
-          srmistEmail: "",
-          githubProfile: "",
-          linkedinProfile: "",
-          firstDomain: "",
-          secondDomain: "",
-        });
-        setErrors({});
+
+        if (result?.success) {
+          setSubmitSuccess(true);
+          toast.success("Registration successful! Welcome to Alexa Developers Club SRM!", {
+            position: "bottom-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+          setFormData({
+            name: "",
+            registrationNumber: "",
+            phoneNumber: "",
+            srmistEmail: "",
+            githubProfile: "",
+            linkedinProfile: "",
+            firstDomain: "",
+            secondDomain: "",
+          });
+          setErrors({});
+        } else {
+          setSubmitSuccess(false);
+          toast.error(result?.error || "Registration failed. Please try again.", {
+            position: "bottom-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        }
       } catch (error) {
         setSubmitSuccess(false);
         toast.error("An unexpected error occurred. Please try again.", {
