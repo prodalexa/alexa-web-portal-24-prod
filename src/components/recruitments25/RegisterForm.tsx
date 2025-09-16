@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-//Importing the 
 import { registerRecruitment } from "@/app/actions/registerRecruitments25";
 import dynamic from "next/dynamic";
 import "react-toastify/dist/ReactToastify.css";
