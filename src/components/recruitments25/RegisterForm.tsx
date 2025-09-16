@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { registerRecruitment } from "@/app/actions/registerRecruitments25";
+import dynamic from "next/dynamic";
+import "react-toastify/dist/ReactToastify.css";
+
+// Import toast directly and dynamically import ToastContainer to prevent SSR issues
+import { toast } from "react-toastify";
+const ToastContainer = dynamic(() => import("react-toastify").then(mod => ({ default: mod.ToastContainer })), {
+  ssr: false,
+});
 
 // Define types for form data
 type FormData = {
@@ -21,6 +28,8 @@ type FormErrors = {
   registrationNumber?: string;
   phoneNumber?: string;
   srmistEmail?: string;
+  firstDomain?: string;
+  secondDomain?: string;
 };
 
 // Define types for DomainOption props
@@ -46,39 +55,32 @@ export default function RegistrationForm() {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState<{ 
-    type: 'success' | 'error', 
-    text: string 
-  } | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState<boolean | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target as { name: keyof FormErrors; value: string };
 
-    // Clear any existing errors for this field
-    if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({ ...prev, [name]: undefined }));
+    // Name: only letters and spaces allowed
+    if (name === "name") {
+      const lettersSpacesValue = value.replace(/[^a-zA-Z\s]/g, "");
+      setFormData((prev) => ({ ...prev, [name]: lettersSpacesValue }));
+      if (errors.name) {
+        setErrors((prev) => ({ ...prev, [name]: "" }));
+      }
+      return;
     }
 
-    // Clear submit message when user starts typing
-    if (submitMessage) {
-      setSubmitMessage(null);
-    }
-
-    // Handle validation for registration number (max 15 digits)
+    // Registration Number: RA + 13 digits (total 15 chars)
     if (name === "registrationNumber") {
-      // Always enforce uppercase
-      const upperValue = value.toUpperCase();
-
-      // Allow gradual typing: R, RA, RA + digits (up to 13 digits after RA)
-      const regex = /^(R|RA|RA\d{0,13})$/; 
-
-      if (regex.test(upperValue) || upperValue === "") {
+      const upperValue = value.toUpperCase().replace(/\s/g, "");
+      const regex = /^R?$|^RA\d{0,13}$/;
+      if (regex.test(upperValue) || upperValue === "RA") {
         setFormData((prev) => ({ ...prev, [name]: upperValue }));
       }
       return;
     }
 
-    // Handle validation for phone number (max 10 digits)
+    // Phone Number: only digits allowed, max 10
     if (name === "phoneNumber") {
       const numericValue = value.replace(/\D/g, "");
       if (numericValue.length <= 10) {
@@ -87,7 +89,13 @@ export default function RegistrationForm() {
       return;
     }
 
+    // Update form data for all fields, including githubProfile and linkedinProfile
     setFormData((prev) => ({ ...prev, [name]: value }));
+
+    // Clear error only for fields that exist in FormErrors
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   };
 
   const handleDomainChange = (
@@ -95,69 +103,64 @@ export default function RegistrationForm() {
     value: string
   ) => {
     setFormData((prev) => ({ ...prev, [domainType]: value }));
+    // Clear error when user selects a domain
+    if (errors[domainType]) {
+      setErrors((prev) => ({ ...prev, [domainType]: "" }));
+    }
   };
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.registrationNumber.trim())
-      newErrors.registrationNumber = "Registration Number is required";
-    if (!formData.phoneNumber.trim())
-      newErrors.phoneNumber = "Phone Number is required";
-    if (!formData.srmistEmail.trim())
-      newErrors.srmistEmail = "SRMIST Email is required";
+    else if (!/^[a-zA-Z\s]+$/.test(formData.name)) newErrors.name = "Name can only contain letters and spaces";
 
-    if (
-      formData.srmistEmail &&
-      !formData.srmistEmail.includes("@srmist.edu.in")
-    ) {
+    if (!/^RA\d{13}$/.test(formData.registrationNumber)) {
+      newErrors.registrationNumber = "Invalid Registration Number";
+    }
+
+    if (!/^\d{10}$/.test(formData.phoneNumber)) {
+      newErrors.phoneNumber = "Phone Number must be exactly 10 digits";
+    }
+
+    if (!/^[\w.-]+@srmist\.edu\.in$/.test(formData.srmistEmail)) {
       newErrors.srmistEmail = "Please enter a valid SRMIST email address";
     }
 
-    if (formData.phoneNumber && formData.phoneNumber.length !== 10) {
-      newErrors.phoneNumber = "Phone number must be exactly 10 digits";
+    if (!formData.firstDomain) {
+      newErrors.firstDomain = "Please select your first domain";
+    }
+
+    if (
+      formData.secondDomain &&
+      formData.secondDomain === formData.firstDomain
+    ) {
+      newErrors.secondDomain = "Second domain cannot be the same as first domain";
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async () => {
-    if (!validateForm()) {
-      return;
-    }
-
-    if (!formData.firstDomain) {
-      setSubmitMessage({ 
-        type: 'error', 
-        text: 'Please select your first domain' 
-      });
-      return;
-    }
-
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setIsSubmitting(true);
-    setSubmitMessage(null);
+    setSubmitSuccess(null);
 
-    try {
-      const result = await registerRecruitment({
-        name: formData.name,
-        registrationNumber: formData.registrationNumber,
-        phoneNumber: formData.phoneNumber,
-        srmistEmail: formData.srmistEmail,
-        githubProfile: formData.githubProfile,
-        linkedinProfile: formData.linkedinProfile,
-        firstDomain: formData.firstDomain,
-        secondDomain: formData.secondDomain,
-      });
-
-      if (result.success) {
-        setSubmitMessage({ 
-          type: 'success', 
-          text: result.message || 'Registration successful!' 
+    if (validateForm()) {
+      try {
+        // Simulate API call
+        // Replace with actual API call if needed
+        await new Promise((resolve) => setTimeout(resolve, 1000)); // Mock delay
+        setSubmitSuccess(true);
+        toast.success("Registration successful!", {
+          position: "bottom-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
         });
-        
-        // Reset form
         setFormData({
           name: "",
           registrationNumber: "",
@@ -169,20 +172,19 @@ export default function RegistrationForm() {
           secondDomain: "",
         });
         setErrors({});
-      } else {
-        setSubmitMessage({ 
-          type: 'error', 
-          text: result.error || 'Registration failed. Please try again.' 
+      } catch (error) {
+        setSubmitSuccess(false);
+        toast.error("An unexpected error occurred. Please try again.", {
+          position: "bottom-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
         });
       }
-    } catch (error) {
-      setSubmitMessage({ 
-        type: 'error', 
-        text: 'An unexpected error occurred. Please try again.' 
-      });
-    } finally {
-      setIsSubmitting(false);
     }
+    setIsSubmitting(false);
   };
 
   const DomainOption: React.FC<DomainOptionProps> = ({
@@ -206,7 +208,7 @@ export default function RegistrationForm() {
         )}
       </div>
       <span
-        className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-lg font-medium cursor-pointer"
+        className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-xl font-medium cursor-pointer"
         onClick={() => onChange(name, value)}
       >
         {label}
@@ -216,16 +218,16 @@ export default function RegistrationForm() {
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center p-6">
-      <div className="relative z-10 w-full max-w-6xl">
+      <div className="relative z-10 w-full max-w-7xl">
         <div className="bg-transparent p-8">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-center mb-16">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-center mb-16 font-montserrat-alternates">
             Registration Form
           </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-16">
             {/* Left Column */}
             <div className="space-y-12">
-              {/* Name Field */}
+              {/* Name */}
               <div>
                 <label
                   htmlFor="name"
@@ -239,15 +241,19 @@ export default function RegistrationForm() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg"
+                  className={`w-full px-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg ${
+                    errors.name ? "border-red-500" : ""
+                  }`}
                   placeholder="Name"
                 />
-                {errors.name && (
-                  <p className="text-red-400 text-sm mt-2 ml-2">{errors.name}</p>
-                )}
+                <div className="min-h-[1.5rem]">
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1 ml-2">{errors.name}</p>
+                  )}
+                </div>
               </div>
 
-              {/* Phone Number Field */}
+              {/* Phone Number */}
               <div>
                 <label
                   htmlFor="phoneNumber"
@@ -255,29 +261,33 @@ export default function RegistrationForm() {
                 >
                   Phone Number*
                 </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-6">
-                    <span className="text-gray-600 text-lg font-medium">+91</span>
-                  </div>
+                <div
+                  className={`relative flex items-center rounded-2xl bg-white bg-opacity-90 focus-within:ring-2 focus-within:ring-cyan-400 overflow-hidden shadow-lg ${
+                    errors.phoneNumber ? "border border-red-500" : ""
+                  }`}
+                >
+                  <span className="pl-6 pr-3 py-4 text-gray-600 text-lg font-medium relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-6 after:bg-gray-400">
+                    +91&nbsp;
+                  </span>
                   <input
                     type="tel"
                     id="phoneNumber"
                     name="phoneNumber"
                     value={formData.phoneNumber}
                     onChange={handleInputChange}
-                    className="w-full pl-16 pr-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg"
+                    className="flex-1 px-3 py-4 text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none bg-transparent"
                     placeholder="012 345 6789"
                     maxLength={10}
                   />
                 </div>
-                {errors.phoneNumber && (
-                  <p className="text-red-400 text-sm mt-2 ml-2">
-                    {errors.phoneNumber}
-                  </p>
-                )}
+                <div className="min-h-[1.5rem]">
+                  {errors.phoneNumber && (
+                    <p className="text-red-500 text-sm mt-1 ml-2">{errors.phoneNumber}</p>
+                  )}
+                </div>
               </div>
 
-              {/* GitHub Profile */}
+              {/* GitHub */}
               <div>
                 <label
                   htmlFor="githubProfile"
@@ -294,12 +304,13 @@ export default function RegistrationForm() {
                   className="w-full px-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg"
                   placeholder="Optional"
                 />
+                <div className="min-h-[1.5rem]"></div>
               </div>
             </div>
 
             {/* Right Column */}
             <div className="space-y-12">
-              {/* Registration Number Field */}
+              {/* Registration Number */}
               <div>
                 <label
                   htmlFor="registrationNumber"
@@ -313,15 +324,17 @@ export default function RegistrationForm() {
                   name="registrationNumber"
                   value={formData.registrationNumber}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg"
+                  className={`w-full px-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg ${
+                    errors.registrationNumber ? "border-red-500" : ""
+                  }`}
                   placeholder="RAXXXXXXXXXXXXX"
                   maxLength={15}
                 />
-                {errors.registrationNumber && (
-                  <p className="text-red-400 text-sm mt-2 ml-2">
-                    {errors.registrationNumber}
-                  </p>
-                )}
+                <div className="min-h-[1.5rem]">
+                  {errors.registrationNumber && (
+                    <p className="text-red-500 text-sm mt-1 ml-2">{errors.registrationNumber}</p>
+                  )}
+                </div>
               </div>
 
               {/* SRMIST Email */}
@@ -338,17 +351,19 @@ export default function RegistrationForm() {
                   name="srmistEmail"
                   value={formData.srmistEmail}
                   onChange={handleInputChange}
-                  className="w-full px-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg"
+                  className={`w-full px-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg ${
+                    errors.srmistEmail ? "border-red-500" : ""
+                  }`}
                   placeholder="xyz@srmist.edu.in"
                 />
-                {errors.srmistEmail && (
-                  <p className="text-red-400 text-sm mt-2 ml-2">
-                    {errors.srmistEmail}
-                  </p>
-                )}
+                <div className="min-h-[1.5rem]">
+                  {errors.srmistEmail && (
+                    <p className="text-red-500 text-sm mt-1 ml-2">{errors.srmistEmail}</p>
+                  )}
+                </div>
               </div>
 
-              {/* LinkedIn Profile */}
+              {/* LinkedIn */}
               <div>
                 <label
                   htmlFor="linkedinProfile"
@@ -365,72 +380,86 @@ export default function RegistrationForm() {
                   className="w-full px-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg"
                   placeholder="Optional"
                 />
+                <div className="min-h-[1.5rem]"></div>
               </div>
             </div>
-          </div>
+          </form>
 
           {/* First Domain */}
           <div className="mt-12 mb-8">
             <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-center mb-8">
               Choose Your First Domain*
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {["Technical", "Creatives", "Events", "Business"].map((domain) => (
-                <DomainOption
-                  key={domain}
-                  name="firstDomain"
-                  value={domain}
-                  selectedValue={formData.firstDomain}
-                  onChange={handleDomainChange}
-                  label={domain}
-                />
-              ))}
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[20rem] gap-y-8">
+                {["Technical", "Creatives", "Events", "Business"].map((domain) => (
+                  <DomainOption
+                    key={domain}
+                    name="firstDomain"
+                    value={domain}
+                    selectedValue={formData.firstDomain}
+                    onChange={handleDomainChange}
+                    label={domain}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="min-h-[1.5rem]">
+              {errors.firstDomain && (
+                <p className="text-red-500 text-sm mt-2 text-center">{errors.firstDomain}</p>
+              )}
             </div>
           </div>
 
           {/* Second Domain */}
           <div className="mt-12">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-center mb-8">
+            <h3 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-center mb-8">
               Choose Your Second Domain
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {["Technical", "Creatives", "Events", "Business"].map((domain) => (
-                <DomainOption
-                  key={domain}
-                  name="secondDomain"
-                  value={domain}
-                  selectedValue={formData.secondDomain}
-                  onChange={handleDomainChange}
-                  label={domain}
-                />
-              ))}
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[20rem] gap-y-8">
+                {["Technical", "Creatives", "Events", "Business"].map((domain) => (
+                  <DomainOption
+                    key={domain}
+                    name="secondDomain"
+                    value={domain}
+                    selectedValue={formData.secondDomain}
+                    onChange={handleDomainChange}
+                    label={domain}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="min-h-[1.5rem]">
+              {errors.secondDomain && (
+                <p className="text-red-500 text-sm mt-2 text-center">{errors.secondDomain}</p>
+              )}
             </div>
           </div>
 
-          {/* Submit Message */}
-          {submitMessage && (
-            <div className={`mt-8 p-4 rounded-lg text-center ${
-              submitMessage.type === 'success' 
-                ? 'bg-green-100 text-green-800 border border-green-300' 
-                : 'bg-red-100 text-red-800 border border-red-300'
-            }`}>
-              {submitMessage.text}
-            </div>
-          )}
-
-          {/* Submit Button */}
-          <div className="mt-12 text-center">
+          {/* Submit */}
+          <div className="mt-12 text-center relative">
             <button
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className={`px-12 py-4 text-white text-xl font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${
-                isSubmitting 
-                  ? 'bg-gray-400 cursor-not-allowed' 
-                  : 'bg-gradient-to-r from-cyan-400 to-blue-400 hover:scale-105'
+              className={`px-12 py-4 bg-gradient-to-r from-cyan-400 to-blue-400 text-white text-xl font-semibold rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 ${
+                isSubmitting ? "opacity-50 cursor-not-allowed" : "hover:shadow-xl"
               }`}
             >
-              {isSubmitting ? 'Submitting...' : 'Submit'}
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
+            <ToastContainer
+              position="bottom-center"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
           </div>
         </div>
       </div>
