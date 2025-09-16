@@ -39,6 +39,12 @@ const config = {
         keniaOne: [
           'var(--font-keniaOne)'
         ],
+        montserrat: [
+          'var(--font-montserrat)'
+        ],
+        "montserrat-alternates": [
+          'var(--font-montserrat-alternates)'
+        ],
         monsterrat: [
           'var(--font-monsterrat)'
         ],
