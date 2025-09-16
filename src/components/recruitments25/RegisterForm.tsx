@@ -1,79 +1,125 @@
 "use client";
-import { useState } from 'react';
+
+import { useState } from "react";
+
+// Define types for form data
+type FormData = {
+  name: string;
+  registrationNumber: string;
+  phoneNumber: string;
+  srmistEmail: string;
+  githubProfile: string;
+  linkedinProfile: string;
+  firstDomain: string;
+  secondDomain: string;
+};
+
+// Define types for form errors
+type FormErrors = {
+  name?: string;
+  registrationNumber?: string;
+  phoneNumber?: string;
+  srmistEmail?: string;
+};
+
+// Define types for DomainOption props
+type DomainOptionProps = {
+  name: "firstDomain" | "secondDomain";
+  value: string;
+  selectedValue: string;
+  onChange: (domainType: "firstDomain" | "secondDomain", value: string) => void;
+  label: string;
+};
 
 export default function RegistrationForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    registrationNumber: '',
-    phoneNumber: '',
-    srmistEmail: '',
-    githubProfile: '',
-    linkedinProfile: '',
-    firstDomain: 'Technical',
-    secondDomain: 'Creatives'
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    registrationNumber: "",
+    phoneNumber: "",
+    srmistEmail: "",
+    githubProfile: "",
+    linkedinProfile: "",
+    firstDomain: "",
+    secondDomain: "",
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<FormErrors>({});
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    
+
     // Handle validation for registration number (max 15 digits)
-    if (name === 'registrationNumber') {
-      const numericValue = value.replace(/\D/g, '');
+    if (name === "registrationNumber") {
+      const numericValue = value.replace(/\D/g, "");
       if (numericValue.length <= 15) {
-        setFormData(prev => ({ ...prev, [name]: numericValue }));
+        setFormData((prev) => ({ ...prev, [name]: numericValue }));
       }
       return;
     }
-    
+
     // Handle validation for phone number (max 10 digits)
-    if (name === 'phoneNumber') {
-      const numericValue = value.replace(/\D/g, '');
+    if (name === "phoneNumber") {
+      const numericValue = value.replace(/\D/g, "");
       if (numericValue.length <= 10) {
-        setFormData(prev => ({ ...prev, [name]: numericValue }));
+        setFormData((prev) => ({ ...prev, [name]: numericValue }));
       }
       return;
     }
-    
-    setFormData(prev => ({ ...prev, [name]: value }));
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleDomainChange = (domainType, value) => {
-    setFormData(prev => ({ ...prev, [domainType]: value }));
+  const handleDomainChange = (
+    domainType: "firstDomain" | "secondDomain",
+    value: string
+  ) => {
+    setFormData((prev) => ({ ...prev, [domainType]: value }));
   };
 
-  const validateForm = () => {
-    const newErrors = {};
-    
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.registrationNumber.trim()) newErrors.registrationNumber = 'Registration Number is required';
-    if (!formData.phoneNumber.trim()) newErrors.phoneNumber = 'Phone Number is required';
-    if (!formData.srmistEmail.trim()) newErrors.srmistEmail = 'SRMIST Email is required';
-    
-    // Email validation for SRMIST domain
-    if (formData.srmistEmail && !formData.srmistEmail.includes('@srmist.edu.in')) {
-      newErrors.srmistEmail = 'Please enter a valid SRMIST email address';
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.registrationNumber.trim())
+      newErrors.registrationNumber = "Registration Number is required";
+    if (!formData.phoneNumber.trim())
+      newErrors.phoneNumber = "Phone Number is required";
+    if (!formData.srmistEmail.trim())
+      newErrors.srmistEmail = "SRMIST Email is required";
+
+    if (
+      formData.srmistEmail &&
+      !formData.srmistEmail.includes("@srmist.edu.in")
+    ) {
+      newErrors.srmistEmail = "Please enter a valid SRMIST email address";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const DomainOption = ({ name, value, selectedValue, onChange, label }) => (
+  const DomainOption: React.FC<DomainOptionProps> = ({
+    name,
+    value,
+    selectedValue,
+    onChange,
+    label,
+  }) => (
     <div className="flex items-center gap-3">
-      <div 
+      <div
         className={`w-6 h-6 rounded-full border-2 cursor-pointer ${
-          selectedValue === value 
-            ? 'border-cyan-400 bg-cyan-400 flex items-center justify-center' 
-            : 'border-gray-400'
+          selectedValue === value
+            ? "border-cyan-400 bg-cyan-400 flex items-center justify-center"
+            : "border-gray-400"
         }`}
         onClick={() => onChange(name, value)}
       >
-        {selectedValue === value && <div className="w-3 h-3 rounded-full bg-white"></div>}
+        {selectedValue === value && (
+          <div className="w-3 h-3 rounded-full bg-white"></div>
+        )}
       </div>
-      <span 
-        className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-lg font-medium cursor-pointer" 
+      <span
+        className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-lg font-medium cursor-pointer"
         onClick={() => onChange(name, value)}
       >
         {label}
@@ -83,19 +129,21 @@ export default function RegistrationForm() {
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center p-6">
-      {/* Form container */}
       <div className="relative z-10 w-full max-w-6xl">
         <div className="bg-transparent p-8">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-center mb-16">
             Registration Form
           </h1>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             {/* Left Column */}
             <div className="space-y-12">
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2">
+                <label
+                  htmlFor="name"
+                  className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2"
+                >
                   Name*
                 </label>
                 <input
@@ -107,12 +155,17 @@ export default function RegistrationForm() {
                   className="w-full px-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg"
                   placeholder="Name"
                 />
-                {errors.name && <p className="text-red-400 text-sm mt-2 ml-2">{errors.name}</p>}
+                {errors.name && (
+                  <p className="text-red-400 text-sm mt-2 ml-2">{errors.name}</p>
+                )}
               </div>
 
               {/* Phone Number Field */}
               <div>
-                <label htmlFor="phoneNumber" className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2">
+                <label
+                  htmlFor="phoneNumber"
+                  className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2"
+                >
                   Phone Number*
                 </label>
                 <div className="relative">
@@ -127,15 +180,22 @@ export default function RegistrationForm() {
                     onChange={handleInputChange}
                     className="w-full pl-16 pr-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg"
                     placeholder="012 345 6789"
-                    maxLength="10"
+                    maxLength={10}
                   />
                 </div>
-                {errors.phoneNumber && <p className="text-red-400 text-sm mt-2 ml-2">{errors.phoneNumber}</p>}
+                {errors.phoneNumber && (
+                  <p className="text-red-400 text-sm mt-2 ml-2">
+                    {errors.phoneNumber}
+                  </p>
+                )}
               </div>
 
-              {/* GitHub Profile Link Field */}
+              {/* GitHub Profile */}
               <div>
-                <label htmlFor="githubProfile" className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2">
+                <label
+                  htmlFor="githubProfile"
+                  className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2"
+                >
                   Github Profile Link
                 </label>
                 <input
@@ -154,7 +214,10 @@ export default function RegistrationForm() {
             <div className="space-y-12">
               {/* Registration Number Field */}
               <div>
-                <label htmlFor="registrationNumber" className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2">
+                <label
+                  htmlFor="registrationNumber"
+                  className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2"
+                >
                   Register Number*
                 </label>
                 <input
@@ -165,14 +228,21 @@ export default function RegistrationForm() {
                   onChange={handleInputChange}
                   className="w-full px-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg"
                   placeholder="RAXXXXXXXXXXXXX"
-                  maxLength="15"
+                  maxLength={15}
                 />
-                {errors.registrationNumber && <p className="text-red-400 text-sm mt-2 ml-2">{errors.registrationNumber}</p>}
+                {errors.registrationNumber && (
+                  <p className="text-red-400 text-sm mt-2 ml-2">
+                    {errors.registrationNumber}
+                  </p>
+                )}
               </div>
 
-              {/* SRMIST Email Field */}
+              {/* SRMIST Email */}
               <div>
-                <label htmlFor="srmistEmail" className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2">
+                <label
+                  htmlFor="srmistEmail"
+                  className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2"
+                >
                   SRMIST Email*
                 </label>
                 <input
@@ -184,12 +254,19 @@ export default function RegistrationForm() {
                   className="w-full px-6 py-4 bg-white bg-opacity-90 border-0 rounded-2xl text-gray-800 placeholder-gray-400 text-lg focus:ring-0 focus:outline-none shadow-lg"
                   placeholder="xyz@srmist.edu.in"
                 />
-                {errors.srmistEmail && <p className="text-red-400 text-sm mt-2 ml-2">{errors.srmistEmail}</p>}
+                {errors.srmistEmail && (
+                  <p className="text-red-400 text-sm mt-2 ml-2">
+                    {errors.srmistEmail}
+                  </p>
+                )}
               </div>
 
-              {/* LinkedIn Profile Link Field */}
+              {/* LinkedIn Profile */}
               <div>
-                <label htmlFor="linkedinProfile" className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2">
+                <label
+                  htmlFor="linkedinProfile"
+                  className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2"
+                >
                   LinkedIn Profile Link
                 </label>
                 <input
@@ -205,100 +282,53 @@ export default function RegistrationForm() {
             </div>
           </div>
 
-          {/* Choose Your First Domain Section */}
+          {/* First Domain */}
           <div className="mt-12 mb-8">
             <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-center mb-8">
               Choose Your First Domain*
             </h2>
-            
-            {/* First Domain Options */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <DomainOption 
-                name="firstDomain"
-                value="Technical"
-                selectedValue={formData.firstDomain}
-                onChange={handleDomainChange}
-                label="Technical"
-              />
-              
-              <DomainOption 
-                name="firstDomain"
-                value="Creatives"
-                selectedValue={formData.firstDomain}
-                onChange={handleDomainChange}
-                label="Creatives"
-              />
-              
-              <DomainOption 
-                name="firstDomain"
-                value="Events"
-                selectedValue={formData.firstDomain}
-                onChange={handleDomainChange}
-                label="Events"
-              />
-              
-              <DomainOption 
-                name="firstDomain"
-                value="Business"
-                selectedValue={formData.firstDomain}
-                onChange={handleDomainChange}
-                label="Business"
-              />
+              {["Technical", "Creatives", "Events", "Business"].map((domain) => (
+                <DomainOption
+                  key={domain}
+                  name="firstDomain"
+                  value={domain}
+                  selectedValue={formData.firstDomain}
+                  onChange={handleDomainChange}
+                  label={domain}
+                />
+              ))}
             </div>
           </div>
 
-          {/* Choose Your Second Domain Section */}
+          {/* Second Domain */}
           <div className="mt-12">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-center mb-8">
               Choose Your Second Domain
             </h3>
-            
-            {/* Second Domain Options */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <DomainOption 
-                name="secondDomain"
-                value="Technical"
-                selectedValue={formData.secondDomain}
-                onChange={handleDomainChange}
-                label="Technical"
-              />
-              
-              <DomainOption 
-                name="secondDomain"
-                value="Creatives"
-                selectedValue={formData.secondDomain}
-                onChange={handleDomainChange}
-                label="Creatives"
-              />
-              
-              <DomainOption 
-                name="secondDomain"
-                value="Events"
-                selectedValue={formData.secondDomain}
-                onChange={handleDomainChange}
-                label="Events"
-              />
-              
-              <DomainOption 
-                name="secondDomain"
-                value="Business"
-                selectedValue={formData.secondDomain}
-                onChange={handleDomainChange}
-                label="Business"
-              />
+              {["Technical", "Creatives", "Events", "Business"].map((domain) => (
+                <DomainOption
+                  key={domain}
+                  name="secondDomain"
+                  value={domain}
+                  selectedValue={formData.secondDomain}
+                  onChange={handleDomainChange}
+                  label={domain}
+                />
+              ))}
             </div>
           </div>
 
           {/* Submit Button */}
           <div className="mt-12 text-center">
-            <button 
+            <button
               onClick={validateForm}
               className="px-12 py-4 bg-gradient-to-r from-cyan-400 to-blue-400 text-white text-xl font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               Submit
             </button>
           </div>
-
         </div>
       </div>
     </div>
