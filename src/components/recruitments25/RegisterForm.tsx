@@ -50,12 +50,16 @@ export default function RegistrationForm() {
 
     // Handle validation for registration number (max 15 digits)
     if (name === "registrationNumber") {
-      const numericValue = value.replace(/\D/g, "");
-      if (numericValue.length <= 15) {
-        setFormData((prev) => ({ ...prev, [name]: numericValue }));
-      }
-      return;
-    }
+  // Always enforce uppercase
+  const upperValue = value.toUpperCase();
+
+  // Allow only RA + 13 digits
+  const regex = /^RA\d{0,13}$/; // "RA" followed by up to 13 digits
+
+  if (regex.test(upperValue)) {
+    setFormData((prev) => ({ ...prev, [name]: upperValue }));
+  }
+}
 
     // Handle validation for phone number (max 10 digits)
     if (name === "phoneNumber") {
