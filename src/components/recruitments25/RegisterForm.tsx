@@ -42,6 +42,48 @@ type DomainOptionProps = {
   label: string;
 };
 
+import { useState } from "react";
+import { registerRecruitment } from "@/app/actions/registerRecruitments25";
+import dynamic from "next/dynamic";
+import "react-toastify/dist/ReactToastify.css";
+
+// Import toast directly and dynamically import ToastContainer to prevent SSR issues
+import { toast } from "react-toastify";
+const ToastContainer = dynamic(() => import("react-toastify").then(mod => ({ default: mod.ToastContainer })), {
+  ssr: false,
+});
+
+// Define types for form data
+type FormData = {
+  name: string;
+  registrationNumber: string;
+  phoneNumber: string;
+  srmistEmail: string;
+  githubProfile: string;
+  linkedinProfile: string;
+  firstDomain: string;
+  secondDomain: string;
+};
+
+// Define types for form errors
+type FormErrors = {
+  name?: string;
+  registrationNumber?: string;
+  phoneNumber?: string;
+  srmistEmail?: string;
+  firstDomain?: string;
+  secondDomain?: string;
+};
+
+// Define types for DomainOption props
+type DomainOptionProps = {
+  name: "firstDomain" | "secondDomain";
+  value: string;
+  selectedValue: string;
+  onChange: (domainType: "firstDomain" | "secondDomain", value: string) => void;
+  label: string;
+};
+
 export default function RegistrationForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -216,17 +258,15 @@ export default function RegistrationForm() {
     label,
   }) => (
     <div className="flex items-center gap-3">
-      <div
-        className={`w-6 h-6 rounded-full border-[3.5px] cursor-pointer ${
-          selectedValue === value
-            ? "bg-[#00B5FF] flex items-center justify-center"
-            : "border-white bg-white"
+      <div 
+        className={`w-6 h-6 rounded-full border-2 cursor-pointer ${
+          selectedValue === value 
+            ? 'border-cyan-400 bg-cyan-400 flex items-center justify-center' 
+            : 'border-gray-400'
         }`}
         onClick={() => onChange(name, value)}
       >
-        {selectedValue === value && (
-          <div className="w-3 h-3 rounded-full"></div>
-        )}
+        {selectedValue === value && <div className="w-3 h-3 rounded-full bg-white"></div>}
       </div>
       <span
         className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-xl font-medium cursor-pointer"
@@ -241,9 +281,8 @@ export default function RegistrationForm() {
     <div className="min-h-screen w-full flex items-center justify-center p-6">
       <div className="relative z-10 w-full max-w-7xl">
         <div className="bg-transparent p-8">
-          <h1 className="text-5xl font-bold text-center mb-16 font-montserrat-alternates pb-2 text-transparent bg-clip-text" 
-              style={{ backgroundImage: "linear-gradient(90deg, #00B5FF 0%, #00CDC1 100%)" }}>
-                Registration Form
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-center mb-16">
+            Registration Form
           </h1>
 
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-16">
@@ -251,10 +290,7 @@ export default function RegistrationForm() {
             <div className="space-y-12">
               {/* Name */}
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-lg font-medium text-white mb-4 ml-2"
-                >
+                <label htmlFor="name" className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2">
                   Name*
                 </label>
                 <input
@@ -277,10 +313,7 @@ export default function RegistrationForm() {
 
               {/* Phone Number */}
               <div>
-                <label
-                  htmlFor="phoneNumber"
-                  className="block text-lg font-medium text-white mb-4 ml-2"
-                >
+                <label htmlFor="phoneNumber" className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2">
                   Phone Number*
                 </label>
                 <div
@@ -311,10 +344,7 @@ export default function RegistrationForm() {
 
               {/* GitHub */}
               <div>
-                <label
-                  htmlFor="githubProfile"
-                  className="block text-lg font-medium text-white mb-4 ml-2"
-                >
+                <label htmlFor="githubProfile" className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2">
                   Github Profile Link
                 </label>
                 <input
@@ -334,10 +364,7 @@ export default function RegistrationForm() {
             <div className="space-y-12">
               {/* Registration Number */}
               <div>
-                <label
-                  htmlFor="registrationNumber"
-                  className="block text-lg font-medium text-white mb-4 ml-2"
-                >
+                <label htmlFor="registrationNumber" className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2">
                   Register Number*
                 </label>
                 <input
@@ -361,10 +388,7 @@ export default function RegistrationForm() {
 
               {/* SRMIST Email */}
               <div>
-                <label
-                  htmlFor="srmistEmail"
-                  className="block text-lg font-medium text-white mb-4 ml-2"
-                >
+                <label htmlFor="srmistEmail" className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2">
                   SRMIST Email*
                 </label>
                 <input
@@ -387,10 +411,7 @@ export default function RegistrationForm() {
 
               {/* LinkedIn */}
               <div>
-                <label
-                  htmlFor="linkedinProfile"
-                  className="block text-lg font-medium text-white mb-4 ml-2"
-                >
+                <label htmlFor="linkedinProfile" className="block text-lg font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 ml-2">
                   LinkedIn Profile Link
                 </label>
                 <input
@@ -435,7 +456,7 @@ export default function RegistrationForm() {
 
           {/* Second Domain */}
           <div className="mt-12">
-            <h3 className="text-3xl font-bold text-white bg-clip-text text-transparent text-center mb-8">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-center mb-8">
               Choose Your Second Domain
             </h3>
             <div className="flex justify-center">
@@ -459,46 +480,14 @@ export default function RegistrationForm() {
             </div>
           </div>
 
-          {/* Submit */}
-          <div className="mt-12 flex justify-center">
-            <button
-  onClick={handleSubmit}
-  disabled={isSubmitting}
-  className={`relative px-[70px] py-4 text-white text-xl font-semibold rounded-3xl shadow-lg transition-all duration-300 border-2 border-white flex items-center justify-center hover:scale-105 ${
-    isSubmitting ? "opacity-50 cursor-not-allowed" : "hover:shadow-xl"
-  } bg-[linear-gradient(90deg,#00B5FF_0%,#00CDC1_100%)]`}
->
-  <span className="">{isSubmitting ? "Submitting..." : "Submit"}</span>
-
-  {!isSubmitting && (
-    <img
-      src="/recruitments25/RightArrow.svg"
-      alt="Right Arrow"
-      className="absolute"
-      style={{
-        top: "20px", // adjust manually
-        right: "8px", // adjust manually
-        width: "24px",
-        height: "20px",
-      }}
-    />
-  )}
-</button>
-
-
-
-            <ToastContainer
-              position="bottom-center"
-              autoClose={3000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="colored"
-            />
+          {/* Submit Button */}
+          <div className="mt-12 text-center">
+            <button 
+              onClick={validateForm}
+              className="px-12 py-4 bg-gradient-to-r from-cyan-400 to-blue-400 text-white text-xl font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>
