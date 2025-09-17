@@ -29,7 +29,7 @@ const typographyStyles = {
 
 export default function ContactUs() {
   return (
-    <section className="relative overflow-hidden px-4 sm:px-6 py-16">
+    <section id="contact" className="relative overflow-hidden px-4 sm:px-6 py-16">
       <div className="absolute inset-0 bg-black/20" />
 
       {/* Line 1 SVG at the top */}
