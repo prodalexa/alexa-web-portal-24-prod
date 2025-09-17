@@ -43,6 +43,9 @@ const config = {
         monsterrat: [
           'var(--font-monsterrat)'
         ],
+        montserrat: [
+          'var(--font-montserrat)'
+        ],
         valorant: [
           'var(--font-valorant)'
         ],
