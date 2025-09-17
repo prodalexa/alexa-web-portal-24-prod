@@ -97,7 +97,7 @@ export async function registerRecruitment(data: RegistrationData) {
 
     return {
       success: true,
-      message: 'Registration successful! Welcome to Alexa Developers Club SRM!',
+      message: 'Registration successful!',
       data: result[0]
     }
 
