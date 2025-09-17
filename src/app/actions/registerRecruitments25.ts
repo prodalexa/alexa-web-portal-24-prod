@@ -24,7 +24,7 @@ export async function registerRecruitment(data: RegistrationData) {
     }
 
     // Validate email format
-    if (!data.srmistEmail.includes('@srmist.edu.in')) {
+    if (!data.srmistEmail.endsWith('@srmist.edu.in')) {
       return {
         success: false,
         error: 'Please use a valid SRMIST email address'
@@ -40,7 +40,8 @@ export async function registerRecruitment(data: RegistrationData) {
     }
 
     // Validate phone number length
-    if (data.phoneNumber.length !== 10) {
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(data.phoneNumber)) {
       return {
         success: false,
         error: 'Phone number must be exactly 10 digits'
