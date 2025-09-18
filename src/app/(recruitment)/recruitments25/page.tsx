@@ -1,7 +1,8 @@
 "use client;"
 
-// import HeroSection from "@/components/recruitments25/HeroSection";
-// import DomainSection from "@/components/recruitments25/DomainSection";
+import Navbar from "@/components/recruitments25/Navbar";
+import HeroSection from "@/components/recruitments25/HeroSection";
+import DomainSection from "@/components/recruitments25/DomainSection";
 import RoadToAlexa from "@/components/recruitments25/RoadToAlexa";
 import ContactUs from "@/components/recruitments25/ContactUs";
 
@@ -18,6 +19,7 @@ export default function Recruitments25Page() {
       <div className="fixed inset-0 bg-black/40 z-0" />
 
       <div className="relative z-10">
+        <Navbar />
         <HeroSection />
         <DomainSection />
         <RoadToAlexa />
