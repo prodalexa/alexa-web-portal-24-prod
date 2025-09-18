@@ -3,7 +3,7 @@
 // import HeroSection from "@/components/recruitments25/HeroSection";
 // import DomainSection from "@/components/recruitments25/DomainSection";
 import RoadToAlexa from "@/components/recruitments25/RoadToAlexa";
-// import ContactUs from "@/components/recruitments25/ContactUs";
+import ContactUs from "@/components/recruitments25/ContactUs";
 
 export default function Recruitments25Page() {
   return (
@@ -21,8 +21,9 @@ export default function Recruitments25Page() {
         {/* <HeroSection /> */}
         {/* <DomainSection /> */}
         <RoadToAlexa />
-        {/* <ContactUs /> */}
+        <ContactUs />
       </div>
     </main>
   );
 }
+
