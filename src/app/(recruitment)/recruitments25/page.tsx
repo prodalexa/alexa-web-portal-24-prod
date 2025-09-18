@@ -18,8 +18,8 @@ export default function Recruitments25Page() {
       <div className="fixed inset-0 bg-black/40 z-0" />
 
       <div className="relative z-10">
-        {/* <HeroSection /> */}
-        {/* <DomainSection /> */}
+        <HeroSection />
+        <DomainSection />
         <RoadToAlexa />
         <ContactUs />
       </div>

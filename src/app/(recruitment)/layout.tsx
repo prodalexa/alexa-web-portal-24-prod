@@ -12,10 +12,12 @@ const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
 });
+
 
 const montserratAlternates = Montserrat_Alternates({
   subsets: ["latin"],
