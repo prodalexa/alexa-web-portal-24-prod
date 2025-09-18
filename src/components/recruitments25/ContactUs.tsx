@@ -30,19 +30,19 @@ const typographyStyles = {
 export default function ContactUs() {
   return (
     <section id="contact" className="relative overflow-hidden px-4 sm:px-6 py-16">
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 " />
 
       {/* Line 1 SVG at the top */}
       <div className="flex justify-center mb-16">
         <img 
           src="/recruitments25/Line 1.svg" 
           alt="Decorative Line"
-          className="w-full max-w-6xl h-auto opacity-80"
+          className="w-full max-w-[1400px] h-auto opacity-80"
         />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-16 max-w-6xl mx-auto">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-16 max-w-6xl mx-auto lg:translate-x-20 sm:translate-x-0">
           {/* Left side - Embrace the FUTURE */}
           <div className="flex-1 text-center lg:text-left">
             <h2 
