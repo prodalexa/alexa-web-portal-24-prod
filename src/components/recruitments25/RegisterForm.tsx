@@ -68,10 +68,7 @@ export default function RegistrationForm() {
 
     if (name === "registrationNumber") {
       const upperValue = value.toUpperCase().replace(/\s/g, "");
-      const regex = /^R?$|^RA\d{0,13}$/;
-      if (regex.test(upperValue) || upperValue === "RA") {
-        setFormData((prev) => ({ ...prev, [name]: upperValue }));
-      }
+      setFormData((prev) => ({ ...prev, [name]: upperValue }));
       return;
     }
 
@@ -86,7 +83,10 @@ export default function RegistrationForm() {
   };
 
   const handleDomainChange = (domainType: "firstDomain" | "secondDomain", value: string) => {
-    setFormData((prev) => ({ ...prev, [domainType]: value }));
+    setFormData((prev) => ({
+    ...prev,
+    [domainType]: prev[domainType] === value ? "" : value,
+  }));
     if (errors[domainType]) setErrors((prev) => ({ ...prev, [domainType]: "" }));
     if (errors.githubProfile) setErrors((prev) => ({ ...prev, githubProfile: "" }));
   };
