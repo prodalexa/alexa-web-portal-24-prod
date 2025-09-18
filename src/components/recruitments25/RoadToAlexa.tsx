@@ -113,7 +113,7 @@ export default function RoadToAlexa() {
   }, [])
 
   return (
-    <div className="min-h-screen relative overflow-hidden px-6 py-12">
+    <div id="roadmap" className="min-h-screen relative overflow-hidden px-6 py-12">
       <div className="lg:hidden relative z-10">
         <h1 
           className="text-4xl font-extrabold text-center mb-16 text-balance relative z-20 leading-none tracking-tight font-montserrat-alternates"
