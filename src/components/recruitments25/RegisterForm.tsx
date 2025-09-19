@@ -208,7 +208,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         {selectedValue === value && <div className="w-3 h-3 rounded-full"></div>}
       </div>
       <span
-        className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-xl font-medium cursor-pointer"
+        className="text-white text-xl font-medium cursor-pointer"
         onClick={() => onChange(name, value)}
       >
         {label}
