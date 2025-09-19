@@ -4,7 +4,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-// import { registerRecruitment } from "@/app/actions/registerRecruitments25";
+import { registerRecruitment } from "@/app/actions/registerRecruitments25";
 
 const ToastContainer = dynamic(
   () => import("react-toastify").then((mod) => ({ default: mod.ToastContainer })),
