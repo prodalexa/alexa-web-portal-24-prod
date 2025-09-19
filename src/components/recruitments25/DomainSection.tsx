@@ -174,13 +174,13 @@ const DomainSection: React.FC = () => {
                   cursor: 'pointer',
                   overflow: 'hidden',
                   display: 'flex',
-                  alignItems: 'center', // keep both centered
+                  alignItems: 'center',
                   flexDirection: isMobile
                     ? 'column'
                     : isEven
                     ? 'row-reverse'
                     : 'row',
-                  gap: isMobile ? '12px' : '30px', // reduced gap
+                  gap: isMobile ? '12px' : '10px',
                   minHeight: isMobile ? 'auto' : '220px',
                   width: '100%',
                   boxShadow: '0 15px 35px rgba(0, 0, 0, 0.5)',
@@ -249,9 +249,10 @@ const DomainSection: React.FC = () => {
                       lineHeight: '1.5',
                       margin: '0',
                       fontWeight: '400',
-                      maxWidth: isMobile ? 'none' : '400px',
+                      maxWidth: isMobile ? 'none' : '550px',
                       marginLeft: isMobile ? 'auto' : isEven ? '0' : 'auto',
                       marginRight: isMobile ? 'auto' : isEven ? 'auto' : '0',
+                      // textAlign: 'justify',
                     }}
                   >
                     {domain.description}
