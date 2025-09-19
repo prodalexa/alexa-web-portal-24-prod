@@ -41,7 +41,7 @@ export default function ContactUs() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-5 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-16 max-w-6xl mx-auto lg:translate-x-20 sm:translate-x-0">
           {/* Left side - Embrace the FUTURE */}
           <div className="flex-1 text-center lg:text-left">
