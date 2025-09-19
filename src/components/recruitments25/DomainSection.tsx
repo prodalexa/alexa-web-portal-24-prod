@@ -227,7 +227,7 @@ const DomainSection: React.FC = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
-                    paddingBottom: isMobile ? '40px' : '30px', // increased bottom padding
+                    paddingBottom: isMobile ? '40px' : '30px',
                   }}
                 >
                   <h3
