@@ -36,7 +36,7 @@ const HeroSection = (props: Props) => {
           alt="Alexa SRM Club Logo"
           height={600}
           width={600}
-          className="w-full h-auto"
+          className="w-full h-auto z-[10]"
           priority
         />
       </div>

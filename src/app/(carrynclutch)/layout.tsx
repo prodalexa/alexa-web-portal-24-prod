@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   title: "Carry N Clutch | ADS!",
   description: "Clutch Moments, Lasting Glory",
   icons: {
-    icon: "/icon.png",
+    icon: "/icon2.png",
   },
 };
 

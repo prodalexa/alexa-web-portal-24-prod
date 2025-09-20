@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   title: "Welcome | ADS!",
   description: "Created with ♥️ by the ADS team.",
   icons: {
-    icon: "/icon.png",
+    icon: "/icon2.png",
   },
 };
 
