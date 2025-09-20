@@ -1,7 +1,3 @@
-import TeamRegisterForm from "@/components/alexaverse/multi-register-form";
-import MultiRegisterForm from "@/components/alexaverse/multi-register-form";
-import SingleRegisterForm from "@/components/alexaverse/single-register-form";
-import { getTicketBySlug } from "@/sanity/data/alexaverse-data";
 import React from "react";
 
 type Props = {
@@ -11,16 +7,11 @@ type Props = {
 };
 
 const RegisterPage = async (props: Props) => {
-  const eventData = await getTicketBySlug(props.params.eventSlug);
-  console.log(eventData);
   return (
-    <div>
-      {!eventData.registrationClosed && 
-        (eventData.maxParticipants === 1 ? (
-          <SingleRegisterForm event={eventData} />
-        ) : (
-          <TeamRegisterForm event={eventData} />
-        ))}
+    <div className="flex justify-center items-center min-h-screen">
+      <h1 className="text-3xl font-bold text-center">
+        Registration for this event is now closed.
+      </h1>
     </div>
   );
 };
