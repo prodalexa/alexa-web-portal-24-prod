@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   title: "Hacktrax | ADS!",
   description: "The Ultimate Coding Grand Prix",
   icons: {
-    icon: "/icon.png",
+    icon: "/icon2.png",
   },
 };
 

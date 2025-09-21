@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   title: "AlexaVerse 2.0 | ADS!",
   description: "Created with ♥️ by the ADS team.",
   icons: {
-    icon: "/icon.png",
+    icon: "/icon2.png",
   },
 };
 

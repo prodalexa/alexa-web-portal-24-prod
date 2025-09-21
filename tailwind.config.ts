@@ -36,11 +36,21 @@ const config = {
         sairaStencilOne: [
           'var(--font-sariaStencilOne)'
         ],
+        'montserrat-alternates': ['var(--font-montserrat-alternates)'],
         keniaOne: [
           'var(--font-keniaOne)'
         ],
+        montserrat: [
+          'var(--font-montserrat)'
+        ],
+        "montserrat-alternates": [
+          'var(--font-montserrat-alternates)'
+        ],
         monsterrat: [
           'var(--font-monsterrat)'
+        ],
+        montserrat: [
+          'var(--font-montserrat)'
         ],
         valorant: [
           'var(--font-valorant)'
