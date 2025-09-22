@@ -14,34 +14,34 @@ export default function Recruitments25Page() {
       <div className="hidden md:block">
         {/* Left side centered */}
         <img
-          src="/recruitments25/Blue-Smoke.svg"
+          src="/recruitments25/BlueSmoke.svg"
           alt="Blue Smoke Left"
           className="fixed left-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] md:w-[900px] opacity-80 z-0"
         />
         <img
-          src="/recruitments25/Blue-Smoke2.svg"
+          src="/recruitments25/BlueSmoke2.svg"
           alt="Blue Smoke Left 2"
           className="fixed left-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] md:w-[900px] opacity-100 brightness-125 z-0"
         />
         <img
-          src="/recruitments25/Blue-Smoke2.svg"
+          src="/recruitments25/BlueSmoke2.svg"
           alt="Blue Smoke Left 3"
           className="fixed left-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] md:w-[900px] opacity-100 brightness-80 z-0"
         />
 
         {/* Right side centered */}
         <img
-          src="/recruitments25/Blue-Smoke.svg"
+          src="/recruitments25/BlueSmoke.svg"
           alt="Blue Smoke Right"
           className="fixed right-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] md:w-[900px] opacity-80 scale-x-[-1] z-0"
         />
         <img
-          src="/recruitments25/Blue-Smoke2.svg"
+          src="/recruitments25/BlueSmoke2.svg"
           alt="Blue Smoke Right 2"
           className="fixed right-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] md:w-[900px] opacity-100 brightness-125 scale-x-[-1] z-0"
         />
         <img
-          src="/recruitments25/Blue-Smoke2.svg"
+          src="/recruitments25/BlueSmoke2.svg"
           alt="Blue Smoke Right 3"
           className="fixed right-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] md:w-[900px] opacity-100 brightness-80 scale-x-[-1] z-0"
         />
@@ -52,17 +52,17 @@ export default function Recruitments25Page() {
         {/* Left stack at top */}
         <div className="fixed top-0 left-0 z-0">
           <img
-            src="/recruitments25/Blue-Smoke.svg"
+            src="/recruitments25/BlueSmoke.svg"
             alt="Blue Smoke Left"
             className="w-[450px] sm:w-[400px] h-[400px] sm:h-[600px] opacity-80"
           />
           <img
-            src="/recruitments25/Blue-Smoke2.svg"
+            src="/recruitments25/BlueSmoke2.svg"
             alt="Blue Smoke Left 2"
             className="absolute top-0 w-[450px] sm:w-[400px] h-[400px] sm:h-[600px] opacity-100 brightness-125"
           />
           <img
-            src="/recruitments25/Blue-Smoke2.svg"
+            src="/recruitments25/BlueSmoke2.svg"
             alt="Blue Smoke Left 3"
             className="absolute top-0 w-[450px] sm:w-[400px] h-[400px] sm:h-[600px] opacity-100 brightness-80"
           />
@@ -71,17 +71,17 @@ export default function Recruitments25Page() {
         {/* Right stack at bottom */}
         <div className="fixed bottom-0 right-0 z-0">
           <img
-            src="/recruitments25/Blue-Smoke.svg"
+            src="/recruitments25/BlueSmoke.svg"
             alt="Blue Smoke Right"
             className="w-[450px] sm:w-[400px] h-[400px] sm:h-[600px] opacity-80 scale-x-[-1]"
           />
           <img
-            src="/recruitments25/Blue-Smoke2.svg"
+            src="/recruitments25/BlueSmoke2.svg"
             alt="Blue Smoke Right 2"
             className="absolute top-0 w-[450px] sm:w-[400px] h-[400px] sm:h-[600px] opacity-100 brightness-125 scale-x-[-1]"
           />
           <img
-            src="/recruitments25/Blue-Smoke2.svg"
+            src="/recruitments25/BlueSmoke2.svg"
             alt="Blue Smoke Right 3"
             className="absolute top-0 w-[450px] sm:w-[400px] h-[400px] sm:h-[600px] opacity-100 brightness-80 scale-x-[-1]"
           />

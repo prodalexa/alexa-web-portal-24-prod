@@ -9,7 +9,7 @@ const typographyStyles = {
   },
   futureTitle: {
     fontSize: '64px',
-    fontWeight: 800,
+    // fontWeight: 800,
     lineHeight: '100%',
     letterSpacing: '0%',
   },
@@ -53,7 +53,7 @@ export default function ContactUs() {
             </h2>
             
             <h1 
-              className="font-semibold leading-none tracking-tight font-montserrat relative bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] bg-clip-text text-transparent"
+              className="font-extrabold leading-none tracking-tight font-montserrat relative bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] bg-clip-text text-transparent"
               style={typographyStyles.futureTitle}
             >
               FUTURE

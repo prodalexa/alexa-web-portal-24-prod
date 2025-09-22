@@ -97,11 +97,11 @@ export default function RegistrationForm() {
     if (!formData.name.trim()) newErrors.name = "Name is required";
     else if (!/^[a-zA-Z\s]+$/.test(formData.name)) newErrors.name = "Name can only contain letters and spaces";
 
-    if (!/^RA\d{13}$/.test(formData.registrationNumber)) newErrors.registrationNumber = "Invalid Registration Number";
+    if (!/^RA\d{13}$/i.test(formData.registrationNumber)) newErrors.registrationNumber = "Invalid Registration Number";
 
     if (!/^\d{10}$/.test(formData.phoneNumber)) newErrors.phoneNumber = "Phone Number must be exactly 10 digits";
 
-    if (!/^[\w.-]+@srmist\.edu\.in$/.test(formData.srmistEmail)) newErrors.srmistEmail = "Please enter a valid SRMIST email address";
+    if (!/^[a-z]{2}\d{4}@srmist\.edu\.in$/.test(formData.srmistEmail)) newErrors.srmistEmail = "Please enter a valid SRMIST email address";
 
     if (!formData.firstDomain) newErrors.firstDomain = "Please select your first domain";
 
@@ -234,7 +234,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             {/* Name */}
             <div>
               <label htmlFor="name" className="block text-base sm:text-lg font-medium font-montserrat text-white mb-2 sm:mb-4 ml-2">
-                Name*
+                Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -242,6 +242,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
+                pattern="^[a-zA-Z\s]+$"
+                title="Only letters and spaces allowed"
                 className={`w-full px-4 sm:px-6 py-3 sm:py-4 bg-white font-montserrat bg-opacity-90 border-2 rounded-xl sm:rounded-2xl text-gray-800 placeholder-gray-400 text-base sm:text-lg focus:ring-0 focus:outline-none shadow-lg ${
                   errors.name ? "border-red-500" : ""
                 }`}
@@ -253,7 +255,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             {/* Registration Number */}
             <div>
               <label htmlFor="registrationNumber" className="block text-base sm:text-lg font-medium font-montserrat text-white mb-2 sm:mb-4 ml-2">
-                Register Number*
+                Register Number <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -261,6 +263,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                 name="registrationNumber"
                 value={formData.registrationNumber}
                 onChange={handleInputChange}
+                pattern="^RA\d{13}$"
+                title="Must start with RA followed by 13 digits"
                 className={`w-full px-4 sm:px-6 py-3 sm:py-4 bg-white font-montserrat bg-opacity-90 border-2 rounded-xl sm:rounded-2xl text-gray-800 placeholder-gray-400 text-base sm:text-lg focus:ring-0 focus:outline-none shadow-lg ${
                   errors.registrationNumber ? "border-red-500" : ""
                 }`}
@@ -273,7 +277,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             {/* Phone Number */}
             <div>
               <label htmlFor="phoneNumber" className="block text-base sm:text-lg font-medium font-montserrat text-white mb-2 sm:mb-4 ml-2">
-                Phone Number*
+                Phone Number <span className="text-red-500">*</span>
               </label>
               <div
                 className={`relative flex items-center rounded-xl sm:rounded-2xl bg-white bg-opacity-90 overflow-hidden shadow-lg ${
@@ -289,6 +293,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                   name="phoneNumber"
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
+                  pattern="^\d{10}$"
+                  title="Enter a valid 10-digit phone number"
                   className="flex-1 px-2 sm:px-3 py-3 sm:py-4 text-gray-800 font-montserrat placeholder-gray-400 text-base sm:text-lg focus:ring-0 focus:outline-none bg-transparent"
                   placeholder="012 345 6789"
                   maxLength={10}
@@ -300,7 +306,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             {/* SRMIST Email */}
             <div>
               <label htmlFor="srmistEmail" className="block text-base sm:text-lg font-medium font-montserrat text-white mb-2 sm:mb-4 ml-2">
-                SRMIST Email*
+                SRMIST Email <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
@@ -308,6 +314,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                 name="srmistEmail"
                 value={formData.srmistEmail}
                 onChange={handleInputChange}
+                pattern="^[a-z]{2}\d{4}@srmist\.edu\.in$"
+                title="Email must be an SRMIST ID ending with @srmist.edu.in"
                 className={`w-full px-4 sm:px-6 py-3 sm:py-4 bg-white font-montserrat bg-opacity-90 border-2 rounded-xl sm:rounded-2xl text-gray-800 placeholder-gray-400 text-base sm:text-lg focus:ring-0 focus:outline-none shadow-lg ${
                   errors.srmistEmail ? "border-red-500" : ""
                 }`}
@@ -327,6 +335,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                 name="githubProfile"
                 value={formData.githubProfile}
                 onChange={handleInputChange}
+                pattern="^(https?:\/\/)?(www\.)?github\.com\/[\w-]+\/?$"
+                title="Enter a valid GitHub URL containing github.com/"
                 className={`w-full px-4 sm:px-6 py-3 sm:py-4 bg-white font-montserrat bg-opacity-90 border-0 rounded-xl sm:rounded-2xl text-gray-800 placeholder-gray-400 text-base sm:text-lg focus:ring-0 focus:outline-none shadow-lg ${
                   errors.githubProfile ? "border-2 border-red-500" : ""
                 }`}
@@ -355,7 +365,7 @@ const handleSubmit = async (e: React.FormEvent) => {
           {/* Domains */}
           <div className="mt-8 md:mt-12 mb-6 md:mb-8">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-montserrat text-white bg-clip-text text-transparent text-center mb-6 md:mb-8">
-              Choose Your First Domain*
+              Choose Your First Domain <span className="text-red-500">*</span>
             </h2>
             <div className="flex justify-center">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 sm:gap-x-16 md:gap-x-[20rem] gap-y-4 sm:gap-y-6 md:gap-y-8 font-montserrat">
