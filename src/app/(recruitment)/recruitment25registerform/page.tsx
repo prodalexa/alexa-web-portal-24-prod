@@ -15,12 +15,12 @@ export default function Recruitment25RegisterPage() {
           className="fixed left-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] md:w-[900px] opacity-80 z-0"
         />
         <img
-          src="/recruitments25/Blue-Smoke2.svg"
+          src="/recruitments25/Blue-smoke2.svg"
           alt="Blue Smoke Left 2"
           className="fixed left-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] md:w-[900px] opacity-100 brightness-125 z-0"
         />
         <img
-          src="/recruitments25/Blue-Smoke2.svg"
+          src="/recruitments25/Blue-smoke2.svg"
           alt="Blue Smoke Left 3"
           className="fixed left-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] md:w-[900px] opacity-100 brightness-80 z-0"
         />
@@ -32,12 +32,12 @@ export default function Recruitment25RegisterPage() {
           className="fixed right-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] md:w-[900px] opacity-80 scale-x-[-1] z-0"
         />
         <img
-          src="/recruitments25/Blue-Smoke2.svg"
+          src="/recruitments25/Blue-smoke2.svg"
           alt="Blue Smoke Right 2"
           className="fixed right-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] md:w-[900px] opacity-100 brightness-125 scale-x-[-1] z-0"
         />
         <img
-          src="/recruitments25/Blue-Smoke2.svg"
+          src="/recruitments25/Blue-smoke2.svg"
           alt="Blue Smoke Right 3"
           className="fixed right-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] md:w-[900px] opacity-100 brightness-80 scale-x-[-1] z-0"
         />
