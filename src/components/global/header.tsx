@@ -85,7 +85,7 @@ const Navbar = () => {
                 )}
               >
                 <button className="px-8 py-2 rounded-full bg-gradient-to-b from-[#31B553] to-[#0AA294] text-white focus:ring-2 focus:ring-blue-400 hover:shadow-xl transition duration-200">
-                  Recruitments '25
+                  Recruitments &apos;25
                 </button>
                 {/* <span className="text-[#980F35]">Alexa</span>
                 <span className="text-[#AF6922]">Verse</span> */}
