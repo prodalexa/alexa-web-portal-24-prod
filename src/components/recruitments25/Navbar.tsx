@@ -53,7 +53,7 @@ const Navbar = (props: Props) => {
           <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 list-none">
             <li>
               <a
-                href={`${basePath}#home`}
+                href="/"
                 className="text-[#bbb] text-[16px] font-montserrat-alternates md:text-[20px] no-underline transition-colors duration-300 hover:text-[#00bcd4]"
               >
                 Home
@@ -78,7 +78,7 @@ const Navbar = (props: Props) => {
           </ul>
           <a
             href="/recruitment25registerform"
-            className="luma-checkout--button font-montserrat-alternates bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] text-white py-2 px-6 rounded-full text-[16px] md:text-[20px] font-semibold no-underline transition-all duration-300 hover:bg-gradient-to-r hover:from-[#00CDC1] hover:to-[#00B5FF]"
+            className="font-montserrat-alternates bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] text-white py-2 px-6 rounded-full text-[16px] md:text-[20px] font-semibold no-underline transition-all duration-300 hover:scale-110"
           >
             Register Now
           </a>

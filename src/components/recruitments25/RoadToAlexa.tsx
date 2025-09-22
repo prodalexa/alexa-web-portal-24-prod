@@ -69,7 +69,7 @@ const getIconSize = (title: string, isMobile: boolean) => {
 
 const typographyStyles = {
   title: {
-    fontSize: '32px',
+    fontSize: '48px',
     fontWeight: 800,
     lineHeight: '100%',
     letterSpacing: '0%',
