@@ -87,11 +87,11 @@ export async function registerRecruitment(data: RegistrationData) {
 
     // Validate optional URLs if provided
     if (data.githubProfile && data.githubProfile.trim()) {
-      const githubRegex = /^github\.com\/[a-zA-Z0-9_-]+\/?$/;
+      const githubRegex = /^(https?:\/\/)?(www\.)?github\.com\/[a-zA-Z0-9_-]+\/?$/i;
       if (!githubRegex.test(data.githubProfile.trim())) {
         return {
           success: false,
-          error: 'GitHub profile must be a valid GitHub URL (e.g., github.com/username)'
+          error: 'GitHub profile must be a valid GitHub URL (e.g., https://github.com/username or github.com/username)'
         }
       }
     }
