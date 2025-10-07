@@ -92,34 +92,47 @@ export default function RegistrationForm() {
   };
 
   const validateForm = (): boolean => {
-    const newErrors: FormErrors = {};
+  const newErrors: FormErrors = {};
 
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-    else if (!/^[a-zA-Z\s]+$/.test(formData.name)) newErrors.name = "Name can only contain letters and spaces";
+  if (!formData.name.trim())
+    newErrors.name = "Name is required";
+  else if (!/^[a-zA-Z\s]+$/.test(formData.name))
+    newErrors.name = "Name can only contain letters and spaces";
 
-    if (!/^RA\d{13}$/i.test(formData.registrationNumber)) newErrors.registrationNumber = "Invalid Registration Number";
+  if (!/^RA\d{13}$/i.test(formData.registrationNumber))
+    newErrors.registrationNumber = "Invalid Registration Number";
 
-    if (!/^\d{10}$/.test(formData.phoneNumber)) newErrors.phoneNumber = "Phone Number must be exactly 10 digits";
+  if (!/^\d{10}$/.test(formData.phoneNumber))
+    newErrors.phoneNumber = "Phone Number must be exactly 10 digits";
 
-    if (!/^[a-z]{2}\d{4}@srmist\.edu\.in$/.test(formData.srmistEmail)) newErrors.srmistEmail = "Please enter a valid SRMIST email address";
+  if (!/^[a-z]{2}\d{4}@srmist\.edu\.in$/.test(formData.srmistEmail))
+    newErrors.srmistEmail = "Please enter a valid SRMIST email address";
 
-    if (!formData.firstDomain) newErrors.firstDomain = "Please select your first domain";
+  if (!formData.firstDomain)
+    newErrors.firstDomain = "Please select your first domain";
 
-    if (formData.secondDomain && formData.secondDomain === formData.firstDomain) {
-      newErrors.secondDomain = "Second domain cannot be the same as first domain";
+  if (formData.secondDomain && formData.secondDomain === formData.firstDomain) {
+    newErrors.secondDomain = "Second domain cannot be the same as first domain";
+  }
+
+  console.log("🔍 GitHub input value before validation:", `"${formData.githubProfile}"`);
+
+  if (formData.firstDomain === "Technical" || formData.secondDomain === "Technical") {
+    const githubValue = formData.githubProfile.trim();
+
+    if (!githubValue) {
+      newErrors.githubProfile = "GitHub profile is required for Technical domain";
+    } 
+
+    else if (!/^(https?:\/\/)?(www\.)?github\.com\/[A-Za-z0-9_-]+\/?$/.test(githubValue)) {
+      console.log("❌ Regex test failed for GitHub value:", githubValue);
+      newErrors.githubProfile = "Enter a valid GitHub URL containing github.com/";
     }
+  }
 
-    if (formData.firstDomain === "Technical" || formData.secondDomain === "Technical") {
-      if (!formData.githubProfile.trim()) {
-        newErrors.githubProfile = "GitHub profile is required for Technical domain";
-      } else if (!/^(https?:\/\/)?(www\.)?github\.com\/[\w-]+\/?$/.test(formData.githubProfile)) {
-        newErrors.githubProfile = "Enter a valid GitHub URL containing github.com/";
-      }
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
 
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
@@ -335,7 +348,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 name="githubProfile"
                 value={formData.githubProfile}
                 onChange={handleInputChange}
-                pattern="^(https?:\/\/)?(www\.)?github\.com\/[\w-]+\/?$"
+                pattern="^(https?:\/\/)?(www\.)?github\.com\/[A-Za-z0-9_-]+\/?$"
                 title="Enter a valid GitHub URL containing github.com/"
                 className={`w-full px-4 sm:px-6 py-3 sm:py-4 bg-white font-montserrat bg-opacity-90 border-0 rounded-xl sm:rounded-2xl text-gray-800 placeholder-gray-400 text-base sm:text-lg focus:ring-0 focus:outline-none shadow-lg ${
                   errors.githubProfile ? "border-2 border-red-500" : ""
