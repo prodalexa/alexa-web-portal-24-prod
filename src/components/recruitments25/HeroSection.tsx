@@ -22,11 +22,12 @@ const HeroSection = (props: Props) => {
           open to recruiting first and second year students!
         </p>
         <Link
-          href="/recruitment25registerform"
-          className="relative font-montserrat-alternates mt-8 md:mt-14 w-full max-w-[280px] md:max-w-[250px] bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] text-white py-3 md:py-4 px-8 rounded-full text-lg md:text-xl font-semibold no-underline transition-all duration-300 border border-white flex justify-center items-center shadow-lg hover:shadow-xl hover:scale-105"
-        >
-          Register Now
-        </Link>
+  href="/recruitment25registerform"
+  className="relative font-montserrat-alternates mt-8 md:mt-14 w-full max-w-[320px] md:max-w-[320px] bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] text-white py-3 md:py-4 px-8 rounded-full text-lg md:text-xl font-semibold no-underline transition-all duration-300 border border-white flex justify-center items-center shadow-lg hover:shadow-xl hover:scale-105"
+>
+  Registrations Closed
+</Link>
+
       </div>
 
       {/* Image container - order changes based on screen size */}

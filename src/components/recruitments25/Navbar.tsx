@@ -80,7 +80,7 @@ const Navbar = (props: Props) => {
             href="/recruitment25registerform"
             className="font-montserrat-alternates bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] text-white py-2 px-6 rounded-full text-[16px] md:text-[20px] font-semibold no-underline transition-all duration-300 hover:scale-110"
           >
-            Register Now
+            Registrations Closed
           </a>
         </div>
       </nav>
@@ -135,7 +135,7 @@ const Navbar = (props: Props) => {
               className="mt-10 font-montserrat-alternates bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] text-white py-3 px-8 rounded-full text-xl font-semibold no-underline transition-all duration-300 hover:bg-gradient-to-r hover:from-[#00CDC1] hover:to-[#00B5FF]"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Register Now
+              Registrations Closed
             </a>
           </div>
         </div>
