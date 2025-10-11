@@ -12,7 +12,7 @@ const ToastContainer = dynamic(
 );
 
 export default function RegistrationForm() {
-  // 👇 registration status toggle (set to false to close)
+  //registration status toggle (set to false to close)
   const registrationOpen = false;
 
   const [formData, setFormData] = useState({
