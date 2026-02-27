@@ -1,12 +1,17 @@
-const svgToDataUri = require("mini-svg-data-uri");
-const {
-  default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
-const { fontFamily } = require("tailwindcss/defaultTheme");
 import type { Config } from "tailwindcss";
 
+const defaultSansFontFamily = [
+  "ui-sans-serif",
+  "system-ui",
+  "sans-serif",
+  '"Apple Color Emoji"',
+  '"Segoe UI Emoji"',
+  '"Segoe UI Symbol"',
+  '"Noto Color Emoji"',
+];
+
 const config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -24,33 +29,19 @@ const config = {
     },
     extend: {
       fontFamily: {
-        audiowide: ["'Audiowide'", ...fontFamily.sans],
-        nunito: ['var(--font-nunito)'],
-        sans: [
-          "var(--font-sans)", ...fontFamily.sans
-        ],
+        audiowide: ["'Audiowide'", ...defaultSansFontFamily],
+        nunito: ["var(--font-nunito)"],
+        sans: ["var(--font-sans)", ...defaultSansFontFamily],
         space: ["var(--font-spaceGrotesk)"],
         moul: ["var(--font-moul)"],
         anton: ["var(--font-anton)"],
         inter: ["var(--font-inter)"],
-        sairaStencilOne: [
-          'var(--font-sariaStencilOne)'
-        ],
-        keniaOne: [
-          'var(--font-keniaOne)'
-        ],
-        montserrat: [
-          'var(--font-montserrat)'
-        ],
-        "montserrat-alternates": [
-          'var(--font-montserrat-alternates)'
-        ],
-        valorant: [
-          'var(--font-valorant)'
-        ],
-        NCS: [
-          'var(--font-ncsRadhiumz)'
-        ]
+        sairaStencilOne: ["var(--font-sariaStencilOne)"],
+        keniaOne: ["var(--font-keniaOne)"],
+        montserrat: ["var(--font-montserrat)"],
+        "montserrat-alternates": ["var(--font-montserrat-alternates)"],
+        valorant: ["var(--font-valorant)"],
+        NCS: ["var(--font-ncsRadhiumz)"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -134,12 +125,12 @@ const config = {
         },
         shimmer: {
           from: {
-            "backgroundPosition": "0 0"
+            backgroundPosition: "0 0",
           },
           to: {
-            "backgroundPosition": "-200% 0"
-          }
-        }
+            backgroundPosition: "-200% 0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -148,37 +139,13 @@ const config = {
         "meteor-effect": "meteor 5s linear infinite",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        shimmer: "shimmer 2s linear infinite",
       },
-      shimmer: "shimmer 2s linear infinite",
     },
   },
   plugins: [
     require("tailwindcss-animate"),
-    addVariablesForColors,
-    function ({ matchUtilities, theme }: any) {
-      matchUtilities(
-        {
-          "bg-dot-thick": (value: any) => ({
-            backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="2.5"></circle></svg>`
-            )}")`,
-          }),
-        },
-        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
-      );
-    },
   ],
 } satisfies Config;
-
-function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
-
-  addBase({
-    ":root": newVars,
-  });
-}
 
 export default config;
