@@ -1,9 +1,9 @@
 import React from "react";
 
 type Props = {
-  params: {
+  params: Promise<{
     eventSlug: string;
-  };
+  }>;
 };
 
 const RegisterPage = async (props: Props) => {

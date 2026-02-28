@@ -7,13 +7,14 @@ import Link from "next/link";
 import React from "react";
 
 type Props = {
-  params: {
+  params: Promise<{
     eventSlug: string;
-  };
+  }>;
 };
 
 const EventView = async ({ params }: Props) => {
-  const eventData = await getEventBySlug(params.eventSlug);
+  const { eventSlug } = await params;
+  const eventData = await getEventBySlug(eventSlug);
   return (
     <div className="max-w-full w-full h-full mt-4 md:mt-10 pr-6 flex flex-col md:flex-row items-center gap-6 lg:gap-10">
       {/* left */}
