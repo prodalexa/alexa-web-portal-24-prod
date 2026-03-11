@@ -25,8 +25,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Carry N Clutch | ADS!",
-  description: "Clutch Moments, Lasting Glory",
+  title: "HackTrax 2.0 | ADS!",
+  description: "Innovate. Build. Compete.",
   icons: {
     icon: "/icon2.png",
   },
@@ -41,7 +41,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen h-full bg-gaming_bg font-sans antialiased",
+          "min-h-screen h-full font-sans antialiased",
           keniaOne.variable,
           sariaStencilOne.variable,
           montserrat.variable

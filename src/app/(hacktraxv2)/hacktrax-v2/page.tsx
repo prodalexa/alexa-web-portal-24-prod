@@ -1,4 +1,4 @@
-import Navbar from "@/components/hacktrax-v2/Navbar";
+import HeroSection from "@/components/hacktrax-v2/HeroSection";
 import EventDetails from "@/components/hacktrax-v2/EventDetails"
 import Form from "@/components/hacktrax-v2/form";
 import Footer from "@/components/hacktrax-v2/Footer";
@@ -10,7 +10,7 @@ import Footer from "@/components/hacktrax-v2/Footer";
 export default function Hackathon() {
   return (
     <div className="h-full w-screen">
-      <Navbar />
+      <HeroSection />
       
       <EventDetails />
       <Form />
@@ -21,7 +21,7 @@ export default function Hackathon() {
       <Details />
       <TeamDetails />
       {/* <ComingSoon /> */}
-      {/* <Footer /> */} */
+      {/* <Footer /> */}
     </div>
   )
 }

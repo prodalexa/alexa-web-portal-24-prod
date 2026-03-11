@@ -1,143 +1,85 @@
-"use client";
+"use client"
 
-import React from "react";
+const InstagramIcon = ({ size = 26 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 28 28" fill="none">
+    <rect x="2" y="2" width="24" height="24" rx="6.5" stroke="#00DD73" strokeWidth="2.4"/>
+    <circle cx="14" cy="14" r="5.2" stroke="#00DD73" strokeWidth="2.4"/>
+    <circle cx="20.5" cy="7.5" r="1.8" fill="#00DD73"/>
+  </svg>
+)
 
-const ContactUs: React.FC = () => {
-  const socialIcons = [
-    {
-      src: "/alexaverse2.0/Instagram.svg",
-      alt: "Instagram",
-      link: "https://www.instagram.com/alexadevsrm/",
-    },
-    {
-      src: "/alexaverse2.0/Mail.svg",
-      alt: "Mail",
-      link: "mailto:alexadevsrm@gmail.com",
-    },
-    {
-      src: "/alexaverse2.0/Linkedin.svg",
-      alt: "LinkedIn",
-      link: "https://www.linkedin.com/company/alexadevsrm/posts/",
-    },
-    {
-      src: "/alexaverse2.0/X.svg",
-      alt: "X",
-      link: "https://x.com/alexadevsrm",
-    },
-    {
-      src: "/alexaverse2.0/Youtube.svg",
-      alt: "YouTube",
-      link: "https://www.youtube.com/@alexadevsrm",
-    },
-    {
-      src: "/alexaverse2.0/Facebook.svg",
-      alt: "Facebook",
-      link: "https://www.facebook.com/alexadevsrm",
-    },
-  ];
+const EmailIcon = ({ size = 26 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 28 28" fill="none">
+    <rect x="2" y="6" width="24" height="16" rx="3" stroke="#00DD73" strokeWidth="2.4"/>
+    <polyline points="2,7.5 14,17 26,7.5" stroke="#00DD73" strokeWidth="2.4"/>
+  </svg>
+)
 
+export default function Footer() {
   return (
-    <section
-      id="contact"
-      className="w-full min-h-screen text-white flex flex-col items-center justify-center px-4 py-16"
-    >
-      {/* 🖼️ Alexa Logo for Mobile */}
-      <img
-        src="/alexaverse2.0/alexa-logo-contact.svg"
-        alt="Alexa Logo"
-        className="w-[180px] h-[180px] object-contain mb-4 sm:hidden"
-      />
+    <div id="footer" className="w-full bg-[#1a0035] flex flex-col items-center">
 
-      {/* 📝 Heading (only for mobile,) */}
-      <h1 className="text-3xl font-audiowide text-center mb-6 sm:hidden">
-        Contact Us
-      </h1>
-
-      {/* Social Icons Section */}
+      {/* Top green line */}
       <div className="w-full max-w-[1600px] px-4">
-        <div className="hidden sm:flex justify-center items-center gap-[6rem] flex-wrap mb-12">
-         
-          {socialIcons.slice(0, 3).map((icon, index) => (
-            <a
-              key={index}
-              href={icon.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform duration-200"
-            >
-              <div className="w-[80px] h-[80px] rounded-full bg-gradient-to-br from-[#563AFF] to-[#FF4E78] flex items-center justify-center cursor-pointer">
-                <img
-                  src={icon.src}
-                  alt={icon.alt}
-                  className="w-[40px] h-[40px] object-contain translate-y-1"
-                />
-              </div>
-            </a>
-          ))}
-
-          
-          <img
-            src="/alexaverse2.0/alexa-logo-contact.svg"
-            alt="Alexa Logo"
-            className="w-[280px] h-[280px] object-contain"
-          />
-
-          
-          {socialIcons.slice(3).map((icon, index) => (
-            <a
-              key={index + 3}
-              href={icon.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform duration-200"
-            >
-              <div className="w-[80px] h-[80px] rounded-full bg-gradient-to-br from-[#563AFF] to-[#FF4E78] flex items-center justify-center cursor-pointer">
-                <img
-                  src={icon.src}
-                  alt={icon.alt}
-                  className="w-[40px] h-[40px] object-contain translate-y-1"
-                />
-              </div>
-            </a>
-          ))}
-        </div>
-
-        {/* Mobile view */}
-        <div className="grid grid-cols-3 gap-x-6 gap-y-6 sm:hidden mb-10 justify-items-center">
-          {socialIcons.map((icon, index) => (
-            <a
-              key={index}
-              href={icon.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform duration-200"
-            >
-              <div className="w-[65px] h-[65px] rounded-full bg-gradient-to-br from-[#563AFF] to-[#FF4E78] flex items-center justify-center cursor-pointer">
-                <img
-                  src={icon.src}
-                  alt={icon.alt}
-                  className="w-[32px] h-[32px] object-contain translate-y-1"
-                />
-              </div>
-            </a>
-          ))}
-        </div>
+        <div className="border-t-[5px] border-[#00DD73]" />
       </div>
 
-      {/* 📝 Heading (for desktop) */}
-      <h1 className="hidden sm:block text-5xl font-audiowide text-center mb-12 mt-6">
-        Contact Us
-      </h1>
+      {/* Main Footer Container */}
+      <div className="w-full max-w-[700px] px-6 py-16">
 
-      {/* Footer */}
-      <p className="text-center text-[14px] sm:text-xl font-nunito text-white font-semibold mt-6 whitespace-nowrap">
-        Designed and Developed by{" "}
-        <span className="bg-gradient-to-r from-[#C5126C] via-[#7942FF] to-[#306EF9] bg-clip-text text-transparent font-bold">
-          Alexa Developers SRM.
+        {/* Text block */}
+        <div className="text-left">
+
+          <div className="text-white font-semibold text-[36px] md:text-[42px]">
+            Embrace the
+          </div>
+
+          <div className="text-[#00DD73] font-bold text-[64px] md:text-[84px] leading-none mb-8">
+            FUTURE.
+          </div>
+
+          <div className="text-white text-[18px] font-semibold mb-6">
+            Got any queries? Contact us at
+          </div>
+
+          {/* Instagram */}
+          <div className="flex items-center gap-4 mb-4">
+            <InstagramIcon/>
+            <a
+              href="https://www.instagram.com/alexadevsrm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white text-[18px]"
+            >
+              alexadevsrm
+            </a>
+          </div>
+
+          {/* Email */}
+          <div className="flex items-center gap-4">
+            <EmailIcon/>
+            <a
+              href="mailto:hello@alexadevsrm.com"
+              className="text-white text-[18px]"
+            >
+              hello@alexadevsrm.com
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Divider */}
+      <div className="w-full border-t border-white/10" />
+
+      {/* Copyright */}
+      <div className="w-full bg-[#150028] py-4 flex justify-center">
+        <span className="text-white/60 text-[14px]">
+          © 2026 Alexa Developers SRM. All rights reserved.
         </span>
-      </p>
-    </section>
-  );
-};
+      </div>
 
-export default ContactUs;
+    </div>
+  )
+}

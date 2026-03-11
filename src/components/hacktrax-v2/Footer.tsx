@@ -1,189 +1,91 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+"use client"
 
 const InstagramIcon = ({ size = 26 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 28 28" fill="none">
-    <rect x="2" y="2" width="24" height="24" rx="6.5" stroke="#00DD73" strokeWidth="2.4" />
-    <circle cx="14" cy="14" r="5.2" stroke="#00DD73" strokeWidth="2.4" />
-    <circle cx="20.5" cy="7.5" r="1.8" fill="#00DD73" />
+    <rect x="2" y="2" width="24" height="24" rx="6.5" stroke="#00DD73" strokeWidth="2.4"/>
+    <circle cx="14" cy="14" r="5.2" stroke="#00DD73" strokeWidth="2.4"/>
+    <circle cx="20.5" cy="7.5" r="1.8" fill="#00DD73"/>
   </svg>
-);
+)
 
 const EmailIcon = ({ size = 26 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 28 28" fill="none">
-    <rect x="2" y="6" width="24" height="16" rx="3" stroke="#00DD73" strokeWidth="2.4" />
-    <polyline points="2,7.5 14,17 26,7.5" stroke="#00DD73" strokeWidth="2.4" />
+    <rect x="2" y="6" width="24" height="16" rx="3" stroke="#00DD73" strokeWidth="2.4"/>
+    <polyline points="2,7.5 14,17 26,7.5" stroke="#00DD73" strokeWidth="2.4"/>
   </svg>
-);
+)
 
 export default function Footer() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
-  if (isMobile) {
-    return (
-      <div
-        id="footer"
-        style={{
-          width: "100vw",
-          background: "#1a0035",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          padding: "0 20px",
-          boxSizing: "border-box",
-          marginTop: "40px",
-        }}
-      >
-        <div
-          style={{
-            width: "100%",
-            maxWidth: 500,
-            border: "1.5px solid #00DD73",
-            display: "flex",
-            flexDirection: "column",
-            gap: 29,
-            padding: "16px",
-            marginTop: 40,
-            boxSizing: "border-box",
-          }}
-        >
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontSize: 35, color: "#fff", fontWeight: 600 }}>
-              Embrace the
-            </span>
-            <span style={{ fontSize: 70, color: "#00DD73", fontWeight: 700 }}>
-              FUTURE.
-            </span>
-          </div>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            <span style={{ color: "#fff", fontWeight: 600 }}>
-              Got any queries? Contact us at
-            </span>
-
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <InstagramIcon size={22} />
-              <a
-                href="https://www.instagram.com/alexadevsrm/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "#fff", textDecoration: "none" }}
-              >
-                alexadevsrm
-              </a>
-            </div>
-
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <EmailIcon size={22} />
-              <a
-                href="mailto:hello@alexadevsrm.com"
-                style={{ color: "#fff", textDecoration: "none" }}
-              >
-                hello@alexadevsrm.com
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div style={{ padding: "16px 0" }}>
-          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.45)" }}>
-            © 2026 Alexa Developers SRM. All rights reserved.
-          </span>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div
-      id="footer"
-      style={{
-        width: "100vw",
-        background: "#1a0035",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        boxSizing: "border-box",
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: 1600,
-          borderTop: "5px solid #00DD73",
-        }}
-      />
+  id="footer"
+  className="w-full flex flex-col items-center bg-[linear-gradient(to_right,#1F002F_0%,#3a0b60_20%,#5d0b8c_50%,#3a0b60_80%,#1F002F_100%)]"
+>
 
-      <div
-        style={{
-          width: "100%",
-          maxWidth: 1600,
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "36px 70px",
-          boxSizing: "border-box",
-        }}
-      >
-        <div>
-          <div style={{ fontSize: 42, color: "#fff", fontWeight: 600 }}>
+      {/* Top line */}
+      <div className="w-full max-w-[1600px] px-4">
+        <div className="border-t-[5px] border-[#00DD73]" />
+      </div>
+
+      {/* Main section */}
+      <div className="w-full max-w-[1200px] mx-auto px-6 py-16 flex flex-col md:flex-row justify-between gap-16">
+
+        {/* Left */}
+        <div className="flex flex-col leading-tight">
+
+          <span className="text-white font-semibold text-[42px]">
             Embrace the
-          </div>
-          <div style={{ fontSize: 84, color: "#00DD73", fontWeight: 700 }}>
+          </span>
+
+          <span className="text-[#00DD73] font-bold text-[84px]">
             FUTURE.
-          </div>
+          </span>
+
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          <span style={{ color: "#fff", fontWeight: 600 }}>
+        {/* Contact */}
+        <div className="flex flex-col gap-6">
+
+          <span className="text-white font-semibold text-[18px]">
             Got any queries? Contact us at
           </span>
 
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <InstagramIcon />
+          <div className="flex items-center gap-4">
+            <InstagramIcon/>
             <a
               href="https://www.instagram.com/alexadevsrm/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#fff", textDecoration: "none" }}
+              className="text-white text-[18px]"
             >
               alexadevsrm
             </a>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <EmailIcon />
+          <div className="flex items-center gap-4">
+            <EmailIcon/>
             <a
               href="mailto:hello@alexadevsrm.com"
-              style={{ color: "#fff", textDecoration: "none" }}
+              className="text-white text-[18px]"
             >
               hello@alexadevsrm.com
             </a>
           </div>
+
         </div>
+
       </div>
 
-      <div
-        style={{
-          width: "100%",
-          maxWidth: 1600,
-          height: 1,
-          background: "rgba(255,255,255,0.12)",
-        }}
-      />
+      {/* Divider */}
+      <div className="w-full max-w-[1600px] border-t border-white/10 px-4" />
 
-      <div style={{ padding: "14px 0 18px" }}>
-        <span style={{ fontSize: 13, color: "rgba(255,255,255,0.45)" }}>
+      {/* Copyright */}
+      <div className="w-full bg-[#150028] py-4 flex justify-center">
+        <span className="text-white/60 text-[14px]">
           © 2026 Alexa Developers SRM. All rights reserved.
         </span>
       </div>
+
     </div>
-  );
+  )
 }
