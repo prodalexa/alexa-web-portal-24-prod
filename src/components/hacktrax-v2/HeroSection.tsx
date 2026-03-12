@@ -189,16 +189,16 @@ const HeroSection: React.FC = () => {
             />
           </div>
 
-          {/* <button
+          <button
             onClick={() => scrollToSection('formSection')}
-            className="absolute top-[915px] left-[47%] -translate-x-1/2 rotate-[0.41deg] z-[1]"
+            className="absolute top-[950px] left-[47%] -translate-x-1/2 rotate-[0.41deg] z-[1] cursor-pointer"
           >
             <img
               src="/hacktrax-v2/RegisterButton.svg"
               alt="Register Button"
               className="w-[560px] h-[135px] object-contain"
             />
-          </button> */}
+          </button>
         </>
       )}
 
