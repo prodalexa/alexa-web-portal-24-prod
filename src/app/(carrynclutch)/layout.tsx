@@ -47,7 +47,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Carry N Clutch | ADS!",
+  title: "Hacktrax 2.0 | ADS!",
   description: "Clutch Moments, Lasting Glory",
   icons: {
     icon: "/icon2.png",
