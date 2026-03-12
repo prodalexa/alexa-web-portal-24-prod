@@ -183,10 +183,10 @@ const HeroSection: React.FC = () => {
         <>
           <div className="absolute top-0 left-0 w-full h-full">
             <img
-              src="/hacktrax-v2/HeroSection.jpg"
-              alt="Hero Section"
-              className="w-full h-full object-cover"
-            />
+  src="/hacktrax-v2/HeroSection.jpg"
+  alt="Hero Section"
+  className="w-full h-full max-w-full object-cover"
+/>
           </div>
 
           <button

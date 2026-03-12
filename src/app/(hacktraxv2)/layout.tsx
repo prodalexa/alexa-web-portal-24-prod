@@ -44,7 +44,8 @@ export default function RootLayout({
           "min-h-screen h-full font-sans antialiased",
           keniaOne.variable,
           sariaStencilOne.variable,
-          montserrat.variable
+          montserrat.variable,
+          "bg-[#0b0019]"
         )}
       >
         {children}
