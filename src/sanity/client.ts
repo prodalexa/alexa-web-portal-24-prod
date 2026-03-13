@@ -1,20 +1,12 @@
-// import { createClient } from 'next-sanity'
+import { createClient } from 'next-sanity'
 
-// const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-// const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET 
-// const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-05-03'
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET 
+const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-05-03'
 
-// export const client = createClient({
-//   projectId,
-//   dataset,
-//   apiVersion, 
-//   useCdn: false,
-// })
-
-
-export const client = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  fetch: async (_query?: string, _params?: Record<string, unknown>) => {
-    return []; // return empty mock data for now
-  }
-};
+export const client = createClient({
+  projectId,
+  dataset,
+  apiVersion, 
+  useCdn: false,
+})
