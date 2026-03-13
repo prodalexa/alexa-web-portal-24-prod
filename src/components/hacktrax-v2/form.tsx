@@ -1,13 +1,12 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 
-/* ─── Validation ─────────────────────────────────────────────── */
 const validateEmail = (v) => /^[^\s@]+@srmist\.edu\.in$/.test(v.trim())
 const validatePhone = (v) => /^\d{10}$/.test(v.trim())
 const validateRegNo = (v) => /^RA\d{13}$/.test(v.trim())
 
-/* ─── Field Component ────────────────────────────────────────── */
 function Field({
   label,
   required,
@@ -74,15 +73,15 @@ function Field({
   )
 }
 
-/* ─── Constants ──────────────────────────────────────────────── */
 const MEMBER_LABELS = ["Member 1 (Lead)", "Member 2", "Member 3", "Member 4"]
 const REQUIRED_MEMBERS = [true, true, false, false]
 
 const emptyMember = () => ({ name: "", email: "", phone: "", regNo: "" })
 const emptyTouched = () => ({ name: false, email: false, phone: false, regNo: false })
 
-/* ─── Main Component ─────────────────────────────────────────── */
 export default function Form() {
+
+  const router = useRouter()
 
   const [isMobile, setIsMobile] = useState(false)
 
@@ -93,17 +92,34 @@ export default function Form() {
     return () => window.removeEventListener("resize", check)
   }, [])
 
-  const [form, setForm] = useState({
-    teamName: "",
-    members: [emptyMember(), emptyMember(), emptyMember(), emptyMember()]
+
+  const [form, setForm] = useState(() => {
+
+    if (typeof window !== "undefined") {
+
+      const saved = sessionStorage.getItem("hacktraxFormData")
+
+      if (saved) return JSON.parse(saved)
+
+    }
+
+    return {
+      teamName: "",
+      members: [emptyMember(), emptyMember(), emptyMember(), emptyMember()]
+    }
+
   })
+
+
+  useEffect(() => {
+    sessionStorage.setItem("hacktraxFormData", JSON.stringify(form))
+  }, [form])
 
   const [touched, setTouched] = useState({
     teamName: false,
     members: [emptyTouched(), emptyTouched(), emptyTouched(), emptyTouched()]
   })
 
-  const [submitted, setSubmitted] = useState(false)
   const [message, setMessage] = useState("")
   const [isError, setIsError] = useState(false)
 
@@ -112,7 +128,9 @@ export default function Form() {
   const setMemberField = (idx, field, v) =>
     setForm((f) => ({
       ...f,
-      members: f.members.map((m, i) => i === idx ? { ...m, [field]: v } : m)
+      members: f.members.map((m, i) =>
+        i === idx ? { ...m, [field]: v } : m
+      )
     }))
 
   const touchTeamName = () => setTouched((t) => ({ ...t, teamName: true }))
@@ -128,9 +146,11 @@ export default function Form() {
   const teamNameInvalid = touched.teamName && form.teamName.trim() === ""
 
   const memberInvalid = (idx) => {
+
     const m = form.members[idx]
     const t = touched.members[idx]
     const req = REQUIRED_MEMBERS[idx]
+
     const hasAny = !!(m.name || m.email || m.phone || m.regNo)
     const should = req || hasAny
 
@@ -140,12 +160,15 @@ export default function Form() {
       phone: t.phone && should && !validatePhone(m.phone),
       regNo: t.regNo && should && !validateRegNo(m.regNo)
     }
+
   }
 
   const isFormValid = () => {
+
     if (form.teamName.trim() === "") return false
 
     for (let i = 0; i < 4; i++) {
+
       const m = form.members[i]
 
       if (!REQUIRED_MEMBERS[i] && !(m.name || m.email || m.phone || m.regNo))
@@ -158,12 +181,13 @@ export default function Form() {
         !validateRegNo(m.regNo)
       )
         return false
+
     }
 
     return true
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
 
     setMessage("")
 
@@ -180,7 +204,9 @@ export default function Form() {
     if (!isFormValid()) return
 
     const payload = {
+
       team_name: form.teamName,
+
       members: form.members
         .filter((m) => m.name && m.email && m.phone && m.regNo)
         .map((m) => ({
@@ -189,35 +215,15 @@ export default function Form() {
           phone_number: m.phone,
           registration_number: m.regNo
         }))
+
     }
 
-    try {
+    sessionStorage.setItem("hacktraxTeamData", JSON.stringify(payload))
 
-      const res = await fetch(
-        "https://acktrax--gowtham6409728-qwsx9lla.leapcell.dev/v1/teams",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        }
-      )
+    router.push("/hacktrax-v2/payment")
 
-      if (res.ok) {
-        setSubmitted(true)
-        setIsError(false)
-        setMessage("Registration Submitted Successfully!")
-      } else {
-        setIsError(true)
-        setMessage("Submission failed. Please try again.")
-      }
-
-    } catch (error) {
-      setIsError(true)
-      setMessage("Server error. Please try again.")
-    }
   }
 
-  /* ── Form Layout ── */
 
   return (
     <div
@@ -327,7 +333,7 @@ export default function Form() {
           )
         })}
 
-        <div className="flex justify-center mt-10 flex-col items-center">
+        <div className="flex justify-center mt-10">
 
           <button
             onClick={handleSubmit}
@@ -336,16 +342,6 @@ export default function Form() {
             Pay & Register
             <span className="ml-2 text-lg font-black">›</span>
           </button>
-
-          {message && (
-            <p
-              className={`mt-4 font-[Montserrat] text-sm ${
-                isError ? "text-red-400" : "text-green-400"
-              }`}
-            >
-              {message}
-            </p>
-          )}
 
         </div>
 
