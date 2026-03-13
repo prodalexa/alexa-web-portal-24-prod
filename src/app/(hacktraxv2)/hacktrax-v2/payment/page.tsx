@@ -162,7 +162,7 @@ export default function PaymentPage() {
             setTxnId(e.target.value.replace(/\s/g, ""))
             setMessage("")
           }}
-          className="w-full px-4 py-2 rounded-lg border outline-none text-black font-[Montserrat]"
+          className="w-full px-4 py-2 rounded-lg border outline-none text-white font-[Montserrat]"
         />
 
         <button
