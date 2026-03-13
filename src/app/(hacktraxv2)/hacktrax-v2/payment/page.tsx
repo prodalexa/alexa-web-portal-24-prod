@@ -18,24 +18,23 @@ export default function PaymentPage() {
   const [teamData, setTeamData] = useState<any>(null)
   const [message, setMessage] = useState("")
   const [loading, setLoading] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   const router = useRouter()
 
-  /* pick random QR and load team data */
+  /* load team data */
   useEffect(() => {
-
+    setMounted(true)
     const random = qrCodes[Math.floor(Math.random() * qrCodes.length)]
     setQr(random)
 
     const stored = sessionStorage.getItem("hacktraxTeamData")
 
-    if (!stored) {
-      router.push("/hacktrax-v2")
-      return
+    if (stored) {
+      setTeamData(JSON.parse(stored))
+    } else {
+      router.replace("/hacktrax-v2")
     }
-
-    setTeamData(JSON.parse(stored))
-
   }, [router])
 
 
@@ -86,6 +85,14 @@ export default function PaymentPage() {
 
         sessionStorage.removeItem("hacktraxTeamData")
         sessionStorage.removeItem("hacktraxFormData")
+        localStorage.clear()
+        
+        // Clear all cookies
+        document.cookie.split(";").forEach((c) => {
+          document.cookie = c
+            .replace(/^ +/, "")
+            .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/")
+        })
 
         setTimeout(() => {
           router.push("/hacktrax-v2")
@@ -124,6 +131,9 @@ export default function PaymentPage() {
 
   }
 
+  if (!mounted || !teamData) {
+    return null
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center px-6 py-10 bg-[linear-gradient(to_right,#1F002F_0%,#3a0b60_20%,#5d0b8c_50%,#3a0b60_80%,#1F002F_100%)]">
