@@ -3,9 +3,23 @@
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 
-const validateEmail = (v) => /^[^\s@]+@srmist\.edu\.in$/.test(v.trim())
-const validatePhone = (v) => /^\d{10}$/.test(v.trim())
-const validateRegNo = (v) => /^RA\d{13}$/.test(v.trim())
+const validateEmail = (v: string) => /^[^\s@]+@srmist\.edu\.in$/.test(v.trim())
+const validatePhone = (v: string) => /^\d{10}$/.test(v.trim())
+const validateRegNo = (v: string) => /^RA\d{13}$/.test(v.trim())
+
+interface FieldProps {
+  label: string
+  required?: boolean
+  value: string
+  onChange: (v: string) => void
+  onBlur: () => void
+  placeholder: string
+  invalid: boolean
+  errorMsg: string
+  type?: string
+  prefix?: string
+  isMobile: boolean
+}
 
 function Field({
   label,
@@ -19,7 +33,7 @@ function Field({
   type = "text",
   prefix,
   isMobile
-}) {
+}: FieldProps) {
   const [focused, setFocused] = useState(false)
 
   return (
@@ -73,10 +87,22 @@ function Field({
   )
 }
 
+interface MemberForm {
+  name: string
+  email: string
+  phone: string
+  regNo: string
+}
+
+interface FormState {
+  teamName: string
+  members: MemberForm[]
+}
+
 const MEMBER_LABELS = ["Member 1 (Lead)", "Member 2", "Member 3", "Member 4"]
 const REQUIRED_MEMBERS = [true, true, false, false]
 
-const emptyMember = () => ({ name: "", email: "", phone: "", regNo: "" })
+const emptyMember = (): MemberForm => ({ name: "", email: "", phone: "", regNo: "" })
 const emptyTouched = () => ({ name: false, email: false, phone: false, regNo: false })
 
 export default function Form() {
@@ -93,13 +119,13 @@ export default function Form() {
   }, [])
 
 
-  const [form, setForm] = useState(() => {
+  const [form, setForm] = useState<FormState>(() => {
 
     if (typeof window !== "undefined") {
 
       const saved = sessionStorage.getItem("hacktraxFormData")
 
-      if (saved) return JSON.parse(saved)
+      if (saved) return JSON.parse(saved) as FormState
 
     }
 
@@ -123,9 +149,9 @@ export default function Form() {
   const [message, setMessage] = useState("")
   const [isError, setIsError] = useState(false)
 
-  const setTeamName = (v) => setForm((f) => ({ ...f, teamName: v }))
+  const setTeamName = (v: string) => setForm((f) => ({ ...f, teamName: v }))
 
-  const setMemberField = (idx, field, v) =>
+  const setMemberField = (idx: number, field: string, v: string) =>
     setForm((f) => ({
       ...f,
       members: f.members.map((m, i) =>
@@ -135,7 +161,7 @@ export default function Form() {
 
   const touchTeamName = () => setTouched((t) => ({ ...t, teamName: true }))
 
-  const touchMember = (idx, field) =>
+  const touchMember = (idx: number, field: string) =>
     setTouched((t) => ({
       ...t,
       members: t.members.map((m, i) =>
@@ -145,7 +171,7 @@ export default function Form() {
 
   const teamNameInvalid = touched.teamName && form.teamName.trim() === ""
 
-  const memberInvalid = (idx) => {
+  const memberInvalid = (idx: number) => {
 
     const m = form.members[idx]
     const t = touched.members[idx]
@@ -208,8 +234,8 @@ export default function Form() {
       team_name: form.teamName,
 
       members: form.members
-        .filter((m) => m.name && m.email && m.phone && m.regNo)
-        .map((m) => ({
+        .filter((m: { name: string; email: string; phone: string; regNo: string }) => m.name && m.email && m.phone && m.regNo)
+        .map((m: { name: string; email: string; phone: string; regNo: string }) => ({
           name: m.name,
           email_id: m.email,
           phone_number: m.phone,

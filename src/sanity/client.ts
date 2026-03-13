@@ -13,7 +13,8 @@
 
 
 export const client = {
-  fetch: async () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  fetch: async (_query?: string, _params?: Record<string, unknown>) => {
     return []; // return empty mock data for now
   }
 };
