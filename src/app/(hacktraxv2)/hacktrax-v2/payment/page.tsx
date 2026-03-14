@@ -83,16 +83,11 @@ export default function PaymentPage() {
 
         setMessage("Registration successful! Loading WhatsApp group QR...")
 
+        sessionStorage.setItem("hacktraxPaymentDone", "true")
+
         sessionStorage.removeItem("hacktraxTeamData")
         sessionStorage.removeItem("hacktraxFormData")
-        localStorage.clear()
         
-        // Clear all cookies
-        document.cookie.split(";").forEach((c) => {
-          document.cookie = c
-            .replace(/^ +/, "")
-            .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/")
-        })
 
         setTimeout(() => {
           router.push("/hacktrax-v2/whatsapp")
