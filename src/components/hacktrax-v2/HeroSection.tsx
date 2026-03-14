@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import Link from "next/link";
 
 const HeroSection: React.FC = () => {
@@ -26,11 +27,6 @@ const HeroSection: React.FC = () => {
 
   const handleCloseMenu = () => {
     setIsMobileMenuOpen(false);
-  };
-
-  const handleNavigation = (path: string) => {
-    router.push(path);
-    if (isMobileMenuOpen) setIsMobileMenuOpen(false);
   };
 
   const scrollToSection = (id: string) => {
@@ -63,7 +59,7 @@ const HeroSection: React.FC = () => {
           <div className="relative w-[315px] h-[62px] flex items-center">
 
             <div className="w-[62px] h-[62px] flex items-center justify-center">
-              <img
+              <Image
                 src="/hacktrax-v2/Vector.svg"
                 alt="Logo"
                 className="w-full h-full object-contain"
@@ -117,7 +113,7 @@ const HeroSection: React.FC = () => {
           <Link href="/">
           <div className="flex items-center">
 
-            <img
+            <Image
               src="/hacktrax-v2/Vector.svg"
               alt="Logo"
               className="w-[40px] h-[40px]"
@@ -187,18 +183,18 @@ const HeroSection: React.FC = () => {
       {!isMobile && (
         <>
           <div className="absolute top-0 left-0 w-full h-full">
-            <img
-  src="/hacktrax-v2/HeroSection.jpg"
-  alt="Hero Section"
-  className="w-full h-full max-w-full object-cover"
-/>
+            <Image
+              src="/hacktrax-v2/HeroSection.jpg"
+              alt="Hero Section"
+              className="w-full h-full max-w-full object-cover"
+            />
           </div>
 
           <button
             onClick={() => scrollToSection('formSection')}
             className="absolute top-[950px] left-[47%] -translate-x-1/2 rotate-[0.41deg] z-[1] cursor-pointer"
           >
-            <img
+            <Image
               src="/hacktrax-v2/RegisterButton.svg"
               alt="Register Button"
               className="w-[560px] h-[135px] object-contain"
@@ -211,7 +207,7 @@ const HeroSection: React.FC = () => {
       {isMobile && !isMobileMenuOpen && (
         <>
           <div className="absolute top-0 left-0 w-full h-full">
-            <img
+            <Image
               src="/hacktrax-v2/HeroSectionM.svg"
               alt="Hero Mobile"
               className="w-full h-full object-cover"
@@ -222,7 +218,7 @@ const HeroSection: React.FC = () => {
             onClick={() => scrollToSection('formSection')}
             className="absolute top-[603px] left-1/2 -translate-x-1/2 rotate-[0.41deg] z-[1]"
           >
-            <img
+            <Image
               src="/hacktrax-v2/RegisterButtonM.svg"
               alt="Register Button"
               className="w-[300px] h-[55px] object-contain"

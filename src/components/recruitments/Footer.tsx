@@ -1,9 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <div className="bg-black py-10 px-6 md:px-20 mt-12 w-full">
       {/* Top blue line */}

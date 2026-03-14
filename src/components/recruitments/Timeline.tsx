@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-const Timeline = (props: Props) => {
+const Timeline = () => {
   return (
     <div id="timeline" className="flex flex-col items-center justify-center h-full md:h-screen bg-black px-5 md:px-10 py-20">
       {/* Header */}
