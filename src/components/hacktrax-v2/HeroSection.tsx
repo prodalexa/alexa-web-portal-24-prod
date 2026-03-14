@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 const HeroSection: React.FC = () => {
   const router = useRouter();
@@ -58,6 +59,7 @@ const HeroSection: React.FC = () => {
         <div className="absolute top-[35px] left-0 w-full px-[44px] h-[62px] flex items-center justify-between z-10">
 
           {/* Logo + Text */}
+          <Link href="/">
           <div className="relative w-[315px] h-[62px] flex items-center">
 
             <div className="w-[62px] h-[62px] flex items-center justify-center">
@@ -72,6 +74,7 @@ const HeroSection: React.FC = () => {
               Alexa Developers SRM
             </div>
           </div>
+          </Link>
 
           {/* Nav Buttons */}
           <div className="flex gap-[22px] items-center">
@@ -109,8 +112,9 @@ const HeroSection: React.FC = () => {
 
       {/* Mobile Navbar */}
       {isMobile && !isMobileMenuOpen && (
+        
         <div className="absolute top-[34px] left-0 w-full px-[26px] h-[40px] flex items-center justify-between z-10">
-
+          <Link href="/">
           <div className="flex items-center">
 
             <img
@@ -123,6 +127,7 @@ const HeroSection: React.FC = () => {
               Alexa Developers SRM
             </span>
           </div>
+          </Link>
 
           <button
             onClick={handleMobileMenuToggle}
