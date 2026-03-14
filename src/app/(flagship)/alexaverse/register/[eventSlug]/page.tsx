@@ -1,12 +1,6 @@
 import React from "react";
 
-type Props = {
-  params: Promise<{
-    eventSlug: string;
-  }>;
-};
-
-const RegisterPage = async (props: Props) => {
+const RegisterPage = async () => {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <h1 className="text-3xl font-bold text-center">

@@ -1,9 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
   return (
     <nav className="flex flex-col md:flex-row md:justify-between md:items-center h-[80px] px-5 md:px-10 py-5 bg-black w-full">
       <div className="flex items-start justify-start md:items-center mb-4 md:mb-0">

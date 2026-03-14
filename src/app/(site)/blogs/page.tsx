@@ -3,9 +3,7 @@ import { getAllBlogs } from "@/sanity/data/blog-data";
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
-
-const Blogs = async (props: Props) => {
+const Blogs = async () => {
   const blogs = await getAllBlogs();
   return (
     <div className="flex flex-col gap-4 p-8 md:p-16 lg:px-20">

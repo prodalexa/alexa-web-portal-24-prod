@@ -1,5 +1,3 @@
-import { title } from "process";
-import { Rule, validation } from "sanity";
 
 export interface Event {
   title: string;

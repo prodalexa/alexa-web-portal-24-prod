@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const DomainSection: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -202,7 +203,7 @@ const DomainSection: React.FC = () => {
                     zIndex: 2,
                   }}
                 >
-                  <img
+                  <Image
                     src={domain.iconSrc}
                     alt={`${domain.title} icon`}
                     style={{

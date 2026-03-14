@@ -4,7 +4,6 @@ import Image from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import Link from "next/link";
-import { Meteors } from "../ui/meteors";
 import { Event } from "@/sanity/schemas/event-schema";
 
 type Props = {

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const Sponsors: React.FC = () => {
   const sponsorData = [
@@ -62,7 +63,7 @@ const Sponsors: React.FC = () => {
             <div className="flex items-center gap-8">
               {/* Logo Container */}
               <div className="w-32 h-32 rounded-2xl flex items-center justify-center overflow-hidden flex-shrink-0 -mt-4">
-                <img
+                <Image
                   src={sponsorData[0].logoUrl}
                   alt={`${sponsorData[0].name} logo`}
                   className="w-full h-full object-contain p-4"
@@ -101,7 +102,7 @@ const Sponsors: React.FC = () => {
                 {sponsor.tier}
               </span>
               <div className="w-36 h-36 mx-auto mb-5 rounded-2xl flex items-center justify-center overflow-hidden">
-                <img
+                <Image
                   src={sponsor.logoUrl}
                   alt={`${sponsor.name} logo`}
                   className="w-full h-full object-contain p-4"
@@ -137,7 +138,7 @@ const Sponsors: React.FC = () => {
             <div className="flex items-center gap-6 sm:gap-8">
               {/* Logo Container */}
               <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl flex items-center justify-center overflow-hidden flex-shrink-0 -mt-4">
-                <img
+                <Image
                   src={sponsorData[0].logoUrl}
                   alt={`${sponsorData[0].name} logo`}
                   className="w-full h-full object-contain p-4"
@@ -176,7 +177,7 @@ const Sponsors: React.FC = () => {
                 {sponsor.tier}
               </span>
               <div className="w-32 h-32 sm:w-36 sm:h-36 mx-auto mb-5 rounded-2xl flex items-center justify-center overflow-hidden">
-                <img
+                <Image
                   src={sponsor.logoUrl}
                   alt={`${sponsor.name} logo`}
                   className="w-full h-full object-contain p-4"

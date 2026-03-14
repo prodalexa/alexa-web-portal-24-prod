@@ -1,4 +1,4 @@
-import { PortableTextBlock, Rule } from "sanity";
+import { PortableTextBlock } from "sanity";
 
 export interface AlexaVerse {
     title: string;

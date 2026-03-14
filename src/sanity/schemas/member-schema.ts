@@ -1,4 +1,3 @@
-import { Rule } from "sanity";
 
 export interface Member {
   name: string;

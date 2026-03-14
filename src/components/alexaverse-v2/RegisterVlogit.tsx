@@ -481,7 +481,7 @@ const RegisterVlogit: React.FC = () => {
               <div className="mb-4 sm:mb-6 lg:mb-8 relative">
                 <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 border border-white/30 mx-auto max-w-fit">
                   <div className="bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 lg:p-4 inline-block">
-                    <img 
+                    <Image
                       src={`https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent('https://join-vlogit.alexadevsrm.org')}`}
                       alt="WhatsApp Group QR Code"
                       className="mx-auto rounded-lg"
