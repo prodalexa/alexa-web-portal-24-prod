@@ -81,7 +81,7 @@ export default function PaymentPage() {
 
       if (res.ok) {
 
-        setMessage("Registration successful!")
+        setMessage("Registration successful! Loading WhatsApp group QR...")
 
         sessionStorage.removeItem("hacktraxTeamData")
         sessionStorage.removeItem("hacktraxFormData")
@@ -95,7 +95,7 @@ export default function PaymentPage() {
         })
 
         setTimeout(() => {
-          router.push("/hacktrax-v2")
+          router.push("/hacktrax-v2/whatsapp")
         }, 2000)
 
       } else {
@@ -173,24 +173,6 @@ export default function PaymentPage() {
           className="w-full px-4 py-2 rounded-lg border outline-none text-white font-[Montserrat]"
         />
 
-        {/* WhatsApp Group QR */}
-        <div className="flex flex-col items-center gap-3 mt-2">
-          <div className="bg-white p-3 rounded-xl shadow-lg">
-            <Image
-              src="/hacktrax-v2/qrs/whatsapp-gc-qr.jpeg"
-              alt="WhatsApp Group QR"
-              width={300}
-              height={300}
-              className="rounded-lg"
-            />
-          </div>
-
-          <p className="text-white text-center text-sm font-[Montserrat]">
-            After completing the payment, join this WhatsApp group to receive
-            all updates, announcements, and important information regarding
-            HackTrax 2.0.
-          </p>
-        </div>
 
         <button
           onClick={handleSubmit}
