@@ -3,8 +3,6 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-toastify";
-import { registerRecruitment } from "@/app/actions/registerRecruitments25";
 
 const ToastContainer = dynamic(
   () => import("react-toastify").then((mod) => ({ default: mod.ToastContainer })),
@@ -25,16 +23,6 @@ export default function RegistrationForm() {
     firstDomain: "",
     secondDomain: "",
   });
-
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState<boolean | null>(null);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!registrationOpen) return;
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

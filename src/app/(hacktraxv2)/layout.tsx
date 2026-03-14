@@ -4,7 +4,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import "./globals.css";
-import localFont from "next/font/local";
 
 const sariaStencilOne = Saira_Stencil_One({
   weight: "400",

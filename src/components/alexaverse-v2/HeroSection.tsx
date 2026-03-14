@@ -3,9 +3,10 @@
 import React, { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 
 const HeroSection: React.FC = () => {
-  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -72,7 +73,7 @@ const HeroSection: React.FC = () => {
       >
         <div className="flex justify-between items-center h-[74px]">
           
-          <img
+          <Image
             src="/alexaverse2.0/alexa-logo-navbar.svg"
             alt="Alexa Logo"
             className="h-10 sm:h-12 w-auto"
@@ -80,24 +81,24 @@ const HeroSection: React.FC = () => {
 
          
           <div className="hidden md:flex gap-[32px] items-center">
-            <a
+            <Link
               href="/"
               className="text-white font-audiowide text-[24px] leading-[100%] hover:text-purple-300 transition-colors"
             >
               Home
-            </a>
-            <a
+            </Link>
+            <Link
               href="#events"
               className="text-white font-audiowide text-[24px] leading-[100%] hover:text-purple-300 transition-colors"
             >
               Events
-            </a>
-            <a
+            </Link>
+            <Link
               href="#contact"
               className="text-white font-audiowide text-[24px] leading-[100%] hover:text-purple-300 transition-colors"
             >
               Contact Us
-            </a>
+            </Link>
           </div>
 
           {/* Hamburger Menu */}
@@ -225,27 +226,27 @@ const HeroSection: React.FC = () => {
 
           
           <div className="flex-grow flex flex-col items-center justify-center gap-10 mt-20">
-            <a
+            <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
               className="text-white font-audiowide text-4xl hover:text-purple-300 transition"
             >
               HOME
-            </a>
-            <a
+            </Link>
+            <Link
               href="#events"
               onClick={() => setMobileMenuOpen(false)}
               className="text-white font-audiowide text-4xl hover:text-purple-300 transition"
             >
               OUR EVENTS
-            </a>
-            <a
+            </Link>
+            <Link
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
               className="text-white font-audiowide text-4xl hover:text-purple-300 transition"
             >
               CONTACT US
-            </a>
+            </Link>
           </div>
 
           {/* Footer */}
@@ -289,7 +290,7 @@ const HeroSection: React.FC = () => {
       >
         {/* CD Image - Left Bottom Corner - Increased Mobile Size */}
         <div className="absolute bottom-0 left-0 z-10">
-          <img
+          <Image
             src="/alexaverse2.0/cd-record.png"
             alt="Vinyl Record"
             className="w-24 h-24 xs:w-28 xs:h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 xl:w-48 xl:h-48 2xl:w-56 2xl:h-56 object-contain object-bottom-left opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105"
@@ -303,7 +304,7 @@ const HeroSection: React.FC = () => {
 
         {/* Microphone Image - Right Bottom Corner - Increased Mobile Size */}
         <div className="absolute bottom-0 right-0 z-10">
-          <img
+          <Image
             src="/alexaverse2.0/microphone.png"
             alt="Vintage Microphone"
             className="w-24 h-24 xs:w-28 xs:h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 xl:w-48 xl:h-48 2xl:w-56 2xl:h-56 object-contain object-bottom-right opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105"
@@ -317,7 +318,7 @@ const HeroSection: React.FC = () => {
 
         {/* Main Logo and Title */}
         <div className="flex flex-col items-center justify-center z-20 px-2 mt-16 sm:mt-20 md:mt-40">
-          <img
+          <Image
             src="/alexaverse2.0/alexaverse-main-logo.png"
             alt="Alexaverse 2.0 - Main Logo"
             className="w-full max-w-[240px] sm:max-w-[280px] md:max-w-[280px] lg:max-w-[200px] xl:max-w-[350px] h-auto object-contain drop-shadow-2xl"

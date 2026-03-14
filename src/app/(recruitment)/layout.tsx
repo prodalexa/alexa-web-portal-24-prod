@@ -5,8 +5,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import "./globals.css";
-import Header from "@/components/global/header";
-import ContactUs from "@/components/global/contact-us";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -17,7 +15,6 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
 });
-
 
 const montserratAlternates = Montserrat_Alternates({
   subsets: ["latin"],
@@ -47,11 +44,9 @@ export default function RootLayout({
           montserratAlternates.variable
         )}
       >
-        {/* <Header /> */}
         {children}
         <SpeedInsights />
         <Analytics />
-        {/* <ContactUs /> */}
       </body>
     </html>
   );

@@ -146,9 +146,6 @@ export default function Form() {
     members: [emptyTouched(), emptyTouched(), emptyTouched(), emptyTouched()]
   })
 
-  const [message, setMessage] = useState("")
-  const [isError, setIsError] = useState(false)
-
   const setTeamName = (v: string) => setForm((f) => ({ ...f, teamName: v }))
 
   const setMemberField = (idx: number, field: string, v: string) =>
@@ -214,8 +211,6 @@ export default function Form() {
   }
 
   const handleSubmit = () => {
-
-    setMessage("")
 
     setTouched({
       teamName: true,

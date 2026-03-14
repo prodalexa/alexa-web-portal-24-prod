@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import MobileNav from "./MobileNav";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -20,13 +21,13 @@ const Navbar = () => {
       <div className="hidden md:flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 w-full md:w-auto pb-4 md:pb-0">
         <ul className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 list-none w-full md:w-auto">
           <li className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 w-full md:w-auto">
-            <a
+            <Link
               href="/"
               className="text-white text-xl md:text-2xl whitespace-nowrap hover:text-gray-300 transition-colors font-monsterrat"
             >
               Home
-            </a>
-            <a
+            </Link>
+            <Link
               href="#hacktrax"
               className="flex items-center hover:opacity-80 transition-opacity"
             >
@@ -37,8 +38,8 @@ const Navbar = () => {
                 width={200}
                 className="w-[140px] sm:w-[160px] md:w-[140px]"
               />
-            </a>
-            <a
+            </Link>
+            <Link
               href="/carrynclutch"
               className="flex items-center hover:opacity-80 transition-opacity"
             >
@@ -49,7 +50,7 @@ const Navbar = () => {
                 width={200}
                 className="w-[140px] sm:w-[160px] md:w-[140px]"
               />
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

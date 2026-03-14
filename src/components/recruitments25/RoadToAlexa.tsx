@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo } from "react"
+import Image from "next/image"
 
 const timelineSteps = [
   {
@@ -170,7 +171,7 @@ export default function RoadToAlexa() {
                       height: `${containerSize}px` 
                     }}
                   >
-                    <img 
+                    <Image 
                       src={`/recruitments25/${step.icon}`} 
                       alt={step.title} 
                       className="drop-shadow-lg transition-all duration-300 hover:scale-110" 
@@ -226,7 +227,7 @@ export default function RoadToAlexa() {
         >
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="relative" style={{ transform: "scale(0.5) translateX(-400px)" }}>
-              <img
+              <Image
                 src="/recruitments25/road-to-alexa-design.svg"
                 alt="Road to Alexa Design Desktop"
                 className="w-full h-auto"
@@ -250,7 +251,7 @@ export default function RoadToAlexa() {
                       height: `${containerSize}px` 
                     }}
                   >
-                    <img 
+                    <Image 
                       src={`/recruitments25/${step.icon}`} 
                       alt={step.title} 
                       className="drop-shadow-lg" 

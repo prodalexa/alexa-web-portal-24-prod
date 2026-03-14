@@ -5,9 +5,7 @@ import Details from "@/components/carrynclutch/Details";
 import Prize from "@/components/carrynclutch/Prize";
 import Rules from "@/components/carrynclutch/Rules";
 import Eligibility from "@/components/carrynclutch/Eligibility";
-import TeamDetails from "@/components/carrynclutch/TeamDetails";
 import Footer from "@/components/carrynclutch/Footer";
-import ComingSoon from "@/components/carrynclutch/ComingSoon";
 
 import { useState } from "react";
 import { EligibilityType } from "@/components/carrynclutch/Eligibility";
@@ -25,8 +23,6 @@ export default function CarrynClutch() {
       <Prize />
       <Rules />
       <Eligibility onEligibilityChange={setEligibilityType} />
-      {/* <TeamDetails eligibilityType={eligibilityType} /> */}
-      {/* <ComingSoon /> */}
       <Footer />
     </div>
   );

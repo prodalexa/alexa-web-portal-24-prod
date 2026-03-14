@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image";
+
 const typographyStyles = {
   mainTitle: {
     fontSize: '48px',
@@ -34,7 +36,7 @@ export default function ContactUs() {
 
       {/* Line 1 SVG at the top */}
       <div className="flex justify-center mb-16">
-        <img 
+        <Image
           src="/recruitments25/Line-1.svg" 
           alt="Decorative Line"
           className="w-full max-w-[1400px] h-auto opacity-80"

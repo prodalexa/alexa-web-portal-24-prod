@@ -1,9 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
-
-const Domains = (props: Props) => {
+const Domains = () => {
   return (
     <div
       id="domain"

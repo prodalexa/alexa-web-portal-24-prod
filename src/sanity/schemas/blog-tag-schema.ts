@@ -1,4 +1,4 @@
-import { Rule } from 'sanity';
+
 const blogTag = {
   name: "blogTag",
   title: "Blog Tag",
