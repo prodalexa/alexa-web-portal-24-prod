@@ -30,6 +30,8 @@ const EventDetails: React.FC = () => {
       <Image
         src={isMobile ? "/hacktrax-v2/EventDetailsM.svg" : "/hacktrax-v2/EventDetails.svg"}
         alt="Event Details"
+        width={1400}
+        height={800}
         className="w-full max-w-[1400px] h-auto object-contain"
       />
     </section>

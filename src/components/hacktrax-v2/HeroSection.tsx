@@ -60,6 +60,8 @@ const HeroSection: React.FC = () => {
               <Image
                 src="/hacktrax-v2/Vector.svg"
                 alt="Logo"
+                width={62}
+                height={62}
                 className="w-full h-full object-contain"
               />
             </div>
@@ -112,6 +114,8 @@ const HeroSection: React.FC = () => {
             <Image
               src="/hacktrax-v2/Vector.svg"
               alt="Logo"
+              width={40}
+              height={40}
               className="w-[40px] h-[40px]"
             />
 
@@ -181,7 +185,8 @@ const HeroSection: React.FC = () => {
             <Image
               src="/hacktrax-v2/HeroSection.jpg"
               alt="Hero Section"
-              className="w-full h-full max-w-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
 
@@ -192,6 +197,8 @@ const HeroSection: React.FC = () => {
             <Image
               src="/hacktrax-v2/RegisterButton.svg"
               alt="Register Button"
+              width={560}
+              height={135}
               className="w-[560px] h-[135px] object-contain"
             />
           </button>
@@ -205,7 +212,8 @@ const HeroSection: React.FC = () => {
             <Image
               src="/hacktrax-v2/HeroSectionM.svg"
               alt="Hero Mobile"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
 
@@ -216,6 +224,8 @@ const HeroSection: React.FC = () => {
             <Image
               src="/hacktrax-v2/RegisterButtonM.svg"
               alt="Register Button"
+              width={300}
+              height={55}
               className="w-[300px] h-[55px] object-contain"
             />
           </button>
