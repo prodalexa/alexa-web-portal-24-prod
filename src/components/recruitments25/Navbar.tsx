@@ -4,10 +4,9 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
-type Props = {};
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const basePath = pathname === "/recruitment25registerform" ? "/recruitments25" : "";
@@ -52,36 +51,36 @@ const Navbar = (props: Props) => {
         <div className="hidden md:flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
           <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 list-none">
             <li>
-              <a
+              <Link
                 href="/"
                 className="text-[#bbb] text-[16px] font-montserrat-alternates md:text-[20px] no-underline transition-colors duration-300 hover:text-[#00bcd4]"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href={`${basePath}#domain`}
                 className="text-[#bbb] text-[16px] font-montserrat-alternates md:text-[20px] no-underline transition-colors duration-300 hover:text-[#00bcd4]"
               >
                 Domain
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href={`${basePath}#roadmap`}
                 className="text-[#bbb] text-[16px] font-montserrat-alternates md:text-[20px] no-underline transition-colors duration-300 hover:text-[#00bcd4]"
               >
                 Roadmap
-              </a>
+              </Link>
             </li>
           </ul>
-          <a
+          <Link
             href="/recruitment25registerform"
             className="font-montserrat-alternates bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] text-white py-2 px-6 rounded-full text-[16px] md:text-[20px] font-semibold no-underline transition-all duration-300 hover:scale-110"
           >
             Registrations Closed
-          </a>
+          </Link>
         </div>
       </nav>
 
@@ -101,42 +100,42 @@ const Navbar = (props: Props) => {
             {/* Menu items */}
             <ul className="flex flex-col items-center space-y-10 list-none">
               <li>
-                <a
+                <Link
                   href={`${basePath}#home`}
                   className="text-white text-3xl font-montserrat-alternates no-underline transition-colors duration-300 hover:text-[#00bcd4]"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href={`${basePath}#domain`}
                   className="text-white text-3xl font-montserrat-alternates no-underline transition-colors duration-300 hover:text-[#00bcd4]"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Domain
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href={`${basePath}#roadmap`}
                   className="text-white text-3xl font-montserrat-alternates no-underline transition-colors duration-300 hover:text-[#00bcd4]"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Roadmap
-                </a>
+                </Link>
               </li>
             </ul>
             
             {/* Register button */}
-            <a
+            <Link
               href="/recruitment25registerform"
               className="mt-10 font-montserrat-alternates bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] text-white py-3 px-8 rounded-full text-xl font-semibold no-underline transition-all duration-300 hover:bg-gradient-to-r hover:from-[#00CDC1] hover:to-[#00B5FF]"
               onClick={() => setMobileMenuOpen(false)}
             >
               Registrations Closed
-            </a>
+            </Link>
           </div>
         </div>
       )}

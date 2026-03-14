@@ -4,9 +4,7 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 
-type Props = {};
-
-const HeroSection = (props: Props) => {
+const HeroSection = () => {
   return (
     <div
       id="banner"

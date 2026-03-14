@@ -4,17 +4,13 @@ import {
   getHeadData,
   getLeadData,
   getPresidentData,
-  getTeamData,
   getVicePresidentData,
 } from "@/sanity/data/team-data";
 import { Member } from "@/sanity/schemas/member-schema";
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
-
-const OurTeam = async (props: Props) => {
-  const teamData = await getTeamData();
+const OurTeam = async () => {
   const presidentData = await getPresidentData();
   const vicePresidentData = await getVicePresidentData();
   const headData = await getHeadData();

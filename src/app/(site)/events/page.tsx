@@ -1,13 +1,10 @@
 import EventCard from "@/components/events/event-card";
 import SlideShow from "@/components/events/slide-show";
-import { BackgroundGradient } from "@/components/ui/background-gradient";
 import Image from "next/image";
 import React from "react";
 import { getAllEvents } from "@/sanity/data/events-data";
 
-type Props = {};
-
-const Events = async ({}: Props) => {
+const Events = async () => {
   const eventList = await getAllEvents();
   return (
     <div className="flex flex-col gap-4 p-8 md:p-16 lg:px-20">

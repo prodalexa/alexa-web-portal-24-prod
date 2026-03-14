@@ -11,11 +11,6 @@ import { Toaster } from "@/components/ui/toaster";
 
 const myFont = localFont({ src: "./RogueHero-rggMA.otf" });
 
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
 export const metadata: Metadata = {
   title: "AlexaVerse | ADS!",
   description: "Created with ♥️ by the ADS team.",

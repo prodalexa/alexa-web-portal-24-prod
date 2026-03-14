@@ -1,7 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { getEventBySlug } from "@/sanity/data/events-data";
-import event from "@/sanity/schemas/event-schema";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
