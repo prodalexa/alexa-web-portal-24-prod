@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Link from "next/link";
 
 const HeroSection: React.FC = () => {
   const router = useRouter();
@@ -55,13 +54,17 @@ const HeroSection: React.FC = () => {
         <div className="absolute top-[35px] left-0 w-full px-[44px] h-[62px] flex items-center justify-between z-10">
 
           {/* Logo + Text */}
-          <Link href="/">
-          <div className="relative w-[315px] h-[62px] flex items-center">
+          
+          <div 
+          onClick={() => router.push('/')}
+          className="relative w-[315px] h-[62px] flex items-center cursor-pointer">
 
             <div className="w-[62px] h-[62px] flex items-center justify-center">
               <Image
                 src="/hacktrax-v2/Vector.svg"
                 alt="Logo"
+                width={62}
+                height={62}
                 className="w-full h-full object-contain"
               />
             </div>
@@ -70,7 +73,6 @@ const HeroSection: React.FC = () => {
               Alexa Developers SRM
             </div>
           </div>
-          </Link>
 
           {/* Nav Buttons */}
           <div className="flex gap-[22px] items-center">
@@ -108,14 +110,17 @@ const HeroSection: React.FC = () => {
 
       {/* Mobile Navbar */}
       {isMobile && !isMobileMenuOpen && (
-        
         <div className="absolute top-[34px] left-0 w-full px-[26px] h-[40px] flex items-center justify-between z-10">
-          <Link href="/">
-          <div className="flex items-center">
+          
+          <div
+          onClick={() => router.push('/')}
+          className="flex items-center cursor-pointer">
 
             <Image
               src="/hacktrax-v2/Vector.svg"
               alt="Logo"
+              width={40}
+              height={40}
               className="w-[40px] h-[40px]"
             />
 
@@ -123,7 +128,6 @@ const HeroSection: React.FC = () => {
               Alexa Developers SRM
             </span>
           </div>
-          </Link>
 
           <button
             onClick={handleMobileMenuToggle}
@@ -186,7 +190,8 @@ const HeroSection: React.FC = () => {
             <Image
               src="/hacktrax-v2/HeroSection.jpg"
               alt="Hero Section"
-              className="w-full h-full max-w-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
 
@@ -197,6 +202,8 @@ const HeroSection: React.FC = () => {
             <Image
               src="/hacktrax-v2/RegisterButton.svg"
               alt="Register Button"
+              width={560}
+              height={135}
               className="w-[560px] h-[135px] object-contain"
             />
           </button>
@@ -210,7 +217,8 @@ const HeroSection: React.FC = () => {
             <Image
               src="/hacktrax-v2/HeroSectionM.svg"
               alt="Hero Mobile"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
 
@@ -221,6 +229,8 @@ const HeroSection: React.FC = () => {
             <Image
               src="/hacktrax-v2/RegisterButtonM.svg"
               alt="Register Button"
+              width={300}
+              height={55}
               className="w-[300px] h-[55px] object-contain"
             />
           </button>
