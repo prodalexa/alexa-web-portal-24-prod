@@ -54,7 +54,10 @@ const HeroSection: React.FC = () => {
         <div className="absolute top-[35px] left-0 w-full px-[44px] h-[62px] flex items-center justify-between z-10">
 
           {/* Logo + Text */}
-          <div className="relative w-[315px] h-[62px] flex items-center">
+          
+          <div 
+          onClick={() => router.push('/')}
+          className="relative w-[315px] h-[62px] flex items-center cursor-pointer">
 
             <div className="w-[62px] h-[62px] flex items-center justify-center">
               <Image
@@ -108,8 +111,10 @@ const HeroSection: React.FC = () => {
       {/* Mobile Navbar */}
       {isMobile && !isMobileMenuOpen && (
         <div className="absolute top-[34px] left-0 w-full px-[26px] h-[40px] flex items-center justify-between z-10">
-
-          <div className="flex items-center">
+          
+          <div
+          onClick={() => router.push('/')}
+          className="flex items-center cursor-pointer">
 
             <Image
               src="/hacktrax-v2/Vector.svg"

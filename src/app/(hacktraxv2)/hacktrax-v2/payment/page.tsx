@@ -81,26 +81,19 @@ export default function PaymentPage() {
 
       if (res.ok) {
 
-        setMessage("Registration successful!")
+        setMessage("Registration successful! Loading WhatsApp group QR...")
+
+        sessionStorage.setItem("hacktraxPaymentDone", "true")
 
         sessionStorage.removeItem("hacktraxTeamData")
         sessionStorage.removeItem("hacktraxFormData")
-        localStorage.clear()
         
-        // Clear all cookies
-        document.cookie.split(";").forEach((c) => {
-          document.cookie = c
-            .replace(/^ +/, "")
-            .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/")
-        })
 
         setTimeout(() => {
-          router.push("/hacktrax-v2")
+          router.push("/hacktrax-v2/whatsapp")
         }, 2000)
 
       } else {
-
-        
 
         let backendMessage = "Submission failed. Try again."
 
@@ -174,6 +167,7 @@ export default function PaymentPage() {
           }}
           className="w-full px-4 py-2 rounded-lg border outline-none text-white font-[Montserrat]"
         />
+
 
         <button
           onClick={handleSubmit}
