@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 
-const validateEmail = (v: string) => /^[^\s@]+@srmist\.edu\.in$/.test(v.trim())
+const validateEmail = (v: string) => /^[a-zA-Z]{2}\d{4}@srmist\.edu\.in$/.test(v.trim());
 const validatePhone = (v: string) => /^\d{10}$/.test(v.trim())
 const validateRegNo = (v: string) => /^RA\d{13}$/.test(v.trim())
 
@@ -307,9 +307,9 @@ export default function Form() {
                   value={form.members[idx].email}
                   onChange={(v) => setMemberField(idx, "email", v)}
                   onBlur={() => touchMember(idx, "email")}
-                  placeholder="example@srmist.edu.in"
+                  placeholder="ab1234@srmist.edu.in"
                   invalid={inv.email}
-                  errorMsg="Must end in @srmist.edu.in"
+                  errorMsg="Must be of the form ab1234@srmist.edu.in"
                   type="email"
                   isMobile={isMobile}
                 />
