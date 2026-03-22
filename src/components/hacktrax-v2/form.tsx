@@ -34,31 +34,21 @@ function Field({
   prefix,
   isMobile
 }: FieldProps) {
-  const [focused, setFocused] = useState(false)
 
   return (
-    <div className="flex flex-col gap-1 w-full">
+    <div className="flex flex-col gap-1 w-full opacity-60">
       <span
         className={`flex items-center gap-1 font-medium font-[Montserrat]
         ${isMobile ? "text-[13px]" : "text-[16px]"}
-        ${invalid ? "text-red-400" : "text-[#00DD73]"}`}
+        text-gray-400`}
       >
         {label}
         {required && <span className="text-pink-400">*</span>}
       </span>
 
-      <div
-        className={`flex items-center h-[44px] rounded-lg border-2 px-3 bg-white transition
-        ${
-          invalid
-            ? "border-red-500"
-            : focused
-            ? "border-[#00DD73]"
-            : "border-gray-300"
-        }`}
-      >
+      <div className="flex items-center h-[44px] rounded-lg border-2 px-3 bg-gray-200 border-gray-300 cursor-not-allowed">
         {prefix && (
-          <span className="font-semibold text-gray-700 pr-3 border-r border-gray-300 mr-3 whitespace-nowrap text-sm">
+          <span className="font-semibold text-gray-500 pr-3 border-r border-gray-300 mr-3 whitespace-nowrap text-sm">
             {prefix}
           </span>
         )}
@@ -66,14 +56,9 @@ function Field({
         <input
           type={type}
           value={value}
-          placeholder={placeholder}
-          onChange={(e) => onChange(e.target.value)}
-          onFocus={() => setFocused(true)}
-          onBlur={() => {
-            setFocused(false)
-            onBlur()
-          }}
-          className={`flex-1 outline-none text-black font-[Montserrat]
+          placeholder="Registrations Closed"
+          disabled
+          className={`flex-1 outline-none text-gray-500 font-[Montserrat] bg-transparent
           ${isMobile ? "text-[13px]" : "text-[14px]"}`}
         />
       </div>
@@ -109,6 +94,8 @@ export default function Form() {
 
   const router = useRouter()
 
+  const registrationOpen = false
+
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -118,24 +105,17 @@ export default function Form() {
     return () => window.removeEventListener("resize", check)
   }, [])
 
-
   const [form, setForm] = useState<FormState>(() => {
-
     if (typeof window !== "undefined") {
-
       const saved = sessionStorage.getItem("hacktraxFormData")
-
       if (saved) return JSON.parse(saved) as FormState
-
     }
 
     return {
       teamName: "",
       members: [emptyMember(), emptyMember(), emptyMember(), emptyMember()]
     }
-
   })
-
 
   useEffect(() => {
     sessionStorage.setItem("hacktraxFormData", JSON.stringify(form))
@@ -146,52 +126,10 @@ export default function Form() {
     members: [emptyTouched(), emptyTouched(), emptyTouched(), emptyTouched()]
   })
 
-  const setTeamName = (v: string) => setForm((f) => ({ ...f, teamName: v }))
-
-  const setMemberField = (idx: number, field: string, v: string) =>
-    setForm((f) => ({
-      ...f,
-      members: f.members.map((m, i) =>
-        i === idx ? { ...m, [field]: v } : m
-      )
-    }))
-
-  const touchTeamName = () => setTouched((t) => ({ ...t, teamName: true }))
-
-  const touchMember = (idx: number, field: string) =>
-    setTouched((t) => ({
-      ...t,
-      members: t.members.map((m, i) =>
-        i === idx ? { ...m, [field]: true } : m
-      )
-    }))
-
-  const teamNameInvalid = touched.teamName && form.teamName.trim() === ""
-
-  const memberInvalid = (idx: number) => {
-
-    const m = form.members[idx]
-    const t = touched.members[idx]
-    const req = REQUIRED_MEMBERS[idx]
-
-    const hasAny = !!(m.name || m.email || m.phone || m.regNo)
-    const should = req || hasAny
-
-    return {
-      name: t.name && should && m.name.trim() === "",
-      email: t.email && should && !validateEmail(m.email),
-      phone: t.phone && should && !validatePhone(m.phone),
-      regNo: t.regNo && should && !validateRegNo(m.regNo)
-    }
-
-  }
-
   const isFormValid = () => {
-
     if (form.teamName.trim() === "") return false
 
     for (let i = 0; i < 4; i++) {
-
       const m = form.members[i]
 
       if (!REQUIRED_MEMBERS[i] && !(m.name || m.email || m.phone || m.regNo))
@@ -204,7 +142,6 @@ export default function Form() {
         !validateRegNo(m.regNo)
       )
         return false
-
     }
 
     return true
@@ -212,39 +149,25 @@ export default function Form() {
 
   const handleSubmit = () => {
 
-    setTouched({
-      teamName: true,
-      members: form.members.map(() => ({
-        name: true,
-        email: true,
-        phone: true,
-        regNo: true
-      }))
-    })
+    if (!registrationOpen) return
 
     if (!isFormValid()) return
 
     const payload = {
-
       team_name: form.teamName,
-
       members: form.members
-        .filter((m: { name: string; email: string; phone: string; regNo: string }) => m.name && m.email && m.phone && m.regNo)
-        .map((m: { name: string; email: string; phone: string; regNo: string }) => ({
+        .filter((m) => m.name && m.email && m.phone && m.regNo)
+        .map((m) => ({
           name: m.name,
           email_id: m.email,
           phone_number: m.phone,
           registration_number: m.regNo
         }))
-
     }
 
     sessionStorage.setItem("hacktraxTeamData", JSON.stringify(payload))
-
     router.push("/hacktrax-v2/payment")
-
   }
-
 
   return (
     <div
@@ -254,9 +177,14 @@ export default function Form() {
 
       <div className="w-full max-w-[1200px]">
 
-        <h1 className="text-center text-white font-['Saira_Stencil_One'] text-[44px] md:text-[64px] mb-10">
-          Team Details
+        
+        <h1 className="text-center text-white font-['Saira_Stencil_One'] text-[44px] md:text-[64px] mb-4">
+          Registrations Closed
         </h1>
+
+        <p className="text-center text-gray-300 mb-10 font-[Montserrat]">
+          You can no longer submit this form.
+        </p>
 
         <div className="flex justify-center mb-8">
           <div className="w-full max-w-[360px]">
@@ -264,11 +192,11 @@ export default function Form() {
               label="Team Name"
               required
               value={form.teamName}
-              onChange={setTeamName}
-              onBlur={touchTeamName}
+              onChange={() => {}}
+              onBlur={() => {}}
               placeholder="Name"
-              invalid={teamNameInvalid}
-              errorMsg="Team name is required"
+              invalid={false}
+              errorMsg=""
               isMobile={isMobile}
             />
           </div>
@@ -276,77 +204,27 @@ export default function Form() {
 
         {MEMBER_LABELS.map((label, idx) => {
 
-          const inv = memberInvalid(idx)
           const req = REQUIRED_MEMBERS[idx]
 
           return (
-            <div key={idx} className="mb-8">
+            <div key={idx} className="mb-8 opacity-60">
 
-              <div className="flex items-center gap-1 text-[#00DD73] font-medium text-[16px] mb-3">
+              <div className="flex items-center gap-1 text-gray-400 font-medium text-[16px] mb-3">
                 {label}
                 {req && <span className="text-pink-400">*</span>}
               </div>
 
               <div className="flex flex-col md:flex-row gap-4">
 
-                <Field
-                  label="Name"
-                  required={req}
-                  value={form.members[idx].name}
-                  onChange={(v) => setMemberField(idx, "name", v)}
-                  onBlur={() => touchMember(idx, "name")}
-                  placeholder="Name"
-                  invalid={inv.name}
-                  errorMsg="Name is required"
-                  isMobile={isMobile}
-                />
-
-                <Field
-                  label="E-mail Address (SRM ID)"
-                  required={req}
-                  value={form.members[idx].email}
-                  onChange={(v) => setMemberField(idx, "email", v)}
-                  onBlur={() => touchMember(idx, "email")}
-                  placeholder="example@srmist.edu.in"
-                  invalid={inv.email}
-                  errorMsg="Must end in @srmist.edu.in"
-                  type="email"
-                  isMobile={isMobile}
-                />
+                <Field label="Name" required={req} value="" onChange={()=>{}} onBlur={()=>{}} placeholder="" invalid={false} errorMsg="" isMobile={isMobile}/>
+                <Field label="E-mail Address (SRM ID)" required={req} value="" onChange={()=>{}} onBlur={()=>{}} placeholder="" invalid={false} errorMsg="" type="email" isMobile={isMobile}/>
 
               </div>
 
               <div className="flex flex-col md:flex-row gap-4 mt-4">
 
-                <Field
-                  label="Phone Number"
-                  required={req}
-                  value={form.members[idx].phone}
-                  onChange={(v) =>
-                    setMemberField(idx, "phone", v.replace(/\D/g, "").slice(0, 10))
-                  }
-                  onBlur={() => touchMember(idx, "phone")}
-                  placeholder="0123456789"
-                  invalid={inv.phone}
-                  errorMsg="Must be exactly 10 digits"
-                  type="tel"
-                  prefix="+91"
-                  isMobile={isMobile}
-                />
-
-                <Field
-                  label="Register Number"
-                  required={req}
-                  value={form.members[idx].regNo}
-                  onChange={(v) =>
-                    setMemberField(idx, "regNo", v.toUpperCase().slice(0, 15))
-                  }
-                  onBlur={() => touchMember(idx, "regNo")}
-                  placeholder="RAXXXXXXXXXXXXX"
-                  invalid={inv.regNo}
-                  errorMsg="RA + exactly 13 digits"
-                  isMobile={isMobile}
-                />
+                <Field label="Phone Number" required={req} value="" onChange={()=>{}} onBlur={()=>{}} placeholder="" invalid={false} errorMsg="" type="tel" prefix="+91" isMobile={isMobile}/>
+                <Field label="Register Number" required={req} value="" onChange={()=>{}} onBlur={()=>{}} placeholder="" invalid={false} errorMsg="" isMobile={isMobile}/>
 
               </div>
 
@@ -355,15 +233,12 @@ export default function Form() {
         })}
 
         <div className="flex justify-center mt-10">
-
           <button
-            onClick={handleSubmit}
-            className="flex items-center bg-[#00DD73] text-white font-bold px-10 py-3 rounded-lg shadow-md hover:-translate-y-[2px] transition"
+            disabled
+            className="flex items-center bg-gray-500 text-white font-bold px-10 py-3 rounded-lg shadow-md cursor-not-allowed"
           >
-            Pay & Register
-            <span className="ml-2 text-lg font-black">›</span>
+            Registrations Closed
           </button>
-
         </div>
 
       </div>
