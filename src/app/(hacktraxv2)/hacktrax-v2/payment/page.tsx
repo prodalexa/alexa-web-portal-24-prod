@@ -158,12 +158,18 @@ export default function PaymentPage() {
         {/* Transaction ID input */}
         <input
           type="text"
+          inputMode="numeric"
           maxLength={40}
           placeholder="Enter UPI Transaction ID"
           value={txnId}
           onChange={(e) => {
-            setTxnId(e.target.value.replace(/\s/g, ""))
-            setMessage("")
+            const val = e.target.value
+            if (val !== "" && !/^\d+$/.test(val)) {
+              setMessage("Only numeric values are allowed")
+            } else {
+              setTxnId(val)
+              setMessage("")
+            }
           }}
           className="w-full px-4 py-2 rounded-lg border outline-none text-white font-[Montserrat]"
         />
