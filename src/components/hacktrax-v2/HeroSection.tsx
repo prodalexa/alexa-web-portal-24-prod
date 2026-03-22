@@ -95,7 +95,7 @@ const HeroSection: React.FC = () => {
               onClick={() => scrollToSection('formSection')}
               className="text-[#ECC000] font-semibold text-[20px] font-[Montserrat] cursor-pointer"
             >
-              REGISTER NOW
+              REGISTRATIONS CLOSED
             </button>
 
             <button
@@ -147,28 +147,28 @@ const HeroSection: React.FC = () => {
 
             <button
               onClick={() => scrollToSection('heroSection')}
-              className="text-white text-[38px] font-semibold font-[Montserrat]"
+              className="text-white text-[34px] font-semibold font-[Montserrat]"
             >
               Home
             </button>
 
             <button
               onClick={() => scrollToSection('eventDetails')}
-              className="text-white text-[38px] font-semibold font-[Montserrat]"
+              className="text-white text-[34px] font-semibold font-[Montserrat]"
             >
               Details
             </button>
 
             <button
               onClick={() => scrollToSection('formSection')}
-              className="text-[#ECC000] text-[38px] font-semibold font-[Montserrat]"
+              className="text-[#ECC000] text-[34px] font-semibold font-[Montserrat] whitespace-nowrap px-4"
             >
-              Register Now
+              Registrations Closed
             </button>
 
             <button
               onClick={() => scrollToSection('footer')}
-              className="text-white text-[38px] font-semibold font-[Montserrat]"
+              className="text-white text-[34px] font-semibold font-[Montserrat]"
             >
               Contact Us
             </button>
