@@ -3,7 +3,7 @@ import { Saira_Stencil_One, Keania_One, Montserrat } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
-// @ts-ignore
+// @ts-expect-error: importing globals.css in the app router layout
 import "./globals.css";
 import localFont from "next/font/local";
 

@@ -3,7 +3,7 @@ import { Nunito as FontSans, Montserrat, Montserrat_Alternates } from "next/font
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
-// @ts-expect-error
+// @ts-expect-error: importing globals.css in the app router layout
 import "./globals.css";
 
 const fontSans = FontSans({
