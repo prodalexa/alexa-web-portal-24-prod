@@ -6,7 +6,7 @@ import { useEffect } from "react";
 export const TextGenerateEffect = ({
   words,
   className,
-  gradientColors = "from-[#31B553] to-[#0AA294]", // Default gradient colors
+  gradientColors = "from-[#00B5FF] to-[#00CDC1]", // Default gradient colors
 }: {
   words: string;
   className?: string;

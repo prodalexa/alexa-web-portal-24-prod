@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Nunito as FontSans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
+// @ts-expect-error
 import "./globals.css";
 import Header from "@/components/alexaverse/header";
 import localFont from "next/font/local";

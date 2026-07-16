@@ -3,13 +3,14 @@ import SlideShow from "@/components/events/slide-show";
 import Image from "next/image";
 import React from "react";
 import { getAllEvents } from "@/sanity/data/events-data";
+import Dot from "@/components/ui/dot";
 
 const Events = async () => {
   const eventList = await getAllEvents();
   return (
     <div className="flex flex-col gap-4 p-8 md:p-16 lg:px-20">
       <div className="text-5xl font-bold text-center text-white flex flex-col items-start justify-center">
-        <h1 className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent">
+        <h1 className="bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] bg-clip-text text-transparent">
           Our Events
         </h1>
         <Image
@@ -35,9 +36,7 @@ const Events = async () => {
       </div>
       <div className="w-full flex mt-10 mb-5 text-white justify-center font-bold text-3xl md:text-5xl items-center">
         <span>Our Gallery</span>
-        <span className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent ml-2">
-          .
-        </span>
+        <Dot />
       </div>
       <SlideShow />
     </div>

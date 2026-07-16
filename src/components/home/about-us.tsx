@@ -8,7 +8,7 @@ export default function AboutUs() {
     <div className="h-full w-auto flex flex-col items-center justify-center bg-transparent antialiased bg-grid-white/[0.02] relative overflow-hidden pb-8">
       {/* Title Section */}
       <div className="text-5xl font-bold text-center text-white items-center mb-8">
-        <h1 className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent">
+        <h1 className="bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] bg-clip-text text-transparent">
           About Us
         </h1>
 
