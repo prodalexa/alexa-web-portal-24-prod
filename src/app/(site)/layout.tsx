@@ -3,7 +3,6 @@ import { Nunito as FontSans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
-// @ts-expect-error: importing globals.css in the app router layout
 import "./globals.css";
 import Header from "@/components/global/header";
 import ContactUs from "@/components/global/contact-us";

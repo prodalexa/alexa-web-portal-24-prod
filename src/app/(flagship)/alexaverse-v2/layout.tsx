@@ -1,4 +1,3 @@
-// @ts-expect-error: importing globals.css in the app router layout
 import "../../globals.css";
 import type { Metadata } from "next";
 import {
