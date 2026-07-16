@@ -1,10 +1,7 @@
 "use client";
-// app/components/Header.tsx
-import { url } from 'inspector';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { title } from 'process';
 import clsx from 'clsx';
 
 const Header: React.FC = () => {

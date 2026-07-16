@@ -20,7 +20,7 @@ const PersonCard = ({ person }: Props) => {
         url={person.photo}
       />
       <h2 className="font-bold text-center text-white md:text-lg">{person.name}</h2>
-      <h2 className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent md:text-lg">
+      <h2 className="bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] bg-clip-text text-transparent md:text-lg">
         {person.role}
       </h2>
       <div className="flex flex-row gap-3 md:gap-5 mt-2">

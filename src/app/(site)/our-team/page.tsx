@@ -1,4 +1,5 @@
 import PersonCard from "@/components/our-team/person-card";
+import Dot from "@/components/ui/dot";
 import {
   getExecutiveData,
   getHeadData,
@@ -19,7 +20,7 @@ const OurTeam = async () => {
   return (
     <div className="flex flex-col gap-4 p-8 md:p-16 lg:px-20 w-full">
       <div className="text-5xl font-bold text-center text-white flex flex-col items-start justify-center">
-        <h1 className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent">
+        <h1 className="bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] bg-clip-text text-transparent">
           Our Team
         </h1>
         <Image
@@ -46,9 +47,7 @@ const OurTeam = async () => {
         />
         <div className="w-full text-2xl md:text-4xl font-bold text-white max-w-fit">
           <span>The Core</span>
-          <span className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent ml-2">
-            .
-          </span>
+          <Dot />
         </div>
         <Image
           src="hero-sep.svg"
@@ -72,9 +71,7 @@ const OurTeam = async () => {
         />
         <div className="w-full text-2xl md:text-4xl font-bold text-white max-w-fit">
           <span>The Heads</span>
-          <span className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent ml-2">
-            .
-          </span>
+          <Dot />
         </div>
         <Image
           src="hero-sep.svg"
@@ -99,9 +96,7 @@ const OurTeam = async () => {
         />
         <div className="w-full text-2xl md:text-4xl font-bold text-white max-w-fit">
           <span>The Leads</span>
-          <span className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent ml-2">
-            .
-          </span>
+          <Dot />
         </div>
         <Image
           src="hero-sep.svg"
@@ -126,9 +121,7 @@ const OurTeam = async () => {
         />
         <div className="w-full text-2xl md:text-4xl font-bold text-white max-w-fit">
           <span>The Executives</span>
-          <span className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent ml-2">
-            .
-          </span>
+          <Dot />
         </div>
         <Image
           src="hero-sep.svg"

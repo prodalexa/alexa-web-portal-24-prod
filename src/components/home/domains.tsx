@@ -43,7 +43,7 @@ function Domains({}: Props) {
   return (
     <div className="h-full w-fill flex flex-col items-center justify-center gap-4">
       <div className="text-5xl font-bold text-center text-white flex flex-col items-center justify-center">
-        <h1 className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent">
+        <h1 className="bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] bg-clip-text text-transparent">
           Our Domains
         </h1>
         <Image

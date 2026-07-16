@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-// import { Inter as FontSans } from "next/font/google"
 import { Nunito as FontSans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
+// @ts-exect-error
 import "./globals.css";
 import Header from "@/components/global/header";
 import ContactUs from "@/components/global/contact-us";
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Welcome | ADS!",
   description: "Created with ♥️ by the ADS team.",
   icons: {
-    icon: "/icon2.png",
+    icon: "/logo.png",
   },
 };
 

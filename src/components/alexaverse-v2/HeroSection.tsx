@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 

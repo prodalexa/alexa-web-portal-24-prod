@@ -16,7 +16,7 @@ const OurEvents = ({ events }: Props) => {
   return (
     <div className="h-[40rem] rounded-md flex flex-col antialiased bg-transparent items-center justify-center relative overflow-hidden">
       <div className="text-5xl font-bold text-center text-white flex flex-col items-center justify-center">
-        <h1 className="bg-gradient-to-r from-[#31B553] to-[#0AA294] bg-clip-text text-transparent">
+        <h1 className="bg-gradient-to-r from-[#00B5FF] to-[#00CDC1] bg-clip-text text-transparent">
           Our Events
         </h1>
         <Image
