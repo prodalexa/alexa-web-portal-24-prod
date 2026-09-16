@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { getEventBySlug } from "@/sanity/data/events-data";
+// import { getEventBySlug } from "@/sanity/data/events-data"; // TODO: re-enable when Sanity is configured
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -12,7 +12,15 @@ type Props = {
 
 const EventView = async ({ params }: Props) => {
   const { eventSlug } = await params;
-  const eventData = await getEventBySlug(eventSlug);
+  // const eventData = await getEventBySlug(eventSlug);
+  const eventData = {
+    status: "comingSoon",
+    title: eventSlug,
+    description: "Event details coming soon.",
+    certificatesLink: null,
+    galleryLink: null,
+    poster: "/hero-logo.svg",
+  };
   return (
     <div className="max-w-full w-full h-full mt-4 md:mt-10 pr-6 flex flex-col md:flex-row items-center gap-6 lg:gap-10">
       {/* left */}

@@ -1,22 +1,28 @@
 import PersonCard from "@/components/our-team/person-card";
 import Dot from "@/components/ui/dot";
-import {
-  getExecutiveData,
-  getHeadData,
-  getLeadData,
-  getPresidentData,
-  getVicePresidentData,
-} from "@/sanity/data/team-data";
-import { Member } from "@/sanity/schemas/member-schema";
+// import {
+//   getExecutiveData,
+//   getHeadData,
+//   getLeadData,
+//   getPresidentData,
+//   getVicePresidentData,
+// } from "@/sanity/data/team-data"; // TODO: re-enable when Sanity is configured
+// import { Member } from "@/sanity/schemas/member-schema";
+type Member = { _id: string; name: string; role: string; image?: string; };
 import Image from "next/image";
 import React from "react";
 
 const OurTeam = async () => {
-  const presidentData = await getPresidentData();
-  const vicePresidentData = await getVicePresidentData();
-  const headData = await getHeadData();
-  const leadData = await getLeadData();
-  const executiveData = await getExecutiveData();
+  // const presidentData = await getPresidentData();
+  // const vicePresidentData = await getVicePresidentData();
+  // const headData = await getHeadData();
+  // const leadData = await getLeadData();
+  // const executiveData = await getExecutiveData();
+  const presidentData: Member[] = [];
+  const vicePresidentData: Member[] = [];
+  const headData: Member[] = [];
+  const leadData: Member[] = [];
+  const executiveData: Member[] = [];
   return (
     <div className="flex flex-col gap-4 p-8 md:p-16 lg:px-20 w-full">
       <div className="text-5xl font-bold text-center text-white flex flex-col items-start justify-center">
