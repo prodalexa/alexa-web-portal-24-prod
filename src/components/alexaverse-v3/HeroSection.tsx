@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
       <nav className="relative z-20 w-full px-6 sm:px-10 lg:px-14 py-4 flex justify-between items-center">
 
         {/* Logo container */}
-        <Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
+        <a href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
           {/* Mobile view: Only the icon */}
           <Image
             src="/alexaverse3.0/icon.svg"
@@ -54,7 +54,7 @@ const HeroSection: React.FC = () => {
             height={52}
             className="hidden md:block h-9 w-auto object-contain"
           />
-        </Link>
+        </a>
 
         {/* Desktop nav links */}
         <div className="hidden md:flex gap-10 items-center">
