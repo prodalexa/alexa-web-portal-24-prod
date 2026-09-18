@@ -96,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-dark_bg">
+      <body className="min-h-screen bg-dark_bg" suppressHydrationWarning>
         {children}
       </body>
     </html>

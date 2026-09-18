@@ -2,12 +2,11 @@ import EventCard from "@/components/events/event-card";
 import SlideShow from "@/components/events/slide-show";
 import Image from "next/image";
 import React from "react";
-// import { getAllEvents } from "@/sanity/data/events-data"; // TODO: re-enable when Sanity is configured
+import { getAllEvents } from "@/sanity/data/events-data";
 import Dot from "@/components/ui/dot";
 
 const Events = async () => {
-  // const eventList = await getAllEvents();
-  const eventList: never[] = [];
+  const eventList = await getAllEvents();
   return (
     <div className="flex flex-col gap-4 p-8 md:p-16 lg:px-20">
       <div className="text-5xl font-bold text-center text-white flex flex-col items-start justify-center">
