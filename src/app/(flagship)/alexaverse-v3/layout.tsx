@@ -92,7 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&display=swap"
           rel="stylesheet"
         />
       </head>
