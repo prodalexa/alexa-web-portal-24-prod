@@ -12,55 +12,36 @@ const HeroSection: React.FC = () => {
       id="home"
       className="relative z-0 w-full min-h-screen overflow-hidden"
     >
-      {/* ── Layer 1: Solid Black Base ── */}
-      <div className="absolute inset-0 -z-30 bg-black" />
-
       {/* ── Layer 2: Background Image (mobile) ── */}
       <div className="absolute inset-0 -z-20 pointer-events-none md:hidden">
-        <div
-          style={{
-            position: "absolute",
-            top: "-10px",
-            left: "-851px",
-            width: "1521px",
-            height: "856px",
-          }}
-        >
-          <Image
-            src="/alexaverse3.0/Background image 2.svg"
-            alt="AlexaVerse 3.0 Background"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
+        <Image
+          src="/alexaverse3.0/Group 1261153487-cropped.svg"
+          alt="AlexaVerse 3.0 Background"
+          fill
+          priority
+          className="object-cover"
+        />
       </div>
+
+      {/* ── Layer 3: Vignette Overlay (mobile only) ── */}
+      <div
+        className="absolute inset-0 -z-10 pointer-events-none md:hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.5) 98%, rgba(0,0,0,0.65) 100%)",
+        }}
+      />
 
       {/* ── Layer 2: Background Image (desktop) ── */}
       <div className="absolute inset-0 -z-20 pointer-events-none hidden md:block">
         <Image
-          src="/alexaverse3.0/Background image 2.svg"
+          src="/alexaverse3.0/bg-image-cropped.svg"
           alt="AlexaVerse 3.0 Background"
           fill
           priority
           className="object-cover object-bottom"
         />
       </div>
-
-      {/* ── Layer 2.5: Uniform dark overlay ── */}
-      <div
-        className="hidden md:block absolute inset-0 bg-black/40 pointer-events-none"
-        style={{ zIndex: -15 }}
-      />
-
-      {/* ── Layer 3: Vignette Overlay (over the image) ── */}
-      <div
-        className="absolute inset-0 -z-10 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, transparent 15%, rgba(0,0,0,0.7) 55%, rgba(0,0,0,0.95) 80%, #000000 100%)",
-        }}
-      />
 
       {/* ── Navbar ── */}
       <nav className="relative z-20 w-full px-6 sm:px-10 lg:px-14 py-4 flex justify-between items-center">
@@ -225,8 +206,10 @@ const HeroSection: React.FC = () => {
             }}
             className="hidden md:block text-white/90 mb-8 w-full max-w-[650px]"
           >
-            ALEXAVERSE 3.0 is back - bigger, bolder, and unmissable! From 13th <br />
-            to 15th October 2026, dive into three electrifying days of innovation <br />
+            ALEXAVERSE 3.0 is back - bigger, bolder, and unmissable! From 13th{" "}
+            <br />
+            to 15th October 2026, dive into three electrifying days of
+            innovation <br />
             and imagination.
           </p>
 
@@ -242,31 +225,6 @@ const HeroSection: React.FC = () => {
               />
             </Link>
           </div>
-        </div>
-
-        {/* Character glow — behind character, inside same stacking context */}
-        <div
-          className="absolute inset-0 pointer-events-none z-0"
-          style={{
-            background:
-              "radial-gradient(circle at 64% 70%, rgba(251, 216, 165, 0.6) 0%, rgba(251, 216, 165, 0.15) 20%, transparent 30%)",
-            filter: "blur(30px)",
-          }}
-        />
-
-        {/* Character */}
-        <div
-          className="absolute pointer-events-none select-none z-10
-            left-[42%] bottom-[12%] md:left-auto md:right-[0%] md:bottom-[15.5%]"
-          style={{ width: "50%", height: "45vh" }}
-        >
-          <Image
-            src="/alexaverse3.0/character.svg"
-            alt="AlexaVerse Character"
-            fill
-            className="object-contain object-bottom"
-            style={{ filter: "drop-shadow(0 4px 24px rgba(0,0,0,0.6))" }}
-          />
         </div>
       </div>
     </section>

@@ -1,10 +1,11 @@
 import BlogCard from "@/components/blogs/blog-card";
-import { getAllBlogs } from "@/sanity/data/blog-data";
+// import { getAllBlogs } from "@/sanity/data/blog-data";
 import Image from "next/image";
 import React from "react";
 
 const Blogs = async () => {
-  const blogs = await getAllBlogs();
+  // const blogs = await getAllBlogs();
+  const blogs: any[] = [];
   return (
     <div className="flex flex-col gap-4 p-8 md:p-16 lg:px-20">
       <div className="text-5xl font-bold text-center text-white flex flex-col items-start justify-center">

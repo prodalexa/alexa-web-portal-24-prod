@@ -31,33 +31,8 @@ const OurSponsors = () => {
           height={1067}
           className="w-full h-auto object-contain relative z-10"
         />
-
-        {/* Sponsor Placeholders */}
-        {/* Top Left */}
-        <div className="absolute rounded-full border border-dashed border-[#AD9A78]/50 flex items-center justify-center z-20 overflow-hidden bg-white/5" style={{ left: '4.10%', top: '21.79%', width: '21.34%', height: '20.24%' }}>
-            <span className="text-[#AD9A78]/60 text-xs sm:text-sm">Sponsor</span>
-        </div>
-        {/* Bottom Left */}
-        <div className="absolute rounded-full border border-dashed border-[#AD9A78]/50 flex items-center justify-center z-20 overflow-hidden bg-white/5" style={{ left: '4.10%', top: '55.15%', width: '21.34%', height: '20.24%' }}>
-            <span className="text-[#AD9A78]/60 text-xs sm:text-sm">Sponsor</span>
-        </div>
-        {/* Top Center */}
-        <div className="absolute rounded-full border border-dashed border-[#AD9A78]/50 flex items-center justify-center z-20 overflow-hidden bg-white/5" style={{ left: '39.28%', top: '3.23%', width: '21.34%', height: '20.24%' }}>
-            <span className="text-[#AD9A78]/60 text-xs sm:text-sm">Sponsor</span>
-        </div>
-        {/* Bottom Center */}
-        <div className="absolute rounded-full border border-dashed border-[#AD9A78]/50 flex items-center justify-center z-20 overflow-hidden bg-white/5" style={{ left: '39.28%', top: '74.55%', width: '21.34%', height: '20.24%' }}>
-            <span className="text-[#AD9A78]/60 text-xs sm:text-sm">Sponsor</span>
-        </div>
-        {/* Top Right */}
-        <div className="absolute rounded-full border border-dashed border-[#AD9A78]/50 flex items-center justify-center z-20 overflow-hidden bg-white/5" style={{ left: '73.27%', top: '21.79%', width: '21.34%', height: '20.24%' }}>
-            <span className="text-[#AD9A78]/60 text-xs sm:text-sm">Sponsor</span>
-        </div>
-        {/* Bottom Right */}
-        <div className="absolute rounded-full border border-dashed border-[#AD9A78]/50 flex items-center justify-center z-20 overflow-hidden bg-white/5" style={{ left: '73.27%', top: '55.15%', width: '21.34%', height: '20.24%' }}>
-            <span className="text-[#AD9A78]/60 text-xs sm:text-sm">Sponsor</span>
-        </div>
       </div>
+
     </section>
   );
 };
