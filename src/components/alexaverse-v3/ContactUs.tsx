@@ -169,17 +169,17 @@ const ContactUs = () => {
 
       {/* Footer text */}
       {/* Desktop: single line */}
-      <p className="hidden sm:block text-[#E4DCC9] text-xs sm:text-sm md:text-base tracking-[0.15em] text-center uppercase">
+      <p className="hidden sm:block text-white text-xs sm:text-sm md:text-base tracking-[0.15em] text-center uppercase">
         Designed and Developed by{" "}
-        <span className="font-semibold text-[#E4DCC9]">
+        <span className="font-semibold text-white">
           Alexa Developers SRM.
         </span>
       </p>
       {/* Mobile: two lines */}
-      <p className="block sm:hidden text-[#DBCCB7] text-xs tracking-[0.15em] text-center uppercase">
+      <p className="block sm:hidden text-white text-xs tracking-[0.15em] text-center uppercase">
         Designed and Developed by
         <br />
-        <span className="font-semibold text-[#DBCCB7]">
+        <span className="font-semibold text-white">
           Alexa Developers SRM.
         </span>
       </p>

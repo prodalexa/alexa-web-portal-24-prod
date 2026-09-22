@@ -15,8 +15,29 @@ const HeroSection: React.FC = () => {
       {/* ── Layer 1: Solid Black Base ── */}
       <div className="absolute inset-0 -z-30 bg-black" />
 
-      {/* ── Layer 2: Background Image ── */}
-      <div className="absolute inset-0 -z-20 pointer-events-none">
+      {/* ── Layer 2: Background Image (mobile) ── */}
+      <div className="absolute inset-0 -z-20 pointer-events-none md:hidden">
+        <div
+          style={{
+            position: "absolute",
+            top: "-10px",
+            left: "-851px",
+            width: "1521px",
+            height: "856px",
+          }}
+        >
+          <Image
+            src="/alexaverse3.0/Background image 2.svg"
+            alt="AlexaVerse 3.0 Background"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+      </div>
+
+      {/* ── Layer 2: Background Image (desktop) ── */}
+      <div className="absolute inset-0 -z-20 pointer-events-none hidden md:block">
         <Image
           src="/alexaverse3.0/Background image 2.svg"
           alt="AlexaVerse 3.0 Background"
@@ -28,7 +49,7 @@ const HeroSection: React.FC = () => {
 
       {/* ── Layer 2.5: Uniform dark overlay ── */}
       <div
-        className="absolute inset-0 bg-black/40 pointer-events-none"
+        className="hidden md:block absolute inset-0 bg-black/40 pointer-events-none"
         style={{ zIndex: -15 }}
       />
 
@@ -50,7 +71,7 @@ const HeroSection: React.FC = () => {
         >
           {/* Mobile view: Only the icon */}
           <Image
-            src="/alexaverse3.0/icon.svg"
+            src="/alexaverse3.0/Alexa Logo copy.svg"
             alt="Alexa Developers SRM Icon"
             width={48}
             height={48}
@@ -145,12 +166,22 @@ const HeroSection: React.FC = () => {
             {label}
           </Link>
         ))}
+
+        <div className="absolute bottom-10 w-full flex flex-col items-center">
+          <p className="text-white text-xs tracking-[0.15em] text-center uppercase">
+            Designed and Developed by
+            <br />
+            <span className="font-semibold text-white">
+              Alexa Developers SRM.
+            </span>
+          </p>
+        </div>
       </div>
 
       {/* ── Hero body ── */}
-      <div className="relative z-10 flex items-center min-h-[calc(100vh-72px)] px-6 sm:px-10 lg:px-16">
+      <div className="relative z-10 flex items-start md:items-center min-h-[calc(100vh-72px)] pt-16 md:pt-0 px-6 sm:px-10 lg:px-16">
         {/* Left — text content */}
-        <div className="flex flex-col items-start w-full lg:max-w-[700px]">
+        <div className="flex flex-col items-start w-full lg:max-w-[700px] mt-6 md:mt-0">
           {/* alexaverse.svg — the full ALEXAVERSE title + swoosh underline */}
           <div className="w-full mb-5">
             <Image
@@ -162,20 +193,40 @@ const HeroSection: React.FC = () => {
             />
           </div>
 
-          {/* Description — inherits Crimson Pro 600/22px from body */}
+          {/* Description — Mobile View (4 lines) */}
           <p
             style={{
-              textAlign: "center",
-              textShadow: "0 1px 6px rgba(0,0,0,0.9)",
               fontFamily: '"Crimson Pro", serif',
-              fontWeight: 400,
+              fontWeight: 300,
+              fontSize: "16px",
+              lineHeight: "1.2",
+              letterSpacing: "0",
+              textAlign: "center",
+              textShadow: "0 1px 4px rgba(0,0,0,0.6)",
             }}
-            className="text-white mb-8 w-full max-w-[650px]"
+            className="md:hidden text-white/90 mb-8 w-full max-w-[650px]"
           >
-            ALEXAVERSE 3.0 is back - bigger, bolder, and unmissable! From 13th{" "}
-            <br className="hidden md:block" />
-            to 15th October 2026, dive into three electrifying days of
-            innovation <br className="hidden md:block" />
+            ALEXAVERSE 3.0 is back - bigger, bolder, and <br />
+            unmissable! From 13th to 15th October 2026, dive <br />
+            into three electrifying days of innovation and <br />
+            imagination.
+          </p>
+
+          {/* Description — Desktop View (3 lines) */}
+          <p
+            style={{
+              fontFamily: '"Crimson Pro", serif',
+              fontWeight: 300,
+              fontSize: "16px",
+              lineHeight: "1.2",
+              letterSpacing: "0",
+              textAlign: "center",
+              textShadow: "0 1px 4px rgba(0,0,0,0.6)",
+            }}
+            className="hidden md:block text-white/90 mb-8 w-full max-w-[650px]"
+          >
+            ALEXAVERSE 3.0 is back - bigger, bolder, and unmissable! From 13th <br />
+            to 15th October 2026, dive into three electrifying days of innovation <br />
             and imagination.
           </p>
 
@@ -193,31 +244,31 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right — character and eclipse glow */}
+        {/* Character glow — behind character, inside same stacking context */}
         <div
-          className="absolute right-[15%] bottom-[15.5%] hidden md:block pointer-events-none select-none"
-          style={{ width: "20%", height: "70vh" }}
+          className="absolute inset-0 pointer-events-none z-0"
+          style={{
+            background:
+              "radial-gradient(circle at 64% 70%, rgba(251, 216, 165, 0.6) 0%, rgba(251, 216, 165, 0.15) 20%, transparent 30%)",
+            filter: "blur(30px)",
+          }}
+        />
+
+        {/* Character */}
+        <div
+          className="absolute pointer-events-none select-none z-10
+            left-[42%] bottom-[12%] md:left-auto md:right-[0%] md:bottom-[15.5%]"
+          style={{ width: "50%", height: "45vh" }}
         >
-          {/* Character */}
           <Image
             src="/alexaverse3.0/character.svg"
             alt="AlexaVerse Character"
             fill
-            className="object-contain object-bottom relative z-10"
+            className="object-contain object-bottom"
             style={{ filter: "drop-shadow(0 4px 24px rgba(0,0,0,0.6))" }}
           />
         </div>
       </div>
-
-      {/* ── Character glow — originates from character center, spreads full section ── */}
-      <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          background:
-            "radial-gradient(circle at 75% 60%, rgba(251, 216, 165, 0.55) 0%, rgba(251, 216, 165, 0.1) 15%, rgba(251, 216, 165, 0.05) 0%, transparent 50%)",
-          filter: "blur(25px)",
-        }}
-      />
     </section>
   );
 };
