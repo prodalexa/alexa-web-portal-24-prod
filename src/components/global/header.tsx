@@ -86,14 +86,14 @@ const Navbar = () => {
                 </li>
               );
             })}
-            <Link href={"/recruitments26"} className="block cursor-pointer">
+            <Link href={"/alexaverse-v3"} className="block cursor-pointer">
               <li
                 className={clsx(
                   "px-6 py-2 shadow-2xl drop-shadow-2xl text-white rounded-lg font-extrabold transform hover:-translate-y-1 transition duration-400 cursor-pointer",
                 )}
               >
                 <button className="px-8 py-2 rounded-full bg-gradient-to-b from-[#00B5FF] to-[#00CDC1] text-white focus:ring-2 focus:ring-blue-400 hover:shadow-xl transition duration-200 cursor-pointer">
-                  Recruitments '26
+                  AlexaVerse 3.0
                 </button>
                 {/* <span className="text-[#980F35]">Alexa</span>
                 <span className="text-[#AF6922]">Verse</span> */}
