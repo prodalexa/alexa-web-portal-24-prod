@@ -90,7 +90,7 @@ const HeroSection: React.FC = () => {
         {/* Desktop nav links */}
         <div className="hidden md:flex gap-10 items-center">
           {[
-            { label: "Home", href: "#home" },
+            { label: "Home", href: "/" },
             { label: "Events", href: "#events" },
             { label: "Contact Us", href: "#contact" },
           ].map(({ label, href }) => (
@@ -153,7 +153,7 @@ const HeroSection: React.FC = () => {
           </svg>
         </button>
         {[
-          { label: "HOME", href: "#home" },
+          { label: "HOME", href: "/" },
           { label: "OUR EVENTS", href: "#events" },
           { label: "CONTACT US", href: "#contact" },
         ].map(({ label, href }) => (
