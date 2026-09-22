@@ -14,9 +14,8 @@ const qrCodes = [
   "/alexaverse3.0/qr5.png",
 ];
 
-const STORAGE_KEY = process.env.NEXT_PUBLIC_IDEATHON_REGISTRATION_STORAGE_KEY;
-const PAYMENT_STORAGE_KEY =
-  process.env.NEXT_PUBLIC_IDEATHON_PAYMENT_STORAGE_KEY;
+const STORAGE_KEY = process.env.NEXT_PUBLIC_IDEATHON_REGISTRATION_STORAGE_KEY as string;
+const PAYMENT_STORAGE_KEY = process.env.NEXT_PUBLIC_IDEATHON_PAYMENT_STORAGE_KEY as string;
 
 interface PaymentData {
   qr: string;

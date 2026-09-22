@@ -5,7 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { TeamRegistration, TeamMember } from "@/lib/api";
 
-const STORAGE_KEY = process.env.NEXT_PUBLIC_DEBUG_REGISTRATION_STORAGE_KEY;
+const STORAGE_KEY =
+  process.env.NEXT_PUBLIC_DEBUG_REGISTRATION_STORAGE_KEY as string;
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 

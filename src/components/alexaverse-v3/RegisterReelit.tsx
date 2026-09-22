@@ -11,7 +11,7 @@ interface IndividualRegistration {
   phoneNumber: string;
 }
 
-const STORAGE_KEY = process.env.NEXT_PUBLIC_REELIT_REGISTRATION_STORAGE_KEY;
+const STORAGE_KEY = process.env.NEXT_PUBLIC_REELIT_REGISTRATION_STORAGE_KEY as string;
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
