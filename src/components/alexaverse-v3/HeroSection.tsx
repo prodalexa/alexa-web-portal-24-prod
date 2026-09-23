@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -12,7 +12,7 @@ const HeroSection: React.FC = () => {
       id="home"
       className="relative z-0 w-full min-h-screen overflow-hidden"
     >
-      {/* ── Layer 2: Background Image (mobile) ── */}
+      {/* ── Mobile Background Image ── */}
       <div className="absolute inset-0 -z-20 pointer-events-none md:hidden">
         <Image
           src="/alexaverse3.0/Group 1261153487-cropped.svg"
@@ -23,16 +23,18 @@ const HeroSection: React.FC = () => {
         />
       </div>
 
-      {/* ── Layer 3: Vignette Overlay (mobile only) ── */}
-      <div
-        className="absolute inset-0 -z-10 pointer-events-none md:hidden"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.5) 98%, rgba(0,0,0,0.65) 100%)",
-        }}
-      />
+      {/* ── Mobile Vignette SVG Overlay ── */}
+      <div className="absolute inset-0 -z-10 pointer-events-none md:hidden opacity-60">
+        <Image
+          src="/alexaverse3.0/vingette.svg"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
 
-      {/* ── Layer 2: Background Image (desktop) ── */}
+      {/* ── Desktop Background Image ── */}
       <div className="absolute inset-0 -z-20 pointer-events-none hidden md:block">
         <Image
           src="/alexaverse3.0/bg-image-cropped.svg"
@@ -58,6 +60,7 @@ const HeroSection: React.FC = () => {
             height={48}
             className="block md:hidden h-8 w-auto object-contain"
           />
+
           {/* Desktop view: Full logo with wordmark */}
           <Image
             src="/alexaverse3.0/Alexa Logo.svg"
@@ -85,7 +88,7 @@ const HeroSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Hamburger — inline SVG, no libraries */}
+        {/* Hamburger */}
         <button
           className="md:hidden text-white p-1"
           onClick={() => setMenuOpen(true)}
@@ -115,6 +118,7 @@ const HeroSection: React.FC = () => {
             : "opacity-0 pointer-events-none"
         }`}
       >
+        {/* Close Button */}
         <button
           className="absolute top-5 right-6 text-white"
           onClick={() => setMenuOpen(false)}
@@ -133,6 +137,8 @@ const HeroSection: React.FC = () => {
             <line x1="20" y1="4" x2="4" y2="20" />
           </svg>
         </button>
+
+        {/* Mobile Menu Links */}
         {[
           { label: "HOME", href: "#home" },
           { label: "OUR EVENTS", href: "#events" },
@@ -148,8 +154,12 @@ const HeroSection: React.FC = () => {
           </Link>
         ))}
 
+        {/* Designed & Developed By */}
         <div className="absolute bottom-10 w-full flex flex-col items-center">
-          <p className="text-white text-xs tracking-[0.15em] text-center uppercase">
+          <p
+            className="text-xs tracking-[0.15em] text-center uppercase"
+            style={{ color: "#DED2BC" }}
+          >
             Designed and Developed by
             <br />
             <span className="font-semibold text-white">
@@ -163,7 +173,7 @@ const HeroSection: React.FC = () => {
       <div className="relative z-10 flex items-start md:items-center min-h-[calc(100vh-72px)] pt-16 md:pt-0 px-6 sm:px-10 lg:px-16">
         {/* Left — text content */}
         <div className="flex flex-col items-start w-full lg:max-w-[700px] mt-6 md:mt-0">
-          {/* alexaverse.svg — the full ALEXAVERSE title + swoosh underline */}
+          {/* ALEXAVERSE title */}
           <div className="w-full mb-5">
             <Image
               src="/alexaverse3.0/alexaverse.svg"
@@ -174,7 +184,7 @@ const HeroSection: React.FC = () => {
             />
           </div>
 
-          {/* Description — Mobile View (4 lines) */}
+          {/* Description — Mobile View */}
           <p
             style={{
               fontFamily: '"Crimson Pro", serif',
@@ -193,7 +203,7 @@ const HeroSection: React.FC = () => {
             imagination.
           </p>
 
-          {/* Description — Desktop View (3 lines) */}
+          {/* Description — Desktop View */}
           <p
             style={{
               fontFamily: '"Crimson Pro", serif',
@@ -213,7 +223,7 @@ const HeroSection: React.FC = () => {
             and imagination.
           </p>
 
-          {/* button.svg — centered relative to the title */}
+          {/* Explore Events Button */}
           <div className="w-full max-w-[650px] flex justify-center">
             <Link href="#events" className="relative group inline-block">
               <Image
