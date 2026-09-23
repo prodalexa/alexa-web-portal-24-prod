@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
 const qrCodes = [
   "/alexaverse3.0/qr1.png",
   "/alexaverse3.0/qr2.png",
@@ -206,7 +204,7 @@ export default function IdeathonPayment() {
         },
       };
 
-      const response = await fetch(`${API_BASE_URL}/register/team`, {
+      const response = await fetch("/api/alexaverse/register/team", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

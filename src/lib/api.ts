@@ -1,5 +1,3 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
 export interface ApiError {
   field: string;
   message: string;
@@ -60,7 +58,7 @@ export interface SoloRegistration {
 export async function registerTeam(
   data: TeamRegistration,
 ): Promise<ApiResponse> {
-  const response = await fetch(`${API_BASE_URL}/register/team`, {
+  const response = await fetch("/api/alexaverse/register/team", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -84,7 +82,7 @@ export async function registerTeam(
 export async function registerSolo(
   data: SoloRegistration,
 ): Promise<ApiResponse> {
-  const response = await fetch(`${API_BASE_URL}/register/solo`, {
+  const response = await fetch("/api/alexaverse/register/solo", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
