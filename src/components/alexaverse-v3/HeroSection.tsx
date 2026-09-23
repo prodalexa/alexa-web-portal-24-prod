@@ -54,7 +54,7 @@ const HeroSection: React.FC = () => {
         >
           {/* Mobile view: Only the icon */}
           <Image
-            src="/alexaverse3.0/Alexa Logo copy.svg"
+            src="/alexaverse3.0/Alexa Logo.svg"
             alt="Alexa Developers SRM Icon"
             width={48}
             height={48}
@@ -74,7 +74,7 @@ const HeroSection: React.FC = () => {
         {/* Desktop nav links */}
         <div className="hidden md:flex gap-10 items-center">
           {[
-            { label: "Home", href: "#home" },
+            { label: "Home", href: "/" },
             { label: "Events", href: "#events" },
             { label: "Contact Us", href: "#contact" },
           ].map(({ label, href }) => (
@@ -140,7 +140,7 @@ const HeroSection: React.FC = () => {
 
         {/* Mobile Menu Links */}
         {[
-          { label: "HOME", href: "#home" },
+          { label: "HOME", href: "/" },
           { label: "OUR EVENTS", href: "#events" },
           { label: "CONTACT US", href: "#contact" },
         ].map(({ label, href }) => (
