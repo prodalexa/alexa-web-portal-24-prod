@@ -8,7 +8,6 @@ import {
   Space_Grotesk,
   Anton,
   Inter,
-  Inter,
   Montserrat,
   Cinzel,
 } from "next/font/google";

@@ -48,7 +48,7 @@ const HeroSection: React.FC = () => {
       {/* ── Navbar ── */}
       <nav className="relative z-20 w-full px-6 sm:px-10 lg:px-14 py-4 flex justify-between items-center">
         {/* Logo container */}
-        <a
+        <Link
           href="/"
           className="flex-shrink-0 hover:opacity-80 transition-opacity"
         >
@@ -69,7 +69,7 @@ const HeroSection: React.FC = () => {
             height={52}
             className="hidden md:block h-9 w-auto object-contain"
           />
-        </a>
+        </Link>
 
         {/* Desktop nav links */}
         <div className="hidden md:flex gap-10 items-center">
