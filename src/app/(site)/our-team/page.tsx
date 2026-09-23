@@ -1,27 +1,22 @@
 import PersonCard from "@/components/our-team/person-card";
 import Dot from "@/components/ui/dot";
-// import {
-//   getExecutiveData,
-//   getHeadData,
-//   getLeadData,
-//   getPresidentData,
-//   getVicePresidentData,
-// } from "@/sanity/data/team-data";
-// import { Member } from "@/sanity/schemas/member-schema";
+import {
+  getExecutiveData,
+  getHeadData,
+  getLeadData,
+  getPresidentData,
+  getVicePresidentData,
+} from "@/sanity/data/team-data";
+import { Member } from "@/sanity/schemas/member-schema";
 import Image from "next/image";
 import React from "react";
 
 const OurTeam = async () => {
-  // const presidentData = await getPresidentData();
-  // const vicePresidentData = await getVicePresidentData();
-  // const headData = await getHeadData();
-  // const leadData = await getLeadData();
-  // const executiveData = await getExecutiveData();
-  const presidentData: any[] = [];
-  const vicePresidentData: any[] = [];
-  const headData: any[] = [];
-  const leadData: any[] = [];
-  const executiveData: any[] = [];
+  const presidentData = await getPresidentData();
+  const vicePresidentData = await getVicePresidentData();
+  const headData = await getHeadData();
+  const leadData = await getLeadData();
+  const executiveData = await getExecutiveData();
   return (
     <div className="flex flex-col gap-4 p-8 md:p-16 lg:px-20 w-full">
       <div className="text-5xl font-bold text-center text-white flex flex-col items-start justify-center">
