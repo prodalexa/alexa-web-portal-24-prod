@@ -12,7 +12,6 @@ interface IndividualRegistration {
 }
 
 const STORAGE_KEY = process.env.NEXT_PUBLIC_WORKSHOP_REGISTRATION_STORAGE_KEY as string;
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const RegisterWorkshop: React.FC = () => {
   const [mounted, setMounted] = useState(false);
@@ -152,7 +151,7 @@ const RegisterWorkshop: React.FC = () => {
         phone: `+91 ${formData.phoneNumber.trim()}`,
       };
 
-      const response = await fetch(`${API_BASE_URL}/register/solo`, {
+      const response = await fetch("/api/alexaverse/register/solo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
