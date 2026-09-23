@@ -1,11 +1,14 @@
-const API_BASE_URL = 'https://alexaverse-reg-be.onrender.com/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
-// Types for API requests
-export interface IndividualRegistration {
-  name: string;
-  registrationNumber: string;
-  srmMailId: string;
-  phoneNumber: string;
+export interface ApiError {
+  field: string;
+  message: string;
+}
+
+export interface ApiResponse {
+  success: boolean;
+  message?: string;
+  errors?: ApiError[];
 }
 
 export interface TeamMember {
@@ -20,162 +23,130 @@ export interface TeamRegistration {
   teamMembers: TeamMember[];
 }
 
-export interface ApiResponse {
-  success: boolean;
-  message?: string;
-  error?: {
-    issues?: Array<{
-      validation: string;
-      code: string;
-      message: string;
-      path: string[];
-    }>;
-    name: string;
-  };
-  errors?: Array<{
-    field: string;
-    message: string;
-  }>;
+export interface IndividualRegistration {
+  name: string;
+  registrationNumber: string;
+  srmMailId: string;
+  phoneNumber: string;
 }
 
-// Validation functions
-export const validateRegistrationNumber = (regNo: string): boolean => {
-  const pattern = /^RA\d{13}$/;
-  return pattern.test(regNo.toUpperCase());
-};
+export interface PaymentInfo {
+  transaction_id: number;
+  payer_name: string;
+  payment_date: string;
+}
 
-export const validateSRMEmail = (email: string): boolean => {
-  const pattern = /^[A-Za-z0-9._+%-]+@srmist\.edu\.in$/;
-  return pattern.test(email.toLowerCase());
-};
+export interface LegacyTeamRegistration {
+  event: "Ideathon" | "Debug the Campus";
+  team_name: string;
+  members: Array<{
+    name: string;
+    regno: string;
+    email: string;
+    phone: string;
+    is_leader: boolean;
+  }>;
+  payment: PaymentInfo | null;
+}
 
-export const validatePhoneNumber = (phone: string): boolean => {
-  const pattern = /^\d{10}$/;
-  return pattern.test(phone);
-};
+export interface SoloRegistration {
+  event: "Workshop" | "Reel It";
+  name: string;
+  regno: string;
+  email: string;
+  phone: string;
+}
 
-export const validateName = (name: string): boolean => {
-  const pattern = /^[A-Za-z\s]+$/;
-  return pattern.test(name);
-};
+export async function registerTeam(
+  data: TeamRegistration,
+): Promise<ApiResponse> {
+  const response = await fetch(`${API_BASE_URL}/register/team`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
 
-export const validateTeamName = (teamName: string): boolean => {
-  const pattern = /^[a-zA-Z0-9\s]+$/;
-  return teamName.length >= 3 && pattern.test(teamName);
-};
+  const result = (await response.json()) as ApiResponse;
 
-// Data preparation functions
-export const prepareIndividualData = (formData: IndividualRegistration): IndividualRegistration => {
-  return {
-    name: formData.name.trim(),
-    registrationNumber: formData.registrationNumber.toUpperCase().trim(),
-    srmMailId: formData.srmMailId.toLowerCase().trim(),
-    phoneNumber: formData.phoneNumber.trim()
+  if (!response.ok) {
+    throw new Error(
+      result?.message
+        ? JSON.stringify(result.message)
+        : "Team registration failed.",
+    );
+  }
+
+  return result;
+}
+
+export async function registerSolo(
+  data: SoloRegistration,
+): Promise<ApiResponse> {
+  const response = await fetch(`${API_BASE_URL}/register/solo`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  const result = (await response.json()) as ApiResponse;
+
+  if (!response.ok) {
+    throw new Error(
+      result?.message
+        ? JSON.stringify(result.message)
+        : "Registration failed.",
+    );
+  }
+
+  return result;
+}
+
+export async function registerForDebug(
+  data: TeamRegistration,
+): Promise<ApiResponse> {
+  const payload: LegacyTeamRegistration = {
+    event: "Debug the Campus",
+    team_name: data.teamName,
+    members: data.teamMembers.map((member) => ({
+      name: member.name,
+      regno: member.registrationNumber,
+      email: member.srmMailId,
+      phone: member.phoneNumber,
+      is_leader: false,
+    })),
+    payment: null,
   };
-};
 
-export const prepareTeamData = (formData: TeamRegistration): TeamRegistration => {
-  return {
-    teamName: formData.teamName.trim(),
-    teamMembers: formData.teamMembers.map(member => ({
-      name: member.name.trim(),
-      registrationNumber: member.registrationNumber.toUpperCase().trim(),
-      srmMailId: member.srmMailId.toLowerCase().trim(),
-      phoneNumber: member.phoneNumber.trim()
-    }))
-  };
-};
+  return registerTeam({
+    teamName: data.teamName,
+    teamMembers: data.teamMembers,
+  });
+}
 
-// API functions
-export const registerForVlogit = async (data: IndividualRegistration): Promise<ApiResponse> => {
-  try {
-    const preparedData = prepareIndividualData(data);
-    const response = await fetch(`${API_BASE_URL}/vlogit/register`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(preparedData),
-    });
+export async function registerForWorkshop(
+  data: IndividualRegistration,
+): Promise<ApiResponse> {
+  return registerSolo({
+    event: "Workshop",
+    name: data.name,
+    regno: data.registrationNumber,
+    email: data.srmMailId,
+    phone: `+91 ${data.phoneNumber}`,
+  });
+}
 
-    const result = await response.json();
-    
-    // Transform Zod errors to our expected format
-    if (!result.success && result.error?.issues) {
-      result.errors = result.error.issues.map((issue: any) => ({
-        field: issue.path.join('.'),
-        message: issue.message
-      }));
-      result.message = result.message || 'Validation failed';
-    }
-    
-    return result;
-  } catch (error) {
-    return {
-      success: false,
-      message: 'Network error. Please try again.',
-    };
-  }
-};
-
-export const registerForWorkshop = async (data: IndividualRegistration): Promise<ApiResponse> => {
-  try {
-    const preparedData = prepareIndividualData(data);
-    const response = await fetch(`${API_BASE_URL}/workshop/register`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(preparedData),
-    });
-
-    const result = await response.json();
-    
-    // Transform Zod errors to our expected format
-    if (!result.success && result.error?.issues) {
-      result.errors = result.error.issues.map((issue: any) => ({
-        field: issue.path.join('.'),
-        message: issue.message
-      }));
-      result.message = result.message || 'Validation failed';
-    }
-    
-    return result;
-  } catch (error) {
-    return {
-      success: false,
-      message: 'Network error. Please try again.',
-    };
-  }
-};
-
-export const registerForDebug = async (data: TeamRegistration): Promise<ApiResponse> => {
-  try {
-    const preparedData = prepareTeamData(data);
-    const response = await fetch(`${API_BASE_URL}/debug/register`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(preparedData),
-    });
-
-    const result = await response.json();
-    
-    // Transform Zod errors to our expected format
-    if (!result.success && result.error?.issues) {
-      result.errors = result.error.issues.map((issue: any) => ({
-        field: issue.path.join('.'),
-        message: issue.message
-      }));
-      result.message = result.message || 'Validation failed';
-    }
-    
-    return result;
-  } catch (error) {
-    return {
-      success: false,
-      message: 'Network error. Please try again.',
-    };
-  }
-};
+export async function registerForVlogit(
+  data: IndividualRegistration,
+): Promise<ApiResponse> {
+  return registerSolo({
+    event: "Reel It",
+    name: data.name,
+    regno: data.registrationNumber,
+    email: data.srmMailId,
+    phone: `+91 ${data.phoneNumber}`,
+  });
+}
