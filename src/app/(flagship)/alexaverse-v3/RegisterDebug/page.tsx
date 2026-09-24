@@ -1,11 +1,27 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import RegisterDebug from "@/components/alexaverse-v3/RegisterDebug";
+import ContactUs from "@/components/alexaverse-v3/ContactUs";
 
 const RegisterDebugPage: React.FC = () => {
   return (
-    <main className="bg-gradient-to-br from-[#030645] via-[#1A052A] to-[#511e5b]">
-      {/* AlexaVerse 3.0 — RegisterDebug component to be added */}
+    <main className="relative min-h-screen overflow-hidden bg-black">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/alexaverse3.0/form-bg.svg"
+          alt=""
+          fill
+          priority
+          className="object-contain object-top"
+        />
+      </div>
+
+      <div className="relative z-10">
+        <RegisterDebug />
+        <ContactUs />
+      </div>
     </main>
   );
 };
