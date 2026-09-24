@@ -272,8 +272,8 @@ const RegisterReelit: React.FC = () => {
 
         <div className="hidden md:flex gap-10 items-center">
           {[
-            { label: "Home", href: "/" },
-            { label: "Events", href: "#events" },
+            { label: "Home", href: "/alexaverse-v3" },
+            { label: "Events", href: "/alexaverse-v3#events" },
             { label: "Contact Us", href: "#contact" },
           ].map(({ label, href }) => (
             <Link
