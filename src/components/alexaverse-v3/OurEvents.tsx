@@ -50,10 +50,10 @@ const registrationButtons: RegistrationButton[] = [
     },
   },
   {
-    name: "Workshop",
-    href: "/alexaverse-v3/RegisterWorkshop",
+    name: "Debug the Campus",
+    href: "/alexaverse-v3/RegisterDebug",
     desktop: {
-      left: "16.4%",
+      left: "61.9%",
       top: "44.2%",
       width: "21.7%",
     },
@@ -64,10 +64,10 @@ const registrationButtons: RegistrationButton[] = [
     },
   },
   {
-    name: "Debug the Campus",
-    href: "/alexaverse-v3/RegisterDebug",
+    name: "Workshop",
+    href: "/alexaverse-v3/RegisterWorkshop",
     desktop: {
-      left: "61.9%",
+      left: "16.7%",
       top: "67.1%",
       width: "21.7%",
     },
