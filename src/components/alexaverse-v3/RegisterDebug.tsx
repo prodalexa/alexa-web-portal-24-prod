@@ -1,26 +1,39 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+
 import Link from "next/link";
+
 import Image from "next/image";
+
 import { TeamRegistration, TeamMember } from "@/lib/api";
+
+const REGISTRATION_OPEN = false;
 
 const STORAGE_KEY = process.env
   .NEXT_PUBLIC_DEBUG_REGISTRATION_STORAGE_KEY as string;
 
 const RegisterDebug: React.FC = () => {
   const [mounted, setMounted] = useState(false);
+
   const [menuOpen, setMenuOpen] = useState(false);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [submitMessage, setSubmitMessage] = useState<string>("");
+
   const [submitSuccess, setSubmitSuccess] = useState<boolean | null>(null);
 
   const [formData, setFormData] = useState<TeamRegistration>({
     teamName: "",
+
     teamMembers: [
       { name: "", registrationNumber: "", srmMailId: "", phoneNumber: "" },
+
       { name: "", registrationNumber: "", srmMailId: "", phoneNumber: "" },
+
       { name: "", registrationNumber: "", srmMailId: "", phoneNumber: "" },
+
       { name: "", registrationNumber: "", srmMailId: "", phoneNumber: "" },
     ],
   });
@@ -44,6 +57,7 @@ const RegisterDebug: React.FC = () => {
       }
     } catch (error) {
       console.error("Unable to restore registration data:", error);
+
       sessionStorage.removeItem(STORAGE_KEY);
     }
 
@@ -65,29 +79,35 @@ const RegisterDebug: React.FC = () => {
 
     setFormData((prev) => ({
       ...prev,
+
       teamName: value,
     }));
 
     if (errors.teamName) {
       setErrors((prev) => ({
         ...prev,
+
         teamName: "",
       }));
     }
 
     if (submitMessage) {
       setSubmitMessage("");
+
       setSubmitSuccess(null);
     }
   };
 
   const handleMemberChange = (
     memberIndex: number,
+
     field: keyof TeamMember,
+
     value: string,
   ) => {
     setFormData((prev) => ({
       ...prev,
+
       teamMembers: prev.teamMembers.map((member, index) =>
         index === memberIndex ? { ...member, [field]: value } : member,
       ),
@@ -98,12 +118,14 @@ const RegisterDebug: React.FC = () => {
     if (errors[errorKey]) {
       setErrors((prev) => ({
         ...prev,
+
         [errorKey]: "",
       }));
     }
 
     if (submitMessage) {
       setSubmitMessage("");
+
       setSubmitSuccess(null);
     }
   };
@@ -112,9 +134,13 @@ const RegisterDebug: React.FC = () => {
     const validationErrors: Record<string, string> = {};
 
     const teamNameRegex = /^[a-zA-Z0-9\s]+$/;
+
     const nameRegex = /^[a-zA-Z\s]+$/;
+
     const registrationNumberRegex = /^RA\d{13}$/;
+
     const phoneRegex = /^[0-9]{10}$/;
+
     const emailRegex = /^[a-z]{2}\d{4}@srmist\.edu\.in$/;
 
     const teamName = formData.teamName.trim();
@@ -131,6 +157,7 @@ const RegisterDebug: React.FC = () => {
 
     formData.teamMembers.forEach((member, index) => {
       const studentNumber = index + 1;
+
       const baseKey = `teamMembers.${index}`;
 
       if (!member.name.trim()) {
@@ -169,11 +196,14 @@ const RegisterDebug: React.FC = () => {
     });
 
     const seenRegistrationNumbers = new Map<string, number>();
+
     const seenPhoneNumbers = new Map<string, number>();
+
     const seenEmails = new Map<string, number>();
 
     formData.teamMembers.forEach((member, index) => {
       const studentNumber = index + 1;
+
       const baseKey = `teamMembers.${index}`;
 
       const registrationNumber = member.registrationNumber.trim().toLowerCase();
@@ -222,24 +252,33 @@ const RegisterDebug: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!REGISTRATION_OPEN) return;
+
     setSubmitMessage("");
+
     setSubmitSuccess(null);
+
     setErrors({});
 
     const validationErrors = validateForm();
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+
       setSubmitSuccess(false);
+
       setSubmitMessage(
         "Please correct the highlighted fields before submitting.",
       );
+
       return;
     }
 
     if (formData.teamMembers.length !== 4) {
       setSubmitSuccess(false);
+
       setSubmitMessage("Debug the Campus requires exactly 4 members.");
+
       return;
     }
 
@@ -248,21 +287,29 @@ const RegisterDebug: React.FC = () => {
 
       const payload = {
         event: "Debug the Campus",
+
         team_name: formData.teamName.trim(),
+
         members: formData.teamMembers.map((member, index) => ({
           name: member.name.trim(),
+
           regno: member.registrationNumber.trim(),
+
           email: member.srmMailId.trim().toLowerCase(),
+
           phone: member.phoneNumber.trim(),
+
           is_leader: index === 0,
         })),
       };
 
       const response = await fetch("/api/alexaverse/register/team", {
         method: "POST",
+
         headers: {
           "Content-Type": "application/json",
         },
+
         body: JSON.stringify(payload),
       });
 
@@ -280,6 +327,7 @@ const RegisterDebug: React.FC = () => {
         if (typeof result === "object" && result !== null) {
           const data = result as {
             detail?: unknown;
+
             message?: unknown;
           };
 
@@ -287,6 +335,7 @@ const RegisterDebug: React.FC = () => {
             backendMessage = data.detail;
           } else if (Array.isArray(data.detail)) {
             backendMessage = data.detail
+
               .map((item) => {
                 if (
                   typeof item === "object" &&
@@ -298,7 +347,9 @@ const RegisterDebug: React.FC = () => {
 
                 return String(item);
               })
+
               .filter(Boolean)
+
               .join(" ");
           } else if (typeof data.message === "string") {
             backendMessage = data.message;
@@ -309,7 +360,9 @@ const RegisterDebug: React.FC = () => {
       }
 
       setSubmitSuccess(true);
+
       setSubmitMessage("Registration Successful!");
+
       setErrors({});
 
       sessionStorage.removeItem(STORAGE_KEY);
@@ -356,14 +409,19 @@ const RegisterDebug: React.FC = () => {
           {[
             {
               label: "Home",
+
               href: "/alexaverse-v3",
             },
+
             {
               label: "Events",
+
               href: "/alexaverse-v3#events",
             },
+
             {
               label: "Contact Us",
+
               href: "#contact",
             },
           ].map(({ label, href }) => (
@@ -392,7 +450,9 @@ const RegisterDebug: React.FC = () => {
             strokeLinecap="round"
           >
             <line x1="3" y1="6" x2="21" y2="6" />
+
             <line x1="3" y1="12" x2="21" y2="12" />
+
             <line x1="3" y1="18" x2="21" y2="18" />
           </svg>
         </button>
@@ -420,6 +480,7 @@ const RegisterDebug: React.FC = () => {
             strokeLinecap="round"
           >
             <line x1="4" y1="4" x2="20" y2="20" />
+
             <line x1="20" y1="4" x2="4" y2="20" />
           </svg>
         </button>
@@ -427,14 +488,19 @@ const RegisterDebug: React.FC = () => {
         {[
           {
             label: "HOME",
+
             href: "/alexaverse-v3",
           },
+
           {
             label: "OUR EVENTS",
+
             href: "/alexaverse-v3#events",
           },
+
           {
             label: "CONTACT US",
+
             href: "#contact",
           },
         ].map(({ label, href }) => (
@@ -502,11 +568,16 @@ const RegisterDebug: React.FC = () => {
                 <input
                   type="text"
                   id="teamName"
+                  disabled={!REGISTRATION_OPEN}
                   name="teamName"
                   value={formData.teamName}
                   onChange={handleTeamNameChange}
-                  placeholder="Enter team name"
-                  className={`w-full px-4 py-4 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500 text-black bg-white ${
+                  placeholder={
+                    REGISTRATION_OPEN
+                      ? "Enter team name"
+                      : "Registrations Closed"
+                  }
+                  className={`w-full px-4 py-4 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500 text-black bg-white disabled:cursor-not-allowed disabled:opacity-70 ${
                     errors.teamName ? "border-red-500" : "border-gray-400"
                   }`}
                 />
@@ -543,16 +614,21 @@ const RegisterDebug: React.FC = () => {
                     <input
                       type="text"
                       id={`name-${studentNum}`}
+                      disabled={!REGISTRATION_OPEN}
                       value={formData.teamMembers[studentNum - 1].name}
                       onChange={(e) =>
                         handleMemberChange(
                           studentNum - 1,
+
                           "name",
+
                           e.target.value,
                         )
                       }
-                      placeholder="Name"
-                      className={`w-full px-4 py-4 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500 text-black bg-white ${
+                      placeholder={
+                        REGISTRATION_OPEN ? "Name" : "Registrations Closed"
+                      }
+                      className={`w-full px-4 py-4 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500 text-black bg-white disabled:cursor-not-allowed disabled:opacity-70 ${
                         errors[`teamMembers.${studentNum - 1}.name`]
                           ? "border-red-500"
                           : "border-gray-400"
@@ -578,18 +654,25 @@ const RegisterDebug: React.FC = () => {
                     <input
                       type="text"
                       id={`registrationNumber-${studentNum}`}
+                      disabled={!REGISTRATION_OPEN}
                       value={
                         formData.teamMembers[studentNum - 1].registrationNumber
                       }
                       onChange={(e) =>
                         handleMemberChange(
                           studentNum - 1,
+
                           "registrationNumber",
+
                           e.target.value,
                         )
                       }
-                      placeholder="RAXXXXXXXXXXXXX"
-                      className={`w-full px-4 py-4 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500 text-black bg-white ${
+                      placeholder={
+                        REGISTRATION_OPEN
+                          ? "RAXXXXXXXXXXXXX"
+                          : "Registrations Closed"
+                      }
+                      className={`w-full px-4 py-4 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500 text-black bg-white disabled:cursor-not-allowed disabled:opacity-70 ${
                         errors[
                           `teamMembers.${studentNum - 1}.registrationNumber`
                         ]
@@ -634,16 +717,23 @@ const RegisterDebug: React.FC = () => {
                       <input
                         type="tel"
                         id={`phoneNumber-${studentNum}`}
+                        disabled={!REGISTRATION_OPEN}
                         value={formData.teamMembers[studentNum - 1].phoneNumber}
                         onChange={(e) =>
                           handleMemberChange(
                             studentNum - 1,
+
                             "phoneNumber",
+
                             e.target.value,
                           )
                         }
-                        placeholder="0123456789"
-                        className="flex-1 px-3 py-4 text-black placeholder-gray-500 bg-white focus:outline-none"
+                        placeholder={
+                          REGISTRATION_OPEN
+                            ? "0123456789"
+                            : "Registrations Closed"
+                        }
+                        className="flex-1 px-3 py-4 text-black placeholder-gray-500 bg-white focus:outline-none disabled:cursor-not-allowed"
                       />
                     </div>
 
@@ -666,16 +756,23 @@ const RegisterDebug: React.FC = () => {
                     <input
                       type="email"
                       id={`srmMailId-${studentNum}`}
+                      disabled={!REGISTRATION_OPEN}
                       value={formData.teamMembers[studentNum - 1].srmMailId}
                       onChange={(e) =>
                         handleMemberChange(
                           studentNum - 1,
+
                           "srmMailId",
+
                           e.target.value,
                         )
                       }
-                      placeholder="ab1234@srmist.edu.in"
-                      className={`w-full px-4 py-4 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500 text-black bg-white ${
+                      placeholder={
+                        REGISTRATION_OPEN
+                          ? "ab1234@srmist.edu.in"
+                          : "Registrations Closed"
+                      }
+                      className={`w-full px-4 py-4 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500 text-black bg-white disabled:cursor-not-allowed disabled:opacity-70 ${
                         errors[`teamMembers.${studentNum - 1}.srmMailId`]
                           ? "border-red-500"
                           : "border-gray-400"
@@ -700,9 +797,11 @@ const RegisterDebug: React.FC = () => {
 
             <button
               type="submit"
-              disabled={isSubmitting || submitSuccess === true}
+              disabled={
+                !REGISTRATION_OPEN || isSubmitting || submitSuccess === true
+              }
               className={`relative mx-auto flex w-full max-w-[400px] items-center justify-center transition duration-300 ${
-                isSubmitting || submitSuccess === true
+                !REGISTRATION_OPEN || isSubmitting || submitSuccess === true
                   ? "opacity-70 cursor-not-allowed"
                   : "cursor-pointer hover:scale-105"
               }`}
@@ -716,16 +815,18 @@ const RegisterDebug: React.FC = () => {
               />
 
               <span
-                className="absolute inset-0 flex items-center justify-center text-black font-bold text-4xl tracking-[2px]"
+                className="absolute inset-0 flex items-center justify-center text-black font-bold text-3xl tracking-[1px] sm:tracking-[2px] px-2 text-center"
                 style={{
                   fontFamily: "'Cinzel', serif",
                 }}
               >
-                {isSubmitting
-                  ? "REGISTERING"
-                  : submitSuccess
-                    ? "REGISTERED"
-                    : "REGISTER"}
+                {!REGISTRATION_OPEN
+                  ? "REGISTRATIONS CLOSED"
+                  : isSubmitting
+                    ? "REGISTERING"
+                    : submitSuccess
+                      ? "REGISTERED"
+                      : "REGISTER"}
               </span>
             </button>
 
